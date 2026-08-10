@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Settings — Vatous Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#050816'},fontFamily:{head:['Manrope','sans-serif'],body:['Plus Jakarta Sans','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="font-body">
+  <div class="vg-bg" aria-hidden="true"></div>
+  <div class="flex min-h-screen">
+    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header id="admin-topbar" data-title="Settings" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
+      <main class="p-5 md:p-8 flex-1">
+        <div class="grid lg:grid-cols-2 gap-5">
+  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">General</h2><div class="mb-4"><label class="field-label">Site name</label><input type="text" class="field" value="Vatous Global Solutions" placeholder="" /></div><div class="mb-4"><label class="field-label">Tagline</label><input type="text" class="field" value="Enterprise technology & AI consulting for Africa" placeholder="" /></div><div class="mb-4"><label class="field-label">Contact email</label><input type="email" class="field" value="hello@vatous.com" placeholder="" /></div><div class="mb-4"><label class="field-label">Phone</label><input type="text" class="field" value="+234 800 000 0000" placeholder="" /></div></div>
+  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">Social links</h2><div class="mb-4"><label class="field-label">LinkedIn</label><input type="text" class="field" value="https://linkedin.com/company/vatous" placeholder="" /></div><div class="mb-4"><label class="field-label">X (Twitter)</label><input type="text" class="field" value="https://x.com/vatous" placeholder="" /></div><div class="mb-4"><label class="field-label">Instagram</label><input type="text" class="field" value="https://instagram.com/vatous" placeholder="" /></div><div class="mb-4"><label class="field-label">WhatsApp</label><input type="text" class="field" value="https://wa.me/2348000000000" placeholder="" /></div></div>
+  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">Integrations</h2><div class="mb-4"><label class="field-label">Supabase project URL</label><input type="text" class="field" value="https://drpvjnzuqhtlvgmtrthj.supabase.co" placeholder="" /></div><div class="mb-4"><label class="field-label">Supabase anon key</label><input type="text" class="field" value="••••••••••••••••••••" placeholder="" /></div><p class="text-mute text-xs">Keys are stored securely and never exposed client-side in production.</p></div>
+  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">Preferences</h2><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Email me on new submissions</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Weekly analytics digest</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Maintenance mode</span><span class="switch"><input type="checkbox" ><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Allow search engine indexing</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label></div>
+</div><div class="flex gap-3 mt-6"><button class="btn btn-primary" data-save="Changes saved.">Save changes</button><button class="btn btn-ghost" data-reset>Reset</button></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

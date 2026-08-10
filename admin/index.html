@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Dashboard — Vatous Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#050816'},fontFamily:{head:['Manrope','sans-serif'],body:['Plus Jakarta Sans','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="font-body">
+  <div class="vg-bg" aria-hidden="true"></div>
+  <div class="flex min-h-screen">
+    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header id="admin-topbar" data-title="Dashboard" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
+      <main class="p-5 md:p-8 flex-1">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+  <div class="admin-card p-5"><div class="flex items-center justify-between"><span class="text-mute text-sm">Page views (30d)</span><span class="tile tile-teal !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-6"/></svg></span></div><div class="stat-num mt-2">24.8k</div><p class="text-xs teal mt-1">▲ 12% vs last month</p></div>
+  <div class="admin-card p-5"><div class="flex items-center justify-between"><span class="text-mute text-sm">Form submissions</span><span class="tile tile-blue !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-6"/></svg></span></div><div class="stat-num mt-2">142</div><p class="text-xs teal mt-1">▲ 8 new today</p></div>
+  <div class="admin-card p-5"><div class="flex items-center justify-between"><span class="text-mute text-sm">Blog articles</span><span class="tile tile-indigo !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-6"/></svg></span></div><div class="stat-num mt-2">12</div><p class="text-xs teal mt-1">2 drafts pending</p></div>
+  <div class="admin-card p-5"><div class="flex items-center justify-between"><span class="text-mute text-sm">Newsletter subs</span><span class="tile tile-cyan !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-6"/></svg></span></div><div class="stat-num mt-2">1,904</div><p class="text-xs teal mt-1">▲ 46 this week</p></div>
+</div>
+<div class="grid lg:grid-cols-3 gap-5 mt-5">
+  <div class="admin-card p-5 lg:col-span-2">
+    <div class="flex items-center justify-between mb-4"><h2 class="font-head font-bold">Traffic overview</h2><select class="field !py-1.5 !w-auto text-sm"><option>Last 30 days</option><option>Last 7 days</option></select></div>
+    <svg viewBox="0 0 600 200" class="w-full h-48"><defs><linearGradient id="g" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14D3C7" stop-opacity=".25"/><stop offset="1" stop-color="#14D3C7" stop-opacity="0"/></linearGradient></defs>
+    <polyline points="0,160 60,140 120,150 180,110 240,120 300,80 360,95 420,60 480,75 540,40 600,55" fill="none" stroke="#14D3C7" stroke-width="2.5"/>
+    <polygon points="0,160 60,140 120,150 180,110 240,120 300,80 360,95 420,60 480,75 540,40 600,55 600,200 0,200" fill="url(#g)"/></svg>
+  </div>
+  <div class="admin-card p-5">
+    <h2 class="font-head font-bold mb-4">Recent submissions</h2>
+    <ul class="space-y-3 text-sm">
+      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-vgblue/40 flex items-center justify-center text-xs font-bold">AO</span><div><p class="text-white">Amara Okafor</p><p class="text-mute text-xs">Enterprise technology · 2h ago</p></div></li>
+      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-vgteal/20 flex items-center justify-center text-xs font-bold">DK</span><div><p class="text-white">Daniel Kwesi</p><p class="text-mute text-xs">AI solutions · 5h ago</p></div></li>
+      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-indigo-500/25 flex items-center justify-center text-xs font-bold">NF</span><div><p class="text-white">Ngozi Femi</p><p class="text-mute text-xs">Advisory · 1d ago</p></div></li>
+    </ul>
+    <a href="contact.html" class="link-teal text-sm mt-4">View all →</a>
+  </div>
+</div>
+<div class="admin-card p-5 mt-5">
+  <h2 class="font-head font-bold mb-4">Quick actions</h2>
+  <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
+    <a href="blog.html" class="glass rounded-xl p-4 hover:border-white/20"><p class="font-semibold text-sm">＋ New article</p><p class="text-mute text-xs mt-1">Write a blog post</p></a>
+    <a href="case-studies.html" class="glass rounded-xl p-4 hover:border-white/20"><p class="font-semibold text-sm">＋ New case study</p><p class="text-mute text-xs mt-1">Showcase work</p></a>
+    <a href="media.html" class="glass rounded-xl p-4 hover:border-white/20"><p class="font-semibold text-sm">↑ Upload media</p><p class="text-mute text-xs mt-1">Images & files</p></a>
+    <a href="theme.html" class="glass rounded-xl p-4 hover:border-white/20"><p class="font-semibold text-sm">◐ Edit theme</p><p class="text-mute text-xs mt-1">Colors & type</p></a>
+  </div>
+</div>
+      </main>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
