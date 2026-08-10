@@ -5,6 +5,13 @@
 (function () {
   'use strict';
 
+  // Favicon
+  if (!document.querySelector('link[rel="icon"]')) {
+    const fav = document.createElement('link');
+    fav.rel = 'icon'; fav.type = 'image/svg+xml'; fav.href = '/favicon.svg';
+    document.head.appendChild(fav);
+  }
+
   const NAV = [
     ['index.html', 'Dashboard', 'M4 13h6V4H4v9zm0 7h6v-5H4v5zm10 0h6V11h-6v9zm0-16v5h6V4h-6z'],
     ['pages.html', 'Pages', 'M6 2h9l5 5v15H6z M15 2v5h5'],

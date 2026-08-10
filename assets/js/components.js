@@ -9,6 +9,13 @@
 (function () {
   'use strict';
 
+  // Favicon (root-absolute so it resolves from /blog/ too).
+  if (!document.querySelector('link[rel="icon"]')) {
+    const fav = document.createElement('link');
+    fav.rel = 'icon'; fav.type = 'image/svg+xml'; fav.href = '/favicon.svg';
+    document.head.appendChild(fav);
+  }
+
   // Logo mark (SVG) — abstract "V" built from geometric planes.
   const LOGO = `
     <a href="index.html" class="flex items-center gap-2.5" aria-label="Vatous Global Solutions home">
@@ -100,8 +107,8 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-mute">
         <p>© ${year} Vatous Global Solutions. All rights reserved.</p>
         <div class="flex items-center gap-5">
-          <a href="#" class="hover:text-white transition-colors">Privacy</a>
-          <a href="#" class="hover:text-white transition-colors">Terms</a>
+          <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
+          <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
           <a href="contact.html" class="hover:text-white transition-colors">Lagos · Remote across Africa</a>
         </div>
       </div>
