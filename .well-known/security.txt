@@ -1,6 +1,6 @@
-Contact: mailto:security@vatous.com
-Contact: https://vatous.com/contact
+Contact: mailto:security@vatous.ng
+Contact: https://vatous.ng/contact
 Preferred-Languages: en
-Canonical: https://vatous.com/.well-known/security.txt
-Policy: https://vatous.com/privacy
+Canonical: https://vatous.ng/.well-known/security.txt
+Policy: https://vatous.ng/privacy
 Expires: 2027-08-10T00:00:00.000Z

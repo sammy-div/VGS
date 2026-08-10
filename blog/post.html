@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Insight — Vatous Global Solutions</title>
   <meta name="description" content="An insight from Vatous Global Solutions on systems, automation and AI." />
-  <link rel="canonical" href="https://vatous.com/blog/post.html" />
+  <link rel="canonical" href="https://vatous.ng/blog/post.html" />
   <meta property="og:type" content="article" /><meta property="og:image" content="../assets/images/og.png" />
   <meta name="twitter:card" content="summary_large_image" /><meta name="theme-color" content="#050816" />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -88,7 +88,7 @@
       const initials = String(p.author || '?').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
       document.title = p.title + ' — Vatous Global Solutions';
       const md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', p.excerpt || '');
-      const cn = document.querySelector('link[rel="canonical"]'); if (cn) cn.setAttribute('href', 'https://vatous.com/blog/post.html?slug=' + p.slug);
+      const cn = document.querySelector('link[rel="canonical"]'); if (cn) cn.setAttribute('href', 'https://vatous.ng/blog/post.html?slug=' + p.slug);
       document.getElementById('post-cat').textContent = label[p.category] || p.category;
       document.getElementById('post-title').textContent = p.title;
       document.getElementById('post-dek').textContent = p.excerpt || '';
