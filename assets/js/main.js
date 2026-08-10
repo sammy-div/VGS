@@ -10,6 +10,33 @@
 
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+  /* ---------- Supabase (REST via fetch — no client library) ---------- */
+  const VG_SB = {
+    url: 'https://drpvjnzuqhtlvgmtrthj.supabase.co',
+    key: 'sb_publishable_-mBP1hR2CmFPTBg5KumEKg_AMbyTB9p'
+  };
+  // Insert a row into a Supabase table via the PostgREST endpoint.
+  // Returns true on success; throws an Error with a readable message otherwise.
+  async function vgInsert(table, payload) {
+    const res = await fetch(`${VG_SB.url}/rest/v1/${table}`, {
+      method: 'POST',
+      headers: {
+        'apikey': VG_SB.key,
+        'Authorization': `Bearer ${VG_SB.key}`,
+        'Content-Type': 'application/json',
+        'Prefer': 'return=minimal'
+      },
+      body: JSON.stringify(payload)
+    });
+    if (res.ok) return true;
+    // 409 = unique violation (e.g. already-subscribed email)
+    if (res.status === 409) { const e = new Error('duplicate'); e.duplicate = true; throw e; }
+    let msg = 'Something went wrong. Please try again.';
+    try { const j = await res.json(); msg = j.message || j.hint || msg; } catch (_) {}
+    throw new Error(msg);
+  }
+  window.vgInsert = vgInsert;
+
   /* ---------- Toast helper (exposed globally) ---------- */
   window.vgToast = function (message, type) {
     const wrap = document.querySelector('.toast-wrap');
@@ -210,29 +237,61 @@
       f.addEventListener('blur', () => validateField(f));
       f.addEventListener('input', () => { if (f.classList.contains('invalid')) validateField(f); });
     });
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       let ok = true;
       form.querySelectorAll('[data-rules]').forEach(f => { if (!validateField(f)) ok = false; });
-      if (ok) {
+      if (!ok) { window.vgToast('Please review the highlighted fields.', 'error'); return; }
+
+      const table = form.dataset.sbTable;
+      const btn = form.querySelector('button[type="submit"], button:not([type])');
+      const successMsg = form.dataset.success || 'Thank you — we’ll be in touch shortly.';
+
+      // No table wired → behave as a local demo submit.
+      if (!table) { form.reset(); window.vgToast(successMsg); return; }
+
+      // Collect named fields into a payload (skips empties).
+      const payload = {};
+      form.querySelectorAll('[name]').forEach(el => { if (el.value && el.value.trim() !== '') payload[el.name] = el.value.trim(); });
+
+      const label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      try {
+        await vgInsert(table, payload);
         form.reset();
-        window.vgToast(form.dataset.success || 'Thank you — we’ll be in touch shortly.');
-      } else {
-        window.vgToast('Please review the highlighted fields.', 'error');
+        window.vgToast(successMsg);
+      } catch (err) {
+        window.vgToast(err.message || 'Submission failed. Please try again.', 'error');
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = label; }
       }
     });
   });
 
   /* ---------- Newsletter (footer) ---------- */
   document.querySelectorAll('form.js-newsletter').forEach(form => {
-    form.addEventListener('submit', e => {
+    form.addEventListener('submit', async e => {
       e.preventDefault();
       const email = form.querySelector('input[type=email]');
-      if (email && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+        window.vgToast('Please enter a valid email.', 'error');
+        return;
+      }
+      const btn = form.querySelector('button');
+      const label = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = '…'; }
+      try {
+        await vgInsert('newsletter_subscribers', {
+          email: email.value.trim(),
+          source: (location.pathname.split('/').pop() || 'index.html')
+        });
         form.reset();
         window.vgToast('Subscribed. Welcome aboard.');
-      } else {
-        window.vgToast('Please enter a valid email.', 'error');
+      } catch (err) {
+        if (err.duplicate) { form.reset(); window.vgToast('You’re already subscribed — thank you.'); }
+        else window.vgToast(err.message || 'Subscription failed. Please try again.', 'error');
+      } finally {
+        if (btn) { btn.disabled = false; btn.textContent = label; }
       }
     });
   });

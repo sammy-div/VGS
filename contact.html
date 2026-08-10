@@ -33,17 +33,17 @@
     <div class="shell grid lg:grid-cols-3 gap-8">
       <!-- Form -->
       <div class="lg:col-span-2 reveal">
-        <form class="js-validate glass rounded-2xl p-6 md:p-8" data-success="Thank you — we'll be in touch within one business day.">
+        <form class="js-validate glass rounded-2xl p-6 md:p-8" data-sb-table="contact_submissions" data-success="Thank you — we'll be in touch within one business day.">
           <div class="grid sm:grid-cols-2 gap-5">
-            <div><label class="field-label" for="name">Full name</label><input id="name" class="field" data-rules="required|min:2" placeholder="Ada Obi" /><span class="field-error"></span></div>
-            <div><label class="field-label" for="email">Work email</label><input id="email" type="email" class="field" data-rules="required|email" placeholder="ada@company.com" /><span class="field-error"></span></div>
-            <div><label class="field-label" for="company">Company</label><input id="company" class="field" data-rules="required" placeholder="Company name" /><span class="field-error"></span></div>
-            <div><label class="field-label" for="phone">Phone (optional)</label><input id="phone" class="field" placeholder="+234 …" /></div>
+            <div><label class="field-label" for="name">Full name</label><input id="name" name="name" class="field" data-rules="required|min:2" placeholder="Ada Obi" autocomplete="name" /><span class="field-error"></span></div>
+            <div><label class="field-label" for="email">Work email</label><input id="email" name="email" type="email" class="field" data-rules="required|email" placeholder="ada@company.com" autocomplete="email" /><span class="field-error"></span></div>
+            <div><label class="field-label" for="company">Company</label><input id="company" name="company" class="field" data-rules="required" placeholder="Company name" autocomplete="organization" /><span class="field-error"></span></div>
+            <div><label class="field-label" for="phone">Phone (optional)</label><input id="phone" name="phone" class="field" placeholder="+234 …" autocomplete="tel" /></div>
           </div>
           <div class="mt-5"><label class="field-label" for="topic">What can we help with?</label>
-            <select id="topic" class="field"><option>Enterprise technology</option><option>AI solutions</option><option>Automation & integrations</option><option>Business advisory</option><option>Branding & creative</option><option>Training</option><option>Something else</option></select>
+            <select id="topic" name="topic" class="field"><option>Enterprise technology</option><option>AI solutions</option><option>Automation &amp; integrations</option><option>Business advisory</option><option>Branding &amp; creative</option><option>Training</option><option>Something else</option></select>
           </div>
-          <div class="mt-5"><label class="field-label" for="message">Tell us more</label><textarea id="message" rows="5" class="field" data-rules="required|min:10" placeholder="What are you trying to improve, and what's getting in the way?"></textarea><span class="field-error"></span></div>
+          <div class="mt-5"><label class="field-label" for="message">Tell us more</label><textarea id="message" name="message" rows="5" class="field" data-rules="required|min:10" placeholder="What are you trying to improve, and what's getting in the way?"></textarea><span class="field-error"></span></div>
           <button class="btn btn-primary mt-6 w-full sm:w-auto justify-center">Send message</button>
           <p class="text-mute text-xs mt-4">By submitting, you agree to our privacy policy. We never share your details.</p>
         </form>

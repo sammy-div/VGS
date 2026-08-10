@@ -107,4 +107,81 @@
     zone.addEventListener('drop', () => window.vgToast('Upload queued (demo).'));
     zone.addEventListener('click', () => window.vgToast('File picker (demo).'));
   });
+
+  /* ============================================================
+     Supabase authentication (REST — no client library)
+     ============================================================ */
+  const VG_SB = {
+    url: 'https://drpvjnzuqhtlvgmtrthj.supabase.co',
+    key: 'sb_publishable_-mBP1hR2CmFPTBg5KumEKg_AMbyTB9p'
+  };
+  const TOKEN_KEY = 'vg_admin_token';
+
+  async function vgAuthSignIn(email, password) {
+    const res = await fetch(`${VG_SB.url}/auth/v1/token?grant_type=password`, {
+      method: 'POST',
+      headers: { 'apikey': VG_SB.key, 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email, password })
+    });
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) throw new Error(data.error_description || data.msg || data.error || 'Invalid email or password.');
+    sessionStorage.setItem(TOKEN_KEY, data.access_token);
+    sessionStorage.setItem('vg_admin_email', email);
+    return data;
+  }
+  function vgSignOut() { sessionStorage.removeItem(TOKEN_KEY); sessionStorage.removeItem('vg_admin_email'); }
+  const vgToken = () => sessionStorage.getItem(TOKEN_KEY);
+
+  // Login form (admin/login.html)
+  const loginForm = document.getElementById('admin-login');
+  if (loginForm) {
+    loginForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const email = loginForm.querySelector('input[type=email]').value.trim();
+      const pw = loginForm.querySelector('input[type=password]').value;
+      const err = document.getElementById('login-error');
+      const btn = loginForm.querySelector('button[type=submit]');
+      if (!email || !pw) { if (err) { err.textContent = 'Enter your email and password.'; err.classList.add('show'); } return; }
+      if (err) err.classList.remove('show');
+      const label = btn.textContent; btn.disabled = true; btn.textContent = 'Signing in…';
+      try {
+        await vgAuthSignIn(email, pw);
+        window.vgToast('Signed in.');
+        setTimeout(() => location.href = 'index.html', 400);
+      } catch (ex) {
+        if (err) { err.textContent = ex.message; err.classList.add('show'); }
+        btn.disabled = false; btn.textContent = label;
+      }
+    });
+  }
+
+  // Sign-out links
+  document.querySelectorAll('[data-signout], a[href="login.html"]').forEach(el => {
+    if (el.dataset.bound) return; el.dataset.bound = '1';
+    el.addEventListener('click', () => vgSignOut());
+  });
+
+  // Reflect signed-in email in the top bar avatar tooltip, if present.
+  const who = sessionStorage.getItem('vg_admin_email');
+  if (who) { const av = document.querySelector('#admin-topbar .rounded-full'); if (av) av.title = who; }
+
+  /* ---------- Live submissions (Submissions page, when signed in) ---------- */
+  const subsTable = document.querySelector('[data-sb-submissions] tbody');
+  if (subsTable && vgToken()) {
+    (async () => {
+      try {
+        const res = await fetch(`${VG_SB.url}/rest/v1/contact_submissions?select=name,email,topic,created_at&order=created_at.desc&limit=25`, {
+          headers: { 'apikey': VG_SB.key, 'Authorization': `Bearer ${vgToken()}` }
+        });
+        if (!res.ok) return; // keep demo rows on failure
+        const rows = await res.json();
+        if (!Array.isArray(rows) || rows.length === 0) return;
+        subsTable.innerHTML = rows.map(r => {
+          const when = new Date(r.created_at).toLocaleString();
+          return `<tr class="border-b border-white/8"><td class="py-3 pr-4"><p class="font-semibold text-sm">${esc(r.name)}</p><p class="text-mute text-xs">${esc(r.email)}</p></td><td class="py-3 pr-4"><span class="pill">${esc(r.topic || '—')}</span></td><td class="py-3 pr-4 text-mute text-sm">${esc(when)}</td><td class="py-3 text-right"><button class="btn btn-ghost !py-1.5 !px-3 text-xs" data-save="Opened message.">View</button></td></tr>`;
+        }).join('');
+      } catch (_) { /* keep demo rows */ }
+    })();
+  }
+  function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
 })();

@@ -89,14 +89,14 @@
   <section class="section" id="apply">
     <div class="shell max-w-2xl">
       <div class="text-center reveal"><span class="eyebrow">Apply now</span><h2 class="h-section mt-3">Tell us about you</h2></div>
-      <form class="js-validate glass rounded-2xl p-6 md:p-8 mt-8" data-success="Application received — thank you. We'll be in touch.">
+      <form class="js-validate glass rounded-2xl p-6 md:p-8 mt-8" data-sb-table="career_applications" data-success="Application received — thank you. We'll be in touch.">
         <div class="grid sm:grid-cols-2 gap-5">
-          <div><label class="field-label" for="an">Full name</label><input id="an" class="field" data-rules="required|min:2" placeholder="Your name" /><span class="field-error"></span></div>
-          <div><label class="field-label" for="ae">Email</label><input id="ae" type="email" class="field" data-rules="required|email" placeholder="you@email.com" /><span class="field-error"></span></div>
-          <div><label class="field-label" for="ar">Role</label><select id="ar" class="field"><option>Senior Software Engineer</option><option>AI Solutions Engineer</option><option>Product Designer</option><option>Business Analyst</option><option>Internship</option></select></div>
-          <div><label class="field-label" for="al">Portfolio / LinkedIn</label><input id="al" class="field" placeholder="https://…" /></div>
+          <div><label class="field-label" for="an">Full name</label><input id="an" name="name" class="field" data-rules="required|min:2" placeholder="Your name" autocomplete="name" /><span class="field-error"></span></div>
+          <div><label class="field-label" for="ae">Email</label><input id="ae" name="email" type="email" class="field" data-rules="required|email" placeholder="you@email.com" autocomplete="email" /><span class="field-error"></span></div>
+          <div><label class="field-label" for="ar">Role</label><select id="ar" name="role" class="field"><option>Senior Software Engineer</option><option>AI Solutions Engineer</option><option>Product Designer</option><option>Business Analyst</option><option>Internship</option></select></div>
+          <div><label class="field-label" for="al">Portfolio / LinkedIn</label><input id="al" name="portfolio" class="field" placeholder="https://…" /></div>
         </div>
-        <div class="mt-5"><label class="field-label" for="am">Why Vatous?</label><textarea id="am" rows="4" class="field" data-rules="required|min:10" placeholder="A few sentences on what draws you here."></textarea><span class="field-error"></span></div>
+        <div class="mt-5"><label class="field-label" for="am">Why Vatous?</label><textarea id="am" name="message" rows="4" class="field" data-rules="required|min:10" placeholder="A few sentences on what draws you here."></textarea><span class="field-error"></span></div>
         <button class="btn btn-primary mt-6 w-full sm:w-auto justify-center">Submit application</button>
       </form>
     </div>
