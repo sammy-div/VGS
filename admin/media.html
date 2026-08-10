@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Media — Vatous Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#050816'},fontFamily:{head:['Manrope','sans-serif'],body:['Plus Jakarta Sans','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="font-body">
+  <div class="vg-bg" aria-hidden="true"></div>
+  <div class="flex min-h-screen">
+    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header id="admin-topbar" data-title="Media" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
+      <main class="p-5 md:p-8 flex-1">
+        <div data-drop class="admin-card border-2 border-dashed border-white/15 p-10 text-center cursor-pointer mb-6 transition-colors">
+  <svg width="34" height="34" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" class="mx-auto text-mute"><path d="M12 16V4m0 0L8 8m4-4l4 4M4 16v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></svg>
+  <p class="font-semibold mt-3">Drag & drop files here</p><p class="text-mute text-sm">or click to browse · PNG, JPG, SVG, PDF up to 10MB</p></div>
+<h2 class="font-head font-bold mb-4">Media library</h2>
+<div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4"><div class="admin-card p-0 overflow-hidden group"><div class="h-28 bg-gradient-to-br from-vgblue/40 to-vgbg"></div><div class="p-3"><p class="text-xs truncate">asset-1.png</p><p class="text-mute text-[11px]">1200×630 · 84 KB</p></div></div>
+<div class="admin-card p-0 overflow-hidden group"><div class="h-28 bg-gradient-to-br from-vgteal/20 to-vgbg"></div><div class="p-3"><p class="text-xs truncate">asset-2.png</p><p class="text-mute text-[11px]">1200×630 · 84 KB</p></div></div>
+<div class="admin-card p-0 overflow-hidden group"><div class="h-28 bg-gradient-to-br from-indigo-500/25 to-vgbg"></div><div class="p-3"><p class="text-xs truncate">asset-3.png</p><p class="text-mute text-[11px]">1200×630 · 84 KB</p></div></div>
+<div class="admin-card p-0 overflow-hidden group"><div class="h-28 bg-gradient-to-br from-vgblue2/30 to-vgbg"></div><div class="p-3"><p class="text-xs truncate">asset-4.png</p><p class="text-mute text-[11px]">1200×630 · 84 KB</p></div></div>
+<div class="admin-card p-0 overflow-hidden group"><div class="h-28 bg-gradient-to-br from-vgblue/40 to-vgbg"></div><div class="p-3"><p class="text-xs truncate">asset-5.png</p><p class="text-mute text-[11px]">1200×630 · 84 KB</p></div></div>
+<div class="admin-card p-0 overflow-hidden group"><div class="h-28 bg-gradient-to-br from-vgteal/20 to-vgbg"></div><div class="p-3"><p class="text-xs truncate">asset-6.png</p><p class="text-mute text-[11px]">1200×630 · 84 KB</p></div></div>
+<div class="admin-card p-0 overflow-hidden group"><div class="h-28 bg-gradient-to-br from-indigo-500/25 to-vgbg"></div><div class="p-3"><p class="text-xs truncate">asset-7.png</p><p class="text-mute text-[11px]">1200×630 · 84 KB</p></div></div>
+<div class="admin-card p-0 overflow-hidden group"><div class="h-28 bg-gradient-to-br from-vgblue2/30 to-vgbg"></div><div class="p-3"><p class="text-xs truncate">asset-8.png</p><p class="text-mute text-[11px]">1200×630 · 84 KB</p></div></div></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

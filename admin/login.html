@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Sign in — Vatous Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#050816'},fontFamily:{head:['Manrope','sans-serif'],body:['Plus Jakarta Sans','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="font-body">
+  <div class="vg-bg" aria-hidden="true"></div>
+  <div class="min-h-screen flex items-center justify-center p-5">
+    <div class="w-full max-w-sm">
+      <div class="flex items-center gap-2.5 justify-center mb-8">
+        <svg width="32" height="32" viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="8" stroke="rgba(255,255,255,.16)"/><path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/><path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/></svg>
+        <span class="font-head font-extrabold text-xl">Vatous<span class="teal">.</span> <span class="text-mute text-sm font-medium">admin</span></span>
+      </div>
+      <div class="admin-card p-7">
+        <h1 class="font-head font-extrabold text-xl">Welcome back</h1>
+        <p class="text-mute text-sm mt-1">Sign in to manage your website content.</p>
+        <form id="admin-login" class="mt-6" novalidate>
+          <div class="mb-4"><label class="field-label" for="li-email">Email</label><input id="li-email" type="email" class="field" placeholder="admin@vatous.com" autocomplete="username" /></div>
+          <div class="mb-2"><label class="field-label" for="li-pw">Password</label><input id="li-pw" type="password" class="field" placeholder="••••••••" autocomplete="current-password" /></div>
+          <p id="login-error" class="field-error"></p>
+          <div class="flex items-center justify-between text-xs mt-3 mb-5"><label class="flex items-center gap-2 text-soft"><input type="checkbox" class="accent-vgteal"> Remember me</label><a href="#" class="teal">Forgot password?</a></div>
+          <button type="submit" class="btn btn-primary w-full justify-center">Sign in</button>
+        </form>
+        <p class="text-mute text-xs text-center mt-5">Secured by Supabase Auth. <a href="index.html" class="teal hover:underline">Continue to demo dashboard →</a></p>
+      </div>
+      <p class="text-center text-mute text-xs mt-6"><a href="../index.html" class="hover:text-white">← Back to website</a></p>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

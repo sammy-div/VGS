@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Blog — Vatous Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#050816'},fontFamily:{head:['Manrope','sans-serif'],body:['Plus Jakarta Sans','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="font-body">
+  <div class="vg-bg" aria-hidden="true"></div>
+  <div class="flex min-h-screen">
+    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header id="admin-topbar" data-title="Blog" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
+      <main class="p-5 md:p-8 flex-1">
+        <div class="flex items-center justify-between mb-5 gap-3 flex-wrap">
+          <div><h2 class="font-head font-bold text-lg">Posts</h2><p id="blog-status" class="text-mute text-sm mt-0.5">Loading…</p></div>
+          <button id="blog-new" type="button" class="btn btn-primary">＋ New article</button>
+        </div>
+<div class="admin-card p-5 overflow-x-auto"><table class="w-full text-left min-w-[640px]"><thead><tr class="text-mute text-xs uppercase tracking-wider"><th class="py-2 pr-4">Title</th><th class="py-2 pr-4">Category</th><th class="py-2 pr-4">Author</th><th class="py-2 pr-4">Status</th><th class="py-2 text-right">Actions</th></tr></thead><tbody data-sb-blog><tr><td colspan="5" class="py-8 text-center text-mute">Sign in to load and manage posts.</td></tr></tbody></table></div>
+      </main>
+    </div>
+  </div>
+
+  <!-- Create / edit post modal -->
+  <dialog id="blog-modal" class="admin-card p-0 max-w-lg w-[94%] backdrop:bg-black/60">
+    <form id="blog-form" method="dialog" class="p-6">
+      <div class="flex items-center justify-between mb-4">
+        <h3 id="blog-modal-title" class="font-head font-bold text-lg">New article</h3>
+        <button type="button" id="blog-cancel" class="text-mute hover:text-white p-1 -mr-1" aria-label="Close">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <input type="hidden" id="f-id" />
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="sm:col-span-2"><label class="field-label" for="f-title">Title</label><input id="f-title" class="field" placeholder="Post title" /></div>
+        <div><label class="field-label" for="f-slug">Slug</label><input id="f-slug" class="field" placeholder="my-post" /></div>
+        <div><label class="field-label" for="f-category">Category</label><select id="f-category" class="field"><option value="automation">Automation</option><option value="ai">AI</option><option value="strategy">Strategy</option><option value="engineering">Engineering</option></select></div>
+        <div><label class="field-label" for="f-author">Author</label><input id="f-author" class="field" value="Vatous Team" /></div>
+        <div><label class="field-label" for="f-read">Read minutes</label><input id="f-read" type="number" min="1" max="60" class="field" value="5" /></div>
+        <div class="sm:col-span-2"><label class="field-label" for="f-excerpt">Excerpt</label><textarea id="f-excerpt" rows="2" class="field" placeholder="One or two sentences shown on the blog card."></textarea></div>
+        <div class="sm:col-span-2"><label class="field-label" for="f-body">Body (HTML)</label><textarea id="f-body" rows="6" class="field" placeholder="&lt;p&gt;Your article…&lt;/p&gt;"></textarea></div>
+        <div><label class="field-label" for="f-status">Status</label><select id="f-status" class="field"><option value="published">Published</option><option value="draft">Draft</option></select></div>
+      </div>
+      <p id="blog-form-error" class="field-error"></p>
+      <div class="flex gap-3 mt-5">
+        <button type="button" id="blog-save" class="btn btn-primary">Save post</button>
+        <button type="button" id="blog-cancel2" class="btn btn-ghost">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="admin.js"></script>
+</body>
+</html>

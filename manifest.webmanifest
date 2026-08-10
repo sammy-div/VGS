@@ -1,0 +1,14 @@
+{
+  "name": "Vatous Global Solutions",
+  "short_name": "Vatous",
+  "description": "Enterprise technology, AI systems and business consulting for organizations across Africa.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#050816",
+  "theme_color": "#050816",
+  "icons": [
+    { "src": "/assets/images/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/assets/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" }
+  ]
+}

@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Submissions — Vatous Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#050816'},fontFamily:{head:['Manrope','sans-serif'],body:['Plus Jakarta Sans','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="font-body">
+  <div class="vg-bg" aria-hidden="true"></div>
+  <div class="flex min-h-screen">
+    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header id="admin-topbar" data-title="Submissions" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
+      <main class="p-5 md:p-8 flex-1">
+        <div class="grid sm:grid-cols-3 gap-5 mb-6">
+  <div class="admin-card p-5"><p class="text-mute text-sm">New this week</p><div class="stat-num mt-1">18</div></div>
+  <div class="admin-card p-5"><p class="text-mute text-sm">Awaiting reply</p><div class="stat-num mt-1">5</div></div>
+  <div class="admin-card p-5"><p class="text-mute text-sm">Avg. response</p><div class="stat-num mt-1">6h</div></div>
+</div>
+<div class="admin-card p-5 overflow-x-auto" data-sb-submissions><table class="w-full text-left min-w-[600px]"><thead><tr class="text-mute text-xs uppercase tracking-wider"><th class="py-2 pr-4">From</th><th class="py-2 pr-4">Topic</th><th class="py-2 pr-4">Received</th><th></th></tr></thead><tbody><tr class="border-b border-white/8"><td class="py-3 pr-4"><p class="font-semibold text-sm">Amara Okafor</p><p class="text-mute text-xs">amara@meridian.co</p></td><td class="py-3 pr-4"><span class="pill">Enterprise technology</span></td><td class="py-3 pr-4 text-mute text-sm">2h ago</td><td class="py-3 text-right"><button class="btn btn-ghost !py-1.5 !px-3 text-xs" data-save="Opened message (demo).">View</button></td></tr>
+<tr class="border-b border-white/8"><td class="py-3 pr-4"><p class="font-semibold text-sm">Daniel Kwesi</p><p class="text-mute text-xs">dan@sahara.co</p></td><td class="py-3 pr-4"><span class="pill">AI solutions</span></td><td class="py-3 pr-4 text-mute text-sm">5h ago</td><td class="py-3 text-right"><button class="btn btn-ghost !py-1.5 !px-3 text-xs" data-save="Opened message (demo).">View</button></td></tr>
+<tr class="border-b border-white/8"><td class="py-3 pr-4"><p class="font-semibold text-sm">Ngozi Femi</p><p class="text-mute text-xs">ngozi@kanohealth.org</p></td><td class="py-3 pr-4"><span class="pill">Advisory</span></td><td class="py-3 pr-4 text-mute text-sm">1d ago</td><td class="py-3 text-right"><button class="btn btn-ghost !py-1.5 !px-3 text-xs" data-save="Opened message (demo).">View</button></td></tr>
+<tr class="border-b border-white/8"><td class="py-3 pr-4"><p class="font-semibold text-sm">Tunde Bello</p><p class="text-mute text-xs">tunde@zenith.ng</p></td><td class="py-3 pr-4"><span class="pill">Automation</span></td><td class="py-3 pr-4 text-mute text-sm">2d ago</td><td class="py-3 text-right"><button class="btn btn-ghost !py-1.5 !px-3 text-xs" data-save="Opened message (demo).">View</button></td></tr></tbody></table></div>
+<p class="text-mute text-xs mt-4">Submissions are stored in Supabase in production.</p>
+      </main>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>

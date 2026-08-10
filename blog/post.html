@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Insight — Vatous Global Solutions</title>
+  <meta name="description" content="An insight from Vatous Global Solutions on systems, automation and AI." />
+  <link rel="canonical" href="https://vatous.com/blog/post.html" />
+  <meta property="og:type" content="article" /><meta property="og:image" content="../assets/images/og.png" />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="theme-color" content="#050816" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#050816'},fontFamily:{head:['Manrope','sans-serif'],body:['Plus Jakarta Sans','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+  <style>
+    .article-body h2 { font-family: var(--font-head); font-size: 1.6rem; font-weight: 800; color:#fff; margin-top: 2.2rem; letter-spacing:-.02em; }
+    .article-body p { font-size: 1.05rem; margin-top: 1rem; }
+    .article-body ul { list-style: none; padding: 0; display: grid; gap: .4rem; margin-top: .8rem; }
+    .article-body li { padding-left: 1.4rem; position: relative; }
+    .article-body li::before { content: "\25B9"; color: var(--vg-teal); position: absolute; left: 0; }
+    .article-body blockquote { border-left: 2px solid var(--vg-teal); padding-left: 1.2rem; margin: 1.5rem 0; color:#fff; font-size: 1.2rem; font-family: var(--font-head); font-weight: 700; }
+  </style>
+</head>
+<body class="font-body">
+  <div class="vg-bg" aria-hidden="true"></div>
+  <div id="site-header"></div>
+  <main id="main">
+
+  <article class="pt-36 pb-8">
+    <div class="shell max-w-3xl">
+      <a href="../blog.html" class="text-mute text-sm hover:text-white">← All insights</a>
+      <div id="post-loading" class="mt-8 text-soft">Loading…</div>
+      <div id="post-head" class="hidden">
+        <span id="post-cat" class="pill mt-5 inline-flex"></span>
+        <h1 id="post-title" class="h-hero text-4xl md:text-5xl mt-4"></h1>
+        <p id="post-dek" class="lead mt-5"></p>
+        <div class="flex items-center gap-3 text-sm text-mute mt-6 pb-6 border-b border-white/8">
+          <span id="post-avatar" class="w-9 h-9 rounded-full bg-vgblue/40 flex items-center justify-center font-head font-bold text-xs"></span>
+          <span id="post-author" class="text-white"></span><span class="dot"></span><span id="post-read"></span><span class="dot"></span><span>Vatous Insights</span>
+        </div>
+      </div>
+      <div id="post-missing" class="hidden mt-8">
+        <h1 class="h-hero text-4xl mt-2">Insight not found</h1>
+        <p class="lead mt-4">This article may have moved or been unpublished. Browse all insights instead.</p>
+        <a href="../blog.html" class="btn btn-primary mt-6">Back to insights</a>
+      </div>
+    </div>
+  </article>
+
+  <section class="pb-8">
+    <div class="shell max-w-3xl article-body text-soft leading-relaxed" id="post-body"></div>
+  </section>
+
+  <section id="post-cta" class="section hidden">
+    <div class="shell max-w-3xl">
+      <div class="glass rounded-2xl p-8 text-center">
+        <h2 class="h-card text-2xl">Want help applying this?</h2>
+        <p class="text-soft mt-2">Book a free consultation and we'll map one high-impact opportunity in your operation.</p>
+        <a href="../contact.html" class="btn btn-primary mt-5">Book a Consultation</a>
+      </div>
+    </div>
+  </section>
+
+  </main>
+  <div id="site-footer"></div>
+  <script src="../assets/js/components.js"></script>
+  <script src="../assets/js/main.js"></script>
+  <script>
+  (async function loadPost() {
+    const URL = 'https://drpvjnzuqhtlvgmtrthj.supabase.co';
+    const KEY = 'sb_publishable_-mBP1hR2CmFPTBg5KumEKg_AMbyTB9p';
+    const params = new URLSearchParams(location.search);
+    const slug = params.get('slug') || '';
+    const loading = document.getElementById('post-loading');
+    const missing = document.getElementById('post-missing');
+    const showMissing = () => { loading.classList.add('hidden'); missing.classList.remove('hidden'); };
+    if (!/^[a-z0-9-]+$/.test(slug)) { showMissing(); return; }
+    try {
+      const res = await fetch(`${URL}/rest/v1/blog_posts?select=slug,title,category,excerpt,author,read_minutes,body,path&status=eq.published&slug=eq.${encodeURIComponent(slug)}&limit=1`, { headers: { apikey: KEY } });
+      const rows = res.ok ? await res.json() : [];
+      const p = Array.isArray(rows) ? rows[0] : null;
+      if (!p) { showMissing(); return; }
+      // Flagship posts have a dedicated static page — send readers there.
+      if (p.path) { location.replace('/' + p.path.replace(/^\/+/, '')); return; }
+
+      const label = { automation: 'Automation', ai: 'AI', strategy: 'Strategy', engineering: 'Engineering' };
+      const initials = String(p.author || '?').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+      document.title = p.title + ' — Vatous Global Solutions';
+      const md = document.querySelector('meta[name="description"]'); if (md) md.setAttribute('content', p.excerpt || '');
+      const cn = document.querySelector('link[rel="canonical"]'); if (cn) cn.setAttribute('href', 'https://vatous.com/blog/post.html?slug=' + p.slug);
+      document.getElementById('post-cat').textContent = label[p.category] || p.category;
+      document.getElementById('post-title').textContent = p.title;
+      document.getElementById('post-dek').textContent = p.excerpt || '';
+      document.getElementById('post-avatar').textContent = initials;
+      document.getElementById('post-author').textContent = p.author || 'Vatous Team';
+      document.getElementById('post-read').textContent = (p.read_minutes || 5) + ' min read';
+      document.getElementById('post-body').innerHTML = p.body || '<p>' + (p.excerpt || '') + '</p>';
+      loading.classList.add('hidden');
+      document.getElementById('post-head').classList.remove('hidden');
+      document.getElementById('post-cta').classList.remove('hidden');
+    } catch (_) { showMissing(); }
+  })();
+  </script>
+</body>
+</html>

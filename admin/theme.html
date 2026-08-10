@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Theme — Vatous Admin</title>
+  <meta name="robots" content="noindex,nofollow" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#050816'},fontFamily:{head:['Manrope','sans-serif'],body:['Plus Jakarta Sans','sans-serif']}}}};</script>
+  <link rel="stylesheet" href="../assets/css/styles.css" />
+</head>
+<body class="font-body">
+  <div class="vg-bg" aria-hidden="true"></div>
+  <div class="flex min-h-screen">
+    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
+    <div class="flex-1 min-w-0 flex flex-col">
+      <header id="admin-topbar" data-title="Theme" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
+      <main class="p-5 md:p-8 flex-1">
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div class="admin-card p-4"><div class="h-14 rounded-lg mb-3" style="background:#071B78"></div><p class="text-sm font-semibold">Primary dark blue</p><input class="field !py-2 mt-2 font-mono text-xs" value="#071B78" /></div><div class="admin-card p-4"><div class="h-14 rounded-lg mb-3" style="background:#537AD2"></div><p class="text-sm font-semibold">Secondary blue</p><input class="field !py-2 mt-2 font-mono text-xs" value="#537AD2" /></div><div class="admin-card p-4"><div class="h-14 rounded-lg mb-3" style="background:#14D3C7"></div><p class="text-sm font-semibold">Accent teal</p><input class="field !py-2 mt-2 font-mono text-xs" value="#14D3C7" /></div><div class="admin-card p-4"><div class="h-14 rounded-lg mb-3" style="background:#050816"></div><p class="text-sm font-semibold">Background</p><input class="field !py-2 mt-2 font-mono text-xs" value="#050816" /></div>
+</div>
+<div class="grid lg:grid-cols-2 gap-5 mt-6">
+  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">Typography</h2><div class="mb-4"><label class="field-label">Heading font</label><input type="text" class="field" value="Manrope" placeholder="" /></div><div class="mb-4"><label class="field-label">Body font</label><input type="text" class="field" value="Plus Jakarta Sans" placeholder="" /></div>
+    <label class="field-label">Base size</label><select class="field"><option>16px</option><option>17px</option><option>18px</option></select></div>
+  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">Options</h2><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Enable animations</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Show trusted-by marquee</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Sticky navigation</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Reduced motion fallback</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label></div>
+</div><div class="flex gap-3 mt-6"><button class="btn btn-primary" data-save="Changes saved.">Save changes</button><button class="btn btn-ghost" data-reset>Reset</button></div>
+      </main>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
