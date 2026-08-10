@@ -31,10 +31,10 @@
 
   <section class="section pt-4">
     <div class="shell grid md:grid-cols-2 gap-5">
-      <div class="card reveal flex flex-col"><span class="tile tile-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span><h2 class="h-card mt-4">Company Profile</h2><p class="text-soft text-sm mt-2 flex-1">A concise overview of who we are, what we do and how we work — ideal to share internally.</p><button class="btn btn-ghost mt-5 self-start" onclick="vgToast('Company profile — download link sent.')">Download PDF</button></div>
-      <div class="card reveal flex flex-col" data-delay="1"><span class="tile tile-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h2 class="h-card mt-4">AI Readiness Checklist</h2><p class="text-soft text-sm mt-2 flex-1">Assess whether your organization is set up to adopt AI responsibly and get real value from it.</p><button class="btn btn-ghost mt-5 self-start" onclick="vgToast('AI readiness checklist — download link sent.')">Download PDF</button></div>
-      <div class="card reveal flex flex-col" data-delay="2"><span class="tile tile-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h9m3 0h4M4 12h4m4 0h8M4 17h11"/></svg></span><h2 class="h-card mt-4">Workflow Audit Checklist</h2><p class="text-soft text-sm mt-2 flex-1">A step-by-step template to map where time and money leak in your day-to-day operations.</p><button class="btn btn-ghost mt-5 self-start" onclick="vgToast('Workflow audit checklist — download link sent.')">Download PDF</button></div>
-      <div class="card reveal flex flex-col" data-delay="3"><span class="tile tile-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 7.5-8 8-4.5-.5-8-3-8-8V6z"/></svg></span><h2 class="h-card mt-4">Digital Transformation Guide</h2><p class="text-soft text-sm mt-2 flex-1">A practical, jargon-free guide to planning and sequencing a modernization program that lands.</p><button class="btn btn-ghost mt-5 self-start" onclick="vgToast('Digital transformation guide — download link sent.')">Download PDF</button></div>
+      <div class="card reveal flex flex-col"><span class="tile tile-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span><h2 class="h-card mt-4">Company Profile</h2><p class="text-soft text-sm mt-2 flex-1">A concise overview of who we are, what we do and how we work — ideal to share internally.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Company Profile">Download PDF</button></div>
+      <div class="card reveal flex flex-col" data-delay="1"><span class="tile tile-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h2 class="h-card mt-4">AI Readiness Checklist</h2><p class="text-soft text-sm mt-2 flex-1">Assess whether your organization is set up to adopt AI responsibly and get real value from it.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="AI Readiness Checklist">Download PDF</button></div>
+      <div class="card reveal flex flex-col" data-delay="2"><span class="tile tile-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h9m3 0h4M4 12h4m4 0h8M4 17h11"/></svg></span><h2 class="h-card mt-4">Workflow Audit Checklist</h2><p class="text-soft text-sm mt-2 flex-1">A step-by-step template to map where time and money leak in your day-to-day operations.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Workflow Audit Checklist">Download PDF</button></div>
+      <div class="card reveal flex flex-col" data-delay="3"><span class="tile tile-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 7.5-8 8-4.5-.5-8-3-8-8V6z"/></svg></span><h2 class="h-card mt-4">Digital Transformation Guide</h2><p class="text-soft text-sm mt-2 flex-1">A practical, jargon-free guide to planning and sequencing a modernization program that lands.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Digital Transformation Guide">Download PDF</button></div>
     </div>
   </section>
 
@@ -47,6 +47,28 @@
       </form>
     </div>
   </section>
+
+  <!-- Resource download modal (native <dialog>, accessible) -->
+  <dialog id="resource-modal" class="glass rounded-2xl p-0 max-w-md w-[92%] backdrop:bg-black/60">
+    <form id="resource-form" method="dialog" class="p-6 md:p-7">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <span class="eyebrow">Free download</span>
+          <h2 class="h-card mt-2" id="resource-title">Resource</h2>
+        </div>
+        <button type="button" id="resource-close" class="text-mute hover:text-white p-1 -mr-1" aria-label="Close">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <p class="text-soft text-sm mt-2">Enter your email and we’ll send the download link. No spam.</p>
+      <label class="field-label mt-4" for="resource-email">Work email</label>
+      <input id="resource-email" type="email" class="field" placeholder="you@company.com" autocomplete="email" required />
+      <p id="resource-error" class="field-error"></p>
+      <div class="flex gap-3 mt-5">
+        <button id="resource-submit" type="button" class="btn btn-primary justify-center flex-1">Send me the link</button>
+      </div>
+    </form>
+  </dialog>
 
   </main>
   <div id="site-footer"></div>

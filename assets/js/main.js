@@ -296,6 +296,50 @@
     });
   });
 
+  /* ---------- Resource download modal → resource_requests ---------- */
+  const resModal = document.getElementById('resource-modal');
+  if (resModal && typeof resModal.showModal === 'function') {
+    const titleEl = resModal.querySelector('#resource-title');
+    const emailEl = resModal.querySelector('#resource-email');
+    const errEl = resModal.querySelector('#resource-error');
+    const submitEl = resModal.querySelector('#resource-submit');
+    let currentResource = '';
+
+    document.querySelectorAll('.js-resource').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentResource = btn.dataset.resource || 'Resource';
+        titleEl.textContent = currentResource;
+        emailEl.value = '';
+        emailEl.classList.remove('invalid');
+        errEl.classList.remove('show');
+        resModal.showModal();
+        emailEl.focus();
+      });
+    });
+    resModal.querySelector('#resource-close').addEventListener('click', () => resModal.close());
+
+    submitEl.addEventListener('click', async () => {
+      const val = emailEl.value.trim();
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) {
+        emailEl.classList.add('invalid');
+        errEl.textContent = 'Enter a valid email.';
+        errEl.classList.add('show');
+        return;
+      }
+      const label = submitEl.textContent; submitEl.disabled = true; submitEl.textContent = 'Sending…';
+      try {
+        await vgInsert('resource_requests', { email: val, resource: currentResource });
+        resModal.close();
+        window.vgToast(`“${currentResource}” is on its way to your inbox.`);
+      } catch (err) {
+        errEl.textContent = err.message || 'Something went wrong. Please try again.';
+        errEl.classList.add('show');
+      } finally {
+        submitEl.disabled = false; submitEl.textContent = label;
+      }
+    });
+  }
+
   /* ---------- Drag & drop reorder (admin) ---------- */
   document.querySelectorAll('[data-sortable]').forEach(list => {
     let dragged = null;
