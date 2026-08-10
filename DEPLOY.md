@@ -67,11 +67,30 @@ If you want them recorded in Vercel for reference:
 No extra Supabase config (CORS, redirect URLs) is needed — the data API and password
 login work cross-origin from your Vercel domain by default.
 
-## 6. Custom domain (optional)
+## 6. Custom domains
 
-The site's absolute URLs (canonical / Open Graph tags, `sitemap.xml`, `robots.txt` and
-`.well-known/security.txt`) are already set to **`https://vatous.ng`**.
+**Primary (canonical): `vatous.ng`.** All absolute URLs (canonical / Open Graph tags,
+`sitemap.xml`, `robots.txt`, `.well-known/security.txt`) point here, so search engines
+index one domain and ranking never gets split.
 
-To connect the domain: Vercel → Project → **Settings → Domains** → add `vatous.ng`
-(and `www.vatous.ng`) and follow the DNS steps. If you ever use a different domain,
-search-and-replace `vatous.ng` across the repo.
+**Secondary (alias): `vgs.ng`.** It 301-redirects to `vatous.ng`, so anyone who types it
+lands on the site with no SEO penalty. The redirect is defined in `vercel.json` and is
+**host-scoped** — it fires only for `vgs.ng` / `www.vgs.ng` (and `www.vatous.ng`), never
+for the `*.vercel.app` preview URL or the bare `vatous.ng`.
+
+### Connect them in Vercel
+Project → **Settings → Domains**, then add all of:
+
+- `vatous.ng`  ← set as the **Production / primary** domain
+- `www.vatous.ng`
+- `vgs.ng`
+- `www.vgs.ng`
+
+Point each at your registrar's DNS as Vercel instructs (A record `76.76.21.21` for apex,
+or the `cname.vercel-dns.com` CNAME for `www`). Once DNS resolves, `vercel.json` handles the
+redirects automatically — you don't need to configure per-domain redirects in the dashboard.
+
+### Switching primary later
+If you ever want `vgs.ng` to become the canonical domain (e.g. `vatous.ng` lapses),
+search-and-replace `vatous.ng` → `vgs.ng` across the repo and flip the redirect rules in
+`vercel.json`. Ask and I'll do it in one pass.
