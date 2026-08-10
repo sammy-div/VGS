@@ -177,19 +177,24 @@
     }
   }
 
-  /* ---------- Blog / case-study filter + search ---------- */
+  /* ---------- Blog / case-study filter + search ----------
+     Items are re-queried on every apply() so dynamically loaded
+     cards (e.g. blog posts fetched from Supabase) are handled too.
+     Each root exposes _applyFilter() for external refresh. */
   const initFilter = (root) => {
-    const items = root.querySelectorAll('[data-tags]');
+    if (root.dataset.filterReady) return;
+    root.dataset.filterReady = '1';
     const searchInput = root.querySelector('[data-search]');
     const buttons = root.querySelectorAll('[data-filter]');
     const empty = root.querySelector('[data-empty]');
     let activeCat = 'all';
 
     const apply = () => {
+      const items = root.querySelectorAll('[data-tags]'); // live
       const q = (searchInput?.value || '').toLowerCase().trim();
       let visible = 0;
       items.forEach(item => {
-        const tags = item.dataset.tags.toLowerCase();
+        const tags = (item.dataset.tags || '').toLowerCase();
         const text = item.textContent.toLowerCase();
         const catOk = activeCat === 'all' || tags.includes(activeCat);
         const qOk = !q || text.includes(q);
@@ -205,9 +210,11 @@
       apply();
     }));
     searchInput?.addEventListener('input', apply);
+    root._applyFilter = apply;
     apply();
   };
-  document.querySelectorAll('[data-filter-root]').forEach(initFilter);
+  window.vgInitFilters = () => document.querySelectorAll('[data-filter-root]').forEach(initFilter);
+  window.vgInitFilters();
 
   /* ---------- Form validation ---------- */
   const validators = {

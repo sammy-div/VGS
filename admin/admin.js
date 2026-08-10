@@ -236,4 +236,146 @@
     })();
   }
   function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c])); }
+
+  /* ============================================================
+     Blog posts — full CRUD (admin/blog.html), when signed in.
+     ============================================================ */
+  const blogBody = document.querySelector('[data-sb-blog]');
+  if (blogBody) {
+    const modal = document.getElementById('blog-modal');
+    const statusEl = document.getElementById('blog-status');
+    const g = (id) => document.getElementById(id);
+    const CATLABEL = { automation: 'Automation', ai: 'AI', strategy: 'Strategy', engineering: 'Engineering' };
+    const authHeaders = () => ({ 'apikey': VG_SB.key, 'Authorization': `Bearer ${vgToken()}`, 'Content-Type': 'application/json' });
+    const slugify = (s) => s.toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').slice(0, 60);
+
+    async function loadPosts() {
+      if (!vgToken()) {
+        statusEl.textContent = 'Sign in to manage posts.';
+        blogBody.innerHTML = '<tr><td colspan="5" class="py-8 text-center text-mute">Sign in to load and manage posts.</td></tr>';
+        return;
+      }
+      statusEl.textContent = 'Loading…';
+      try {
+        const res = await fetch(`${VG_SB.url}/rest/v1/blog_posts?select=id,title,slug,category,author,status,created_at&order=created_at.desc`, { headers: authHeaders() });
+        if (!res.ok) throw new Error('load');
+        const posts = await res.json();
+        statusEl.textContent = `${posts.length} post${posts.length === 1 ? '' : 's'}`;
+        if (!posts.length) {
+          blogBody.innerHTML = '<tr><td colspan="5" class="py-8 text-center text-mute">No posts yet — create your first article.</td></tr>';
+          return;
+        }
+        blogBody.innerHTML = posts.map(p => {
+          const pub = p.status === 'published';
+          return `<tr class="border-b border-white/8">
+            <td class="py-3 pr-4"><p class="font-semibold text-sm">${esc(p.title)}</p><p class="text-mute text-xs">/${esc(p.slug)}</p></td>
+            <td class="py-3 pr-4"><span class="pill">${esc(CATLABEL[p.category] || p.category)}</span></td>
+            <td class="py-3 pr-4 text-mute text-sm">${esc(p.author)}</td>
+            <td class="py-3 pr-4"><span class="pill ${pub ? 'pill-live' : ''}">${pub ? 'Published' : 'Draft'}</span></td>
+            <td class="py-3 text-right whitespace-nowrap">
+              <button class="btn btn-ghost !py-1.5 !px-2.5 text-xs" data-edit="${p.id}">Edit</button>
+              <button class="btn btn-ghost !py-1.5 !px-2.5 text-xs" data-toggle="${p.id}" data-status="${p.status}">${pub ? 'Unpublish' : 'Publish'}</button>
+              <button class="btn btn-ghost !py-1.5 !px-2.5 text-xs" data-del="${p.id}" data-title="${esc(p.title)}">Delete</button>
+            </td></tr>`;
+        }).join('');
+      } catch (_) {
+        statusEl.textContent = 'Could not load posts.';
+        window.vgToast('Could not load posts. Check your session.', 'error');
+      }
+    }
+
+    function openModal(post) {
+      g('blog-form-error').classList.remove('show');
+      g('f-id').value = post ? post.id : '';
+      g('f-title').value = post ? post.title : '';
+      g('f-slug').value = post ? post.slug : '';
+      g('f-slug').dataset.touched = post ? '1' : '';
+      g('f-category').value = post ? post.category : 'automation';
+      g('f-author').value = post ? post.author : 'Vatous Team';
+      g('f-read').value = post ? post.read_minutes : 5;
+      g('f-excerpt').value = post ? (post.excerpt || '') : '';
+      g('f-body').value = post ? (post.body || '') : '';
+      g('f-status').value = post ? post.status : 'published';
+      g('blog-modal-title').textContent = post ? 'Edit article' : 'New article';
+      if (modal.showModal) modal.showModal();
+      g('f-title').focus();
+    }
+
+    g('f-title').addEventListener('input', () => {
+      if (!g('f-id').value && !g('f-slug').dataset.touched) g('f-slug').value = slugify(g('f-title').value);
+    });
+    g('f-slug').addEventListener('input', () => { g('f-slug').dataset.touched = '1'; });
+
+    async function savePost() {
+      const err = g('blog-form-error');
+      const payload = {
+        title: g('f-title').value.trim(),
+        slug: slugify(g('f-slug').value || g('f-title').value),
+        category: g('f-category').value,
+        author: g('f-author').value.trim() || 'Vatous Team',
+        read_minutes: Math.min(60, Math.max(1, parseInt(g('f-read').value, 10) || 5)),
+        excerpt: g('f-excerpt').value.trim(),
+        body: g('f-body').value.trim() || null,
+        status: g('f-status').value
+      };
+      if (!payload.title || !payload.slug || !payload.excerpt) {
+        err.textContent = 'Title, slug and excerpt are required.'; err.classList.add('show'); return;
+      }
+      const id = g('f-id').value;
+      const btn = g('blog-save'); const label = btn.textContent; btn.disabled = true; btn.textContent = 'Saving…';
+      try {
+        const url = id ? `${VG_SB.url}/rest/v1/blog_posts?id=eq.${id}` : `${VG_SB.url}/rest/v1/blog_posts`;
+        const res = await fetch(url, { method: id ? 'PATCH' : 'POST', headers: { ...authHeaders(), 'Prefer': 'return=minimal' }, body: JSON.stringify(payload) });
+        if (res.status === 409) { err.textContent = 'That slug is already in use — choose another.'; err.classList.add('show'); return; }
+        if (!res.ok) { const j = await res.json().catch(() => ({})); err.textContent = j.message || 'Save failed.'; err.classList.add('show'); return; }
+        modal.close(); window.vgToast(id ? 'Post updated.' : 'Post created.'); loadPosts();
+      } catch (_) { err.textContent = 'Network error. Please try again.'; err.classList.add('show'); }
+      finally { btn.disabled = false; btn.textContent = label; }
+    }
+
+    async function toggleStatus(id, current) {
+      const next = current === 'published' ? 'draft' : 'published';
+      try {
+        const res = await fetch(`${VG_SB.url}/rest/v1/blog_posts?id=eq.${id}`, { method: 'PATCH', headers: { ...authHeaders(), 'Prefer': 'return=minimal' }, body: JSON.stringify({ status: next }) });
+        if (!res.ok) throw new Error();
+        window.vgToast(next === 'published' ? 'Published.' : 'Moved to draft.'); loadPosts();
+      } catch (_) { window.vgToast('Update failed.', 'error'); }
+    }
+
+    async function deletePost(id, title) {
+      if (!window.confirm(`Delete “${title}”? This cannot be undone.`)) return;
+      try {
+        const res = await fetch(`${VG_SB.url}/rest/v1/blog_posts?id=eq.${id}`, { method: 'DELETE', headers: authHeaders() });
+        if (!res.ok) throw new Error();
+        window.vgToast('Post deleted.'); loadPosts();
+      } catch (_) { window.vgToast('Delete failed.', 'error'); }
+    }
+
+    g('blog-new').addEventListener('click', () => {
+      if (!vgToken()) { window.vgToast('Sign in first.', 'error'); return; }
+      openModal(null);
+    });
+    g('blog-cancel').addEventListener('click', () => modal.close());
+    g('blog-cancel2').addEventListener('click', () => modal.close());
+    g('blog-save').addEventListener('click', savePost);
+
+    blogBody.addEventListener('click', async (e) => {
+      const edit = e.target.closest('[data-edit]');
+      const tog = e.target.closest('[data-toggle]');
+      const del = e.target.closest('[data-del]');
+      if (edit) {
+        try {
+          const res = await fetch(`${VG_SB.url}/rest/v1/blog_posts?id=eq.${edit.dataset.edit}&limit=1`, { headers: authHeaders() });
+          const rows = await res.json();
+          if (rows && rows[0]) openModal(rows[0]);
+        } catch (_) { window.vgToast('Could not open post.', 'error'); }
+      } else if (tog) {
+        toggleStatus(tog.dataset.toggle, tog.dataset.status);
+      } else if (del) {
+        deletePost(del.dataset.del, del.dataset.title);
+      }
+    });
+
+    loadPosts();
+  }
 })();

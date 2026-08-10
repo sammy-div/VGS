@@ -59,6 +59,13 @@ Config lives at the top of `assets/js/main.js` (public forms) and `admin/admin.j
 | `career_applications` | Careers form | INSERT only |
 | `newsletter_subscribers` | Footer + resources newsletter (unique email) | INSERT only |
 | `resource_requests` | Gated resource downloads | INSERT only |
+| `blog_posts` | Blog content | READ published only |
+
+The blog is fully backed by `blog_posts`: the public blog page hydrates its cards
+from published posts (static markup remains as a no-JS/no-network fallback), a dynamic
+reader (`blog/post.html?slug=…`) renders any post from the database, and the admin
+**Blog** screen offers full create / edit / publish / delete against it. RLS lets the
+public read only `published` rows while authenticated admins manage everything.
 
 ### Security (Row Level Security)
 RLS is **enabled on every table**. The public (`anon`) role may only `INSERT`; it has **no

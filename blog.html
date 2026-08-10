@@ -44,7 +44,7 @@
           <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-mute" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
         </div>
       </div>
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
+      <div id="blog-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
         <article data-tags="automation" class="card reveal group flex flex-col">
       <div class="h-36 rounded-xl mb-4 bg-gradient-to-br from-vgblue/40 to-vgbg border border-white/8"></div>
       <span class="pill">Automation</span>
@@ -137,5 +137,37 @@
   <div id="site-footer"></div>
   <script src="assets/js/components.js"></script>
   <script src="assets/js/main.js"></script>
+  <script>
+  /* Progressive enhancement: replace the static cards with live published
+     posts from Supabase when available. Static markup remains the fallback,
+     so the page is fully functional with no JS or no network. */
+  (async function hydrateBlog() {
+    const grid = document.getElementById('blog-grid');
+    if (!grid) return;
+    const URL = 'https://drpvjnzuqhtlvgmtrthj.supabase.co';
+    const KEY = 'sb_publishable_-mBP1hR2CmFPTBg5KumEKg_AMbyTB9p';
+    const esc = (s) => String(s == null ? '' : s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const grad = ['from-vgblue/40', 'from-vgblue2/30', 'from-indigo-500/25', 'from-vgteal/20'];
+    const label = { automation: 'Automation', ai: 'AI', strategy: 'Strategy', engineering: 'Engineering' };
+    try {
+      const res = await fetch(`${URL}/rest/v1/blog_posts?select=slug,title,category,excerpt,author,read_minutes,path&status=eq.published&order=created_at.desc`, { headers: { apikey: KEY } });
+      if (!res.ok) return;
+      const posts = await res.json();
+      if (!Array.isArray(posts) || posts.length === 0) return;
+      grid.innerHTML = posts.map((p, i) => {
+        const href = p.path ? p.path : ('blog/post.html?slug=' + encodeURIComponent(p.slug));
+        return `<article data-tags="${esc(p.category)}" class="card reveal is-visible group flex flex-col">
+          <div class="h-36 rounded-xl mb-4 bg-gradient-to-br ${grad[i % 4]} to-vgbg border border-white/8"></div>
+          <span class="pill">${esc(label[p.category] || p.category)}</span>
+          <h2 class="h-card mt-3"><a href='${esc(href)}' class="hover:text-white">${esc(p.title)}</a></h2>
+          <p class="text-soft text-sm mt-2 flex-1">${esc(p.excerpt)}</p>
+          <div class="flex items-center gap-2 text-xs text-mute mt-4"><span>${esc(p.author)}</span><span class="dot"></span><span>${esc(p.read_minutes)} min read</span></div>
+        </article>`;
+      }).join('');
+      const root = grid.closest('[data-filter-root]');
+      if (root && typeof root._applyFilter === 'function') root._applyFilter();
+    } catch (_) { /* keep static fallback */ }
+  })();
+  </script>
 </body>
 </html>
