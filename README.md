@@ -81,7 +81,7 @@ it grants only what RLS allows. The service-role key is never used in the front 
 The admin dashboard signs in through **Supabase Auth** (`/auth/v1/token`, password grant). A
 seeded admin account exists:
 
-- **Email:** `admin@vatous.com`
+- **Email:** `admin@vatous.ng`
 - **Password:** `VatousAdmin2026!`  ← change this in the Supabase dashboard before going live.
 
 On success the access token is held in `sessionStorage`; the Submissions page then loads live

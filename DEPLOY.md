@@ -34,7 +34,7 @@ You do **not** need a second Vercel project. The admin lives in the same repo:
 
 | | |
 | --- | --- |
-| Email | `admin@vatous.com` |
+| Email | `admin@vatous.ng` |
 | Password | `VatousAdmin2026!` |
 
 **Change this before real use:** Supabase Dashboard → **Authentication → Users** →
@@ -69,7 +69,9 @@ login work cross-origin from your Vercel domain by default.
 
 ## 6. Custom domain (optional)
 
-Vercel → Project → **Settings → Domains** → add your domain and follow the DNS steps.
-After adding it, update the absolute URLs (`https://vatous.com/…`) in the page
-`<link rel="canonical">`/Open Graph tags, `sitemap.xml`, `robots.txt` and
-`.well-known/security.txt` to your real domain.
+The site's absolute URLs (canonical / Open Graph tags, `sitemap.xml`, `robots.txt` and
+`.well-known/security.txt`) are already set to **`https://vatous.ng`**.
+
+To connect the domain: Vercel → Project → **Settings → Domains** → add `vatous.ng`
+(and `www.vatous.ng`) and follow the DNS steps. If you ever use a different domain,
+search-and-replace `vatous.ng` across the repo.
