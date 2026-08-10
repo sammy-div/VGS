@@ -9,12 +9,17 @@
 (function () {
   'use strict';
 
-  // Favicon (root-absolute so it resolves from /blog/ too).
-  if (!document.querySelector('link[rel="icon"]')) {
-    const fav = document.createElement('link');
-    fav.rel = 'icon'; fav.type = 'image/svg+xml'; fav.href = '/favicon.svg';
-    document.head.appendChild(fav);
-  }
+  // Head links (root-absolute so they resolve from /blog/ too).
+  const addLink = (rel, href, attrs) => {
+    if (document.querySelector(`link[rel="${rel}"]`)) return;
+    const l = document.createElement('link');
+    l.rel = rel; l.href = href;
+    if (attrs) Object.assign(l, attrs);
+    document.head.appendChild(l);
+  };
+  addLink('icon', '/favicon.svg', { type: 'image/svg+xml' });
+  addLink('apple-touch-icon', '/apple-touch-icon.png');
+  addLink('manifest', '/manifest.webmanifest');
 
   // Logo mark (SVG) — abstract "V" built from geometric planes.
   const LOGO = `
@@ -134,4 +139,32 @@
     tw.setAttribute('aria-live', 'polite');
     document.body.appendChild(tw);
   }
+
+  // Cookie consent notice (shown once; choice stored in localStorage).
+  (function cookieConsent() {
+    let stored = null;
+    try { stored = localStorage.getItem('vg_cookie_consent'); } catch (_) { return; }
+    if (stored) return;
+
+    const bar = document.createElement('div');
+    bar.className = 'cookie-bar';
+    bar.setAttribute('role', 'region');
+    bar.setAttribute('aria-label', 'Cookie notice');
+    bar.innerHTML = `
+      <p class="cookie-text">We use minimal, privacy-respecting cookies to run this site and understand usage. See our <a href="privacy.html">Privacy Policy</a>.</p>
+      <div class="cookie-actions">
+        <button type="button" class="btn btn-ghost cookie-btn" data-consent="declined">Decline</button>
+        <button type="button" class="btn btn-primary cookie-btn" data-consent="accepted">Accept</button>
+      </div>`;
+    document.body.appendChild(bar);
+    requestAnimationFrame(() => bar.classList.add('show'));
+
+    bar.querySelectorAll('[data-consent]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        try { localStorage.setItem('vg_cookie_consent', btn.dataset.consent); } catch (_) {}
+        bar.classList.remove('show');
+        setTimeout(() => bar.remove(), 350);
+      });
+    });
+  })();
 })();
