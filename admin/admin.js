@@ -172,6 +172,24 @@
   const who = sessionStorage.getItem('vg_admin_email');
   if (who) { const av = document.querySelector('#admin-topbar .rounded-full'); if (av) av.title = who; }
 
+  /* ---------- Live dashboard counts (when signed in) ---------- */
+  const countEls = document.querySelectorAll('[data-sb-count]');
+  if (countEls.length && vgToken()) {
+    countEls.forEach(async (el) => {
+      try {
+        const res = await fetch(`${VG_SB.url}/rest/v1/${el.dataset.sbCount}?select=id`, {
+          method: 'HEAD',
+          headers: { 'apikey': VG_SB.key, 'Authorization': `Bearer ${vgToken()}`, 'Prefer': 'count=exact', 'Range-Unit': 'items', 'Range': '0-0' }
+        });
+        const range = res.headers.get('content-range'); // e.g. "0-0/37"
+        if (range && range.includes('/')) {
+          const total = range.split('/')[1];
+          if (total && total !== '*') el.textContent = Number(total).toLocaleString();
+        }
+      } catch (_) { /* keep placeholder */ }
+    });
+  }
+
   /* ---------- Live submissions (Submissions page, when signed in) ---------- */
   const subsTable = document.querySelector('[data-sb-submissions] tbody');
   if (subsTable && vgToken()) {
