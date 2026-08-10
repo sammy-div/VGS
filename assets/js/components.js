@@ -127,6 +127,13 @@
     return `<div><h4 class="text-white font-[Manrope] font-bold text-sm mb-4">${title}</h4><ul class="space-y-2.5">${items.map(([l, h]) => `<li><a href="${h}" class="text-soft text-sm hover:text-white transition-colors">${l}</a></li>`).join('')}</ul></div>`;
   }
 
+  // Skip-to-content link (a11y) — first focusable element on the page.
+  if (!document.querySelector('.skip-link') && document.getElementById('main')) {
+    const skip = document.createElement('a');
+    skip.href = '#main'; skip.className = 'skip-link'; skip.textContent = 'Skip to content';
+    document.body.insertBefore(skip, document.body.firstChild);
+  }
+
   const h = document.getElementById('site-header');
   const f = document.getElementById('site-footer');
   if (h) h.innerHTML = header;

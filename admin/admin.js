@@ -190,6 +190,33 @@
     });
   }
 
+  /* ---------- Live "recent submissions" widget (dashboard, when signed in) ---------- */
+  const recentEl = document.querySelector('[data-sb-recent]');
+  if (recentEl && vgToken()) {
+    (async () => {
+      try {
+        const res = await fetch(`${VG_SB.url}/rest/v1/contact_submissions?select=name,topic,created_at&order=created_at.desc&limit=4`, {
+          headers: { 'apikey': VG_SB.key, 'Authorization': `Bearer ${vgToken()}` }
+        });
+        if (!res.ok) return;
+        const rows = await res.json();
+        if (!Array.isArray(rows) || rows.length === 0) return;
+        const tint = ['bg-vgblue/40', 'bg-vgteal/20', 'bg-indigo-500/25', 'bg-vgblue2/30'];
+        recentEl.innerHTML = rows.map((r, i) => {
+          const initials = String(r.name || '?').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
+          return `<li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full ${tint[i % 4]} flex items-center justify-center text-xs font-bold">${esc(initials)}</span><div><p class="text-white">${esc(r.name)}</p><p class="text-mute text-xs">${esc(r.topic || '—')} · ${timeAgo(r.created_at)}</p></div></li>`;
+        }).join('');
+      } catch (_) { /* keep demo rows */ }
+    })();
+  }
+  function timeAgo(iso) {
+    const s = Math.floor((Date.now() - new Date(iso).getTime()) / 1000);
+    if (s < 60) return 'just now';
+    if (s < 3600) return Math.floor(s / 60) + 'm ago';
+    if (s < 86400) return Math.floor(s / 3600) + 'h ago';
+    return Math.floor(s / 86400) + 'd ago';
+  }
+
   /* ---------- Live submissions (Submissions page, when signed in) ---------- */
   const subsTable = document.querySelector('[data-sb-submissions] tbody');
   if (subsTable && vgToken()) {
