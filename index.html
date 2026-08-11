@@ -62,39 +62,54 @@
 
       <!-- Right: product visual -->
       <div class="lg:col-span-6 relative reveal" data-delay="2" aria-hidden="true">
-        <div class="relative mx-auto max-w-[440px] mt-6 mb-4">
+        <div class="relative mx-auto max-w-[440px] mt-8 mb-4">
+          <!-- animated decorative shapes behind the card -->
+          <svg class="spin-slow absolute -top-10 -right-8 w-40 h-40 opacity-30" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="52" stroke="#537AD2" stroke-width="1" stroke-dasharray="4 7"/>
+            <circle cx="60" cy="8" r="3" fill="#537AD2"/>
+          </svg>
+          <svg class="spin-rev absolute -bottom-10 -left-6 w-28 h-28 opacity-25" viewBox="0 0 120 120" fill="none">
+            <circle cx="60" cy="60" r="46" stroke="#6366F1" stroke-width="1" stroke-dasharray="2 9"/>
+          </svg>
+          <span class="absolute top-6 -left-2 w-2.5 h-2.5 rounded-full bg-vgblue2 twinkle"></span>
+          <span class="absolute bottom-2 right-2 w-2 h-2 rounded-full bg-vgteal twinkle" style="animation-delay:1s"></span>
+
           <!-- main dashboard card -->
           <div class="float relative rounded-3xl border border-white/10 bg-[#202022] p-5 md:p-6 shadow-[0_1px_0_rgba(255,255,255,.06)_inset,0_40px_80px_-40px_rgba(0,0,0,.9)]">
             <div class="flex items-center justify-between">
               <div class="flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-vgteal/12 border border-white/10 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/><path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/></svg></span>
+                <span class="w-8 h-8 rounded-lg bg-vgblue2/15 border border-white/10 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/><path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/></svg></span>
                 <span class="text-sm font-semibold">Enterprise workflow</span>
               </div>
-              <span class="pill pill-live"><span class="w-1.5 h-1.5 rounded-full bg-vgteal"></span>Live</span>
+              <span class="pill pill-live"><span class="relative flex w-1.5 h-1.5"><span class="ring-pulse absolute inset-0 rounded-full bg-vgteal"></span><span class="w-1.5 h-1.5 rounded-full bg-vgteal"></span></span>Live</span>
             </div>
             <div class="mt-5 space-y-3.5">
-              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Intake</span><span class="text-white/70">92%</span></div><div class="h-2 rounded-full bg-white/6"><div class="h-full rounded-full bg-vgteal" style="width:92%"></div></div></div>
-              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Approval</span><span class="text-white/70">76%</span></div><div class="h-2 rounded-full bg-white/6"><div class="h-full rounded-full" style="width:76%;background:#537AD2"></div></div></div>
-              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Delivery</span><span class="text-white/70">64%</span></div><div class="h-2 rounded-full bg-white/6"><div class="h-full rounded-full" style="width:64%;background:#a5b4fc"></div></div></div>
+              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Intake</span><span class="text-white/70">92%</span></div><div class="h-2 rounded-full bg-white/6"><div class="h-full rounded-full" style="width:92%;background:#537AD2"></div></div></div>
+              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Approval</span><span class="text-white/70">76%</span></div><div class="h-2 rounded-full bg-white/6"><div class="h-full rounded-full" style="width:76%;background:#6366F1"></div></div></div>
+              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Delivery</span><span class="text-white/70">64%</span></div><div class="h-2 rounded-full bg-white/6"><div class="h-full rounded-full bg-vgteal" style="width:64%"></div></div></div>
             </div>
             <div class="mt-5 pt-4 border-t border-white/8">
-              <div class="flex items-end justify-between mb-2"><span class="text-xs text-mute">Throughput</span><span class="text-xs text-vgteal">▲ 18% this week</span></div>
+              <div class="flex items-end justify-between mb-2"><span class="text-xs text-mute">Throughput</span><span class="text-xs" style="color:#86A8EE">▲ 18% this week</span></div>
               <svg class="w-full h-16" viewBox="0 0 260 60" fill="none" preserveAspectRatio="none">
-                <defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#14D3C7" stop-opacity=".28"/><stop offset="1" stop-color="#14D3C7" stop-opacity="0"/></linearGradient></defs>
-                <polyline points="0,48 40,40 80,44 120,26 160,32 200,14 260,20" stroke="#14D3C7" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <defs><linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#537AD2" stop-opacity=".32"/><stop offset="1" stop-color="#537AD2" stop-opacity="0"/></linearGradient></defs>
                 <polygon points="0,48 40,40 80,44 120,26 160,32 200,14 260,20 260,60 0,60" fill="url(#hg)"/>
+                <polyline class="draw-in" points="0,48 40,40 80,44 120,26 160,32 200,14 260,20" stroke="#5E86E4" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <circle cx="200" cy="14" r="3.5" fill="#14D3C7" class="pulse-soft"/>
               </svg>
             </div>
           </div>
 
-          <!-- floating accent chips -->
-          <div class="float-1 absolute -left-4 md:-left-40 top-24 md:top-16 rounded-2xl border border-white/10 bg-[#292A2D] px-3.5 py-3 shadow-[0_24px_48px_-24px_rgba(0,0,0,.9)] w-[150px]">
-            <span class="tile tile-teal !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 4v3m0 10v3M4 12h3m10 0h3"/></svg></span>
+          <!-- floating accent chips (varied colours + motion) -->
+          <div class="float-1 absolute -left-4 md:-left-40 top-28 md:top-16 rounded-2xl border border-white/10 bg-[#292A2D] px-3.5 py-3 shadow-[0_24px_48px_-24px_rgba(0,0,0,.9)] w-[150px]">
+            <span class="tile tile-blue !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 4v3m0 10v3M4 12h3m10 0h3"/></svg></span>
             <p class="text-xs font-semibold mt-2">AI assistant</p><p class="text-[11px] text-mute">Grounded answers</p>
           </div>
-          <div class="float-2 absolute -right-4 md:-right-7 -bottom-5 rounded-2xl border border-white/10 bg-[#292A2D] px-3.5 py-3 shadow-[0_24px_48px_-24px_rgba(0,0,0,.9)] w-[150px]">
-            <span class="tile tile-blue !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h9m3 0h4M4 12h4m4 0h8M4 17h11"/><circle cx="13" cy="7" r="2"/><circle cx="8" cy="12" r="2"/></svg></span>
+          <div class="float-2 absolute -right-4 md:-right-8 -bottom-5 rounded-2xl border border-white/10 bg-[#292A2D] px-3.5 py-3 shadow-[0_24px_48px_-24px_rgba(0,0,0,.9)] w-[150px]">
+            <span class="tile tile-indigo !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h9m3 0h4M4 12h4m4 0h8M4 17h11"/><circle cx="13" cy="7" r="2"/><circle cx="8" cy="12" r="2"/></svg></span>
             <p class="text-xs font-semibold mt-2">Automation</p><p class="text-[11px] text-mute">Connected flows</p>
+          </div>
+          <div class="float-3 absolute -right-2 md:-right-16 top-2 md:top-8 hidden sm:block rounded-2xl border border-white/10 bg-[#292A2D] px-3 py-2.5 shadow-[0_24px_48px_-24px_rgba(0,0,0,.9)]">
+            <div class="flex items-center gap-2"><span class="tile tile-cyan !w-7 !h-7"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-6"/></svg></span><div><p class="text-[13px] font-bold leading-none">99.9%</p><p class="text-[10px] text-mute mt-0.5">Uptime</p></div></div>
           </div>
         </div>
       </div>
@@ -132,19 +147,19 @@
   <section class="section pt-0">
     <div class="shell">
       <div class="grid md:grid-cols-3 gap-6">
-        <a href="enterprise-technology.html" class="card reveal">
-          <span class="tile tile-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+        <a href="enterprise-technology.html" class="card pop tint-blue reveal" data-anim="left">
+          <span class="tile tile-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
           <h3 class="h-card mt-5">Enterprise technology</h3>
           <p class="text-soft mt-3">Custom platforms, internal tools and integrations — engineered to be dependable and easy to maintain.</p>
           <span class="link-cyan mt-5">Learn more →</span>
         </a>
-        <a href="ai-solutions.html" class="card reveal" data-delay="1">
-          <span class="tile tile-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1m0-12.8l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></span>
+        <a href="ai-solutions.html" class="card pop tint-cyan reveal" data-anim="rise" data-delay="1">
+          <span class="tile tile-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6l2.1 2.1m0-12.8l-2.1 2.1M7.7 16.3l-2.1 2.1"/></svg></span>
           <h3 class="h-card mt-5">AI solutions</h3>
           <p class="text-soft mt-3">Assistants, document intelligence and decision tools — scoped to a real task, grounded in your data, deployed responsibly.</p>
           <span class="link-cyan mt-5">Learn more →</span>
         </a>
-        <a href="automation-integrations.html" class="card reveal" data-delay="2">
+        <a href="automation-integrations.html" class="card pop tint-indigo reveal" data-anim="right" data-delay="2">
           <span class="tile tile-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h9m3 0h4M4 12h4m4 0h8M4 17h11m4 0h1"/><circle cx="13" cy="7" r="2"/><circle cx="8" cy="12" r="2"/><circle cx="15" cy="17" r="2"/></svg></span>
           <h3 class="h-card mt-5">Automation &amp; integrations</h3>
           <p class="text-soft mt-3">Connect the tools you already run so data moves on its own — and manual re-entry quietly disappears.</p>
@@ -167,14 +182,14 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <article class="card reveal">
+        <article class="card pop tint-blue reveal" data-anim="rise">
           <div class="h-40 rounded-2xl mb-5 overflow-hidden relative bg-[#1A1A1C] border border-white/8">
-            <svg class="absolute inset-0 w-full h-full opacity-40" viewBox="0 0 300 160" preserveAspectRatio="none"><polyline points="0,130 60,90 120,110 180,50 240,70 300,30" stroke="#14D3C7" stroke-width="2" fill="none"/></svg>
+            <svg class="absolute inset-0 w-full h-full" viewBox="0 0 300 160" preserveAspectRatio="none"><polygon points="0,130 60,90 120,110 180,50 240,70 300,30 300,160 0,160" fill="#537AD2" opacity=".12"/><polyline class="draw-in" points="0,130 60,90 120,110 180,50 240,70 300,30" stroke="#537AD2" stroke-width="2.5" fill="none"/></svg>
           </div>
           <h3 class="h-card">Operational workflow platforms</h3>
           <p class="text-soft mt-3">Intake, approval and delivery in one place — replacing spreadsheets and email threads with a system people trust.</p>
         </article>
-        <article class="card reveal" data-delay="1">
+        <article class="card pop tint-cyan reveal" data-anim="rise" data-delay="1">
           <div class="h-40 rounded-2xl mb-5 overflow-hidden relative bg-[#1A1A1C] border border-white/8 flex items-center justify-center">
             <div class="w-full px-5 space-y-2.5">
               <div class="bg-white/[.04] border border-white/8 rounded-lg p-2.5 text-xs text-soft">How many onboarding requests are pending?</div>
@@ -184,9 +199,14 @@
           <h3 class="h-card">Grounded AI assistants</h3>
           <p class="text-soft mt-3">Answers drawn from your own documents and data, with citations and human review where it matters.</p>
         </article>
-        <article class="card reveal" data-delay="2">
+        <article class="card pop tint-violet reveal" data-anim="rise" data-delay="2">
           <div class="h-40 rounded-2xl mb-5 overflow-hidden relative bg-[#1A1A1C] border border-white/8 flex items-center justify-center">
-            <svg width="120" height="90" viewBox="0 0 120 90" fill="none"><circle cx="24" cy="24" r="5" fill="#14D3C7"/><circle cx="96" cy="20" r="5" fill="#93b0f0"/><circle cx="60" cy="66" r="5" fill="#a5b4fc"/><path d="M24 24 L60 66 L96 20" stroke="rgba(255,255,255,.18)" stroke-width="1.5" fill="none"/></svg>
+            <svg width="140" height="100" viewBox="0 0 140 100" fill="none">
+              <path class="dash-move" d="M28 28 L74 72 L112 24" stroke="#6366F1" stroke-width="1.5" fill="none"/>
+              <circle cx="28" cy="28" r="6" fill="#537AD2" class="twinkle"/>
+              <circle cx="112" cy="24" r="6" fill="#8b5cf6" class="twinkle" style="animation-delay:.6s"/>
+              <circle cx="74" cy="72" r="6" fill="#14D3C7" class="twinkle" style="animation-delay:1.2s"/>
+            </svg>
           </div>
           <h3 class="h-card">Connected data &amp; automation</h3>
           <p class="text-soft mt-3">Pipelines that keep systems in sync and run the repetitive work unattended, accurately, around the clock.</p>
@@ -212,9 +232,9 @@
       </div>
 
       <div class="grid md:grid-cols-3 gap-6 mt-10">
-        <div class="card reveal"><h3 class="h-card">Senior teams only</h3><p class="text-soft mt-3">You work directly with the people doing the thinking and the building — no layers, no hand-offs.</p></div>
-        <div class="card reveal" data-delay="1"><h3 class="h-card">Built to be owned</h3><p class="text-soft mt-3">Documentation, training and clean code, so your team can run and extend it without us.</p></div>
-        <div class="card reveal" data-delay="2"><h3 class="h-card">Context that fits Africa</h3><p class="text-soft mt-3">Designed for real constraints — connectivity, budgets and how your operation actually works.</p></div>
+        <div class="card pop tint-blue reveal" data-anim="left"><h3 class="h-card">Senior teams only</h3><p class="text-soft mt-3">You work directly with the people doing the thinking and the building — no layers, no hand-offs.</p></div>
+        <div class="card pop tint-indigo reveal" data-anim="rise" data-delay="1"><h3 class="h-card">Built to be owned</h3><p class="text-soft mt-3">Documentation, training and clean code, so your team can run and extend it without us.</p></div>
+        <div class="card pop tint-cyan reveal" data-anim="right" data-delay="2"><h3 class="h-card">Context that fits Africa</h3><p class="text-soft mt-3">Designed for real constraints — connectivity, budgets and how your operation actually works.</p></div>
       </div>
     </div>
   </section>
@@ -227,10 +247,10 @@
         <h2 class="h-section mt-4">A process built to de-risk delivery.</h2>
       </div>
       <div class="grid md:grid-cols-4 gap-6 mt-12">
-        <div class="reveal"><span class="text-vgteal font-semibold text-3xl">01</span><h3 class="h-card mt-3">Discover</h3><p class="text-soft mt-3">We audit workflows, systems and goals to find where value is leaking.</p></div>
-        <div class="reveal" data-delay="1"><span class="text-vgteal font-semibold text-3xl">02</span><h3 class="h-card mt-3">Design</h3><p class="text-soft mt-3">We shape the solution and roadmap, and agree on measurable outcomes.</p></div>
-        <div class="reveal" data-delay="2"><span class="text-vgteal font-semibold text-3xl">03</span><h3 class="h-card mt-3">Build</h3><p class="text-soft mt-3">We ship in short cycles, demoing working software every step.</p></div>
-        <div class="reveal" data-delay="3"><span class="text-vgteal font-semibold text-3xl">04</span><h3 class="h-card mt-3">Enable</h3><p class="text-soft mt-3">We train your team, hand over cleanly and support the transition.</p></div>
+        <div class="reveal"><span class="text-[#86A8EE] font-bold text-3xl">01</span><h3 class="h-card mt-3">Discover</h3><p class="text-soft mt-3">We audit workflows, systems and goals to find where value is leaking.</p></div>
+        <div class="reveal" data-delay="1"><span class="text-[#86A8EE] font-bold text-3xl">02</span><h3 class="h-card mt-3">Design</h3><p class="text-soft mt-3">We shape the solution and roadmap, and agree on measurable outcomes.</p></div>
+        <div class="reveal" data-delay="2"><span class="text-[#86A8EE] font-bold text-3xl">03</span><h3 class="h-card mt-3">Build</h3><p class="text-soft mt-3">We ship in short cycles, demoing working software every step.</p></div>
+        <div class="reveal" data-delay="3"><span class="text-[#86A8EE] font-bold text-3xl">04</span><h3 class="h-card mt-3">Enable</h3><p class="text-soft mt-3">We train your team, hand over cleanly and support the transition.</p></div>
       </div>
     </div>
   </section>
@@ -243,15 +263,15 @@
         <h2 class="h-section mt-4">What our clients say.</h2>
       </div>
       <div class="grid md:grid-cols-3 gap-6 mt-12">
-        <figure class="card reveal">
+        <figure class="card pop tint-blue reveal" data-anim="scale">
           <blockquote class="text-soft">"Vatous rebuilt our approval process and the backlog simply disappeared. They understood our operation before writing a line of code."</blockquote>
           <figcaption class="mt-6 flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-vgblue/40 flex items-center justify-center font-semibold text-sm">AO</span><div><p class="text-sm font-semibold">Amara Okafor</p><p class="text-sm text-mute">COO, Meridian Bank</p></div></figcaption>
         </figure>
-        <figure class="card reveal" data-delay="1">
+        <figure class="card pop tint-indigo reveal" data-anim="scale" data-delay="1">
           <blockquote class="text-soft">"The AI assistant they delivered is genuinely useful — grounded in our own data and trusted by the team. No hype, just results."</blockquote>
           <figcaption class="mt-6 flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-vgteal/20 flex items-center justify-center font-semibold text-sm">DK</span><div><p class="text-sm font-semibold">Daniel Kwesi</p><p class="text-sm text-mute">Head of Ops, Sahara Logistics</p></div></figcaption>
         </figure>
-        <figure class="card reveal" data-delay="2">
+        <figure class="card pop tint-cyan reveal" data-anim="scale" data-delay="2">
           <blockquote class="text-soft">"Clear thinking, senior people, and a clean handover. We now run the platform ourselves — exactly as promised."</blockquote>
           <figcaption class="mt-6 flex items-center gap-3"><span class="w-10 h-10 rounded-full bg-indigo-500/25 flex items-center justify-center font-semibold text-sm">NF</span><div><p class="text-sm font-semibold">Ngozi Femi</p><p class="text-sm text-mute">Director, Kano Health</p></div></figcaption>
         </figure>
