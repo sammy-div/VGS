@@ -21,11 +21,25 @@
   <div id="site-header"></div>
   <main id="main">
 
-  <section class="pt-36 pb-10">
-    <div class="shell max-w-3xl reveal">
-      <span class="eyebrow">Contact</span>
-      <h1 class="h-hero mt-4">Let's find the friction <span class="teal">costing you the most</span>.</h1>
-      <p class="lead mt-5 max-w-2xl">Tell us a little about your organization and what you're trying to improve. We respond within one business day.</p>
+  <section class="relative overflow-hidden pt-32 md:pt-40 pb-10">
+    <div class="shell grid lg:grid-cols-2 gap-12 items-center">
+      <div>
+        <span class="eyebrow reveal">Contact</span>
+        <h1 class="h-hero mt-4 reveal" data-delay="1">Let's find the friction <span class="teal">costing you the most</span>.</h1>
+        <p class="lead mt-5 max-w-[52ch] reveal" data-delay="2">Tell us a little about your organization and what you're trying to improve. We respond within one business day.</p>
+      </div>
+      <!-- Unique illustration: pulsing reach map -->
+      <div class="relative h-[300px] hidden md:block reveal" data-delay="2" aria-hidden="true">
+        <svg class="absolute inset-0 w-full h-full opacity-90" viewBox="0 0 360 300" fill="none">
+          <path d="M40 150 Q 130 60 210 130 T 320 110" stroke="#537AD2" stroke-width="1.5" fill="none" class="dash-move"/>
+          <path d="M60 210 Q 150 260 250 200" stroke="#6366F1" stroke-width="1.5" fill="none" class="dash-move" style="animation-delay:-4s"/>
+        </svg>
+        <span class="absolute" style="left:36px;top:140px"><span class="ring-pulse absolute -inset-3 rounded-full bg-vgblue2/30"></span><span class="block w-3.5 h-3.5 rounded-full bg-vgblue2 border-2 border-[#171717]"></span></span>
+        <span class="absolute" style="left:206px;top:120px"><span class="ring-pulse absolute -inset-3 rounded-full bg-vgteal/30" style="animation-delay:1s"></span><span class="block w-4 h-4 rounded-full bg-vgteal border-2 border-[#171717]"></span></span>
+        <span class="absolute" style="left:316px;top:100px"><span class="ring-pulse absolute -inset-3 rounded-full bg-indigo-400/30" style="animation-delay:2s"></span><span class="block w-3.5 h-3.5 rounded-full bg-indigo-400 border-2 border-[#171717]"></span></span>
+        <span class="absolute" style="left:246px;top:190px"><span class="block w-2.5 h-2.5 rounded-full bg-white/40"></span></span>
+        <span class="absolute right-4 bottom-2 rounded-xl bg-[#202022] border border-white/10 px-3 py-2 bob shadow-[0_20px_40px_-20px_rgba(0,0,0,.9)]"><p class="text-xs font-semibold">Lagos · Remote across Africa</p></span>
+      </div>
     </div>
   </section>
 
