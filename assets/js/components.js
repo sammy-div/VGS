@@ -192,6 +192,9 @@
         var s = rows && rows[0];
         if (!s) return;
 
+        // Typography — admin-controlled 3-font system + global scale
+        applyTypography(s);
+
         // Favicon (also apple-touch-icon if a raster is supplied)
         if (s.favicon_url) {
           var icon = document.querySelector('link[rel="icon"]');
@@ -229,4 +232,27 @@
       })
       .catch(function () { /* keep baked-in defaults */ });
   })();
+
+  /* ---- Typography: apply admin font choices as CSS variables ---- */
+  var VG_LOADED_FONTS = { Inter: 1, Sora: 1, Manrope: 1 };
+  function loadGoogleFont(family) {
+    if (!family || VG_LOADED_FONTS[family]) return;
+    VG_LOADED_FONTS[family] = 1;
+    var l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = 'https://fonts.googleapis.com/css2?family=' +
+      encodeURIComponent(family).replace(/%20/g, '+') +
+      ':wght@400;500;600;700;800&display=swap';
+    document.head.appendChild(l);
+  }
+  function applyTypography(s) {
+    var root = document.documentElement.style;
+    var stack = function (fam, fb) { return fam ? ("'" + fam + "', " + fb) : null; };
+    if (s.font_primary)   { loadGoogleFont(s.font_primary);   root.setProperty('--font-primary',   stack(s.font_primary,   "'Inter', system-ui, sans-serif")); }
+    if (s.font_secondary) { loadGoogleFont(s.font_secondary); root.setProperty('--font-secondary', stack(s.font_secondary, "system-ui, sans-serif")); }
+    if (s.font_tertiary)  { loadGoogleFont(s.font_tertiary);  root.setProperty('--font-tertiary',  stack(s.font_tertiary,  "'Inter', system-ui, sans-serif")); }
+    if (s.type_scale)     { root.setProperty('--type-scale', String(s.type_scale)); }
+  }
+  window.VG_applyTypography = applyTypography;
+  window.VG_loadGoogleFont = loadGoogleFont;
 })();

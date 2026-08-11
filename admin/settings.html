@@ -6,9 +6,9 @@
   <title>Settings — Vatous Admin</title>
   <meta name="robots" content="noindex,nofollow" />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#171717'},fontFamily:{head:['Inter','sans-serif'],body:['Inter','sans-serif']}}}};</script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#171717'},fontFamily:{head:['Sora','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
   <link rel="stylesheet" href="../assets/css/styles.css?v=2" />
 </head>
 <body class="font-body">
@@ -74,6 +74,28 @@
             <div class="mb-4"><label class="field-label">Instagram</label><input id="set-instagram" type="text" class="field" placeholder="https://instagram.com/…" /></div>
           </div>
         </div>
+        <!-- Typography: 3-font system + global scale, applied site-wide -->
+        <div class="admin-card p-5 mt-5" id="typography-card">
+          <h2 class="font-head font-bold mb-1">Typography</h2>
+          <p class="text-mute text-sm mb-5">Choose the three fonts and overall size. Changes apply across the whole site on the next page load.</p>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div><label class="field-label">Primary — headings</label><select id="set-font-primary" class="field" data-font-role="primary"></select></div>
+            <div><label class="field-label">Secondary — body</label><select id="set-font-secondary" class="field" data-font-role="secondary"></select></div>
+            <div><label class="field-label">Tertiary — UI &amp; buttons</label><select id="set-font-tertiary" class="field" data-font-role="tertiary"></select></div>
+          </div>
+          <div class="mt-5">
+            <label class="field-label">Global type scale — <span id="scale-val">100%</span></label>
+            <input id="set-type-scale" type="range" min="0.85" max="1.15" step="0.01" value="1" class="w-full accent-vgteal" />
+            <div class="flex justify-between text-mute text-xs mt-1"><span>Compact</span><span>Default</span><span>Large</span></div>
+          </div>
+          <div id="type-preview" class="mt-6 rounded-xl border border-white/10 bg-[#101317] p-5">
+            <span class="eyebrow" data-prev="ui">Preview</span>
+            <h3 data-prev="primary" style="font-size:1.75rem;font-weight:700;line-height:1.15;margin:.4rem 0 0;">A calm, structured heading</h3>
+            <p data-prev="secondary" class="text-soft text-sm mt-2" style="max-width:60ch;">This paragraph shows the body font at its real reading size — balanced, readable and never oversized. Adjust the scale to preview.</p>
+            <button type="button" data-prev="ui" class="btn btn-primary mt-4">Button label</button>
+          </div>
+        </div>
+
         <div class="flex gap-3 mt-6">
           <button type="button" id="settings-save" class="btn btn-primary">Save changes</button>
           <button type="button" id="settings-reload" class="btn btn-ghost">Reload</button>

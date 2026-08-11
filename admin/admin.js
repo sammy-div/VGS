@@ -390,6 +390,30 @@
     const FIELDS = { brand: 'brand_name', email: 'email', phone: 'phone', address: 'address', whatsapp: 'whatsapp', linkedin: 'linkedin', x: 'x_url', instagram: 'instagram' };
     let current = {};
 
+    /* ---- Typography controls ---- */
+    const FONT_CHOICES = ['Sora', 'Inter', 'Manrope', 'Space Grotesk', 'Plus Jakarta Sans', 'Outfit', 'DM Sans', 'Poppins', 'Work Sans', 'Figtree', 'Lexend', 'IBM Plex Sans'];
+    const FONT_DEFAULTS = { primary: 'Sora', secondary: 'Inter', tertiary: 'Manrope' };
+    const loadFont = (fam) => (window.VG_loadGoogleFont ? window.VG_loadGoogleFont(fam) : null);
+    function initFontSelects() {
+      document.querySelectorAll('select[data-font-role]').forEach(sel => {
+        sel.innerHTML = FONT_CHOICES.map(f => `<option value="${f}">${f}</option>`).join('');
+        sel.addEventListener('change', () => { loadFont(sel.value); updatePreview(); });
+      });
+      const scale = g('set-type-scale');
+      if (scale) scale.addEventListener('input', updatePreview);
+    }
+    function updatePreview() {
+      const p = g('set-font-primary').value, s = g('set-font-secondary').value, t = g('set-font-tertiary').value;
+      const sc = parseFloat(g('set-type-scale').value) || 1;
+      loadFont(p); loadFont(s); loadFont(t);
+      const box = g('type-preview');
+      box.querySelectorAll('[data-prev="primary"]').forEach(el => el.style.fontFamily = `'${p}', sans-serif`);
+      box.querySelectorAll('[data-prev="secondary"]').forEach(el => el.style.fontFamily = `'${s}', sans-serif`);
+      box.querySelectorAll('[data-prev="ui"]').forEach(el => el.style.fontFamily = `'${t}', sans-serif`);
+      box.style.setProperty('--type-scale', String(sc));
+      g('scale-val').textContent = Math.round(sc * 100) + '%';
+    }
+
     function fillPreview(kind, url) {
       const img = g(kind + '-preview'), empty = g(kind + '-empty');
       if (url) { img.src = url; img.classList.remove('hidden'); empty.classList.add('hidden'); }
@@ -403,6 +427,11 @@
         const res = await fetch(`${VG_SB.url}/rest/v1/site_settings?select=*&id=eq.1&limit=1`, { headers: authH() });
         const rows = await res.json(); current = (rows && rows[0]) || {};
         Object.keys(FIELDS).forEach(k => { const el = g('set-' + k); if (el) el.value = current[FIELDS[k]] || ''; });
+        g('set-font-primary').value = current.font_primary || FONT_DEFAULTS.primary;
+        g('set-font-secondary').value = current.font_secondary || FONT_DEFAULTS.secondary;
+        g('set-font-tertiary').value = current.font_tertiary || FONT_DEFAULTS.tertiary;
+        g('set-type-scale').value = current.type_scale || 1;
+        updatePreview();
         fillPreview('logo', current.logo_url); fillPreview('favicon', current.favicon_url);
         g('settings-status').textContent = 'Live settings loaded.';
       } catch (_) { g('settings-status').textContent = 'Could not load settings.'; }
@@ -418,6 +447,10 @@
       const btn = g('settings-save'); const label = btn.textContent; btn.disabled = true; btn.textContent = 'Saving…';
       const payload = {};
       Object.keys(FIELDS).forEach(k => { const el = g('set-' + k); if (el) payload[FIELDS[k]] = el.value.trim() || null; });
+      payload.font_primary = g('set-font-primary').value || null;
+      payload.font_secondary = g('set-font-secondary').value || null;
+      payload.font_tertiary = g('set-font-tertiary').value || null;
+      payload.type_scale = parseFloat(g('set-type-scale').value) || 1;
       try { await patch(payload); window.vgToast('Settings saved — live on the site.'); }
       catch (e) { window.vgToast(e.message || 'Save failed.', 'error'); }
       finally { btn.disabled = false; btn.textContent = label; }
@@ -460,6 +493,7 @@
     g('favicon-clear').addEventListener('click', () => clearBranding('favicon'));
     g('settings-save').addEventListener('click', saveSettings);
     g('settings-reload').addEventListener('click', loadSettings);
+    initFontSelects();
     loadSettings();
   }
 

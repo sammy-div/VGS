@@ -18,10 +18,10 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind.config = { theme: { extend: { colors: { vgblue:'#071B78', vgblue2:'#537AD2', vgteal:'#14D3C7', vgbg:'#171717' }, fontFamily: { head:['Inter','sans-serif'], body:['Inter','sans-serif'] } } } };
+    tailwind.config = { theme: { extend: { colors: { vgblue:'#071B78', vgblue2:'#537AD2', vgteal:'#14D3C7', vgbg:'#171717' }, fontFamily: { head:['Sora','Inter','sans-serif'], body:['Inter','sans-serif'], ui:['Manrope','Inter','sans-serif'] } } } };
   </script>
   <link rel="stylesheet" href="assets/css/styles.css?v=2" />
   <script type="application/ld+json">
@@ -47,7 +47,7 @@
           Vatous Global Solutions helps organizations across Africa build dependable software,
           automate the busywork, and put AI to practical use — so your teams can focus on what matters.
         </p>
-        <div class="flex flex-col sm:flex-row gap-3 mt-8 reveal" data-delay="3">
+        <div class="flex flex-wrap gap-2.5 mt-8 reveal" data-delay="3">
           <a href="contact.html" class="btn btn-primary">Book a consultation</a>
           <a href="services.html" class="btn btn-ghost">Explore services</a>
         </div>
@@ -132,7 +132,7 @@
   </section>
 
   <!-- ============ WHAT VATOUS DOES ============ -->
-  <section class="section">
+  <section class="section theme-blue">
     <div class="shell">
       <div class="max-w-2xl reveal">
         <span class="eyebrow">What we do</span>
@@ -173,7 +173,7 @@
   </section>
 
   <!-- ============ FEATURED SOLUTIONS ============ -->
-  <section class="section">
+  <section class="section theme-violet">
     <div class="shell">
       <div class="max-w-2xl reveal">
         <span class="eyebrow">Featured solutions</span>
@@ -216,7 +216,7 @@
   </section>
 
   <!-- ============ WHY ORGANIZATIONS CHOOSE VATOUS ============ -->
-  <section class="section">
+  <section class="section theme-emerald">
     <div class="shell">
       <div class="max-w-2xl reveal">
         <span class="eyebrow">Why organizations choose us</span>
@@ -240,23 +240,23 @@
   </section>
 
   <!-- ============ PROCESS ============ -->
-  <section class="section">
+  <section class="section theme-rose">
     <div class="shell">
       <div class="max-w-2xl reveal">
         <span class="eyebrow">How we work</span>
         <h2 class="h-section mt-4">A process built to de-risk delivery.</h2>
       </div>
       <div class="grid md:grid-cols-4 gap-6 mt-12">
-        <div class="reveal"><span class="text-[#86A8EE] font-bold text-3xl">01</span><h3 class="h-card mt-3">Discover</h3><p class="text-soft mt-3">We audit workflows, systems and goals to find where value is leaking.</p></div>
-        <div class="reveal" data-delay="1"><span class="text-[#86A8EE] font-bold text-3xl">02</span><h3 class="h-card mt-3">Design</h3><p class="text-soft mt-3">We shape the solution and roadmap, and agree on measurable outcomes.</p></div>
-        <div class="reveal" data-delay="2"><span class="text-[#86A8EE] font-bold text-3xl">03</span><h3 class="h-card mt-3">Build</h3><p class="text-soft mt-3">We ship in short cycles, demoing working software every step.</p></div>
-        <div class="reveal" data-delay="3"><span class="text-[#86A8EE] font-bold text-3xl">04</span><h3 class="h-card mt-3">Enable</h3><p class="text-soft mt-3">We train your team, hand over cleanly and support the transition.</p></div>
+        <div class="reveal"><span class="accent-text font-bold text-3xl">01</span><h3 class="h-card mt-3">Discover</h3><p class="text-soft mt-3">We audit workflows, systems and goals to find where value is leaking.</p></div>
+        <div class="reveal" data-delay="1"><span class="accent-text font-bold text-3xl">02</span><h3 class="h-card mt-3">Design</h3><p class="text-soft mt-3">We shape the solution and roadmap, and agree on measurable outcomes.</p></div>
+        <div class="reveal" data-delay="2"><span class="accent-text font-bold text-3xl">03</span><h3 class="h-card mt-3">Build</h3><p class="text-soft mt-3">We ship in short cycles, demoing working software every step.</p></div>
+        <div class="reveal" data-delay="3"><span class="accent-text font-bold text-3xl">04</span><h3 class="h-card mt-3">Enable</h3><p class="text-soft mt-3">We train your team, hand over cleanly and support the transition.</p></div>
       </div>
     </div>
   </section>
 
   <!-- ============ TESTIMONIALS / IMPACT ============ -->
-  <section class="section">
+  <section class="section theme-amber">
     <div class="shell">
       <div class="max-w-2xl reveal">
         <span class="eyebrow">Impact</span>
@@ -286,7 +286,7 @@
         <span class="absolute top-0 left-1/2 -translate-x-1/2 w-40 h-px bg-vgteal/50" aria-hidden="true"></span>
         <h2 class="h-section max-w-2xl mx-auto">Let's find the friction costing you the most.</h2>
         <p class="lead mt-5 max-w-xl mx-auto">Book a consultation and we'll map one high-impact opportunity in your operation — no obligation.</p>
-        <div class="flex flex-col sm:flex-row gap-3 justify-center mt-9">
+        <div class="flex flex-wrap gap-2.5 justify-center mt-9">
           <a href="contact.html" class="btn btn-primary">Book a consultation</a>
           <a href="case-studies.html" class="btn btn-ghost">See our work</a>
         </div>
