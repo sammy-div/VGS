@@ -33,7 +33,7 @@
       <span>${label}</span>
     </a>`).join('');
 
-  const logo = `<a href="index.html" class="flex items-center gap-2.5 px-2">
+  const logo = `<a href="index.html" class="js-logo flex items-center gap-2.5 px-2">
       <svg width="26" height="26" viewBox="0 0 32 32" fill="none"><rect x="1" y="1" width="30" height="30" rx="8" stroke="rgba(255,255,255,.16)"/><path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/><path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/></svg>
       <span class="font-head font-extrabold tracking-tight">Vatous<span class="teal">.</span> <span class="text-mute font-medium text-xs">admin</span></span>
     </a>`;
@@ -462,4 +462,22 @@
     g('settings-reload').addEventListener('click', loadSettings);
     loadSettings();
   }
+
+  /* Apply admin-managed logo + favicon to the admin UI too (public read). */
+  (function applyAdminBranding() {
+    fetch(`${VG_SB.url}/rest/v1/site_settings?select=logo_url,favicon_url,brand_name&id=eq.1&limit=1`, { headers: { apikey: VG_SB.key } })
+      .then(r => r.ok ? r.json() : []).then(rows => {
+        const s = rows && rows[0]; if (!s) return;
+        if (s.favicon_url) {
+          let i = document.querySelector('link[rel="icon"]');
+          if (!i) { i = document.createElement('link'); i.rel = 'icon'; document.head.appendChild(i); }
+          i.removeAttribute('type'); i.href = s.favicon_url;
+        }
+        if (s.logo_url) {
+          document.querySelectorAll('.js-logo').forEach(a => {
+            a.innerHTML = `<img src="${s.logo_url}" alt="${s.brand_name || 'Vatous'}" class="h-8 w-auto object-contain" />`;
+          });
+        }
+      }).catch(() => {});
+  })();
 })();
