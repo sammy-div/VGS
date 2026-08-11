@@ -29,7 +29,7 @@
         <path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/>
         <path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/>
       </svg>
-      <span class="font-[Manrope] font-extrabold tracking-tight text-[1.05rem]">Vatous<span class="teal">.</span></span>
+      <span class="font-head font-extrabold tracking-tight text-[1.05rem]">Vatous<span class="teal">.</span></span>
     </a>`;
 
   // Primary navigation (label, href).
@@ -50,7 +50,7 @@
   }).join('');
 
   const mobileLinks = [['Home', 'index.html'], ...NAV, ['Resources', 'resources.html'], ['Contact', 'contact.html']]
-    .map(([label, href]) => `<a href="${href}" class="block py-3 text-2xl font-[Manrope] font-bold text-soft hover:text-white transition-colors border-b border-white/5">${label}</a>`)
+    .map(([label, href]) => `<a href="${href}" class="block py-3 text-2xl font-head font-bold text-soft hover:text-white transition-colors border-b border-white/5">${label}</a>`)
     .join('');
 
   const header = `
@@ -100,7 +100,7 @@
         ${footerCol('Services', [['Enterprise Technology', 'enterprise-technology.html'], ['AI Solutions', 'ai-solutions.html'], ['Automation', 'automation-integrations.html'], ['Business Advisory', 'business-advisory.html'], ['Branding & Creative', 'branding-creative.html'], ['Training Academy', 'training-academy.html']])}
         ${footerCol('Explore', [['Industries', 'industries.html'], ['Resources', 'resources.html'], ['Services', 'services.html']])}
         <div>
-          <h4 class="text-white font-[Manrope] font-bold text-sm mb-4">Newsletter</h4>
+          <h4 class="text-white font-head font-bold text-sm mb-4">Newsletter</h4>
           <p class="text-mute text-sm mb-3">Practical insights on systems and automation. Monthly.</p>
           <form class="js-newsletter flex flex-col gap-2" novalidate>
             <input type="email" required placeholder="Work email" class="field text-sm" aria-label="Email address" />
@@ -124,7 +124,7 @@
     return `<a href="#" aria-label="${label}" class="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-soft hover:text-white hover:border-white/25 transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${d}"/></svg></a>`;
   }
   function footerCol(title, items) {
-    return `<div><h4 class="text-white font-[Manrope] font-bold text-sm mb-4">${title}</h4><ul class="space-y-2.5">${items.map(([l, h]) => `<li><a href="${h}" class="text-soft text-sm hover:text-white transition-colors">${l}</a></li>`).join('')}</ul></div>`;
+    return `<div><h4 class="text-white font-head font-bold text-sm mb-4">${title}</h4><ul class="space-y-2.5">${items.map(([l, h]) => `<li><a href="${h}" class="text-soft text-sm hover:text-white transition-colors">${l}</a></li>`).join('')}</ul></div>`;
   }
 
   // Skip-to-content link (a11y) — first focusable element on the page.
