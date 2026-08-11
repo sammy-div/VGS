@@ -17,10 +17,11 @@ Brand palette (defined as CSS variables in `assets/css/styles.css`):
 | --- | --- |
 | Primary dark blue | `#071B78` |
 | Secondary blue | `#537AD2` |
-| Accent teal | `#14D3C7` |
-| Near-black background | `#050816` |
+| Accent cyan | `#14D3C7` |
+| Ash-charcoal background | `#0D1013` |
+| Card surface | `#151922` |
 
-Fonts: **Manrope** (headings) + **Plus Jakarta Sans** (body) via Google Fonts.
+Fonts: **Inter** (headings + body) via Google Fonts.
 
 ## Structure
 ```
