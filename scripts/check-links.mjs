@@ -23,7 +23,8 @@ function walk(dir, out = []) {
 }
 
 const files = walk(root);
-const attrRe = /(?:href|src)\s*=\s*"([^"]+)"/gi;
+// Require a boundary before href/src so we don't match data-*-href attributes.
+const attrRe = /(?<![\w-])(?:href|src)\s*=\s*"([^"]+)"/gi;
 let broken = 0;
 let checked = 0;
 
