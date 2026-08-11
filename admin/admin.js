@@ -378,4 +378,88 @@
 
     loadPosts();
   }
+
+  /* ============================================================
+     Site settings — branding (logo/favicon uploads), contact,
+     socials & WhatsApp. Persists to Supabase; renders site-wide.
+     ============================================================ */
+  const settingsRoot = document.querySelector('[data-settings-root]');
+  if (settingsRoot) {
+    const g = (id) => document.getElementById(id);
+    const authH = () => ({ 'apikey': VG_SB.key, 'Authorization': `Bearer ${vgToken()}`, 'Content-Type': 'application/json' });
+    const FIELDS = { brand: 'brand_name', email: 'email', phone: 'phone', address: 'address', whatsapp: 'whatsapp', linkedin: 'linkedin', x: 'x_url', instagram: 'instagram' };
+    let current = {};
+
+    function fillPreview(kind, url) {
+      const img = g(kind + '-preview'), empty = g(kind + '-empty');
+      if (url) { img.src = url; img.classList.remove('hidden'); empty.classList.add('hidden'); }
+      else { img.removeAttribute('src'); img.classList.add('hidden'); empty.classList.remove('hidden'); }
+    }
+
+    async function loadSettings() {
+      if (!vgToken()) { g('settings-status').textContent = 'Sign in to load and edit live site settings.'; return; }
+      g('settings-status').textContent = 'Loading…';
+      try {
+        const res = await fetch(`${VG_SB.url}/rest/v1/site_settings?select=*&id=eq.1&limit=1`, { headers: authH() });
+        const rows = await res.json(); current = (rows && rows[0]) || {};
+        Object.keys(FIELDS).forEach(k => { const el = g('set-' + k); if (el) el.value = current[FIELDS[k]] || ''; });
+        fillPreview('logo', current.logo_url); fillPreview('favicon', current.favicon_url);
+        g('settings-status').textContent = 'Live settings loaded.';
+      } catch (_) { g('settings-status').textContent = 'Could not load settings.'; }
+    }
+
+    async function patch(payload) {
+      const res = await fetch(`${VG_SB.url}/rest/v1/site_settings?id=eq.1`, { method: 'PATCH', headers: { ...authH(), 'Prefer': 'return=minimal' }, body: JSON.stringify(payload) });
+      if (!res.ok) { const j = await res.json().catch(() => ({})); throw new Error(j.message || 'Save failed'); }
+    }
+
+    async function saveSettings() {
+      if (!vgToken()) { window.vgToast('Sign in first.', 'error'); return; }
+      const btn = g('settings-save'); const label = btn.textContent; btn.disabled = true; btn.textContent = 'Saving…';
+      const payload = {};
+      Object.keys(FIELDS).forEach(k => { const el = g('set-' + k); if (el) payload[FIELDS[k]] = el.value.trim() || null; });
+      try { await patch(payload); window.vgToast('Settings saved — live on the site.'); }
+      catch (e) { window.vgToast(e.message || 'Save failed.', 'error'); }
+      finally { btn.disabled = false; btn.textContent = label; }
+    }
+
+    async function uploadBranding(kind, file) {
+      if (!vgToken()) { window.vgToast('Sign in first.', 'error'); return; }
+      if (!file) return;
+      if (file.size > 3 * 1024 * 1024) { window.vgToast('File too large (max 3MB).', 'error'); return; }
+      const ext = (file.name.split('.').pop() || 'png').toLowerCase().replace(/[^a-z0-9]/g, '') || 'png';
+      const path = `${kind}-${Date.now()}.${ext}`;
+      window.vgToast('Uploading…');
+      try {
+        const up = await fetch(`${VG_SB.url}/storage/v1/object/branding/${path}`, {
+          method: 'POST',
+          headers: { 'apikey': VG_SB.key, 'Authorization': `Bearer ${vgToken()}`, 'Content-Type': file.type || 'application/octet-stream', 'x-upsert': 'true' },
+          body: file
+        });
+        if (!up.ok) { const j = await up.json().catch(() => ({})); throw new Error(j.message || j.error || 'Upload failed'); }
+        const publicUrl = `${VG_SB.url}/storage/v1/object/public/branding/${path}`;
+        const col = kind === 'logo' ? 'logo_url' : 'favicon_url';
+        await patch({ [col]: publicUrl });
+        current[col] = publicUrl; fillPreview(kind, publicUrl);
+        window.vgToast(kind === 'logo' ? 'Logo updated — live across the site.' : 'Favicon updated — live across the site.');
+      } catch (e) { window.vgToast(e.message || 'Upload failed.', 'error'); }
+    }
+
+    async function clearBranding(kind) {
+      if (!vgToken()) { window.vgToast('Sign in first.', 'error'); return; }
+      const col = kind === 'logo' ? 'logo_url' : 'favicon_url';
+      try { await patch({ [col]: null }); current[col] = null; fillPreview(kind, null); window.vgToast(kind === 'logo' ? 'Logo removed — default restored.' : 'Favicon reset to default.'); }
+      catch (e) { window.vgToast(e.message || 'Failed.', 'error'); }
+    }
+
+    g('logo-btn').addEventListener('click', () => g('logo-file').click());
+    g('favicon-btn').addEventListener('click', () => g('favicon-file').click());
+    g('logo-file').addEventListener('change', (e) => uploadBranding('logo', e.target.files[0]));
+    g('favicon-file').addEventListener('change', (e) => uploadBranding('favicon', e.target.files[0]));
+    g('logo-clear').addEventListener('click', () => clearBranding('logo'));
+    g('favicon-clear').addEventListener('click', () => clearBranding('favicon'));
+    g('settings-save').addEventListener('click', saveSettings);
+    g('settings-reload').addEventListener('click', loadSettings);
+    loadSettings();
+  }
 })();
