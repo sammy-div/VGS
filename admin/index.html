@@ -8,15 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#171717'},fontFamily:{head:['Sora','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Sora','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
   <link rel="stylesheet" href="../assets/css/styles.css?v=2" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
   <div class="flex min-h-screen">
-    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
+    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#FFFFFF] border-r border-[#0F172A]/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
     <div class="flex-1 min-w-0 flex flex-col">
-      <header id="admin-topbar" data-title="Dashboard" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
+      <header id="admin-topbar" data-title="Dashboard" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#FFFFFF]/90 backdrop-blur border-b border-[#0F172A]/8"></header>
       <main class="p-5 md:p-8 flex-1">
         <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
   <div class="admin-card p-5"><div class="flex items-center justify-between"><span class="text-mute text-sm">Page views (30d)</span><span class="tile tile-teal !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 20V10m6 10V4m6 16v-6"/></svg></span></div><div class="stat-num mt-2">24.8k</div><p class="text-xs teal mt-1">▲ 12% vs last month</p></div>
@@ -34,9 +34,9 @@
   <div class="admin-card p-5">
     <h2 class="font-head font-bold mb-4">Recent submissions</h2>
     <ul class="space-y-3 text-sm" data-sb-recent>
-      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-vgblue/40 flex items-center justify-center text-xs font-bold">AO</span><div><p class="text-white">Amara Okafor</p><p class="text-mute text-xs">Enterprise technology · 2h ago</p></div></li>
-      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-vgteal/20 flex items-center justify-center text-xs font-bold">DK</span><div><p class="text-white">Daniel Kwesi</p><p class="text-mute text-xs">AI solutions · 5h ago</p></div></li>
-      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-indigo-500/25 flex items-center justify-center text-xs font-bold">NF</span><div><p class="text-white">Ngozi Femi</p><p class="text-mute text-xs">Advisory · 1d ago</p></div></li>
+      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-vgblue/40 flex items-center justify-center text-xs font-bold">AO</span><div><p class="text-[#0F172A]">Amara Okafor</p><p class="text-mute text-xs">Enterprise technology · 2h ago</p></div></li>
+      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-vgteal/20 flex items-center justify-center text-xs font-bold">DK</span><div><p class="text-[#0F172A]">Daniel Kwesi</p><p class="text-mute text-xs">AI solutions · 5h ago</p></div></li>
+      <li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full bg-indigo-500/25 flex items-center justify-center text-xs font-bold">NF</span><div><p class="text-[#0F172A]">Ngozi Femi</p><p class="text-mute text-xs">Advisory · 1d ago</p></div></li>
     </ul>
     <a href="contact.html" class="link-teal text-sm mt-4">View all →</a>
   </div>
@@ -44,10 +44,10 @@
 <div class="admin-card p-5 mt-5">
   <h2 class="font-head font-bold mb-4">Quick actions</h2>
   <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-3">
-    <a href="blog.html" class="glass rounded-xl p-4 hover:border-white/20"><p class="font-semibold text-sm">＋ New article</p><p class="text-mute text-xs mt-1">Write a blog post</p></a>
-    <a href="case-studies.html" class="glass rounded-xl p-4 hover:border-white/20"><p class="font-semibold text-sm">＋ New case study</p><p class="text-mute text-xs mt-1">Showcase work</p></a>
-    <a href="media.html" class="glass rounded-xl p-4 hover:border-white/20"><p class="font-semibold text-sm">↑ Upload media</p><p class="text-mute text-xs mt-1">Images & files</p></a>
-    <a href="theme.html" class="glass rounded-xl p-4 hover:border-white/20"><p class="font-semibold text-sm">◐ Edit theme</p><p class="text-mute text-xs mt-1">Colors & type</p></a>
+    <a href="blog.html" class="glass rounded-xl p-4 hover:border-[#0F172A]/20"><p class="font-semibold text-sm">＋ New article</p><p class="text-mute text-xs mt-1">Write a blog post</p></a>
+    <a href="case-studies.html" class="glass rounded-xl p-4 hover:border-[#0F172A]/20"><p class="font-semibold text-sm">＋ New case study</p><p class="text-mute text-xs mt-1">Showcase work</p></a>
+    <a href="media.html" class="glass rounded-xl p-4 hover:border-[#0F172A]/20"><p class="font-semibold text-sm">↑ Upload media</p><p class="text-mute text-xs mt-1">Images & files</p></a>
+    <a href="theme.html" class="glass rounded-xl p-4 hover:border-[#0F172A]/20"><p class="font-semibold text-sm">◐ Edit theme</p><p class="text-mute text-xs mt-1">Colors & type</p></a>
   </div>
 </div>
       </main>

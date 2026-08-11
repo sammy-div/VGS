@@ -25,7 +25,7 @@
   const LOGO = `
     <a href="index.html" class="js-logo flex items-center gap-2.5" aria-label="Vatous Global Solutions home">
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="30" height="30" rx="8" stroke="rgba(255,255,255,.16)"/>
+        <rect x="1" y="1" width="30" height="30" rx="8" stroke="rgba(15,23,42,.16)"/>
         <path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/>
         <path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/>
       </svg>
@@ -50,7 +50,7 @@
   }).join('');
 
   const mobileLinks = [['Home', 'index.html'], ...NAV, ['Resources', 'resources.html'], ['Contact', 'contact.html']]
-    .map(([label, href]) => `<a href="${href}" class="block py-3 text-2xl font-head font-bold text-soft hover:text-white transition-colors border-b border-white/5">${label}</a>`)
+    .map(([label, href]) => `<a href="${href}" class="block py-3 text-2xl font-head font-bold text-soft hover:text-[#0F172A] transition-colors border-b border-[#0F172A]/5">${label}</a>`)
     .join('');
 
   const header = `
@@ -63,7 +63,7 @@
       <div class="hidden lg:flex items-center gap-3">
         <a href="contact.html" class="btn btn-primary">Book Consultation</a>
       </div>
-      <button id="menu-open" class="lg:hidden text-white p-2 -mr-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <button id="menu-open" class="lg:hidden text-[#0F172A] p-2 -mr-2" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
       </button>
     </div>
@@ -73,7 +73,7 @@
     <div class="shell pt-6 flex flex-col h-full">
       <div class="flex items-center justify-between h-[60px]">
         ${LOGO}
-        <button id="menu-close" class="text-white p-2 -mr-2" aria-label="Close menu">
+        <button id="menu-close" class="text-[#0F172A] p-2 -mr-2" aria-label="Close menu">
           <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
       </div>
@@ -84,7 +84,7 @@
 
   const year = new Date().getFullYear();
   const footer = `
-  <footer class="relative border-t border-white/8 pt-16 pb-8 mt-8">
+  <footer class="relative border-t border-[#0F172A]/8 pt-16 pb-8 mt-8">
     <div class="shell">
       <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
         <div class="lg:col-span-2">
@@ -101,7 +101,7 @@
         ${footerCol('Services', [['Enterprise Technology', 'enterprise-technology.html'], ['AI Solutions', 'ai-solutions.html'], ['Automation', 'automation-integrations.html'], ['Business Advisory', 'business-advisory.html'], ['Branding & Creative', 'branding-creative.html'], ['Training Academy', 'training-academy.html']])}
         ${footerCol('Explore', [['Industries', 'industries.html'], ['Resources', 'resources.html'], ['Services', 'services.html']])}
         <div>
-          <h4 class="text-white font-head font-bold text-sm mb-4">Newsletter</h4>
+          <h4 class="text-[#0F172A] font-head font-bold text-sm mb-4">Newsletter</h4>
           <p class="text-mute text-sm mb-3">Practical insights on systems and automation. Monthly.</p>
           <form class="js-newsletter flex flex-col gap-2" novalidate>
             <input type="email" required placeholder="Work email" class="field text-sm" aria-label="Email address" />
@@ -113,19 +113,19 @@
       <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm text-mute">
         <p>© ${year} Vatous Global Solutions. All rights reserved.</p>
         <div class="flex items-center gap-5">
-          <a href="privacy.html" class="hover:text-white transition-colors">Privacy</a>
-          <a href="terms.html" class="hover:text-white transition-colors">Terms</a>
-          <a href="contact.html" class="hover:text-white transition-colors">Lagos · Remote across Africa</a>
+          <a href="privacy.html" class="hover:text-[#0F172A] transition-colors">Privacy</a>
+          <a href="terms.html" class="hover:text-[#0F172A] transition-colors">Terms</a>
+          <a href="contact.html" class="hover:text-[#0F172A] transition-colors">Lagos · Remote across Africa</a>
         </div>
       </div>
     </div>
   </footer>`;
 
   function social(key, href, label, d) {
-    return `<a href="${href}" data-social="${key}" target="_blank" rel="noopener" aria-label="${label}" class="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-soft hover:text-white hover:border-white/25 transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${d}"/></svg></a>`;
+    return `<a href="${href}" data-social="${key}" target="_blank" rel="noopener" aria-label="${label}" class="w-9 h-9 rounded-lg border border-[#0F172A]/10 flex items-center justify-center text-soft hover:text-[#0F172A] hover:border-[#0F172A]/25 transition-colors"><svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="${d}"/></svg></a>`;
   }
   function footerCol(title, items) {
-    return `<div><h4 class="text-white font-head font-bold text-sm mb-4">${title}</h4><ul class="space-y-2.5">${items.map(([l, h]) => `<li><a href="${h}" class="text-soft text-sm hover:text-white transition-colors">${l}</a></li>`).join('')}</ul></div>`;
+    return `<div><h4 class="text-[#0F172A] font-head font-bold text-sm mb-4">${title}</h4><ul class="space-y-2.5">${items.map(([l, h]) => `<li><a href="${h}" class="text-soft text-sm hover:text-[#0F172A] transition-colors">${l}</a></li>`).join('')}</ul></div>`;
   }
 
   // Skip-to-content link (a11y) — first focusable element on the page.

@@ -8,15 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#171717'},fontFamily:{head:['Sora','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Sora','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
   <link rel="stylesheet" href="../assets/css/styles.css?v=2" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
   <div class="flex min-h-screen">
-    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
+    <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#FFFFFF] border-r border-[#0F172A]/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
     <div class="flex-1 min-w-0 flex flex-col">
-      <header id="admin-topbar" data-title="Settings" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
+      <header id="admin-topbar" data-title="Settings" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#FFFFFF]/90 backdrop-blur border-b border-[#0F172A]/8"></header>
       <main class="p-5 md:p-8 flex-1" data-settings-root>
         <p id="settings-status" class="text-mute text-sm mb-5">Sign in to load and edit live site settings.</p>
 
@@ -28,13 +28,13 @@
             <div>
               <label class="field-label">Logo</label>
               <div class="flex items-center gap-4">
-                <div class="w-28 h-16 rounded-lg bg-[#101317] border border-white/10 flex items-center justify-center overflow-hidden">
+                <div class="w-28 h-16 rounded-lg bg-[#F1F3F7] border border-[#0F172A]/10 flex items-center justify-center overflow-hidden">
                   <img id="logo-preview" alt="Logo preview" class="max-h-14 max-w-full object-contain hidden" />
                   <span id="logo-empty" class="text-mute text-xs">No logo</span>
                 </div>
                 <div class="flex flex-col gap-2">
                   <button type="button" id="logo-btn" class="btn btn-ghost !py-2 text-sm">Upload logo</button>
-                  <button type="button" id="logo-clear" class="text-mute text-xs hover:text-white text-left">Remove</button>
+                  <button type="button" id="logo-clear" class="text-mute text-xs hover:text-[#0F172A] text-left">Remove</button>
                 </div>
                 <input type="file" id="logo-file" accept="image/png,image/svg+xml,image/jpeg,image/webp" class="hidden" />
               </div>
@@ -43,13 +43,13 @@
             <div>
               <label class="field-label">Favicon</label>
               <div class="flex items-center gap-4">
-                <div class="w-16 h-16 rounded-lg bg-[#101317] border border-white/10 flex items-center justify-center overflow-hidden">
+                <div class="w-16 h-16 rounded-lg bg-[#F1F3F7] border border-[#0F172A]/10 flex items-center justify-center overflow-hidden">
                   <img id="favicon-preview" alt="Favicon preview" class="max-h-12 max-w-12 object-contain hidden" />
                   <span id="favicon-empty" class="text-mute text-xs">Default</span>
                 </div>
                 <div class="flex flex-col gap-2">
                   <button type="button" id="favicon-btn" class="btn btn-ghost !py-2 text-sm">Upload favicon</button>
-                  <button type="button" id="favicon-clear" class="text-mute text-xs hover:text-white text-left">Reset</button>
+                  <button type="button" id="favicon-clear" class="text-mute text-xs hover:text-[#0F172A] text-left">Reset</button>
                 </div>
                 <input type="file" id="favicon-file" accept="image/png,image/svg+xml,image/x-icon,image/vnd.microsoft.icon" class="hidden" />
               </div>
@@ -88,7 +88,7 @@
             <input id="set-type-scale" type="range" min="0.85" max="1.15" step="0.01" value="1" class="w-full accent-vgteal" />
             <div class="flex justify-between text-mute text-xs mt-1"><span>Compact</span><span>Default</span><span>Large</span></div>
           </div>
-          <div id="type-preview" class="mt-6 rounded-xl border border-white/10 bg-[#101317] p-5">
+          <div id="type-preview" class="mt-6 rounded-xl border border-[#0F172A]/10 bg-[#F1F3F7] p-5">
             <span class="eyebrow" data-prev="ui">Preview</span>
             <h3 data-prev="primary" style="font-size:1.75rem;font-weight:700;line-height:1.15;margin:.4rem 0 0;">A calm, structured heading</h3>
             <p data-prev="secondary" class="text-soft text-sm mt-2" style="max-width:60ch;">This paragraph shows the body font at its real reading size — balanced, readable and never oversized. Adjust the scale to preview.</p>
