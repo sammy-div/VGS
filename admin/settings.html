@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#0D1013'},fontFamily:{head:['Inter','sans-serif'],body:['Inter','sans-serif']}}}};</script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#171717'},fontFamily:{head:['Inter','sans-serif'],body:['Inter','sans-serif']}}}};</script>
   <link rel="stylesheet" href="../assets/css/styles.css" />
 </head>
 <body class="font-body">
@@ -17,13 +17,68 @@
     <aside id="admin-sidebar" class="fixed lg:static z-50 w-64 shrink-0 h-screen lg:h-auto bg-[#080C1C] border-r border-white/8 flex flex-col transition-transform -translate-x-full lg:translate-x-0"></aside>
     <div class="flex-1 min-w-0 flex flex-col">
       <header id="admin-topbar" data-title="Settings" class="sticky top-0 z-40 h-16 flex items-center gap-3 px-5 bg-[#080C1C]/90 backdrop-blur border-b border-white/8"></header>
-      <main class="p-5 md:p-8 flex-1">
+      <main class="p-5 md:p-8 flex-1" data-settings-root>
+        <p id="settings-status" class="text-mute text-sm mb-5">Sign in to load and edit live site settings.</p>
+
+        <!-- Branding: logo + favicon uploads render across the whole site instantly -->
+        <div class="admin-card p-5 mb-5">
+          <h2 class="font-head font-bold mb-1">Branding</h2>
+          <p class="text-mute text-sm mb-5">Upload a logo and favicon. They replace the defaults everywhere on the site the moment you upload.</p>
+          <div class="grid sm:grid-cols-2 gap-6">
+            <div>
+              <label class="field-label">Logo</label>
+              <div class="flex items-center gap-4">
+                <div class="w-28 h-16 rounded-lg bg-[#101317] border border-white/10 flex items-center justify-center overflow-hidden">
+                  <img id="logo-preview" alt="Logo preview" class="max-h-14 max-w-full object-contain hidden" />
+                  <span id="logo-empty" class="text-mute text-xs">No logo</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <button type="button" id="logo-btn" class="btn btn-ghost !py-2 text-sm">Upload logo</button>
+                  <button type="button" id="logo-clear" class="text-mute text-xs hover:text-white text-left">Remove</button>
+                </div>
+                <input type="file" id="logo-file" accept="image/png,image/svg+xml,image/jpeg,image/webp" class="hidden" />
+              </div>
+              <p class="text-mute text-xs mt-2">PNG, SVG, JPG or WebP. Transparent PNG/SVG recommended.</p>
+            </div>
+            <div>
+              <label class="field-label">Favicon</label>
+              <div class="flex items-center gap-4">
+                <div class="w-16 h-16 rounded-lg bg-[#101317] border border-white/10 flex items-center justify-center overflow-hidden">
+                  <img id="favicon-preview" alt="Favicon preview" class="max-h-12 max-w-12 object-contain hidden" />
+                  <span id="favicon-empty" class="text-mute text-xs">Default</span>
+                </div>
+                <div class="flex flex-col gap-2">
+                  <button type="button" id="favicon-btn" class="btn btn-ghost !py-2 text-sm">Upload favicon</button>
+                  <button type="button" id="favicon-clear" class="text-mute text-xs hover:text-white text-left">Reset</button>
+                </div>
+                <input type="file" id="favicon-file" accept="image/png,image/svg+xml,image/x-icon,image/vnd.microsoft.icon" class="hidden" />
+              </div>
+              <p class="text-mute text-xs mt-2">Square PNG or SVG (32×32 or larger).</p>
+            </div>
+          </div>
+        </div>
+
         <div class="grid lg:grid-cols-2 gap-5">
-  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">General</h2><div class="mb-4"><label class="field-label">Site name</label><input type="text" class="field" value="Vatous Global Solutions" placeholder="" /></div><div class="mb-4"><label class="field-label">Tagline</label><input type="text" class="field" value="Enterprise technology & AI consulting for Africa" placeholder="" /></div><div class="mb-4"><label class="field-label">Contact email</label><input type="email" class="field" value="hello@vatous.ng" placeholder="" /></div><div class="mb-4"><label class="field-label">Phone</label><input type="text" class="field" value="+234 800 000 0000" placeholder="" /></div></div>
-  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">Social links</h2><div class="mb-4"><label class="field-label">LinkedIn</label><input type="text" class="field" value="https://linkedin.com/company/vatous" placeholder="" /></div><div class="mb-4"><label class="field-label">X (Twitter)</label><input type="text" class="field" value="https://x.com/vatous" placeholder="" /></div><div class="mb-4"><label class="field-label">Instagram</label><input type="text" class="field" value="https://instagram.com/vatous" placeholder="" /></div><div class="mb-4"><label class="field-label">WhatsApp</label><input type="text" class="field" value="https://wa.me/2348000000000" placeholder="" /></div></div>
-  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">Integrations</h2><div class="mb-4"><label class="field-label">Supabase project URL</label><input type="text" class="field" value="https://drpvjnzuqhtlvgmtrthj.supabase.co" placeholder="" /></div><div class="mb-4"><label class="field-label">Supabase anon key</label><input type="text" class="field" value="••••••••••••••••••••" placeholder="" /></div><p class="text-mute text-xs">Keys are stored securely and never exposed client-side in production.</p></div>
-  <div class="admin-card p-5"><h2 class="font-head font-bold mb-4">Preferences</h2><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Email me on new submissions</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Weekly analytics digest</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Maintenance mode</span><span class="switch"><input type="checkbox" ><span class="track"></span></span></label><label class="flex items-center justify-between py-2.5"><span class="text-sm text-soft">Allow search engine indexing</span><span class="switch"><input type="checkbox" checked><span class="track"></span></span></label></div>
-</div><div class="flex gap-3 mt-6"><button class="btn btn-primary" data-save="Changes saved.">Save changes</button><button class="btn btn-ghost" data-reset>Reset</button></div>
+          <div class="admin-card p-5">
+            <h2 class="font-head font-bold mb-4">Contact details</h2>
+            <div class="mb-4"><label class="field-label">Brand name</label><input id="set-brand" type="text" class="field" placeholder="Vatous" /></div>
+            <div class="mb-4"><label class="field-label">Contact email</label><input id="set-email" type="email" class="field" placeholder="hello@vatous.ng" /></div>
+            <div class="mb-4"><label class="field-label">Phone</label><input id="set-phone" type="text" class="field" placeholder="+234 …" /></div>
+            <div class="mb-4"><label class="field-label">Address</label><input id="set-address" type="text" class="field" placeholder="Victoria Island, Lagos" /></div>
+          </div>
+          <div class="admin-card p-5">
+            <h2 class="font-head font-bold mb-4">Social &amp; WhatsApp</h2>
+            <div class="mb-4"><label class="field-label">WhatsApp link</label><input id="set-whatsapp" type="text" class="field" placeholder="https://wa.me/234…" /></div>
+            <div class="mb-4"><label class="field-label">LinkedIn</label><input id="set-linkedin" type="text" class="field" placeholder="https://linkedin.com/company/…" /></div>
+            <div class="mb-4"><label class="field-label">X (Twitter)</label><input id="set-x" type="text" class="field" placeholder="https://x.com/…" /></div>
+            <div class="mb-4"><label class="field-label">Instagram</label><input id="set-instagram" type="text" class="field" placeholder="https://instagram.com/…" /></div>
+          </div>
+        </div>
+        <div class="flex gap-3 mt-6">
+          <button type="button" id="settings-save" class="btn btn-primary">Save changes</button>
+          <button type="button" id="settings-reload" class="btn btn-ghost">Reload</button>
+        </div>
+        <p class="text-mute text-xs mt-4">Changes to contact details and social links appear across the public site on the next page load. Uploaded logo/favicon apply immediately.</p>
       </main>
     </div>
   </div>

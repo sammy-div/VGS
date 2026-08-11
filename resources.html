@@ -9,11 +9,11 @@
   <meta property="og:title" content="Resources — Vatous Global Solutions" />
   <meta property="og:description" content="Practical guides and checklists for teams modernizing their operations." />
   <meta property="og:type" content="website" /><meta property="og:image" content="assets/images/og.png" />
-  <meta name="twitter:card" content="summary_large_image" /><meta name="theme-color" content="#0D1013" />
+  <meta name="twitter:card" content="summary_large_image" /><meta name="theme-color" content="#171717" />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#0D1013'},fontFamily:{head:['Inter','sans-serif'],body:['Inter','sans-serif']}}}};</script>
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#171717'},fontFamily:{head:['Inter','sans-serif'],body:['Inter','sans-serif']}}}};</script>
   <link rel="stylesheet" href="assets/css/styles.css" />
 </head>
 <body class="font-body">
@@ -21,7 +21,8 @@
   <div id="site-header"></div>
   <main id="main">
 
-  <section class="pt-36 pb-12">
+  <section class="pt-36 pb-12 relative overflow-hidden">
+    <div class="absolute top-16 right-[3vw] w-[260px] h-[200px] hidden lg:block pointer-events-none opacity-90" aria-hidden="true"><svg viewBox="0 0 260 200" fill="none"><rect x="86" y="44" width="88" height="112" rx="10" fill="#1B1B1D" stroke="rgba(255,255,255,.1)" transform="rotate(-6 130 100)"/><rect x="86" y="44" width="88" height="112" rx="10" fill="#202022" stroke="rgba(83,122,210,.4)"/><rect x="102" y="64" width="40" height="6" rx="3" fill="#537AD2"/><rect x="102" y="82" width="56" height="4" rx="2" fill="rgba(255,255,255,.14)"/><rect x="102" y="94" width="48" height="4" rx="2" fill="rgba(255,255,255,.12)"/><rect x="102" y="106" width="56" height="4" rx="2" fill="rgba(255,255,255,.14)"/><g class="bob"><circle cx="130" cy="140" r="16" fill="#242530" stroke="rgba(20,211,199,.5)"/><path d="M130 132 v14 M124 140 l6 6 l6 -6" stroke="#14D3C7" stroke-width="2" fill="none" stroke-linecap="round"/></g></svg></div>
     <div class="shell max-w-3xl reveal">
       <span class="eyebrow">Resources</span>
       <h1 class="h-hero mt-4">Practical tools to <span class="teal">move you forward</span>.</h1>
@@ -31,10 +32,10 @@
 
   <section class="section pt-4">
     <div class="shell grid md:grid-cols-2 gap-5">
-      <div class="card reveal flex flex-col"><span class="tile tile-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span><h2 class="h-card mt-4">Company Profile</h2><p class="text-soft text-sm mt-2 flex-1">A concise overview of who we are, what we do and how we work — ideal to share internally.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Company Profile">Download PDF</button></div>
-      <div class="card reveal flex flex-col" data-delay="1"><span class="tile tile-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h2 class="h-card mt-4">AI Readiness Checklist</h2><p class="text-soft text-sm mt-2 flex-1">Assess whether your organization is set up to adopt AI responsibly and get real value from it.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="AI Readiness Checklist">Download PDF</button></div>
-      <div class="card reveal flex flex-col" data-delay="2"><span class="tile tile-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h9m3 0h4M4 12h4m4 0h8M4 17h11"/></svg></span><h2 class="h-card mt-4">Workflow Audit Checklist</h2><p class="text-soft text-sm mt-2 flex-1">A step-by-step template to map where time and money leak in your day-to-day operations.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Workflow Audit Checklist">Download PDF</button></div>
-      <div class="card reveal flex flex-col" data-delay="3"><span class="tile tile-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 7.5-8 8-4.5-.5-8-3-8-8V6z"/></svg></span><h2 class="h-card mt-4">Digital Transformation Guide</h2><p class="text-soft text-sm mt-2 flex-1">A practical, jargon-free guide to planning and sequencing a modernization program that lands.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Digital Transformation Guide">Download PDF</button></div>
+      <div class="card pop tint-blue reveal flex flex-col"><span class="tile tile-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="3" width="14" height="18" rx="2"/><path d="M9 7h6M9 11h6M9 15h4"/></svg></span><h2 class="h-card mt-4">Company Profile</h2><p class="text-soft text-sm mt-2 flex-1">A concise overview of who we are, what we do and how we work — ideal to share internally.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Company Profile">Download PDF</button></div>
+      <div class="card pop tint-indigo reveal flex flex-col" data-delay="1"><span class="tile tile-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg></span><h2 class="h-card mt-4">AI Readiness Checklist</h2><p class="text-soft text-sm mt-2 flex-1">Assess whether your organization is set up to adopt AI responsibly and get real value from it.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="AI Readiness Checklist">Download PDF</button></div>
+      <div class="card pop tint-cyan reveal flex flex-col" data-delay="2"><span class="tile tile-indigo"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h9m3 0h4M4 12h4m4 0h8M4 17h11"/></svg></span><h2 class="h-card mt-4">Workflow Audit Checklist</h2><p class="text-soft text-sm mt-2 flex-1">A step-by-step template to map where time and money leak in your day-to-day operations.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Workflow Audit Checklist">Download PDF</button></div>
+      <div class="card pop tint-violet reveal flex flex-col" data-delay="3"><span class="tile tile-cyan"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 7.5-8 8-4.5-.5-8-3-8-8V6z"/></svg></span><h2 class="h-card mt-4">Digital Transformation Guide</h2><p class="text-soft text-sm mt-2 flex-1">A practical, jargon-free guide to planning and sequencing a modernization program that lands.</p><button class="btn btn-ghost mt-5 self-start js-resource" type="button" data-resource="Digital Transformation Guide">Download PDF</button></div>
     </div>
   </section>
 
