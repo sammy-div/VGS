@@ -387,7 +387,15 @@
   if (settingsRoot) {
     const g = (id) => document.getElementById(id);
     const authH = () => ({ 'apikey': VG_SB.key, 'Authorization': `Bearer ${vgToken()}`, 'Content-Type': 'application/json' });
-    const FIELDS = { brand: 'brand_name', email: 'email', phone: 'phone', address: 'address', whatsapp: 'whatsapp', linkedin: 'linkedin', x: 'x_url', instagram: 'instagram' };
+    const FIELDS = {
+      brand: 'brand_name', email: 'email', phone: 'phone', address: 'address',
+      whatsapp: 'whatsapp', linkedin: 'linkedin', x: 'x_url', instagram: 'instagram',
+      facebook: 'facebook', tiktok: 'tiktok', youtube: 'youtube',
+      tagline: 'tagline', hero_eyebrow: 'hero_eyebrow', hero_subheading: 'hero_subheading',
+      brand_description: 'brand_description', hero_cta: 'hero_cta', hero_cta2: 'hero_cta2',
+      announcement: 'announcement', business_hours: 'business_hours',
+      seo_title: 'seo_title', seo_description: 'seo_description', og_image: 'og_image'
+    };
     let current = {};
 
     /* ---- Typography controls ---- */

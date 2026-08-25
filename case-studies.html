@@ -14,23 +14,23 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Sora','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
   <div id="site-header"></div>
   <main id="main">
 
-  <section class="pt-36 pb-10 relative overflow-hidden">
+  <section class="theme-rose tex tex-glow pt-36 pb-10 relative overflow-hidden">
     <div class="absolute top-16 right-[3vw] w-[260px] h-[200px] hidden lg:block pointer-events-none opacity-90" aria-hidden="true"><svg viewBox="0 0 260 200" fill="none"><line x1="54" y1="164" x2="212" y2="164" stroke="rgba(15,23,42,.12)"/><rect x="66" y="110" width="24" height="54" rx="4" fill="#537AD2" opacity=".75" class="bob"/><rect x="104" y="78" width="24" height="86" rx="4" fill="#6366F1" opacity=".75" class="bob" style="animation-delay:.4s"/><rect x="142" y="120" width="24" height="44" rx="4" fill="#8b5cf6" opacity=".7" class="bob" style="animation-delay:.8s"/><rect x="180" y="60" width="24" height="104" rx="4" fill="#14D3C7" opacity=".8" class="bob" style="animation-delay:1.2s"/><path class="draw-in" d="M78 120 L116 90 L154 128 L192 70" stroke="#2563EB" stroke-width="2" fill="none" stroke-linecap="round"/></svg></div>
     <div class="shell max-w-3xl reveal">
-      <span class="eyebrow">Case studies</span>
+      <span class="h-eyebrow">Case studies</span>
       <h1 class="h-hero mt-4">Outcomes we can <span class="teal">point to</span>.</h1>
       <p class="lead mt-5 max-w-2xl">A selection of engagements across sectors. Filter by industry to find work closest to yours.</p>
     </div>
   </section>
 
-  <section class="section pt-2" data-filter-root>
+  <section class="theme-blue section pt-2" data-filter-root>
     <div class="shell">
       <div class="flex flex-wrap gap-2 mb-8 reveal" role="group" aria-label="Filter by industry">
         <button data-filter="all" aria-pressed="true" class="pill hover:border-vgteal/50">All</button>
@@ -42,22 +42,22 @@
       </div>
 
       <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-        <article data-tags="finance" class="card pop tint-blue reveal"><span class="pill">Financial services</span><h2 class="h-card mt-3">Loan operations: 9 days to 2</h2><p class="text-soft text-sm mt-2">A unified origination workflow for a regional lender cut approval time by 78% and eliminated re-keying between three systems.</p><p class="teal text-sm font-semibold mt-4">78% faster · 3 systems unified</p></article>
-        <article data-tags="health" class="card pop tint-indigo reveal" data-delay="1"><span class="pill">Healthcare</span><h2 class="h-card mt-3">Records across six clinics</h2><p class="text-soft text-sm mt-2">One secure patient platform replaced paper and spreadsheets, giving clinicians a single, reliable view across locations.</p><p class="teal text-sm font-semibold mt-4">6 clinics · 1 source of truth</p></article>
-        <article data-tags="logistics" class="card pop tint-cyan reveal" data-delay="2"><span class="pill">Logistics</span><h2 class="h-card mt-3">AI assistant for dispatch</h2><p class="text-soft text-sm mt-2">A grounded assistant answered dispatch queries from live operational data, cutting radio chatter and speeding decisions.</p><p class="teal text-sm font-semibold mt-4">50% less radio traffic</p></article>
-        <article data-tags="retail" class="card pop tint-violet reveal"><span class="pill">Retail</span><h2 class="h-card mt-3">Inventory in sync across channels</h2><p class="text-soft text-sm mt-2">Integrated POS, warehouse and online stock so a growing retailer stopped overselling and reconciling by hand.</p><p class="teal text-sm font-semibold mt-4">90% fewer stock errors</p></article>
-        <article data-tags="ngo" class="card pop tint-sky reveal" data-delay="1"><span class="pill">NGO</span><h2 class="h-card mt-3">Donor-ready M&E reporting</h2><p class="text-soft text-sm mt-2">Automated data collection and reporting turned weeks of manual compilation into dashboards updated in real time.</p><p class="teal text-sm font-semibold mt-4">Weeks to minutes</p></article>
-        <article data-tags="finance" class="card pop tint-blue reveal" data-delay="2"><span class="pill">Financial services</span><h2 class="h-card mt-3">Reconciliation, automated</h2><p class="text-soft text-sm mt-2">An automation pipeline matched transactions across ledgers nightly, freeing the finance team for analysis over data entry.</p><p class="teal text-sm font-semibold mt-4">70% less manual work</p></article>
+        <article data-tags="finance" class="card pop tint-blue reveal"><span class="chip">Financial services</span><h2 class="h-card mt-3">Loan operations: 9 days to 2</h2><p class="text-soft text-sm mt-2">A unified origination workflow for a regional lender cut approval time by 78% and eliminated re-keying between three systems.</p><p class="teal text-sm font-semibold mt-4">78% faster · 3 systems unified</p></article>
+        <article data-tags="health" class="card pop tint-indigo reveal" data-delay="1"><span class="chip">Healthcare</span><h2 class="h-card mt-3">Records across six clinics</h2><p class="text-soft text-sm mt-2">One secure patient platform replaced paper and spreadsheets, giving clinicians a single, reliable view across locations.</p><p class="teal text-sm font-semibold mt-4">6 clinics · 1 source of truth</p></article>
+        <article data-tags="logistics" class="card pop tint-cyan reveal" data-delay="2"><span class="chip">Logistics</span><h2 class="h-card mt-3">AI assistant for dispatch</h2><p class="text-soft text-sm mt-2">A grounded assistant answered dispatch queries from live operational data, cutting radio chatter and speeding decisions.</p><p class="teal text-sm font-semibold mt-4">50% less radio traffic</p></article>
+        <article data-tags="retail" class="card pop tint-violet reveal"><span class="chip">Retail</span><h2 class="h-card mt-3">Inventory in sync across channels</h2><p class="text-soft text-sm mt-2">Integrated POS, warehouse and online stock so a growing retailer stopped overselling and reconciling by hand.</p><p class="teal text-sm font-semibold mt-4">90% fewer stock errors</p></article>
+        <article data-tags="ngo" class="card pop tint-sky reveal" data-delay="1"><span class="chip">NGO</span><h2 class="h-card mt-3">Donor-ready M&E reporting</h2><p class="text-soft text-sm mt-2">Automated data collection and reporting turned weeks of manual compilation into dashboards updated in real time.</p><p class="teal text-sm font-semibold mt-4">Weeks to minutes</p></article>
+        <article data-tags="finance" class="card pop tint-blue reveal" data-delay="2"><span class="chip">Financial services</span><h2 class="h-card mt-3">Reconciliation, automated</h2><p class="text-soft text-sm mt-2">An automation pipeline matched transactions across ledgers nightly, freeing the finance team for analysis over data entry.</p><p class="teal text-sm font-semibold mt-4">70% less manual work</p></article>
       </div>
       <p data-empty class="text-mute text-center py-16" style="display:none">No case studies match that filter yet.</p>
     </div>
   </section>
 
-  <section class="section"><div class="shell text-center reveal"><h2 class="h-section max-w-2xl mx-auto">Your outcome could be <span class="teal">next</span>.</h2><a href="contact.html" class="btn btn-primary mt-8">Start a Conversation</a></div></section>
+  <section class="theme-cyan section"><div class="shell text-center reveal"><h2 class="h-section max-w-2xl mx-auto">Your outcome could be <span class="teal">next</span>.</h2><a href="contact.html" class="btn btn-primary mt-8">Start a Conversation</a></div></section>
 
   </main>
   <div id="site-footer"></div>
-  <script src="assets/js/components.js?v=2"></script>
-  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/components.js?v=3"></script>
+  <script src="assets/js/main.js?v=3"></script>
 </body>
 </html>

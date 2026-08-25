@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Sora','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
-  <link rel="stylesheet" href="../assets/css/styles.css?v=2" />
+  <link rel="stylesheet" href="../assets/css/styles.css?v=3" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
@@ -94,6 +94,46 @@
             <p data-prev="secondary" class="text-soft text-sm mt-2" style="max-width:60ch;">This paragraph shows the body font at its real reading size — balanced, readable and never oversized. Adjust the scale to preview.</p>
             <button type="button" data-prev="ui" class="btn btn-primary mt-4">Button label</button>
           </div>
+        </div>
+
+        <!-- Homepage & brand content -->
+        <div class="admin-card p-5 mt-5">
+          <h2 class="font-head font-bold mb-1">Homepage &amp; brand content</h2>
+          <p class="text-mute text-sm mb-5">Hero copy, footer description and default CTAs. These render on the public site on the next page load.</p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="field-label">Tagline</label><input id="set-tagline" type="text" class="field" placeholder="Technology, design & business solutions" /></div>
+            <div><label class="field-label">Hero eyebrow</label><input id="set-hero_eyebrow" type="text" class="field" placeholder="Technology · Design · Business Solutions" /></div>
+          </div>
+          <div class="mt-4"><label class="field-label">Hero subheading</label><textarea id="set-hero_subheading" rows="3" class="field" placeholder="Vatous Global Solutions unites engineering, design and strategy…"></textarea></div>
+          <div class="mt-4"><label class="field-label">Footer / brand description</label><textarea id="set-brand_description" rows="2" class="field" placeholder="Enterprise technology, AI systems and business consulting…"></textarea></div>
+          <div class="grid sm:grid-cols-2 gap-4 mt-4">
+            <div><label class="field-label">Primary CTA label</label><input id="set-hero_cta" type="text" class="field" placeholder="Book a consultation" /></div>
+            <div><label class="field-label">Secondary CTA label</label><input id="set-hero_cta2" type="text" class="field" placeholder="Explore our work" /></div>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 mt-4">
+            <div><label class="field-label">Announcement bar (blank = hidden)</label><input id="set-announcement" type="text" class="field" placeholder="New: AI readiness assessments now open →" /></div>
+            <div><label class="field-label">Business hours</label><input id="set-business_hours" type="text" class="field" placeholder="Mon–Fri 8:00–18:00 WAT" /></div>
+          </div>
+        </div>
+
+        <!-- Extra social channels -->
+        <div class="admin-card p-5 mt-5">
+          <h2 class="font-head font-bold mb-4">More social channels</h2>
+          <div class="grid sm:grid-cols-3 gap-4">
+            <div><label class="field-label">Facebook</label><input id="set-facebook" type="text" class="field" placeholder="https://facebook.com/…" /></div>
+            <div><label class="field-label">TikTok</label><input id="set-tiktok" type="text" class="field" placeholder="https://tiktok.com/@…" /></div>
+            <div><label class="field-label">YouTube</label><input id="set-youtube" type="text" class="field" placeholder="https://youtube.com/@…" /></div>
+          </div>
+        </div>
+
+        <!-- SEO defaults -->
+        <div class="admin-card p-5 mt-5">
+          <h2 class="font-head font-bold mb-4">SEO defaults</h2>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="field-label">Default page title</label><input id="set-seo_title" type="text" class="field" placeholder="Vatous Global Solutions" /></div>
+            <div><label class="field-label">OG image URL</label><input id="set-og_image" type="text" class="field" placeholder="https://…/og.png" /></div>
+          </div>
+          <div class="mt-4"><label class="field-label">Default meta description</label><textarea id="set-seo_description" rows="2" class="field" placeholder="Technology, design and business solutions for African organizations."></textarea></div>
         </div>
 
         <div class="flex gap-3 mt-6">

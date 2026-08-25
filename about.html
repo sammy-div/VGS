@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Sora','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=2" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=3" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
@@ -26,12 +26,15 @@
   <main id="main">
 
   <!-- Hero -->
-  <section class="relative overflow-hidden pt-32 md:pt-40 pb-16">
+  <section class="theme-blue tex tex-glow relative overflow-hidden pt-32 md:pt-40 pb-16">
     <div class="shell grid lg:grid-cols-12 gap-10 items-center">
       <div class="lg:col-span-7">
-        <span class="eyebrow reveal">About Vatous</span>
-        <h1 class="h-hero mt-4 reveal" data-delay="1">We help African organizations run on <span class="teal">systems that work</span>.</h1>
+        <span class="h-eyebrow reveal">About Vatous</span>
+        <h1 class="h-display mt-4 reveal" data-delay="1">We help African organizations run on <span class="hl">systems that work</span>.</h1>
         <p class="lead mt-5 max-w-[54ch] reveal" data-delay="2">Founded to close the gap between ambition and execution, Vatous Global Solutions brings enterprise-grade engineering, AI and consulting to businesses across the continent.</p>
+        <div class="flex flex-wrap gap-2 mt-6 reveal" data-delay="3">
+          <span class="chip theme-blue">Technology</span><span class="chip theme-cyan">Design</span><span class="chip theme-violet">Consulting</span><span class="chip theme-emerald">Training</span>
+        </div>
       </div>
       <!-- Unique illustration: ascending growth path with milestone nodes -->
       <div class="lg:col-span-5 relative h-[300px] hidden md:block reveal" data-delay="2" aria-hidden="true">
@@ -51,16 +54,16 @@
   </section>
 
   <!-- Story (magazine alternating) -->
-  <section class="section">
+  <section class="surface-panel theme-cyan section">
     <div class="shell grid lg:grid-cols-2 gap-14 items-center">
       <div class="reveal">
-        <span class="eyebrow">Our story</span>
+        <span class="h-eyebrow">Our story</span>
         <h2 class="h-section mt-3">Built from the operations floor up</h2>
         <p class="lead mt-4">Vatous began with a simple observation: most African businesses don't fail for lack of ambition — they lose time, money and momentum to broken processes, disconnected tools and manual work that quietly compounds.</p>
         <p class="lead mt-4">We set out to fix that with a different kind of firm — one that combines the engineering depth of a product studio, the rigour of a consultancy, and a deep understanding of how organizations actually operate on the ground.</p>
       </div>
       <div class="reveal">
-        <div class="glass rounded-2xl p-8 grid-lines-r">
+        <div class="card-elevated p-8">
           <div class="grid grid-cols-2 gap-6">
             <div><div class="stat-num" data-count="2019">0</div><p class="text-mute text-sm mt-1">Founded</p></div>
             <div><div class="stat-num" data-count="8" data-suffix="+">0</div><p class="text-mute text-sm mt-1">Markets</p></div>
@@ -73,7 +76,7 @@
   </section>
 
   <!-- Vision / Mission -->
-  <section class="section">
+  <section class="theme-violet section">
     <div class="shell grid md:grid-cols-2 gap-6">
       <div class="card pop tint-blue reveal" data-anim="left">
         <span class="tile tile-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg></span>
@@ -89,9 +92,9 @@
   </section>
 
   <!-- Core values -->
-  <section class="section">
+  <section class="tex tex-dots theme-emerald section">
     <div class="shell">
-      <div class="max-w-2xl reveal"><span class="eyebrow">Core values</span><h2 class="h-section mt-3">What we hold to</h2></div>
+      <div class="max-w-2xl reveal"><span class="h-eyebrow">Core values</span><h2 class="h-section mt-3">What we hold to</h2></div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mt-10">
         <div class="card pop tint-indigo reveal" data-anim="right"><h3 class="h-card">Clarity first</h3><p class="text-soft text-sm mt-2">We reduce complexity, not add to it. Plain language, sharp thinking.</p></div>
         <div class="card pop tint-violet reveal" data-anim="scale" data-delay="1"><h3 class="h-card">Outcomes, not output</h3><p class="text-soft text-sm mt-2">Success is measured in your operations, not our invoice.</p></div>
@@ -104,7 +107,7 @@
   </section>
 
   <!-- Founder -->
-  <section class="section">
+  <section class="surface-sunken theme-blue section">
     <div class="shell grid lg:grid-cols-2 gap-14 items-center">
       <div class="reveal">
         <div class="glass rounded-2xl p-8 relative overflow-hidden">
@@ -115,7 +118,7 @@
         </div>
       </div>
       <div class="reveal">
-        <span class="eyebrow">Founder</span>
+        <span class="h-eyebrow">Founder</span>
         <h2 class="h-section mt-3">A practitioner's firm</h2>
         <p class="lead mt-4">“I've seen brilliant teams held back by tools that fight them. Vatous exists to remove that friction — to build the quiet infrastructure that lets good people do their best work.”</p>
         <p class="lead mt-4">Under Sam's leadership, Vatous stays deliberately senior and hands-on: the people you meet are the people who do the work.</p>
@@ -124,9 +127,9 @@
   </section>
 
   <!-- Timeline -->
-  <section class="section">
+  <section class="theme-amber section">
     <div class="shell">
-      <div class="max-w-2xl reveal"><span class="eyebrow">Milestones</span><h2 class="h-section mt-3">The road so far</h2></div>
+      <div class="max-w-2xl reveal"><span class="h-eyebrow">Milestones</span><h2 class="h-section mt-3">The road so far</h2></div>
       <div class="mt-10 space-y-0">
         <div class="grid md:grid-cols-[120px_1fr] gap-6 py-6 border-b border-[#0F172A]/8 reveal"><span class="teal font-head font-extrabold text-xl">2019</span><div><h3 class="h-card">Vatous is founded</h3><p class="text-soft text-sm mt-1">First engagements with SMEs modernizing manual operations.</p></div></div>
         <div class="grid md:grid-cols-[120px_1fr] gap-6 py-6 border-b border-[#0F172A]/8 reveal"><span class="teal font-head font-extrabold text-xl">2021</span><div><h3 class="h-card">Enterprise practice launches</h3><p class="text-soft text-sm mt-1">Platform builds for banking and healthcare clients.</p></div></div>
@@ -137,10 +140,10 @@
   </section>
 
   <!-- Culture + Manifesto -->
-  <section class="section">
+  <section class="theme-violet section">
     <div class="shell grid lg:grid-cols-2 gap-14 items-center">
       <div class="reveal">
-        <span class="eyebrow">Culture</span>
+        <span class="h-eyebrow">Culture</span>
         <h2 class="h-section mt-3">Small teams, high trust</h2>
         <p class="lead mt-4">We keep teams lean and senior, give people real ownership, and protect deep-focus time. We'd rather do a few things exceptionally than many things adequately.</p>
         <ul class="mt-6 space-y-3 text-soft">
@@ -150,7 +153,7 @@
         </ul>
       </div>
       <div class="glass rounded-3xl p-10 reveal">
-        <span class="eyebrow">Why we exist</span>
+        <span class="h-eyebrow">Why we exist</span>
         <p class="text-2xl md:text-3xl font-head font-extrabold leading-tight mt-4">Technology should make an organization <span class="teal">calmer</span>, not busier. We exist to build the systems that give people back their time and their focus.</p>
       </div>
     </div>
@@ -159,11 +162,12 @@
   <!-- CTA -->
   <section class="section">
     <div class="shell">
-      <div class="glass rounded-3xl p-10 md:p-14 text-center reveal">
-        <h2 class="h-section max-w-2xl mx-auto">Want to work with a team that <span class="teal">thinks first</span>?</h2>
-        <div class="flex flex-wrap gap-2.5 justify-center mt-8">
-          <a href="contact.html" class="btn btn-primary justify-center">Book a Consultation</a>
-          <a href="careers.html" class="btn btn-ghost justify-center">Join the Team</a>
+      <div class="relative overflow-hidden rounded-3xl p-10 md:p-14 text-center reveal" style="background:linear-gradient(135deg,#071B78,#3E63C8 55%,#14D3C7)">
+        <div class="tex-paper absolute inset-0 opacity-20" aria-hidden="true"></div>
+        <h2 class="h-section relative max-w-2xl mx-auto text-white">Want to work with a team that thinks first?</h2>
+        <div class="relative flex flex-wrap gap-2.5 justify-center mt-8">
+          <a href="contact.html" class="btn" style="background:#fff;color:#071B78">Book a consultation</a>
+          <a href="careers.html" class="btn btn-ghost" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)">Join the team</a>
         </div>
       </div>
     </div>
@@ -171,7 +175,7 @@
 
   </main>
   <div id="site-footer"></div>
-  <script src="assets/js/components.js?v=2"></script>
-  <script src="assets/js/main.js?v=2"></script>
+  <script src="assets/js/components.js?v=3"></script>
+  <script src="assets/js/main.js?v=3"></script>
 </body>
 </html>
