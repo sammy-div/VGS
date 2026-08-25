@@ -255,7 +255,7 @@
   })();
 
   /* ---- Typography: apply admin font choices as CSS variables ---- */
-  var VG_LOADED_FONTS = { Inter: 1, Sora: 1, Manrope: 1 };
+  var VG_LOADED_FONTS = { Inter: 1, 'Space Grotesk': 1, Manrope: 1, 'JetBrains Mono': 1, Sora: 1 };
   function loadGoogleFont(family) {
     if (!family || VG_LOADED_FONTS[family]) return;
     VG_LOADED_FONTS[family] = 1;

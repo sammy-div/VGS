@@ -399,8 +399,8 @@
     let current = {};
 
     /* ---- Typography controls ---- */
-    const FONT_CHOICES = ['Sora', 'Inter', 'Manrope', 'Space Grotesk', 'Plus Jakarta Sans', 'Outfit', 'DM Sans', 'Poppins', 'Work Sans', 'Figtree', 'Lexend', 'IBM Plex Sans'];
-    const FONT_DEFAULTS = { primary: 'Sora', secondary: 'Inter', tertiary: 'Manrope' };
+    const FONT_CHOICES = ['Space Grotesk', 'Sora', 'Inter', 'Manrope', 'JetBrains Mono', 'Plus Jakarta Sans', 'Outfit', 'DM Sans', 'Syne', 'Poppins', 'Work Sans', 'Figtree', 'Lexend', 'IBM Plex Sans'];
+    const FONT_DEFAULTS = { primary: 'Space Grotesk', secondary: 'Inter', tertiary: 'Manrope' };
     const loadFont = (fam) => (window.VG_loadGoogleFont ? window.VG_loadGoogleFont(fam) : null);
     function initFontSelects() {
       document.querySelectorAll('select[data-font-role]').forEach(sel => {
