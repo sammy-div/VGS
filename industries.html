@@ -21,36 +21,29 @@
   <div id="site-header"></div>
   <main id="main">
 
-  <section class="theme-emerald tex tex-glow relative overflow-hidden pt-32 md:pt-40 pb-12">
-    <div class="shell grid lg:grid-cols-2 gap-12 items-center">
-      <div>
-        <span class="h-eyebrow reveal">Industries</span>
-        <h1 class="h-hero mt-4 reveal" data-delay="1">Solutions tuned to the <span class="teal">realities of your sector</span>.</h1>
-        <p class="lead mt-5 max-w-[52ch] reveal" data-delay="2">Every industry has its own constraints, regulations and rhythms. We bring patterns that work across sectors — adapted to the specifics of yours.</p>
-        <div class="flex flex-wrap gap-2.5 mt-8 reveal" data-delay="3">
+  <section class="theme-emerald tex tex-glow pt-32 md:pt-40 pb-12 relative overflow-hidden">
+    <div class="shell grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div class="lg:col-span-6">
+        <span class="h-eyebrow">Industries</span>
+        <h1 class="h-display mt-4 reveal">Solutions tuned to the <span class="hl">realities of your sector</span>.</h1>
+        <p class="lead mt-5 max-w-[52ch] reveal" data-delay="1">Every industry has its own constraints, regulations and rhythms. We bring patterns that work across sectors — adapted to the specifics of yours.</p>
+        <div class="flex flex-wrap gap-2.5 mt-8 reveal" data-delay="2">
           <a href="contact.html" class="btn btn-primary">Talk about your sector</a>
           <a href="#sectors" class="btn btn-ghost">Browse industries</a>
         </div>
       </div>
-      <!-- Unique illustration: orbiting sector nodes around a hub -->
-      <div class="relative h-[340px] hidden md:block reveal" data-delay="2" aria-hidden="true">
-        <svg class="spin-slow absolute inset-0 m-auto w-[300px] h-[300px]" viewBox="0 0 300 300" fill="none">
-          <circle cx="150" cy="150" r="120" stroke="rgba(15,23,42,.08)" stroke-width="1"/>
-          <circle cx="150" cy="150" r="82" stroke="rgba(15,23,42,.06)" stroke-width="1" stroke-dasharray="3 8"/>
-          <circle cx="150" cy="30" r="7" fill="#537AD2"/>
-          <circle cx="270" cy="150" r="7" fill="#6366F1"/>
-          <circle cx="150" cy="270" r="7" fill="#14D3C7"/>
-          <circle cx="30" cy="150" r="7" fill="#8b5cf6"/>
-          <circle cx="235" cy="65" r="5" fill="#38A0E8"/>
-          <circle cx="235" cy="235" r="5" fill="#537AD2"/>
-          <circle cx="65" cy="235" r="5" fill="#6366F1"/>
-          <circle cx="65" cy="65" r="5" fill="#14D3C7"/>
-        </svg>
-        <span class="absolute inset-0 m-auto w-24 h-24 rounded-2xl bg-[#FFFFFF] border border-[#0F172A]/10 flex items-center justify-center shadow-[0_30px_60px_-30px_rgba(0,0,0,.9)]">
-          <svg width="34" height="34" viewBox="0 0 32 32" fill="none"><path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/><path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/></svg>
-        </span>
-        <span class="ring-pulse absolute inset-0 m-auto w-24 h-24 rounded-2xl border border-vgblue2/40"></span>
-      </div>
+      <div class="lg:col-span-6 relative reveal" data-delay="1"><div class="relative mx-auto max-w-[440px]">
+        <div class="card-elevated p-5">
+          <div class="flex items-center justify-between mb-4"><span class="text-sm font-semibold">Sector coverage</span><span class="chip theme-emerald">8 industries</span></div>
+          <ul class="space-y-3">
+            <li class="flex items-center gap-3"><span class="tile tile-blue !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 21h18M6 21V9l6-4 6 4v12"/></svg></span><div class="flex-1"><p class="text-sm font-semibold">Financial services</p><div class="meter mt-1"><span style="width:92%"></span></div></div></li>
+            <li class="flex items-center gap-3"><span class="tile tile-cyan !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2 4 4 0 0 1 7 2c0 5.5-7 10-7 10z"/></svg></span><div class="flex-1"><p class="text-sm font-semibold">Healthcare</p><div class="meter mt-1"><span style="width:80%"></span></div></div></li>
+            <li class="flex items-center gap-3"><span class="tile tile-violet !w-8 !h-8"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h13v10H3zM16 10h3l2 3v4h-5"/><circle cx="7" cy="18" r="1.5"/><circle cx="18" cy="18" r="1.5"/></svg></span><div class="flex-1"><p class="text-sm font-semibold">Logistics</p><div class="meter mt-1"><span style="width:74%"></span></div></div></li>
+          </ul>
+        </div>
+        <div class="fcard float-2 fabs -right-3 -top-4 w-[160px]"><p class="fcard-row"><span class="fcard-check">✓</span><span class="font-semibold text-xs">Regulated-ready</span></p><p class="text-[11px] text-mute mt-1">audit &amp; access control</p></div>
+        <div class="fcard bob fabs -left-3 -bottom-5 w-[150px]" style="animation-delay:.6s"><p class="fcard-label mb-1">Live in</p><p class="text-sm font-semibold">8 markets</p></div>
+      </div></div>
     </div>
   </section>
 

@@ -21,16 +21,32 @@
   <div id="site-header"></div>
   <main id="main">
 
-  <section class="theme-cyan tex tex-glow pt-36 pb-8 relative overflow-hidden">
-    <div class="absolute top-16 right-[3vw] w-[260px] h-[200px] hidden lg:block pointer-events-none opacity-90" aria-hidden="true"><svg viewBox="0 0 260 200" fill="none"><g class="bob"><rect x="66" y="40" width="128" height="40" rx="10" fill="#FFFFFF" stroke="rgba(15,23,42,.1)"/><rect x="80" y="52" width="40" height="6" rx="3" fill="#537AD2"/><rect x="80" y="64" width="88" height="4" rx="2" fill="rgba(15,23,42,.14)"/></g><g class="bob" style="animation-delay:.5s"><rect x="66" y="88" width="128" height="40" rx="10" fill="#FFFFFF" stroke="rgba(15,23,42,.1)"/><rect x="80" y="100" width="40" height="6" rx="3" fill="#6366F1"/><rect x="80" y="112" width="76" height="4" rx="2" fill="rgba(15,23,42,.14)"/></g><g class="bob" style="animation-delay:1s"><rect x="66" y="136" width="128" height="40" rx="10" fill="#FFFFFF" stroke="rgba(20,211,199,.4)"/><rect x="80" y="148" width="40" height="6" rx="3" fill="#14D3C7"/><rect x="80" y="160" width="64" height="4" rx="2" fill="rgba(15,23,42,.16)"/></g></svg></div>
-    <div class="shell max-w-3xl reveal">
-      <span class="h-eyebrow">Insights</span>
-      <h1 class="h-hero mt-4">Ideas worth <span class="teal">your time</span>.</h1>
-      <p class="lead mt-5 max-w-2xl">Practical writing on systems, automation and AI — grounded in what actually works for African organizations.</p>
+  <section class="theme-cyan tex tex-glow pt-32 md:pt-40 pb-12 relative overflow-hidden">
+    <div class="shell grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+      <div class="lg:col-span-6">
+        <span class="h-eyebrow">Insights</span>
+        <h1 class="h-display mt-4 reveal">Ideas worth <span class="hl">your time</span>.</h1>
+        <p class="lead mt-5 max-w-[52ch] reveal" data-delay="1">Practical writing on systems, automation and AI — grounded in what actually works for African organizations.</p>
+        <div class="flex flex-wrap gap-2.5 mt-8 reveal" data-delay="2">
+          <a href="#posts" class="btn btn-primary">Read the latest</a>
+          <a href="contact.html" class="btn btn-ghost">Work with us</a>
+        </div>
+      </div>
+      <div class="lg:col-span-6 relative reveal" data-delay="1"><div class="relative mx-auto max-w-[440px]">
+        <div class="card-elevated overflow-hidden">
+          <div class="h-32 surface-tint theme-cyan border-b border-[#0B1220]/8 relative flex items-center justify-center"><svg class="w-full h-full absolute inset-0" viewBox="0 0 400 130" preserveAspectRatio="none" aria-hidden="true"><polyline class="draw-in" points="0,100 60,70 120,84 200,40 280,58 400,20" stroke="#0E7490" stroke-width="2.5" fill="none"/></svg><span class="chip theme-cyan relative">Featured</span></div>
+          <div class="p-5">
+            <p class="fcard-label">Automation · 6 min read</p>
+            <h3 class="h-card mt-2">The quiet cost of copy-paste work</h3>
+            <p class="text-soft small mt-2">Why manual re-entry compounds — and how to measure what it's costing your team.</p>
+          </div>
+        </div>
+        <div class="fcard bob fabs -right-3 -bottom-5 w-[150px]"><p class="fcard-label mb-1">New each</p><p class="text-sm font-semibold">Month</p></div>
+      </div></div>
     </div>
   </section>
 
-  <section class="theme-blue section pt-4" data-filter-root>
+  <section id="posts" class="theme-blue section pt-4" data-filter-root>
     <div class="shell">
       <div class="flex flex-col md:flex-row md:items-center gap-4 justify-between mb-8 reveal">
         <div class="flex flex-wrap gap-2" role="group" aria-label="Filter by category">
