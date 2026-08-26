@@ -216,6 +216,10 @@
         var s = rows && rows[0];
         if (!s) return;
 
+        // Expose settings so individual pages can render structured content.
+        window.VG_SETTINGS = s;
+        try { document.dispatchEvent(new CustomEvent('vg:settings', { detail: s })); } catch (_) {}
+
         // Typography — admin-controlled 3-font system + global scale
         applyTypography(s);
 

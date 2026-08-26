@@ -18,7 +18,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Space Grotesk','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=8" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=9" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
@@ -31,7 +31,7 @@
       <div class="lg:col-span-7">
         <span class="h-eyebrow reveal">About Vatous</span>
         <h1 class="h-display mt-4 reveal" data-delay="1">We help African organizations run on <span class="hl">systems that work</span>.</h1>
-        <p class="lead mt-5 max-w-[54ch] reveal" data-delay="2">Founded to close the gap between ambition and execution, Vatous Global Solutions brings enterprise-grade engineering, AI and consulting to businesses across the continent.</p>
+        <p class="lead mt-5 max-w-[54ch] reveal" data-delay="2" data-setting="about_intro">Founded to close the gap between ambition and execution, Vatous Global Solutions brings enterprise-grade engineering, AI and consulting to businesses across the continent.</p>
         <div class="flex flex-wrap gap-2 mt-6 reveal" data-delay="3">
           <span class="chip theme-blue">Technology</span><span class="chip theme-cyan">Design</span><span class="chip theme-violet">Consulting</span><span class="chip theme-emerald">Training</span>
         </div>
@@ -59,8 +59,8 @@
       <div class="reveal">
         <span class="h-eyebrow">Our story</span>
         <h2 class="h-section mt-3">Built from the operations floor up</h2>
-        <p class="lead mt-4">Vatous began with a simple observation: most African businesses don't fail for lack of ambition — they lose time, money and momentum to broken processes, disconnected tools and manual work that quietly compounds.</p>
-        <p class="lead mt-4">We set out to fix that with a different kind of firm — one that combines the engineering depth of a product studio, the rigour of a consultancy, and a deep understanding of how organizations actually operate on the ground.</p>
+        <p class="lead mt-4" data-setting="about_story1">Vatous began with a simple observation: most African businesses don't fail for lack of ambition — they lose time, money and momentum to broken processes, disconnected tools and manual work that quietly compounds.</p>
+        <p class="lead mt-4" data-setting="about_story2">We set out to fix that with a different kind of firm — one that combines the engineering depth of a product studio, the rigour of a consultancy, and a deep understanding of how organizations actually operate on the ground.</p>
       </div>
       <div class="reveal">
         <div class="card-elevated p-8">
@@ -81,12 +81,12 @@
       <div class="card pop tint-blue reveal" data-anim="left">
         <span class="tile tile-teal"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7-10-7-10-7z"/></svg></span>
         <h2 class="h-card mt-4 text-2xl">Our vision</h2>
-        <p class="lead mt-3">An Africa where every serious organization runs on dependable systems — where technology quietly amplifies people instead of getting in their way.</p>
+        <p class="lead mt-3" data-setting="about_vision">An Africa where every serious organization runs on dependable systems — where technology quietly amplifies people instead of getting in their way.</p>
       </div>
       <div class="card pop tint-cyan reveal" data-anim="rise" data-delay="1">
         <span class="tile tile-blue"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/><circle cx="12" cy="12" r="9"/></svg></span>
         <h2 class="h-card mt-4 text-2xl">Our mission</h2>
-        <p class="lead mt-3">To design, build and hand over the systems, automation and AI tools that make African businesses faster, clearer and more resilient.</p>
+        <p class="lead mt-3" data-setting="about_mission">To design, build and hand over the systems, automation and AI tools that make African businesses faster, clearer and more resilient.</p>
       </div>
     </div>
   </section>
@@ -111,16 +111,17 @@
     <div class="shell grid lg:grid-cols-2 gap-14 items-center">
       <div class="reveal">
         <div class="glass rounded-2xl p-8 relative overflow-hidden">
-          <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-vgblue to-vgteal/40 flex items-center justify-center font-head font-extrabold text-3xl">SA</div>
-          <h3 class="text-2xl font-head font-extrabold mt-5">Sam Ayodele</h3>
-          <p class="teal text-sm font-semibold">Founder & Principal Consultant</p>
-          <p class="text-soft mt-4">Sam founded Vatous after more than a decade building and leading technology across financial services, logistics and the public sector. He started the firm to prove that African organizations deserve — and can run — systems as good as anywhere in the world.</p>
+          <img data-setting-src="founder_photo" alt="Sam Ayodele" class="hidden w-24 h-24 rounded-2xl object-cover" />
+          <div data-fallback="founder_photo" class="w-24 h-24 rounded-2xl bg-gradient-to-br from-vgblue to-vgteal/40 flex items-center justify-center font-head font-extrabold text-3xl">SA</div>
+          <h3 class="text-2xl font-head font-extrabold mt-5" data-setting="founder_name">Sam Ayodele</h3>
+          <p class="teal text-sm font-semibold" data-setting="founder_role">Founder & Principal Consultant</p>
+          <p class="text-soft mt-4" data-setting="founder_bio">Sam founded Vatous after more than a decade building and leading technology across financial services, logistics and the public sector. He started the firm to prove that African organizations deserve — and can run — systems as good as anywhere in the world.</p>
         </div>
       </div>
       <div class="reveal">
         <span class="h-eyebrow">Founder</span>
         <h2 class="h-section mt-3">A practitioner's firm</h2>
-        <p class="lead mt-4">“I've seen brilliant teams held back by tools that fight them. Vatous exists to remove that friction — to build the quiet infrastructure that lets good people do their best work.”</p>
+        <p class="lead mt-4" data-setting="founder_quote">“I've seen brilliant teams held back by tools that fight them. Vatous exists to remove that friction — to build the quiet infrastructure that lets good people do their best work.”</p>
         <p class="lead mt-4">Under Sam's leadership, Vatous stays deliberately senior and hands-on: the people you meet are the people who do the work.</p>
       </div>
     </div>
@@ -130,7 +131,7 @@
   <section class="theme-amber section">
     <div class="shell">
       <div class="max-w-2xl reveal"><span class="h-eyebrow">Milestones</span><h2 class="h-section mt-3">The road so far</h2></div>
-      <div class="mt-10 space-y-0">
+      <div class="mt-10 space-y-0" data-milestones>
         <div class="grid md:grid-cols-[120px_1fr] gap-6 py-6 border-b border-[#0F172A]/8 reveal"><span class="teal font-head font-extrabold text-xl">2019</span><div><h3 class="h-card">Vatous is founded</h3><p class="text-soft text-sm mt-1">First engagements with SMEs modernizing manual operations.</p></div></div>
         <div class="grid md:grid-cols-[120px_1fr] gap-6 py-6 border-b border-[#0F172A]/8 reveal"><span class="teal font-head font-extrabold text-xl">2021</span><div><h3 class="h-card">Enterprise practice launches</h3><p class="text-soft text-sm mt-1">Platform builds for banking and healthcare clients.</p></div></div>
         <div class="grid md:grid-cols-[120px_1fr] gap-6 py-6 border-b border-[#0F172A]/8 reveal"><span class="teal font-head font-extrabold text-xl">2023</span><div><h3 class="h-card">AI solutions team formed</h3><p class="text-soft text-sm mt-1">Responsible, grounded AI tools deployed into real workflows.</p></div></div>
@@ -154,7 +155,7 @@
       </div>
       <div class="glass rounded-3xl p-10 reveal">
         <span class="h-eyebrow">Why we exist</span>
-        <p class="text-2xl md:text-3xl font-head font-extrabold leading-tight mt-4">Technology should make an organization <span class="teal">calmer</span>, not busier. We exist to build the systems that give people back their time and their focus.</p>
+        <p class="text-2xl md:text-3xl font-head font-extrabold leading-tight mt-4" data-setting="about_culture">Technology should make an organization calmer, not busier. We exist to build the systems that give people back their time and their focus.</p>
       </div>
     </div>
   </section>
@@ -175,7 +176,31 @@
 
   </main>
   <div id="site-footer"></div>
-  <script src="assets/js/components.js?v=8"></script>
-  <script src="assets/js/main.js?v=8"></script>
+  <script src="assets/js/components.js?v=9"></script>
+  <script src="assets/js/main.js?v=9"></script>
+  <script>
+    /* Render admin-managed milestones. Admin format: one per line —
+       "YEAR | Title | Description". Falls back to the static rows if unset. */
+    (function () {
+      var box = document.querySelector('[data-milestones]');
+      if (!box) return;
+      function render(s) {
+        if (!s || !s.about_milestones) return;
+        var rows = s.about_milestones.split('\n').map(function (l) { return l.trim(); }).filter(Boolean);
+        if (!rows.length) return;
+        box.innerHTML = rows.map(function (line, i) {
+          var p = line.split('|').map(function (x) { return x.trim(); });
+          var year = p[0] || '', title = p[1] || '', desc = p[2] || '';
+          var border = i < rows.length - 1 ? ' border-b border-[#0F172A]/8' : '';
+          return '<div class="grid md:grid-cols-[120px_1fr] gap-6 py-6' + border + ' reveal is-visible">' +
+            '<span class="teal font-head font-extrabold text-xl">' + year + '</span>' +
+            '<div><h3 class="h-card">' + title + '</h3>' +
+            (desc ? '<p class="text-soft text-sm mt-1">' + desc + '</p>' : '') + '</div></div>';
+        }).join('');
+      }
+      if (window.VG_SETTINGS) render(window.VG_SETTINGS);
+      document.addEventListener('vg:settings', function (e) { render(e.detail); });
+    })();
+  </script>
 </body>
 </html>

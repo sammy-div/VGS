@@ -9,7 +9,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
   <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Space Grotesk','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
-  <link rel="stylesheet" href="../assets/css/styles.css?v=8" />
+  <link rel="stylesheet" href="../assets/css/styles.css?v=9" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
@@ -137,11 +137,70 @@
           <div class="mt-4"><label class="field-label">Default meta description</label><textarea id="set-seo_description" rows="2" class="field" placeholder="Technology, design and business solutions for African organizations."></textarea></div>
         </div>
 
+        <!-- About page content -->
+        <div class="admin-card p-5 mt-5" id="about">
+          <h2 class="font-head font-bold mb-1">About page</h2>
+          <p class="text-mute text-sm mb-5">Every About section is editable here. Changes appear on the next page load.</p>
+          <div class="mb-4"><label class="field-label">Intro</label><textarea id="set-about_intro" rows="2" class="field"></textarea></div>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="field-label">Story — paragraph 1</label><textarea id="set-about_story1" rows="3" class="field"></textarea></div>
+            <div><label class="field-label">Story — paragraph 2</label><textarea id="set-about_story2" rows="3" class="field"></textarea></div>
+            <div><label class="field-label">Mission</label><textarea id="set-about_mission" rows="3" class="field"></textarea></div>
+            <div><label class="field-label">Vision</label><textarea id="set-about_vision" rows="3" class="field"></textarea></div>
+          </div>
+          <div class="mt-5 grid sm:grid-cols-[auto_1fr] gap-5 items-start">
+            <div>
+              <label class="field-label">Founder photo</label>
+              <div class="flex items-center gap-3">
+                <div class="w-20 h-20 rounded-xl bg-[#F1F3F7] border border-[#0F172A]/10 flex items-center justify-center overflow-hidden"><img id="founder-preview" alt="Founder" class="w-full h-full object-cover hidden" /><span id="founder-empty" class="text-mute text-xs">None</span></div>
+                <div class="flex flex-col gap-2"><button type="button" id="founder-btn" class="btn btn-ghost !py-2 text-sm">Upload</button><button type="button" id="founder-clear" class="text-mute text-xs hover:text-[#0F172A] text-left">Remove</button></div>
+                <input type="file" id="founder-file" accept="image/png,image/jpeg,image/webp" class="hidden" />
+              </div>
+            </div>
+            <div class="grid sm:grid-cols-2 gap-4">
+              <div><label class="field-label">Founder name</label><input id="set-founder_name" type="text" class="field" /></div>
+              <div><label class="field-label">Founder role</label><input id="set-founder_role" type="text" class="field" /></div>
+            </div>
+          </div>
+          <div class="mt-4"><label class="field-label">Founder bio</label><textarea id="set-founder_bio" rows="3" class="field"></textarea></div>
+          <div class="mt-4"><label class="field-label">Founder quote</label><textarea id="set-founder_quote" rows="2" class="field"></textarea></div>
+          <div class="mt-4"><label class="field-label">Culture statement</label><textarea id="set-about_culture" rows="2" class="field"></textarea></div>
+          <div class="mt-4"><label class="field-label">Milestones — one per line: <code>YEAR | Title | Description</code></label><textarea id="set-about_milestones" rows="5" class="field" placeholder="2019 | Vatous is founded | First engagements with SMEs…"></textarea></div>
+        </div>
+
+        <!-- Joblira product & case study -->
+        <div class="admin-card p-5 mt-5" id="joblira">
+          <h2 class="font-head font-bold mb-1">Joblira — product &amp; case study</h2>
+          <p class="text-mute text-sm mb-5">Manage the flagship Joblira product page and homepage feature.</p>
+          <div class="grid sm:grid-cols-2 gap-4">
+            <div><label class="field-label">Name</label><input id="set-joblira_name" type="text" class="field" placeholder="Joblira" /></div>
+            <div><label class="field-label">Live link (URL)</label><input id="set-joblira_link" type="url" class="field" placeholder="https://joblira.ng" /></div>
+          </div>
+          <div class="mt-4"><label class="field-label">Tagline</label><input id="set-joblira_tagline" type="text" class="field" /></div>
+          <div class="mt-4"><label class="field-label">Intro</label><textarea id="set-joblira_intro" rows="2" class="field"></textarea></div>
+          <div class="mt-4">
+            <label class="field-label">Product image / screenshot</label>
+            <div class="flex items-center gap-3">
+              <div class="w-28 h-16 rounded-lg bg-[#F1F3F7] border border-[#0F172A]/10 flex items-center justify-center overflow-hidden"><img id="joblira-preview" alt="Joblira" class="w-full h-full object-cover hidden" /><span id="joblira-empty" class="text-mute text-xs">Mockup</span></div>
+              <div class="flex flex-col gap-2"><button type="button" id="joblira-btn" class="btn btn-ghost !py-2 text-sm">Upload</button><button type="button" id="joblira-clear" class="text-mute text-xs hover:text-[#0F172A] text-left">Remove</button></div>
+              <input type="file" id="joblira-file" accept="image/png,image/jpeg,image/webp" class="hidden" />
+            </div>
+            <p class="text-mute text-xs mt-2">Leave empty to use the built-in animated mockup.</p>
+          </div>
+          <div class="grid sm:grid-cols-2 gap-4 mt-4">
+            <div><label class="field-label">Problem</label><textarea id="set-joblira_problem" rows="3" class="field"></textarea></div>
+            <div><label class="field-label">Why it matters</label><textarea id="set-joblira_why" rows="3" class="field"></textarea></div>
+            <div><label class="field-label">Challenge</label><textarea id="set-joblira_challenge" rows="3" class="field"></textarea></div>
+            <div><label class="field-label">Approach</label><textarea id="set-joblira_approach" rows="3" class="field"></textarea></div>
+            <div class="sm:col-span-2"><label class="field-label">Outcome</label><textarea id="set-joblira_outcome" rows="2" class="field"></textarea></div>
+          </div>
+        </div>
+
         <div class="flex gap-3 mt-6">
           <button type="button" id="settings-save" class="btn btn-primary">Save changes</button>
           <button type="button" id="settings-reload" class="btn btn-ghost">Reload</button>
         </div>
-        <p class="text-mute text-xs mt-4">Changes to contact details and social links appear across the public site on the next page load. Uploaded logo/favicon apply immediately.</p>
+        <p class="text-mute text-xs mt-4">Content, contact details, About, Joblira, social links and SEO appear across the public site on the next page load. Uploaded images apply immediately.</p>
       </main>
     </div>
   </div>

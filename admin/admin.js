@@ -394,7 +394,16 @@
       tagline: 'tagline', hero_eyebrow: 'hero_eyebrow', hero_subheading: 'hero_subheading',
       brand_description: 'brand_description', hero_cta: 'hero_cta', hero_cta2: 'hero_cta2',
       announcement: 'announcement', business_hours: 'business_hours',
-      seo_title: 'seo_title', seo_description: 'seo_description', og_image: 'og_image'
+      seo_title: 'seo_title', seo_description: 'seo_description', og_image: 'og_image',
+      // Joblira product / case study
+      joblira_name: 'joblira_name', joblira_tagline: 'joblira_tagline', joblira_intro: 'joblira_intro',
+      joblira_link: 'joblira_link', joblira_problem: 'joblira_problem', joblira_why: 'joblira_why',
+      joblira_challenge: 'joblira_challenge', joblira_approach: 'joblira_approach', joblira_outcome: 'joblira_outcome',
+      // About page
+      about_intro: 'about_intro', about_story1: 'about_story1', about_story2: 'about_story2',
+      about_mission: 'about_mission', about_vision: 'about_vision', about_culture: 'about_culture',
+      about_milestones: 'about_milestones', founder_name: 'founder_name', founder_role: 'founder_role',
+      founder_bio: 'founder_bio', founder_quote: 'founder_quote'
     };
     let current = {};
 
@@ -441,6 +450,8 @@
         g('set-type-scale').value = current.type_scale || 1;
         updatePreview();
         fillPreview('logo', current.logo_url); fillPreview('favicon', current.favicon_url);
+        if (g('founder-preview')) fillPreview('founder', current.founder_photo);
+        if (g('joblira-preview')) fillPreview('joblira', current.joblira_image);
         g('settings-status').textContent = 'Live settings loaded.';
       } catch (_) { g('settings-status').textContent = 'Could not load settings.'; }
     }
@@ -479,26 +490,28 @@
         });
         if (!up.ok) { const j = await up.json().catch(() => ({})); throw new Error(j.message || j.error || 'Upload failed'); }
         const publicUrl = `${VG_SB.url}/storage/v1/object/public/branding/${path}`;
-        const col = kind === 'logo' ? 'logo_url' : 'favicon_url';
+        const col = IMG_COL[kind];
         await patch({ [col]: publicUrl });
         current[col] = publicUrl; fillPreview(kind, publicUrl);
-        window.vgToast(kind === 'logo' ? 'Logo updated — live across the site.' : 'Favicon updated — live across the site.');
+        window.vgToast('Image updated — live across the site.');
       } catch (e) { window.vgToast(e.message || 'Upload failed.', 'error'); }
     }
 
     async function clearBranding(kind) {
       if (!vgToken()) { window.vgToast('Sign in first.', 'error'); return; }
-      const col = kind === 'logo' ? 'logo_url' : 'favicon_url';
-      try { await patch({ [col]: null }); current[col] = null; fillPreview(kind, null); window.vgToast(kind === 'logo' ? 'Logo removed — default restored.' : 'Favicon reset to default.'); }
+      const col = IMG_COL[kind];
+      try { await patch({ [col]: null }); current[col] = null; fillPreview(kind, null); window.vgToast('Image removed — default restored.'); }
       catch (e) { window.vgToast(e.message || 'Failed.', 'error'); }
     }
 
-    g('logo-btn').addEventListener('click', () => g('logo-file').click());
-    g('favicon-btn').addEventListener('click', () => g('favicon-file').click());
-    g('logo-file').addEventListener('change', (e) => uploadBranding('logo', e.target.files[0]));
-    g('favicon-file').addEventListener('change', (e) => uploadBranding('favicon', e.target.files[0]));
-    g('logo-clear').addEventListener('click', () => clearBranding('logo'));
-    g('favicon-clear').addEventListener('click', () => clearBranding('favicon'));
+    // kind -> settings column for every uploadable image
+    const IMG_COL = { logo: 'logo_url', favicon: 'favicon_url', founder: 'founder_photo', joblira: 'joblira_image' };
+    Object.keys(IMG_COL).forEach(function (kind) {
+      const b = g(kind + '-btn'), fl = g(kind + '-file'), cl = g(kind + '-clear');
+      if (b && fl) b.addEventListener('click', () => fl.click());
+      if (fl) fl.addEventListener('change', (e) => uploadBranding(kind, e.target.files[0]));
+      if (cl) cl.addEventListener('click', () => clearBranding(kind));
+    });
     g('settings-save').addEventListener('click', saveSettings);
     g('settings-reload').addEventListener('click', loadSettings);
     initFontSelects();
