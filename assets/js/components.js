@@ -36,8 +36,8 @@
   const NAV = [
     ['About', 'about.html'],
     ['Services', 'services.html'],
-    ['Industries', 'industries.html'],
-    ['Case Studies', 'case-studies.html'],
+    ['Academy', 'academy.html'],
+    ['Joblira', 'joblira.html'],
     ['Insights', 'blog.html'],
     ['Careers', 'careers.html']
   ];
@@ -50,7 +50,7 @@
   }).join('');
 
   const MOBILE_DOTS = ['#537AD2', '#14D3C7', '#8b5cf6', '#10B981', '#F59E0B', '#F43F5E', '#0EA5E9', '#6366F1'];
-  const mobileLinks = [['Home', 'index.html'], ...NAV, ['Resources', 'resources.html'], ['Contact', 'contact.html']]
+  const mobileLinks = [['Home', 'index.html'], ...NAV, ['Contact', 'contact.html']]
     .map(([label, href], i) => {
       const current = href === path ? ' aria-current="page"' : '';
       return `<a href="${href}"${current} class="flex items-center gap-3 py-2.5 text-lg font-head font-semibold text-soft hover:text-[#0F172A] transition-colors border-b border-[#0F172A]/6"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${MOBILE_DOTS[i % MOBILE_DOTS.length]}"></span>${label}</a>`;
@@ -59,7 +59,7 @@
 
   const header = `
   <header id="nav" class="nav">
-    <div class="shell flex items-center justify-between h-[72px]">
+    <div class="shell flex items-center justify-between h-[58px]">
       ${LOGO}
       <nav class="hidden lg:flex items-center gap-8" aria-label="Primary">
         ${navLinks}
@@ -104,9 +104,9 @@
             ${social('youtube', '#', 'YouTube', 'M23 12s0-3.2-.4-4.7c-.2-.9-.9-1.5-1.8-1.8C19.3 5 12 5 12 5s-7.3 0-8.8.5c-.9.3-1.6.9-1.8 1.8C1 8.8 1 12 1 12s0 3.2.4 4.7c.2.9.9 1.5 1.8 1.8C4.7 19 12 19 12 19s7.3 0 8.8-.5c.9-.3 1.6-.9 1.8-1.8.4-1.5.4-4.7.4-4.7zM9.8 15V9l5.2 3-5.2 3z', true)}
           </div>
         </div>
-        ${footerCol('Company', [['About', 'about.html'], ['Careers', 'careers.html'], ['Case Studies', 'case-studies.html'], ['Insights', 'blog.html'], ['Contact', 'contact.html']])}
+        ${footerCol('Company', [['About', 'about.html'], ['Careers', 'careers.html'], ['Joblira', 'joblira.html'], ['Insights', 'blog.html'], ['Contact', 'contact.html']])}
         ${footerCol('Services', [['Enterprise Technology', 'enterprise-technology.html'], ['AI Solutions', 'ai-solutions.html'], ['Automation', 'automation-integrations.html'], ['Business Advisory', 'business-advisory.html'], ['Branding & Creative', 'branding-creative.html'], ['Training Academy', 'training-academy.html']])}
-        ${footerCol('Explore', [['Industries', 'industries.html'], ['Resources', 'resources.html'], ['Services', 'services.html']])}
+        ${footerCol('Explore', [['Vatous Academy', 'academy.html'], ['Joblira', 'joblira.html'], ['Services', 'services.html']])}
         <div>
           <h4 class="foot-head font-head font-bold text-sm mb-4">Newsletter</h4>
           <p class="foot-desc text-sm mb-3">Practical insights on systems and automation. Monthly.</p>
@@ -242,23 +242,34 @@
           document.querySelectorAll('[data-social="' + k + '"]').forEach(function (el) { el.href = socials[k]; el.hidden = false; });
         });
 
-        // Text content (wherever [data-setting] exists) — contact + hero + brand copy
-        var texts = {
-          email: s.email, phone: s.phone, address: s.address,
-          brand_name: s.brand_name, brand_description: s.brand_description, tagline: s.tagline,
-          hero_eyebrow: s.hero_eyebrow, hero_subheading: s.hero_subheading,
-          hero_cta: s.hero_cta, hero_cta2: s.hero_cta2, business_hours: s.business_hours,
-          whatsapp_text: s.whatsapp_text
-        };
-        Object.keys(texts).forEach(function (k) {
-          if (texts[k] == null || texts[k] === '') return;
-          document.querySelectorAll('[data-setting="' + k + '"]').forEach(function (el) { el.textContent = texts[k]; });
+        // Generic text binding — any [data-setting="col"] gets s.col as text.
+        // Covers contact, hero, brand, About, Joblira and any future field.
+        document.querySelectorAll('[data-setting]').forEach(function (el) {
+          var k = el.getAttribute('data-setting');
+          if (s[k] != null && s[k] !== '') el.textContent = s[k];
         });
 
-        // Contact links (mailto / tel / wa.me)
-        if (s.email) document.querySelectorAll('[data-setting-href="email"]').forEach(function (el) { el.href = 'mailto:' + s.email; });
-        if (s.phone) document.querySelectorAll('[data-setting-href="phone"]').forEach(function (el) { el.href = 'tel:' + s.phone.replace(/[^+0-9]/g, ''); });
-        if (s.whatsapp) document.querySelectorAll('[data-setting-href="whatsapp"]').forEach(function (el) { el.href = s.whatsapp; });
+        // Generic link binding — [data-setting-href="col"]. email/phone/whatsapp
+        // get the right scheme; everything else is used as a raw URL.
+        document.querySelectorAll('[data-setting-href]').forEach(function (el) {
+          var k = el.getAttribute('data-setting-href'), v = null;
+          if (k === 'email' && s.email) v = 'mailto:' + s.email;
+          else if (k === 'phone' && s.phone) v = 'tel:' + s.phone.replace(/[^+0-9]/g, '');
+          else if (k === 'whatsapp' && s.whatsapp) v = s.whatsapp;
+          else if (s[k]) v = s[k];
+          if (v) el.href = v;
+        });
+
+        // Generic image binding — [data-setting-src="col"] swaps in an admin
+        // image and hides its [data-fallback="col"] illustration.
+        document.querySelectorAll('[data-setting-src]').forEach(function (el) {
+          var k = el.getAttribute('data-setting-src');
+          if (s[k]) {
+            el.src = s[k]; el.classList.remove('hidden');
+            var fb = document.querySelector('[data-fallback="' + k + '"]');
+            if (fb) fb.style.display = 'none';
+          }
+        });
 
         // SEO overrides (only when the page hasn't set a more specific value)
         if (s.seo_description) { var md = document.querySelector('meta[name="description"]'); if (md && !md.content) md.content = s.seo_description; }

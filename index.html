@@ -23,7 +23,7 @@
   <script>
     tailwind.config = { theme: { extend: { colors: { vgblue:'#071B78', vgblue2:'#537AD2', vgteal:'#14D3C7', vgbg:'#F6F4EF' }, fontFamily: { head:['Space Grotesk','Inter','sans-serif'], body:['Inter','sans-serif'], ui:['Manrope','Inter','sans-serif'] } } } };
   </script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=8" />
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"Organization","name":"Vatous Global Solutions","alternateName":"VG","url":"https://vatous.ng","logo":"https://vatous.ng/assets/images/logo.png","description":"Technology, design and business solutions for organizations across Africa.","areaServed":"Africa","sameAs":["https://www.linkedin.com/company/vatous"] }
   </script>
@@ -35,12 +35,20 @@
   <main id="main">
 
   <!-- ================= HERO ================= -->
-  <section class="theme-cyan tex tex-glow relative overflow-hidden pt-28 md:pt-36 pb-16 md:pb-24" aria-label="Introduction">
-    <div class="shell relative grid lg:grid-cols-12 gap-10 lg:gap-6 items-center">
+  <section class="theme-cyan hero-tex relative overflow-hidden pt-28 md:pt-32 pb-16 md:pb-24" aria-label="Introduction">
+    <span class="hero-blob hero-blob-1" aria-hidden="true"></span>
+    <span class="hero-blob hero-blob-2" aria-hidden="true"></span>
+    <div class="shell relative grid lg:grid-cols-12 gap-10 lg:gap-8 items-center">
       <div class="lg:col-span-6">
-        <span class="pill reveal">🌍 Trusted across 8 African markets</span>
-        <h1 class="h-display mt-5 reveal" data-delay="1">
-          We make complex operations <span class="mark mark-cyan">simple</span>.
+        <span class="pill reveal"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>Trusted across 8 African markets</span>
+        <h1 class="h-display hero-h1 mt-5 reveal" data-delay="1">
+          We make complex operations
+          <span class="rotator" data-rotator aria-live="polite">
+            <span data-slide class="rword">simpler.</span>
+            <span data-slide class="rword">clearer.</span>
+            <span data-slide class="rword">faster.</span>
+            <span data-slide class="rword">effortless.</span>
+          </span>
         </h1>
         <p class="lead mt-6 max-w-[52ch] reveal" data-delay="2" data-setting="hero_subheading">
           Vatous Global Solutions unites engineering, design and strategy to help
@@ -58,41 +66,57 @@
         </div>
       </div>
 
-      <!-- floating-card ecosystem -->
+      <!-- Single stacked, colourful, animated illustration -->
       <div class="lg:col-span-6 relative reveal" data-delay="2">
-        <div class="relative mx-auto max-w-[440px] h-[400px] sm:h-[440px]">
-          <svg class="spin-slow absolute -top-8 -right-4 w-32 h-32 opacity-40" viewBox="0 0 120 120" fill="none" aria-hidden="true"><circle cx="60" cy="60" r="52" stroke="#537AD2" stroke-width="1" stroke-dasharray="4 7"/><circle cx="60" cy="8" r="3" fill="#14D3C7"/></svg>
-          <div class="float card-elevated absolute left-1/2 top-2 -translate-x-1/2 w-[300px] p-5" aria-hidden="true">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2.5">
-                <span class="w-8 h-8 rounded-lg bg-vgblue2/12 border border-[#0B1220]/8 flex items-center justify-center"><svg width="16" height="16" viewBox="0 0 32 32" fill="none"><path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/><path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/></svg></span>
-                <span class="text-sm font-semibold">Enterprise workflow</span>
-              </div>
-              <span class="pill pill-live"><span class="relative flex w-1.5 h-1.5"><span class="ring-pulse absolute inset-0 rounded-full bg-vgteal"></span><span class="w-1.5 h-1.5 rounded-full bg-vgteal"></span></span>Live</span>
-            </div>
-            <div class="mt-4 space-y-3">
-              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Intake</span><span class="text-[#0B1220]/70">92%</span></div><div class="meter"><span style="width:92%"></span></div></div>
-              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Approval</span><span class="text-[#0B1220]/70">76%</span></div><div class="meter"><span style="width:76%"></span></div></div>
-              <div><div class="flex justify-between text-xs text-mute mb-1.5"><span>Delivery</span><span class="text-[#0B1220]/70">64%</span></div><div class="meter"><span style="width:64%"></span></div></div>
-            </div>
-            <div class="mt-4 pt-3 border-t border-[#0B1220]/8 flex items-end justify-between">
-              <span class="text-xs text-mute">Throughput</span><span class="text-xs font-semibold accent-text">▲ 18% this week</span>
-            </div>
-          </div>
-          <div class="fcard float-1 fabs left-0 sm:-left-6 top-24 w-[176px]" aria-hidden="true">
-            <span class="tile tile-cyan !w-8 !h-8 mb-2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M12 4v3m0 10v3M4 12h3m10 0h3"/></svg></span>
-            <p class="text-xs font-semibold">AI assistant</p><p class="text-[11px] text-mute">Grounded answers</p>
-          </div>
-          <div class="fcard float-2 fabs right-0 sm:-right-4 top-8 w-[164px]" aria-hidden="true">
-            <p class="fcard-label mb-2">Design system</p>
-            <div class="flex gap-1.5 mb-2"><span class="w-5 h-5 rounded-md" style="background:#071B78"></span><span class="w-5 h-5 rounded-md" style="background:#537AD2"></span><span class="w-5 h-5 rounded-md" style="background:#14D3C7"></span><span class="w-5 h-5 rounded-md" style="background:#8b5cf6"></span></div>
-            <p class="text-[11px] text-mute">Brand · UI · UX</p>
-          </div>
-          <div class="fcard float-3 fabs left-2 sm:-left-8 bottom-6 w-[190px]" aria-hidden="true">
-            <p class="fcard-label mb-2">Project status</p>
-            <div class="flex items-baseline gap-1.5"><span class="text-xl font-bold accent-text">87%</span><span class="text-[11px] text-mute">complete</span></div>
-            <div class="meter mt-2"><span style="width:87%"></span></div>
-          </div>
+        <div class="hero-illo mx-auto">
+          <svg viewBox="0 0 480 440" fill="none" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Vatous builds connected digital products">
+            <defs>
+              <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#537AD2"/><stop offset="1" stop-color="#071B78"/></linearGradient>
+              <linearGradient id="hg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#0891B2"/></linearGradient>
+              <linearGradient id="hg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#537AD2" stop-opacity=".35"/><stop offset="1" stop-color="#537AD2" stop-opacity="0"/></linearGradient>
+            </defs>
+            <!-- stacked back panels -->
+            <g class="float-slow">
+              <rect x="86" y="96" width="308" height="220" rx="26" fill="#C7D2F7" transform="rotate(-7 240 206)"/>
+              <rect x="104" y="112" width="300" height="214" rx="24" fill="#B4EDE7" transform="rotate(-2.5 254 219)"/>
+            </g>
+            <!-- front product card -->
+            <g class="float">
+              <rect x="112" y="120" width="286" height="206" rx="22" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
+              <circle cx="134" cy="146" r="6" fill="url(#hg2)"/>
+              <rect x="150" y="141" width="96" height="9" rx="4.5" fill="#0B1220" opacity=".8"/>
+              <rect x="330" y="138" width="52" height="18" rx="9" fill="#EBFBF9"/><circle cx="342" cy="147" r="3" fill="#0891B2" class="pulse-soft"/><rect x="350" y="144" width="24" height="6" rx="3" fill="#0891B2"/>
+              <!-- meters -->
+              <g>
+                <rect x="134" y="176" width="180" height="8" rx="4" fill="#EEF2FF"/><rect x="134" y="176" width="150" height="8" rx="4" fill="url(#hg1)"/>
+                <rect x="134" y="200" width="180" height="8" rx="4" fill="#EEF2FF"/><rect x="134" y="200" width="112" height="8" rx="4" fill="url(#hg2)"/>
+                <rect x="134" y="224" width="180" height="8" rx="4" fill="#EEF2FF"/><rect x="134" y="224" width="88" height="8" rx="4" fill="url(#hg1)"/>
+              </g>
+              <!-- sparkline -->
+              <polygon points="134,300 172,286 210,292 248,266 286,276 374,250 374,306 134,306" fill="url(#hg3)"/>
+              <polyline class="draw-in" points="134,300 172,286 210,292 248,266 286,276 374,250" stroke="#0891B2" stroke-width="3" fill="none" stroke-linecap="round"/>
+              <circle cx="374" cy="250" r="5" fill="#22D3EE" class="pulse-soft"/>
+            </g>
+            <!-- floating chips, part of the same graphic -->
+            <g class="bob">
+              <rect x="40" y="182" width="96" height="60" rx="16" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
+              <rect x="54" y="196" width="30" height="30" rx="9" fill="url(#hg2)"/>
+              <rect x="54" y="222" width="60" height="6" rx="3" fill="#0B1220" opacity=".18"/>
+              <path d="M62 211l5 5 9-10" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+            </g>
+            <g class="bob" style="animation-delay:.8s">
+              <rect x="352" y="300" width="104" height="66" rx="16" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
+              <rect x="366" y="314" width="30" height="30" rx="9" fill="url(#hg1)"/>
+              <circle cx="381" cy="329" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M381 322v7l4 3" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
+              <rect x="404" y="318" width="40" height="6" rx="3" fill="#0B1220" opacity=".2"/>
+              <rect x="404" y="332" width="30" height="6" rx="3" fill="#0B1220" opacity=".12"/>
+            </g>
+            <!-- decorative rings + sparkles -->
+            <circle cx="410" cy="120" r="34" stroke="#22D3EE" stroke-width="2" stroke-dasharray="3 8" fill="none" class="spin-slow" style="transform-origin:410px 120px"/>
+            <circle cx="60" cy="90" r="6" fill="#537AD2" class="twinkle"/>
+            <circle cx="420" cy="360" r="5" fill="#22D3EE" class="twinkle" style="animation-delay:1s"/>
+            <circle cx="240" cy="360" r="4" fill="#6366F1" class="twinkle" style="animation-delay:.5s"/>
+          </svg>
         </div>
       </div>
     </div>
@@ -110,11 +134,11 @@
         <!-- node 2: strategy -->
         <g><circle cx="360" cy="60" r="22" fill="#EBFBF9" stroke="rgba(20,211,199,.5)"/><path d="M351 60l6 6 12-12" stroke="#0E7490" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="360" cy="60" r="4" fill="#14D3C7" class="twinkle"/></g>
         <!-- node 3: design (swatches) -->
-        <g><rect x="500" y="70" width="120" height="48" rx="12" fill="#F5F0FF" stroke="rgba(139,92,246,.4)"/><rect x="514" y="84" width="14" height="14" rx="4" fill="#071B78"/><rect x="533" y="84" width="14" height="14" rx="4" fill="#537AD2"/><rect x="552" y="84" width="14" height="14" rx="4" fill="#14D3C7"/><rect x="571" y="84" width="14" height="14" rx="4" fill="#8b5cf6"/><circle cx="600" cy="98" r="9" fill="#8b5cf6" class="pulse-soft" style="animation-delay:.6s"/></g>
+        <g><rect x="500" y="70" width="120" height="48" rx="12" fill="#F5F0FF" stroke="rgba(99,102,241,.4)"/><rect x="514" y="84" width="14" height="14" rx="4" fill="#071B78"/><rect x="533" y="84" width="14" height="14" rx="4" fill="#537AD2"/><rect x="552" y="84" width="14" height="14" rx="4" fill="#14D3C7"/><rect x="571" y="84" width="14" height="14" rx="4" fill="#6366F1"/><circle cx="600" cy="98" r="9" fill="#6366F1" class="pulse-soft" style="animation-delay:.6s"/></g>
         <!-- node 4: build (bars) -->
-        <g><rect x="700" y="30" width="120" height="52" rx="12" fill="#FFF6E6" stroke="rgba(245,158,11,.45)"/><rect x="714" y="60" width="14" height="14" rx="3" fill="#F59E0B"/><rect x="733" y="50" width="14" height="24" rx="3" fill="#F59E0B" opacity=".8"/><rect x="752" y="56" width="14" height="18" rx="3" fill="#F59E0B" opacity=".6"/><rect x="771" y="44" width="14" height="30" rx="3" fill="#F59E0B"/><circle cx="760" cy="92" r="9" fill="#F59E0B" class="twinkle" style="animation-delay:.4s"/></g>
+        <g><rect x="700" y="30" width="120" height="52" rx="12" fill="#FFF6E6" stroke="rgba(37,99,235,.45)"/><rect x="714" y="60" width="14" height="14" rx="3" fill="#2563EB"/><rect x="733" y="50" width="14" height="24" rx="3" fill="#2563EB" opacity=".8"/><rect x="752" y="56" width="14" height="18" rx="3" fill="#2563EB" opacity=".6"/><rect x="771" y="44" width="14" height="30" rx="3" fill="#2563EB"/><circle cx="760" cy="92" r="9" fill="#2563EB" class="twinkle" style="animation-delay:.4s"/></g>
         <!-- node 5: grow (arrow up) -->
-        <g><circle cx="980" cy="52" r="22" fill="#E9FBF2" stroke="rgba(4,120,87,.5)"/><path d="M971 58l9-9 9 9M980 49v12" stroke="#047857" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <g><circle cx="980" cy="52" r="22" fill="#E9FBF2" stroke="rgba(8,145,178,.5)"/><path d="M971 58l9-9 9 9M980 49v12" stroke="#0E7490" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
         <!-- node 6: launch spark -->
         <g><rect x="1090" y="48" width="96" height="44" rx="12" fill="#EFF3FF" stroke="rgba(83,122,210,.4)"/><path d="M1112 70l8-14 6 9 8-5-6 14z" fill="#537AD2"/><circle cx="1138" cy="66" r="3" fill="#14D3C7" class="twinkle" style="animation-delay:1s"/></g>
       </svg>
@@ -166,7 +190,7 @@
         <p class="lead mt-5">Connect what you already run, and bring senior thinking to the decisions that matter.</p>
       </div>
       <div class="grid lg:grid-cols-2 gap-6 mt-14">
-        <a href="automation-integrations.html" class="block block-coral reveal" data-anim="left">
+        <a href="automation-integrations.html" class="block block-sky reveal" data-anim="left">
           <span class="h-eyebrow">Integrations &amp; Automation</span>
           <h3 class="h-card mt-3">Data that flows on its own</h3>
           <p class="mt-3 max-w-[42ch]">Every disconnected tool is a place someone re-types data. We make information move automatically — no copy-paste tax.</p>
@@ -198,7 +222,7 @@
         <p class="lead mt-5">Enterprise-grade design, and training that means you eventually won't need us.</p>
       </div>
       <div class="grid lg:grid-cols-2 gap-6 mt-14">
-        <a href="branding-creative.html" class="block block-mint reveal" data-anim="left">
+        <a href="branding-creative.html" class="block block-cyanpastel reveal" data-anim="left">
           <span class="h-eyebrow">Branding &amp; Creative</span>
           <h3 class="h-card mt-3">Design with enterprise polish</h3>
           <p class="mt-3 max-w-[42ch]">Identity, product interfaces and digital experiences that signal quality and earn trust on sight.</p>
@@ -222,8 +246,38 @@
     </div>
   </section>
 
+  <!-- ================= FEATURED PRODUCT: JOBLIRA ================= -->
+  <section class="band-dark section theme-cyan" aria-label="Joblira, a Vatous product">
+    <div class="shell grid lg:grid-cols-2 gap-10 lg:gap-14 items-center">
+      <div class="reveal">
+        <span class="h-eyebrow">Flagship product · Case study</span>
+        <h2 class="h-section mt-4">We build products, not just projects — meet <span class="hl" style="color:#22D3EE">Joblira</span>.</h2>
+        <p class="lead mt-5" data-setting="joblira_tagline">The smarter way to discover opportunities, build careers, and connect talent with the right organizations.</p>
+        <p class="mt-4 small" style="color:#AEB6C4">Built by Vatous — from an employment challenge to a scalable digital platform connecting talent, opportunities and organizations.</p>
+        <div class="flex flex-wrap gap-2.5 mt-7">
+          <a href="joblira.html" class="btn btn-primary">Read the case study</a>
+          <a href="https://joblira.ng" target="_blank" rel="noopener" data-setting-href="joblira_link" class="btn btn-ghost" style="background:rgba(255,255,255,.1);color:#fff;border-color:rgba(255,255,255,.28)">Explore Joblira →</a>
+        </div>
+      </div>
+      <div class="reveal" data-delay="1">
+        <img data-setting-src="joblira_image" alt="Joblira platform preview" class="hidden w-full rounded-2xl border border-white/12 shadow-[0_30px_60px_-34px_rgba(0,0,0,.7)]" />
+        <div data-fallback="joblira_image" class="rounded-2xl border border-white/12 overflow-hidden bg-[#0F131B]">
+          <div class="h-9 flex items-center gap-2 px-4 border-b border-white/10"><span class="w-2.5 h-2.5 rounded-full bg-[#22D3EE]"></span><span class="w-2.5 h-2.5 rounded-full bg-white/25"></span><span class="w-2.5 h-2.5 rounded-full bg-white/25"></span><span class="ml-3 text-[11px]" style="color:#8B93A3">joblira.ng</span></div>
+          <div class="p-5">
+            <div class="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-3 py-2 mb-4"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#22D3EE" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg><span class="text-xs" style="color:#8B93A3">Search opportunities…</span></div>
+            <div class="space-y-2.5">
+              <div class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 p-3"><span class="w-8 h-8 rounded-lg" style="background:linear-gradient(135deg,#537AD2,#071B78)"></span><div class="flex-1"><div class="h-2 w-28 rounded bg-white/25"></div><div class="h-2 w-16 rounded bg-white/10 mt-1.5"></div></div><span class="chip theme-cyan">New</span></div>
+              <div class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 p-3"><span class="w-8 h-8 rounded-lg" style="background:linear-gradient(135deg,#22D3EE,#0891B2)"></span><div class="flex-1"><div class="h-2 w-32 rounded bg-white/25"></div><div class="h-2 w-20 rounded bg-white/10 mt-1.5"></div></div></div>
+              <div class="flex items-center gap-3 rounded-xl bg-white/5 border border-white/10 p-3"><span class="w-8 h-8 rounded-lg" style="background:linear-gradient(135deg,#537AD2,#071B78)"></span><div class="flex-1"><div class="h-2 w-24 rounded bg-white/25"></div><div class="h-2 w-14 rounded bg-white/10 mt-1.5"></div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ================= HOW WE WORK ================= -->
-  <section class="theme-rose surface-panel section">
+  <section class="theme-blue surface-panel section">
     <div class="shell">
       <div class="section-head reveal">
         <span class="h-eyebrow justify-center">How we work</span>
@@ -298,7 +352,7 @@
         <p class="lead relative mt-5 max-w-xl mx-auto">Book a consultation and we'll map one high-impact opportunity in your operation — no obligation.</p>
         <div class="relative flex flex-wrap gap-2.5 justify-center mt-9">
           <a href="contact.html" class="btn" style="background:#fff;color:#071B78">Book a consultation</a>
-          <a href="case-studies.html" class="btn btn-ghost" style="background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.32)">See our work</a>
+          <a href="joblira.html" class="btn btn-ghost" style="background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.32)">See our work</a>
         </div>
       </div>
     </div>
@@ -307,7 +361,7 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="assets/js/components.js?v=7"></script>
-  <script src="assets/js/main.js?v=7"></script>
+  <script src="assets/js/components.js?v=8"></script>
+  <script src="assets/js/main.js?v=8"></script>
 </body>
 </html>
