@@ -389,7 +389,7 @@
     const authH = () => ({ 'apikey': VG_SB.key, 'Authorization': `Bearer ${vgToken()}`, 'Content-Type': 'application/json' });
     const FIELDS = {
       brand: 'brand_name', email: 'email', phone: 'phone', address: 'address',
-      whatsapp: 'whatsapp', linkedin: 'linkedin', x: 'x_url', instagram: 'instagram',
+      whatsapp: 'whatsapp', whatsapp_text: 'whatsapp_text', linkedin: 'linkedin', x: 'x_url', instagram: 'instagram',
       facebook: 'facebook', tiktok: 'tiktok', youtube: 'youtube',
       tagline: 'tagline', hero_eyebrow: 'hero_eyebrow', hero_subheading: 'hero_subheading',
       brand_description: 'brand_description', hero_cta: 'hero_cta', hero_cta2: 'hero_cta2',

@@ -23,7 +23,7 @@
   <script>
     tailwind.config = { theme: { extend: { colors: { vgblue:'#071B78', vgblue2:'#537AD2', vgteal:'#14D3C7', vgbg:'#F6F4EF' }, fontFamily: { head:['Space Grotesk','Inter','sans-serif'], body:['Inter','sans-serif'], ui:['Manrope','Inter','sans-serif'] } } } };
   </script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=6" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=7" />
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"Organization","name":"Vatous Global Solutions","alternateName":"VG","url":"https://vatous.ng","logo":"https://vatous.ng/assets/images/logo.png","description":"Technology, design and business solutions for organizations across Africa.","areaServed":"Africa","sameAs":["https://www.linkedin.com/company/vatous"] }
   </script>
@@ -98,12 +98,27 @@
     </div>
   </section>
 
-  <!-- ================= RIBBON MARQUEE ================= -->
-  <div class="ribbon ribbon-blue" aria-hidden="true">
-    <div class="marquee-wrap"><div class="marquee">
-      <span class="ribbon-pill">Enterprise Technology<span class="ribbon-dot"></span></span><span class="ribbon-pill">AI Solutions<span class="ribbon-dot"></span></span><span class="ribbon-pill">Automation<span class="ribbon-dot"></span></span><span class="ribbon-pill">Business Advisory<span class="ribbon-dot"></span></span><span class="ribbon-pill">Branding &amp; Creative<span class="ribbon-dot"></span></span><span class="ribbon-pill">Training<span class="ribbon-dot"></span></span>
-      <span class="ribbon-pill">Enterprise Technology<span class="ribbon-dot"></span></span><span class="ribbon-pill">AI Solutions<span class="ribbon-dot"></span></span><span class="ribbon-pill">Automation<span class="ribbon-dot"></span></span><span class="ribbon-pill">Business Advisory<span class="ribbon-dot"></span></span><span class="ribbon-pill">Branding &amp; Creative<span class="ribbon-dot"></span></span><span class="ribbon-pill">Training<span class="ribbon-dot"></span></span>
-    </div></div>
+  <!-- ================= HORIZONTAL ILLUSTRATION ================= -->
+  <div class="hstrip" aria-hidden="true">
+    <div class="shell">
+      <svg viewBox="0 0 1200 150" fill="none" preserveAspectRatio="xMidYMid meet" role="img" aria-label="How operations flow through Vatous">
+        <!-- flowing baseline -->
+        <path d="M0 100 C 150 100 210 55 360 60 S 560 115 720 92 S 980 48 1200 70" stroke="rgba(15,23,42,.10)" stroke-width="2"/>
+        <path class="dash-move" d="M0 100 C 150 100 210 55 360 60 S 560 115 720 92 S 980 48 1200 70" stroke="#537AD2" stroke-width="2" stroke-dasharray="6 10"/>
+        <!-- node 1: idea -->
+        <g><rect x="70" y="34" width="120" height="44" rx="12" fill="#EFF3FF" stroke="rgba(83,122,210,.4)"/><rect x="84" y="46" width="46" height="6" rx="3" fill="#537AD2"/><rect x="84" y="60" width="78" height="5" rx="2.5" fill="rgba(15,23,42,.15)"/><circle cx="120" cy="100" r="9" fill="#537AD2" class="pulse-soft"/></g>
+        <!-- node 2: strategy -->
+        <g><circle cx="360" cy="60" r="22" fill="#EBFBF9" stroke="rgba(20,211,199,.5)"/><path d="M351 60l6 6 12-12" stroke="#0E7490" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="360" cy="60" r="4" fill="#14D3C7" class="twinkle"/></g>
+        <!-- node 3: design (swatches) -->
+        <g><rect x="500" y="70" width="120" height="48" rx="12" fill="#F5F0FF" stroke="rgba(139,92,246,.4)"/><rect x="514" y="84" width="14" height="14" rx="4" fill="#071B78"/><rect x="533" y="84" width="14" height="14" rx="4" fill="#537AD2"/><rect x="552" y="84" width="14" height="14" rx="4" fill="#14D3C7"/><rect x="571" y="84" width="14" height="14" rx="4" fill="#8b5cf6"/><circle cx="600" cy="98" r="9" fill="#8b5cf6" class="pulse-soft" style="animation-delay:.6s"/></g>
+        <!-- node 4: build (bars) -->
+        <g><rect x="700" y="30" width="120" height="52" rx="12" fill="#FFF6E6" stroke="rgba(245,158,11,.45)"/><rect x="714" y="60" width="14" height="14" rx="3" fill="#F59E0B"/><rect x="733" y="50" width="14" height="24" rx="3" fill="#F59E0B" opacity=".8"/><rect x="752" y="56" width="14" height="18" rx="3" fill="#F59E0B" opacity=".6"/><rect x="771" y="44" width="14" height="30" rx="3" fill="#F59E0B"/><circle cx="760" cy="92" r="9" fill="#F59E0B" class="twinkle" style="animation-delay:.4s"/></g>
+        <!-- node 5: grow (arrow up) -->
+        <g><circle cx="980" cy="52" r="22" fill="#E9FBF2" stroke="rgba(4,120,87,.5)"/><path d="M971 58l9-9 9 9M980 49v12" stroke="#047857" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
+        <!-- node 6: launch spark -->
+        <g><rect x="1090" y="48" width="96" height="44" rx="12" fill="#EFF3FF" stroke="rgba(83,122,210,.4)"/><path d="M1112 70l8-14 6 9 8-5-6 14z" fill="#537AD2"/><circle cx="1138" cy="66" r="3" fill="#14D3C7" class="twinkle" style="animation-delay:1s"/></g>
+      </svg>
+    </div>
   </div>
 
   <!-- ================= CHAPTER: BUILD ================= -->
@@ -292,7 +307,7 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="assets/js/components.js?v=6"></script>
-  <script src="assets/js/main.js?v=6"></script>
+  <script src="assets/js/components.js?v=7"></script>
+  <script src="assets/js/main.js?v=7"></script>
 </body>
 </html>

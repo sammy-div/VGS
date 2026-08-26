@@ -155,6 +155,23 @@
     document.body.appendChild(tw);
   }
 
+  // Floating WhatsApp chat button — href + label come from admin settings.
+  if (!document.querySelector('.vg-fab')) {
+    const fab = document.createElement('a');
+    fab.className = 'vg-fab';
+    fab.setAttribute('data-social', 'whatsapp');
+    fab.setAttribute('data-setting-href', 'whatsapp');
+    fab.setAttribute('target', '_blank');
+    fab.setAttribute('rel', 'noopener');
+    fab.setAttribute('aria-label', 'Chat with us on WhatsApp');
+    fab.href = 'https://wa.me/2348000000000';
+    fab.innerHTML =
+      '<span class="vg-fab-ping" aria-hidden="true"></span>' +
+      '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 2.1.55 4.06 1.6 5.82L2 22l4.4-1.15a9.9 9.9 0 0 0 5.64 1.72c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.02c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.95-4.36-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36l.56.01c.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48l-.42.49c-.14.14-.28.29-.12.57.16.28.72 1.18 1.54 1.91 1.06.95 1.95 1.24 2.23 1.38.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.21.51.32.07.11.07.64-.17 1.32z"/></svg>' +
+      '<span class="vg-fab-label" data-setting="whatsapp_text">Chat with us</span>';
+    document.body.appendChild(fab);
+  }
+
   // Cookie consent notice (shown once; choice stored in localStorage).
   (function cookieConsent() {
     let stored = null;
@@ -230,7 +247,8 @@
           email: s.email, phone: s.phone, address: s.address,
           brand_name: s.brand_name, brand_description: s.brand_description, tagline: s.tagline,
           hero_eyebrow: s.hero_eyebrow, hero_subheading: s.hero_subheading,
-          hero_cta: s.hero_cta, hero_cta2: s.hero_cta2, business_hours: s.business_hours
+          hero_cta: s.hero_cta, hero_cta2: s.hero_cta2, business_hours: s.business_hours,
+          whatsapp_text: s.whatsapp_text
         };
         Object.keys(texts).forEach(function (k) {
           if (texts[k] == null || texts[k] === '') return;
