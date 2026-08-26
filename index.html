@@ -23,7 +23,7 @@
   <script>
     tailwind.config = { theme: { extend: { colors: { vgblue:'#071B78', vgblue2:'#537AD2', vgteal:'#14D3C7', vgbg:'#F6F4EF' }, fontFamily: { head:['Space Grotesk','Inter','sans-serif'], body:['Inter','sans-serif'], ui:['Manrope','Inter','sans-serif'] } } } };
   </script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=9" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=10" />
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"Organization","name":"Vatous Global Solutions","alternateName":"VG","url":"https://vatous.ng","logo":"https://vatous.ng/assets/images/logo.png","description":"Technology, design and business solutions for organizations across Africa.","areaServed":"Africa","sameAs":["https://www.linkedin.com/company/vatous"] }
   </script>
@@ -69,78 +69,104 @@
       <!-- Single stacked, colourful, animated illustration -->
       <div class="lg:col-span-6 relative reveal" data-delay="2">
         <div class="hero-illo mx-auto">
-          <svg viewBox="0 0 480 440" fill="none" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Vatous builds connected digital products">
+          <svg viewBox="0 0 420 380" fill="none" preserveAspectRatio="xMidYMid meet" role="img" aria-label="A Vatous digital product: analytics, a connected team and AI">
             <defs>
-              <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#537AD2"/><stop offset="1" stop-color="#071B78"/></linearGradient>
+              <linearGradient id="hg1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#5E86E4"/><stop offset="1" stop-color="#2563EB"/></linearGradient>
               <linearGradient id="hg2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#22D3EE"/><stop offset="1" stop-color="#0891B2"/></linearGradient>
-              <linearGradient id="hg3" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#537AD2" stop-opacity=".35"/><stop offset="1" stop-color="#537AD2" stop-opacity="0"/></linearGradient>
+              <linearGradient id="hg4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#818CF8"/><stop offset="1" stop-color="#4F46E5"/></linearGradient>
+              <linearGradient id="hgArea" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#22D3EE" stop-opacity=".45"/><stop offset="1" stop-color="#22D3EE" stop-opacity="0"/></linearGradient>
             </defs>
-            <!-- stacked back panels -->
-            <g class="float-slow">
-              <rect x="86" y="96" width="308" height="220" rx="26" fill="#C7D2F7" transform="rotate(-7 240 206)"/>
-              <rect x="104" y="112" width="300" height="214" rx="24" fill="#B4EDE7" transform="rotate(-2.5 254 219)"/>
-            </g>
-            <!-- front product card -->
+            <!-- soft colour halo -->
+            <circle cx="210" cy="180" r="150" fill="#22D3EE" opacity=".07"/>
+            <!-- connecting dotted links -->
+            <path d="M300 96 C 330 130 330 150 296 168 M126 262 C 150 300 200 300 214 276" stroke="#537AD2" stroke-width="2" stroke-dasharray="2 8" class="dash-move" opacity=".55"/>
+
+            <!-- MAIN analytics dashboard -->
             <g class="float">
-              <rect x="112" y="120" width="286" height="206" rx="22" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
-              <circle cx="134" cy="146" r="6" fill="url(#hg2)"/>
-              <rect x="150" y="141" width="96" height="9" rx="4.5" fill="#0B1220" opacity=".8"/>
-              <rect x="330" y="138" width="52" height="18" rx="9" fill="#EBFBF9"/><circle cx="342" cy="147" r="3" fill="#0891B2" class="pulse-soft"/><rect x="350" y="144" width="24" height="6" rx="3" fill="#0891B2"/>
-              <!-- meters -->
+              <rect x="70" y="70" width="240" height="200" rx="20" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
+              <!-- header -->
+              <circle cx="92" cy="94" r="9" fill="url(#hg1)"/><path d="M88 94l3 3 6-6" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="108" y="89" width="82" height="9" rx="4.5" fill="#0B1220" opacity=".82"/>
+              <rect x="250" y="86" width="44" height="16" rx="8" fill="#EBFBF9"/><text x="272" y="98" font-family="'JetBrains Mono',monospace" font-size="9" fill="#0891B2" text-anchor="middle" font-weight="600">+24%</text>
+              <!-- colourful bar chart with rising line -->
               <g>
-                <rect x="134" y="176" width="180" height="8" rx="4" fill="#EEF2FF"/><rect x="134" y="176" width="150" height="8" rx="4" fill="url(#hg1)"/>
-                <rect x="134" y="200" width="180" height="8" rx="4" fill="#EEF2FF"/><rect x="134" y="200" width="112" height="8" rx="4" fill="url(#hg2)"/>
-                <rect x="134" y="224" width="180" height="8" rx="4" fill="#EEF2FF"/><rect x="134" y="224" width="88" height="8" rx="4" fill="url(#hg1)"/>
+                <rect x="98" y="196" width="20" height="42" rx="5" fill="url(#hg1)"/>
+                <rect x="128" y="176" width="20" height="62" rx="5" fill="url(#hg2)"/>
+                <rect x="158" y="206" width="20" height="32" rx="5" fill="url(#hg4)"/>
+                <rect x="188" y="160" width="20" height="78" rx="5" fill="url(#hg1)"/>
+                <rect x="218" y="182" width="20" height="56" rx="5" fill="url(#hg2)"/>
+                <rect x="248" y="150" width="20" height="88" rx="5" fill="url(#hg4)"/>
+                <polygon points="108,150 138,138 168,146 198,120 228,130 258,108 258,238 108,238" fill="url(#hgArea)"/>
+                <polyline class="draw-in" points="108,150 138,138 168,146 198,120 228,130 258,108" stroke="#0891B2" stroke-width="3" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+                <circle cx="258" cy="108" r="5" fill="#22D3EE" stroke="#fff" stroke-width="2" class="pulse-soft"/>
               </g>
-              <!-- sparkline -->
-              <polygon points="134,300 172,286 210,292 248,266 286,276 374,250 374,306 134,306" fill="url(#hg3)"/>
-              <polyline class="draw-in" points="134,300 172,286 210,292 248,266 286,276 374,250" stroke="#0891B2" stroke-width="3" fill="none" stroke-linecap="round"/>
-              <circle cx="374" cy="250" r="5" fill="#22D3EE" class="pulse-soft"/>
+              <rect x="98" y="250" width="90" height="7" rx="3.5" fill="#0B1220" opacity=".14"/>
             </g>
-            <!-- floating chips, part of the same graphic -->
+
+            <!-- TEAM cluster (stacked avatars) -->
             <g class="bob">
-              <rect x="40" y="182" width="96" height="60" rx="16" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
-              <rect x="54" y="196" width="30" height="30" rx="9" fill="url(#hg2)"/>
-              <rect x="54" y="222" width="60" height="6" rx="3" fill="#0B1220" opacity=".18"/>
-              <path d="M62 211l5 5 9-10" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="256" y="120" width="118" height="66" rx="16" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
+              <g>
+                <circle cx="284" cy="146" r="15" fill="url(#hg1)"/><circle cx="284" cy="141" r="5" fill="#fff"/><path d="M275 156a9 9 0 0 1 18 0z" fill="#fff"/>
+                <circle cx="304" cy="146" r="15" fill="url(#hg2)"/><circle cx="304" cy="141" r="5" fill="#fff"/><path d="M295 156a9 9 0 0 1 18 0z" fill="#fff"/>
+                <circle cx="324" cy="146" r="15" fill="url(#hg4)"/><circle cx="324" cy="141" r="5" fill="#fff"/><path d="M315 156a9 9 0 0 1 18 0z" fill="#fff"/>
+                <circle cx="346" cy="146" r="13" fill="#EEF2FF" stroke="#fff" stroke-width="2"/><text x="346" y="150" font-family="'JetBrains Mono',monospace" font-size="10" fill="#2563EB" text-anchor="middle" font-weight="600">+9</text>
+              </g>
+              <rect x="272" y="170" width="70" height="6" rx="3" fill="#0B1220" opacity=".16"/>
             </g>
-            <g class="bob" style="animation-delay:.8s">
-              <rect x="352" y="300" width="104" height="66" rx="16" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
-              <rect x="366" y="314" width="30" height="30" rx="9" fill="url(#hg1)"/>
-              <circle cx="381" cy="329" r="7" fill="none" stroke="#fff" stroke-width="2.4"/><path d="M381 322v7l4 3" stroke="#fff" stroke-width="2.2" stroke-linecap="round"/>
-              <rect x="404" y="318" width="40" height="6" rx="3" fill="#0B1220" opacity=".2"/>
-              <rect x="404" y="332" width="30" height="6" rx="3" fill="#0B1220" opacity=".12"/>
+
+            <!-- AI assistant chip -->
+            <g class="bob" style="animation-delay:.7s">
+              <rect x="40" y="234" width="132" height="58" rx="16" fill="#071B78"/>
+              <circle cx="66" cy="263" r="14" fill="url(#hg2)"/><path d="M66 255l2.4 5.6L74 263l-5.6 2.4L66 271l-2.4-5.6L58 263l5.6-2.4z" fill="#fff"/>
+              <rect x="88" y="252" width="66" height="7" rx="3.5" fill="#fff" opacity=".92"/>
+              <rect x="88" y="266" width="46" height="6" rx="3" fill="#22D3EE"/>
             </g>
-            <!-- decorative rings + sparkles -->
-            <circle cx="410" cy="120" r="34" stroke="#22D3EE" stroke-width="2" stroke-dasharray="3 8" fill="none" class="spin-slow" style="transform-origin:410px 120px"/>
-            <circle cx="60" cy="90" r="6" fill="#537AD2" class="twinkle"/>
-            <circle cx="420" cy="360" r="5" fill="#22D3EE" class="twinkle" style="animation-delay:1s"/>
-            <circle cx="240" cy="360" r="4" fill="#6366F1" class="twinkle" style="animation-delay:.5s"/>
+
+            <!-- delivered/task chip -->
+            <g class="bob" style="animation-delay:1.1s">
+              <rect x="286" y="234" width="96" height="56" rx="16" fill="#FFFFFF" stroke="rgba(15,23,42,.10)"/>
+              <circle cx="312" cy="262" r="14" fill="url(#hg1)"/><path d="M305 262l5 5 9-10" stroke="#fff" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+              <rect x="334" y="254" width="38" height="6" rx="3" fill="#0B1220" opacity=".2"/>
+              <rect x="334" y="266" width="26" height="6" rx="3" fill="#0B1220" opacity=".12"/>
+            </g>
+
+            <!-- decorative colourful sparkles -->
+            <circle cx="46" cy="96" r="6" fill="#22D3EE" class="twinkle"/>
+            <circle cx="384" cy="200" r="5" fill="#6366F1" class="twinkle" style="animation-delay:.6s"/>
+            <circle cx="200" cy="320" r="5" fill="#2563EB" class="twinkle" style="animation-delay:1s"/>
+            <path d="M366 74l2 5 5 2-5 2-2 5-2-5-5-2 5-2z" fill="#22D3EE" class="twinkle" style="animation-delay:.3s"/>
           </svg>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= HORIZONTAL ILLUSTRATION ================= -->
+  <!-- ================= HOW WE DELIVER — labelled journey ================= -->
   <div class="hstrip" aria-hidden="true">
     <div class="shell">
-      <svg viewBox="0 0 1200 150" fill="none" preserveAspectRatio="xMidYMid meet" role="img" aria-label="How operations flow through Vatous">
-        <!-- flowing baseline -->
-        <path d="M0 100 C 150 100 210 55 360 60 S 560 115 720 92 S 980 48 1200 70" stroke="rgba(15,23,42,.10)" stroke-width="2"/>
-        <path class="dash-move" d="M0 100 C 150 100 210 55 360 60 S 560 115 720 92 S 980 48 1200 70" stroke="#537AD2" stroke-width="2" stroke-dasharray="6 10"/>
-        <!-- node 1: idea -->
-        <g><rect x="70" y="34" width="120" height="44" rx="12" fill="#EFF3FF" stroke="rgba(83,122,210,.4)"/><rect x="84" y="46" width="46" height="6" rx="3" fill="#537AD2"/><rect x="84" y="60" width="78" height="5" rx="2.5" fill="rgba(15,23,42,.15)"/><circle cx="120" cy="100" r="9" fill="#537AD2" class="pulse-soft"/></g>
-        <!-- node 2: strategy -->
-        <g><circle cx="360" cy="60" r="22" fill="#EBFBF9" stroke="rgba(20,211,199,.5)"/><path d="M351 60l6 6 12-12" stroke="#0E7490" stroke-width="2.5" fill="none" stroke-linecap="round"/><circle cx="360" cy="60" r="4" fill="#14D3C7" class="twinkle"/></g>
-        <!-- node 3: design (swatches) -->
-        <g><rect x="500" y="70" width="120" height="48" rx="12" fill="#F5F0FF" stroke="rgba(99,102,241,.4)"/><rect x="514" y="84" width="14" height="14" rx="4" fill="#071B78"/><rect x="533" y="84" width="14" height="14" rx="4" fill="#537AD2"/><rect x="552" y="84" width="14" height="14" rx="4" fill="#14D3C7"/><rect x="571" y="84" width="14" height="14" rx="4" fill="#6366F1"/><circle cx="600" cy="98" r="9" fill="#6366F1" class="pulse-soft" style="animation-delay:.6s"/></g>
-        <!-- node 4: build (bars) -->
-        <g><rect x="700" y="30" width="120" height="52" rx="12" fill="#FFF6E6" stroke="rgba(37,99,235,.45)"/><rect x="714" y="60" width="14" height="14" rx="3" fill="#2563EB"/><rect x="733" y="50" width="14" height="24" rx="3" fill="#2563EB" opacity=".8"/><rect x="752" y="56" width="14" height="18" rx="3" fill="#2563EB" opacity=".6"/><rect x="771" y="44" width="14" height="30" rx="3" fill="#2563EB"/><circle cx="760" cy="92" r="9" fill="#2563EB" class="twinkle" style="animation-delay:.4s"/></g>
-        <!-- node 5: grow (arrow up) -->
-        <g><circle cx="980" cy="52" r="22" fill="#E9FBF2" stroke="rgba(8,145,178,.5)"/><path d="M971 58l9-9 9 9M980 49v12" stroke="#0E7490" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g>
-        <!-- node 6: launch spark -->
-        <g><rect x="1090" y="48" width="96" height="44" rx="12" fill="#EFF3FF" stroke="rgba(83,122,210,.4)"/><path d="M1112 70l8-14 6 9 8-5-6 14z" fill="#537AD2"/><circle cx="1138" cy="66" r="3" fill="#14D3C7" class="twinkle" style="animation-delay:1s"/></g>
+      <svg viewBox="0 0 1200 170" fill="none" preserveAspectRatio="xMidYMid meet" role="img" aria-label="Our delivery journey: idea, strategy, design, build, launch, grow">
+        <defs>
+          <linearGradient id="jb" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#2563EB"/><stop offset=".5" stop-color="#0891B2"/><stop offset="1" stop-color="#4F46E5"/></linearGradient>
+        </defs>
+        <!-- connecting track -->
+        <line x1="100" y1="60" x2="1100" y2="60" stroke="#D5DEEF" stroke-width="3"/>
+        <line x1="100" y1="60" x2="1100" y2="60" stroke="url(#jb)" stroke-width="3" stroke-dasharray="10 12" class="dash-move"/>
+        <!-- node builder: circle + icon + label -->
+        <!-- 1 Idea -->
+        <g><circle cx="100" cy="60" r="30" fill="#2563EB"/><path d="M100 46a11 11 0 0 0-6 20v5h12v-5a11 11 0 0 0-6-20zM96 78h8" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="100" y="120" font-family="'JetBrains Mono',monospace" font-size="15" fill="#0B1220" text-anchor="middle" font-weight="600">Idea</text></g>
+        <!-- 2 Strategy -->
+        <g><circle cx="300" cy="60" r="30" fill="#0891B2"/><circle cx="300" cy="60" r="12" stroke="#fff" stroke-width="2.4" fill="none"/><circle cx="300" cy="60" r="3.5" fill="#fff"/><path d="M300 40v6M300 74v6M280 60h6M314 60h6" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><text x="300" y="120" font-family="'JetBrains Mono',monospace" font-size="15" fill="#0B1220" text-anchor="middle" font-weight="600">Strategy</text></g>
+        <!-- 3 Design -->
+        <g><circle cx="500" cy="60" r="30" fill="#4F46E5"/><path d="M492 68l16-16 4 4-16 16-5 1z" stroke="#fff" stroke-width="2.4" fill="none" stroke-linejoin="round"/><path d="M506 54l4 4" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><text x="500" y="120" font-family="'JetBrains Mono',monospace" font-size="15" fill="#0B1220" text-anchor="middle" font-weight="600">Design</text></g>
+        <!-- 4 Build -->
+        <g><circle cx="700" cy="60" r="30" fill="#2563EB"/><path d="M694 50l-10 10 10 10M706 50l10 10-10 10" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="700" y="120" font-family="'JetBrains Mono',monospace" font-size="15" fill="#0B1220" text-anchor="middle" font-weight="600">Build</text></g>
+        <!-- 5 Launch -->
+        <g><circle cx="900" cy="60" r="30" fill="#0891B2"/><path d="M900 46c8 4 10 12 8 20l-8 4-8-4c-2-8 0-16 8-20zM900 66a3 3 0 100-6 3 3 0 000 6zM893 72l-4 6M907 72l4 6" stroke="#fff" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="900" y="120" font-family="'JetBrains Mono',monospace" font-size="15" fill="#0B1220" text-anchor="middle" font-weight="600">Launch</text></g>
+        <!-- 6 Grow -->
+        <g><circle cx="1100" cy="60" r="30" fill="#4F46E5"/><path d="M1088 68l8-8 5 5 9-11M1105 54h5v5" stroke="#fff" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/><text x="1100" y="120" font-family="'JetBrains Mono',monospace" font-size="15" fill="#0B1220" text-anchor="middle" font-weight="600">Grow</text></g>
+        <!-- moving pulse along the track -->
+        <circle r="6" fill="#22D3EE"><animateMotion dur="6s" repeatCount="indefinite" path="M100 60 H1100"/></circle>
       </svg>
     </div>
   </div>
@@ -302,7 +328,7 @@
         <h2 class="h-section mt-4">Measured by your outcomes, not our output.</h2>
         <p class="lead mt-5">We are judged by whether operations get easier and results improve.</p>
       </div>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14 text-center">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-14">
         <div class="reveal"><div class="stat-num" style="color:#fff" data-count="120" data-suffix="+">0</div><p class="mt-1">Projects delivered</p></div>
         <div class="reveal" data-delay="1"><div class="stat-num" style="color:#fff" data-count="45" data-suffix="+">0</div><p class="mt-1">Organizations served</p></div>
         <div class="reveal" data-delay="2"><div class="stat-num" style="color:#fff" data-count="8" data-suffix="+">0</div><p class="mt-1">African markets</p></div>
@@ -361,7 +387,7 @@
   </main>
 
   <div id="site-footer"></div>
-  <script src="assets/js/components.js?v=9"></script>
-  <script src="assets/js/main.js?v=9"></script>
+  <script src="assets/js/components.js?v=10"></script>
+  <script src="assets/js/main.js?v=10"></script>
 </body>
 </html>

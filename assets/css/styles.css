@@ -164,8 +164,11 @@ a { color: inherit; text-decoration: none; }
 }
 @media (min-width: 768px) { .btn { min-height: 46px; padding: 0 18px; font-size: 15px; } }
 .btn:focus-visible { outline: 2px solid var(--vg-blue); outline-offset: 3px; }
-.btn-primary { background: linear-gradient(135deg, #5E86E4, #3E63C8); color: #fff; box-shadow: 0 8px 24px -10px rgba(83,122,210,.7); }
-.btn-primary:hover { filter: brightness(1.08); transform: translateY(-2px); box-shadow: 0 12px 28px -10px rgba(83,122,210,.85); }
+.btn-primary { position: relative; overflow: hidden; background: linear-gradient(120deg, #3E63C8 0%, #2563EB 46%, #0891B2 108%); color: #fff; box-shadow: 0 10px 24px -8px rgba(37,99,235,.55), 0 2px 6px rgba(8,145,178,.25); }
+.btn-primary::after { content: ""; position: absolute; inset: 0; background: linear-gradient(115deg, transparent 20%, rgba(255,255,255,.38) 50%, transparent 78%); transform: translateX(-130%); transition: transform .6s cubic-bezier(.2,.7,.2,1); pointer-events: none; }
+.btn-primary:hover::after { transform: translateX(130%); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 34px -10px rgba(8,145,178,.6), 0 3px 8px rgba(37,99,235,.35); }
+.btn-primary:active { transform: translateY(0); }
 .btn-ghost { background: var(--vg-surface); color: var(--vg-text); border-color: var(--vg-border-strong); }
 .btn-ghost:hover { border-color: rgba(15,23,42,0.30); color: var(--vg-text); background: var(--vg-surface-2); transform: translateY(-2px); }
 .btn-blue { background: var(--vg-dark-blue); color: #fff; }
@@ -493,7 +496,8 @@ a { color: inherit; text-decoration: none; }
 @keyframes blob-float { 0%,100% { transform: translate(0,0) scale(1); } 50% { transform: translate(18px,-24px) scale(1.06); } }
 @media (prefers-reduced-motion: reduce) { .hero-blob { animation: none; } }
 .hero-h1 { font-weight: 700; letter-spacing: -0.045em; }
-.hero-illo { width: 100%; max-width: 500px; }
+.hero-illo { width: 100%; max-width: 400px; margin-left: auto; margin-right: auto; }
+@media (min-width: 1024px) { .hero-illo { max-width: 420px; } }
 .hero-illo svg { display:block; width:100%; height:auto; overflow: visible; }
 
 /* Highlight box behind a word (hero) */
@@ -502,9 +506,9 @@ a { color: inherit; text-decoration: none; }
 .mark-coral  { background: #FBB6A6; } .mark-mint  { background: #A7F3D0; }
 .mark-lilac  { background: #E9D5FF; }
 
-/* Centered section header */
-.section-head { max-width: 44rem; margin-inline: auto; text-align: center; }
-.section-head .lead { margin-inline: auto; }
+/* Section header — left aligned (global left-align rule; only CTAs centre) */
+.section-head { max-width: 44rem; text-align: left; }
+.section-head .h-eyebrow { justify-content: flex-start; }
 
 /* Section divider (hairline between sections) — automatic between
    adjacent full sections, plus an explicit .divider utility. */
