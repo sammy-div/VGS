@@ -90,7 +90,7 @@
   const footer = `
   <footer class="site-footer relative pt-16 pb-8 mt-8">
     <div class="shell">
-      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-6">
+      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-5">
         <div class="lg:col-span-2">
           ${LOGO}
           <p class="foot-desc mt-4 max-w-xs text-sm leading-relaxed" data-setting="brand_description">Enterprise technology, AI systems and business consulting helping African organizations build dependable systems and grow with clarity.</p>
@@ -107,23 +107,15 @@
         ${footerCol('Company', [['About', 'about.html'], ['Careers', 'careers.html'], ['Joblira', 'joblira.html'], ['Insights', 'blog.html'], ['Contact', 'contact.html']])}
         ${footerCol('Services', [['Enterprise Technology', 'enterprise-technology.html'], ['AI Solutions', 'ai-solutions.html'], ['Automation', 'automation-integrations.html'], ['Business Advisory', 'business-advisory.html'], ['Branding & Creative', 'branding-creative.html'], ['Training Academy', 'training-academy.html']])}
         ${footerCol('Explore', [['Vatous Academy', 'academy.html'], ['Joblira', 'joblira.html'], ['Services', 'services.html']])}
-        <div>
-          <h4 class="foot-head font-head font-bold text-sm mb-4">Newsletter</h4>
-          <p class="foot-desc text-sm mb-3">Practical insights on systems and automation. Monthly.</p>
-          <form class="js-newsletter flex flex-col gap-2" novalidate>
-            <input type="email" required placeholder="Work email" class="field text-sm" aria-label="Email address" />
-            <button class="btn btn-ghost justify-center text-sm">Subscribe</button>
-          </form>
-        </div>
       </div>
       <hr class="hairline my-8" />
-      <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-sm foot-desc">
-        <p>© ${year} <span data-setting="brand_name">Vatous Global Solutions</span>. All rights reserved.</p>
-        <div class="flex items-center gap-5">
+      <div class="flex flex-col items-start gap-2 text-xs foot-desc text-left">
+        <div class="flex flex-wrap items-center gap-x-4 gap-y-1">
           <a href="privacy.html" class="foot-link transition-colors">Privacy</a>
           <a href="terms.html" class="foot-link transition-colors">Terms</a>
-          <a href="contact.html" class="foot-link transition-colors">Lagos · Remote across Africa</a>
+          <a href="contact.html" class="foot-link transition-colors">Contact</a>
         </div>
+        <p>© ${year} <span data-setting="brand_name">Vatous Global Solutions</span>. All rights reserved.</p>
       </div>
     </div>
   </footer>`;
