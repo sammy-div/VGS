@@ -49,8 +49,12 @@
     return `<a href="${href}" class="nav-link"${current}>${label}</a>`;
   }).join('');
 
+  const MOBILE_DOTS = ['#537AD2', '#14D3C7', '#8b5cf6', '#10B981', '#F59E0B', '#F43F5E', '#0EA5E9', '#6366F1'];
   const mobileLinks = [['Home', 'index.html'], ...NAV, ['Resources', 'resources.html'], ['Contact', 'contact.html']]
-    .map(([label, href]) => `<a href="${href}" class="block py-3 text-2xl font-head font-bold text-soft hover:text-[#0F172A] transition-colors border-b border-[#0F172A]/5">${label}</a>`)
+    .map(([label, href], i) => {
+      const current = href === path ? ' aria-current="page"' : '';
+      return `<a href="${href}"${current} class="flex items-center gap-3 py-2.5 text-lg font-head font-semibold text-soft hover:text-[#0F172A] transition-colors border-b border-[#0F172A]/6"><span class="w-2.5 h-2.5 rounded-full shrink-0" style="background:${MOBILE_DOTS[i % MOBILE_DOTS.length]}"></span>${label}</a>`;
+    })
     .join('');
 
   const header = `
