@@ -749,3 +749,23 @@ main p a:not([class]):hover, .prose a:not([class]):hover { background-size: 100%
   .hero-blob { animation: none; }
   .reveal, .tile, .card, .card-editorial, .btn, .nav, .field, .vg-fab { transition: none !important; }
 }
+
+/* ---- Blog: filter pills, card thumbs, reading rhythm ---- */
+.pill { transition: background-color .25s ease, color .25s ease, border-color .25s ease, transform .25s var(--ease-swift); }
+.pill:hover { transform: translateY(-1px); border-color: rgba(7,27,120,.35); }
+.pill[aria-pressed="true"] {
+  background: var(--vg-dark-blue); color: #fff; border-color: transparent;
+  box-shadow: 0 8px 18px -8px rgba(7,27,120,.5);
+}
+#blog-grid .card { cursor: pointer; }
+#blog-grid .card:hover .pill { background: var(--vg-dark-blue); color: #fff; border-color: transparent; }
+.blog-thumb { position: relative; overflow: hidden; }
+.blog-thumb::before {
+  content: ""; position: absolute; inset: 0; opacity: .5;
+  background-image: linear-gradient(rgba(7,27,120,.14) 1px, transparent 1px), linear-gradient(90deg, rgba(7,27,120,.14) 1px, transparent 1px);
+  background-size: 22px 22px;
+  mask-image: radial-gradient(ellipse at 30% 20%, #000 30%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 30% 20%, #000 30%, transparent 75%);
+}
+.blog-read { display: inline-flex; align-items: center; gap: .35rem; font-family: var(--font-ui); font-size: .78rem; font-weight: 600; color: var(--accent, #2563EB); transition: gap .25s var(--ease-swift); }
+#blog-grid .card:hover .blog-read { gap: .65rem; }
