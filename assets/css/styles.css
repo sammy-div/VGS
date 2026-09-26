@@ -634,3 +634,118 @@ body.has-announce .mobile-menu { top: var(--announce-h); }
 .site-footer .foot-social { border:1px solid rgba(255,255,255,.14); color:#AEB6C4; }
 .site-footer .foot-social:hover { color:#fff; border-color: rgba(255,255,255,.3); background: rgba(255,255,255,.06); }
 .site-footer .teal { color: #22D3EE; }
+
+/* ============================================================
+   v4 — Premium refinement layer
+   Human-centered polish: refined typography rhythm, layered
+   depth, elegant micro-interactions, cohesive motion language.
+   Uses the existing brand palette only. Additive — nothing
+   above is broken; this layer refines it.
+   ============================================================ */
+
+:root {
+  --ease-out: cubic-bezier(.22, .61, .21, 1);
+  --ease-swift: cubic-bezier(.2, .7, .2, 1);
+  --shadow-card: 0 1px 2px rgba(15,23,42,.04), 0 24px 48px -32px rgba(7,27,120,.25);
+  --shadow-card-hover: 0 2px 4px rgba(15,23,42,.05), 0 32px 64px -32px rgba(7,27,120,.32);
+}
+
+/* ---- Typography refinement ----
+   Optical balance so headings never orphan; softer body rhythm. */
+h1, h2, h3, h4, h5 { text-wrap: balance; }
+p, li { text-wrap: pretty; }
+.h-display, .h-hero, .h-section { letter-spacing: -0.03em; }
+.eyebrow, .h-eyebrow { letter-spacing: .18em; }
+.hl-ink { color: var(--vg-dark-blue); }
+
+/* ---- Surface depth: calmer, layered shadows ---- */
+.card, .card-editorial, .card-colorful, .card-elevated, .glass, .mock, .admin-card {
+  box-shadow: var(--shadow-card);
+}
+.card:hover, .card-editorial:hover, .card-elevated:hover {
+  box-shadow: var(--shadow-card-hover);
+}
+
+/* Cards: inner hairline for a crafted, print-like edge */
+.card, .card-editorial { position: relative; }
+.card::after, .card-editorial::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.7); pointer-events: none;
+}
+
+/* ---- Micro-interactions ---- */
+.card:hover .tile, .card-editorial:hover .tile { transform: translateY(-2px) scale(1.04); }
+.tile { transition: transform .35s var(--ease-swift); }
+.card img, .card-editorial img { transition: transform .7s var(--ease-out); }
+.card:hover img, .card-editorial:hover img { transform: scale(1.03); }
+
+/* Underline-on-hover for plain inline text links */
+main p a:not([class]), .prose a:not([class]) {
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 1.5px; background-position: 0 100%; background-repeat: no-repeat;
+  transition: background-size .35s var(--ease-swift);
+}
+main p a:not([class]):hover, .prose a:not([class]):hover { background-size: 100% 1.5px; }
+
+/* ---- Buttons: tactile refinement ---- */
+.btn, .btn-primary { border-radius: 999px; }
+.btn { letter-spacing: .005em; }
+.btn-primary::after { transition: transform .7s var(--ease-swift); }
+.btn-ghost:hover { border-color: rgba(7,27,120,.35); }
+
+/* ---- Navigation: glass depth on scroll ---- */
+.nav { transition: background-color .35s ease, box-shadow .35s ease; }
+.nav.scrolled {
+  background: rgba(7, 27, 120, .92);
+  -webkit-backdrop-filter: blur(12px) saturate(1.3);
+  backdrop-filter: blur(12px) saturate(1.3);
+  box-shadow: 0 12px 32px -20px rgba(4,12,50,.9);
+}
+.nav-link { font-family: var(--font-ui); letter-spacing: .005em; }
+.nav-link::after { height: 1.5px; border-radius: 2px; bottom: -4px; transition: width .35s var(--ease-swift); }
+
+/* ---- Reveal motion: quieter, more confident ---- */
+.reveal { transition: opacity .8s var(--ease-out), transform .8s var(--ease-out), filter .8s var(--ease-out); }
+.reveal[data-delay="1"] { transition-delay: .08s; }
+.reveal[data-delay="2"] { transition-delay: .16s; }
+.reveal[data-delay="3"] { transition-delay: .24s; }
+.reveal[data-anim="left"]  { transform: translateX(-22px); }
+.reveal[data-anim="right"] { transform: translateX(22px); }
+.reveal[data-anim="scale"] { transform: scale(.965); }
+.reveal[data-anim="rise"]  { transform: translateY(26px); }
+.reveal[data-anim="blur"]  { filter: blur(6px); }
+
+/* ---- Forms: considered focus states ---- */
+.field { border-radius: 10px; transition: border-color .25s ease, background-color .25s ease, box-shadow .25s ease; }
+.field:focus { box-shadow: 0 0 0 4px rgba(83,122,210,.14); background: #fff; }
+.field-label { letter-spacing: .01em; }
+
+/* ---- Selection & scrollbar polish ---- */
+::selection { background: rgba(20,211,199,.25); color: #06122E; }
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(15,23,42,.22); border-radius: 999px; border: 2px solid transparent; background-clip: content-box; }
+::-webkit-scrollbar-thumb:hover { background: rgba(7,27,120,.4); border: 2px solid transparent; background-clip: content-box; }
+
+/* ---- Sections: refined hairline between stacked sections ---- */
+.section + .section::before {
+  content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+  width: min(calc(1200px - 2 * var(--shell-x)), 100%); height: 1px; background: var(--vg-border);
+}
+
+/* ---- Footer: refined depth ---- */
+.site-footer { background: #101218; }
+.site-footer .foot-link { transition: color .25s ease, padding-left .25s var(--ease-swift); }
+.site-footer .foot-link:hover { padding-left: .25rem; }
+.site-footer .foot-social { transition: color .25s ease, border-color .25s ease, background-color .25s ease, transform .25s var(--ease-swift); }
+.site-footer .foot-social:hover { transform: translateY(-2px); }
+
+/* ---- Hero: calmer, premium blobs ---- */
+.hero-blob { filter: blur(70px); opacity: .5; animation: blob-drift 18s ease-in-out infinite alternate; }
+@keyframes blob-drift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(0,-4%,0) scale(1.06); } }
+
+/* ---- Reduced motion: kill v4 movement too ---- */
+@media (prefers-reduced-motion: reduce) {
+  .hero-blob { animation: none; }
+  .reveal, .tile, .card, .card-editorial, .btn, .nav, .field, .vg-fab { transition: none !important; }
+}
