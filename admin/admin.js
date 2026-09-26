@@ -172,6 +172,24 @@
   const who = sessionStorage.getItem('vg_admin_email');
   if (who) { const av = document.querySelector('#admin-topbar .rounded-full'); if (av) av.title = who; }
 
+  // Auth status banner — makes demo (read-only) vs signed-in state obvious.
+  (function authBanner() {
+    if (document.getElementById('admin-auth-banner')) return;
+    const topbar = document.getElementById('admin-topbar');
+    if (!topbar) return;
+    const bar = document.createElement('div');
+    bar.id = 'admin-auth-banner';
+    const signedIn = !!vgToken();
+    bar.style.cssText = 'display:flex;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.6rem 0;font-family:var(--font-ui);font-size:.85rem;';
+    bar.innerHTML = signedIn
+      ? `<span style="color:var(--vg-text-soft)">Signed in as <strong style="color:var(--vg-text)">${String(who).replace(/[<>&"]/g, '')}</strong> — full editing enabled.</span>
+         <a href="login.html" data-signout style="color:#0891B2;font-weight:600">Sign out</a>`
+      : `<span style="color:var(--vg-text-soft)">You're viewing the <strong style="color:var(--vg-text)">read-only demo</strong> — saving, editing and uploads are disabled.</span>
+         <a href="login.html" style="color:#0891B2;font-weight:600">Sign in to make changes →</a>`;
+    const shell = topbar.parentElement;
+    if (shell) shell.insertBefore(bar, topbar.nextSibling);
+  })();
+
   /* ---------- Live dashboard counts (when signed in) ---------- */
   const countEls = document.querySelectorAll('[data-sb-count]');
   if (countEls.length && vgToken()) {
