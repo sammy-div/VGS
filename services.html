@@ -13,10 +13,11 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#F6F4EF" />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Space Grotesk','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F6F4EF'},fontFamily:{head:['Hanken Grotesk','Inter','sans-serif'],body:['Hanken Grotesk','Inter','sans-serif'],ui:['Hanken Grotesk','Inter','sans-serif'],mono:['JetBrains Mono','monospace']}}}};</script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=15" />
+  <link rel="stylesheet" href="assets/css/joblira.css?v=2" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
@@ -34,16 +35,28 @@
           <a href="#pillars" class="btn btn-ghost">See all six</a>
         </div>
       </div>
-      <!-- Unique illustration: layered service stack -->
-      <div class="relative h-[320px] hidden md:flex items-center justify-center reveal" data-delay="2" aria-hidden="true">
-        <div class="bob absolute w-[260px] rounded-2xl border border-[#0F172A]/10 bg-[#FFFFFF] h-20 rotate-[-8deg] -translate-y-16" style="animation-delay:.2s"></div>
-        <div class="bob absolute w-[260px] rounded-2xl border border-[#0F172A]/10 bg-[#FFFFFF] h-20 rotate-[-2deg]" style="animation-delay:.6s"></div>
-        <div class="bob absolute w-[260px] rounded-2xl border border-vgblue2/40 bg-[#FFFFFF] h-20 rotate-[5deg] translate-y-16 flex items-center gap-3 px-5" style="animation-delay:1s">
-          <span class="tile tile-blue !w-9 !h-9"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h10"/></svg></span>
-          <div class="flex-1"><div class="h-2 w-24 rounded bg-[#0F172A]/15"></div><div class="h-2 w-16 rounded bg-[#0F172A]/10 mt-1.5"></div></div>
-          <span class="w-2.5 h-2.5 rounded-full bg-vgteal pulse-soft"></span>
+      <!-- Joblira signature: tilted proof match-cards -->
+      <div class="match-stack reveal" data-delay="2" aria-hidden="true">
+        <div class="match-card" style="--rot:-5deg; --mc-c:#537AD2; top:6%; left:4%">
+          <span class="mc-avatar">ET</span>
+          <span><span class="mc-title">Enterprise platform</span><span class="mc-sub">Banking client · live</span></span>
+          <span class="mc-chip">Live</span>
         </div>
-        <svg class="spin-slow absolute -right-2 -top-2 w-24 h-24 opacity-30" viewBox="0 0 100 100"><circle cx="50" cy="50" r="44" stroke="#6366F1" stroke-width="1" stroke-dasharray="3 8" fill="none"/></svg>
+        <div class="match-card is-cyan" style="--rot:3deg; --mc-c:#14D3C7; top:34%; left:14%">
+          <span class="mc-avatar">AI</span>
+          <span><span class="mc-title">AI document assistant</span><span class="mc-sub">Grounded on your data</span></span>
+          <span class="mc-chip">Deployed</span>
+        </div>
+        <div class="match-card is-orange" style="--rot:-2deg; top:62%; left:14%">
+          <span class="mc-avatar">AU</span>
+          <span><span class="mc-title">Workflow automation</span><span class="mc-sub">12 hrs/week saved</span></span>
+          <span class="mc-chip">ROI ✓</span>
+        </div>
+        <div class="match-card" style="--rot:4deg; --mc-c:#6366F1; top:82%; left:22%">
+          <span class="mc-avatar">TA</span>
+          <span><span class="mc-title">Team training</span><span class="mc-sub">120+ specialists upskilled</span></span>
+          <span class="mc-chip">Live</span>
+        </div>
       </div>
     </div>
   </section>
@@ -106,23 +119,69 @@
   </section>
 
   <section class="theme-blue section">
-    <div class="shell glass rounded-3xl p-10 md:p-14 grid lg:grid-cols-2 gap-10 items-center reveal">
-      <div>
-        <span class="h-eyebrow">Engagement models</span>
-        <h2 class="h-section mt-3">Flexible ways to work together</h2>
+    <div class="shell">
+      <div class="max-w-2xl reveal">
+        <span class="h-eyebrow">Why one partner</span>
+        <h2 class="h-section mt-3">Stitching vendors is the old way</h2>
+        <p class="lead mt-4">Every practice area you add shouldn't add another contract, another discovery phase, another handoff gap.</p>
       </div>
-      <div class="grid sm:grid-cols-3 gap-4">
-        <div><h3 class="h-card text-lg">Project</h3><p class="text-soft text-sm mt-1">Fixed-scope delivery with clear milestones.</p></div>
-        <div><h3 class="h-card text-lg">Retainer</h3><p class="text-soft text-sm mt-1">Ongoing partnership and continuous improvement.</p></div>
-        <div><h3 class="h-card text-lg">Advisory</h3><p class="text-soft text-sm mt-1">Senior guidance without a full build.</p></div>
+      <div class="compare mt-10 reveal" data-delay="1">
+        <div class="compare-old">
+          <div class="cmp-head"><span class="cmp-x">✕</span> The old way</div>
+          <ul class="cmp-list">
+            <li><span class="li-mark">✕</span> One vendor for the platform, another for AI, a third for training</li>
+            <li><span class="li-mark">✕</span> Handoffs where context and accountability disappear</li>
+            <li><span class="li-mark">✕</span> Tools that don't talk to each other — manual re-entry returns</li>
+            <li><span class="li-mark">✕</span> You become the integrator, the project manager and the support desk</li>
+          </ul>
+        </div>
+        <div class="compare-new">
+          <div class="cmp-head"><span class="cmp-check">✓</span> The Vatous way</div>
+          <ul class="cmp-list">
+            <li><span class="li-mark">✓</span> Six practices under one roof, one accountable partner</li>
+            <li><span class="li-mark">✓</span> Systems, automation and AI designed to work together from day one</li>
+            <li><span class="li-mark">✓</span> Your team trained on what we build — you can run it yourself</li>
+            <li><span class="li-mark">✓</span> Handover with documentation, monitoring and support — never dependence by design</li>
+          </ul>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="theme-cyan section">
-    <div class="shell text-center reveal">
-      <h2 class="h-section max-w-2xl mx-auto">Not sure where to start? <span class="teal">We'll help you scope it.</span></h2>
-      <a href="contact.html" class="btn btn-primary mt-8">Book a Consultation</a>
+  <section class="theme-cyan section surface-panel">
+    <div class="shell">
+      <div class="max-w-2xl reveal"><span class="h-eyebrow">Engagement models</span><h2 class="h-section mt-3">Flexible ways to work together</h2></div>
+      <div class="step-panel active mt-10">
+        <div class="step-card reveal" data-anim="left">
+          <span class="step-num">01 — Project</span>
+          <h3 class="h-card">Fixed-scope delivery</h3>
+          <p>Clear milestones, defined outcomes, a live system at the end. Best for a defined build with a set finish line.</p>
+        </div>
+        <div class="step-card reveal" data-anim="rise" data-delay="1">
+          <span class="step-num">02 — Retainer</span>
+          <h3 class="h-card">Ongoing partnership</h3>
+          <p>Continuous improvement, maintenance and iteration as your operations and ambitions evolve.</p>
+        </div>
+        <div class="step-card reveal" data-anim="right" data-delay="2">
+          <span class="step-num">03 — Advisory</span>
+          <h3 class="h-card">Senior guidance</h3>
+          <p>Senior technology guidance without a full build — strategy, audits, roadmaps and vendor decisions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="shell">
+      <div class="cta-band text-center reveal">
+        <span class="eyebrow" style="color:#6EE7F7;background:rgba(34,211,238,.10);border-color:rgba(34,211,238,.3)">Free scoping call</span>
+        <h2 class="mt-4">Not sure where to start? We'll help you scope it.</h2>
+        <p class="mx-auto">A 30-minute call with a senior consultant — no sales script, just a clear read on where technology can move the needle for you.</p>
+        <div class="flex flex-wrap gap-2.5 justify-center mt-8">
+          <a href="contact.html" class="btn btn-orange">Book a Consultation</a>
+          <a href="#pillars" class="btn btn-ghost">Browse practices</a>
+        </div>
+      </div>
     </div>
   </section>
 

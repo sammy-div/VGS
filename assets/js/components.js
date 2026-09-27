@@ -58,8 +58,8 @@
     <a href="index.html" class="js-logo flex items-center gap-2.5" aria-label="Vatous Global Solutions home">
       <svg width="30" height="30" viewBox="0 0 32 32" fill="none" aria-hidden="true">
         <rect x="1" y="1" width="30" height="30" rx="8" stroke="rgba(15,23,42,.16)"/>
-        <path d="M8 9l6 14h1.5L9.8 9z" fill="#14D3C7"/>
-        <path d="M22.4 9l-6 14H15L20.6 9z" fill="#537AD2"/>
+        <path d="M8 9l6 14h1.5L9.8 9z" fill="#0891B2"/>
+        <path d="M22.4 9l-6 14H15L20.6 9z" fill="#14D3C7"/>
       </svg>
       <span class="font-head font-extrabold tracking-tight text-[1.05rem]">Vatous<span class="teal">.</span></span>
     </a>`;
@@ -81,7 +81,7 @@
     return `<a href="${href}" class="nav-link"${current}>${label}</a>`;
   }).join('');
 
-  const MOBILE_DOTS = ['#537AD2', '#14D3C7', '#8b5cf6', '#10B981', '#F59E0B', '#F43F5E', '#0EA5E9', '#6366F1'];
+  const MOBILE_DOTS = ['#14D3C7', '#0891B2', '#8b5cf6', '#10B981', '#F59E0B', '#F43F5E', '#0EA5E9', '#6366F1'];
   const mobileLinks = [['Home', 'index.html'], ...NAV, ['Contact', 'contact.html']]
     .map(([label, href], i) => {
       const current = href === path ? ' aria-current="page"' : '';
@@ -287,7 +287,7 @@
           if (s[k] != null && s[k] !== '') el.textContent = s[k];
         });
 
-        // Generic link binding — [data-setting-href="col"]. email/phone/whatsapp
+        // Generic link binding → [data-setting-href="col"]. email/phone/whatsapp
         // get the right scheme; everything else is used as a raw URL.
         document.querySelectorAll('[data-setting-href]').forEach(function (el) {
           var k = el.getAttribute('data-setting-href'), v = null;
@@ -298,7 +298,7 @@
           if (v) el.href = v;
         });
 
-        // Generic image binding — [data-setting-src="col"] swaps in an admin
+        // Generic image binding → [data-setting-src="col"] swaps in an admin
         // image and hides its [data-fallback="col"] illustration.
         document.querySelectorAll('[data-setting-src]').forEach(function (el) {
           var k = el.getAttribute('data-setting-src');

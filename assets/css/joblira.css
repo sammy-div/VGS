@@ -1,0 +1,206 @@
+/* ============================================================
+   v6 — Joblira design language: signature components
+   Match-cards (tilted floating proof cards), old/new comparison,
+   step tabs, stats strip. Powered by the token layer in styles.css.
+   ============================================================ */
+
+/* ---- Tilted floating match-cards (hero) ---- */
+.match-stack { position: relative; }
+.match-card {
+  position: absolute; display: flex; align-items: center; gap: .7rem;
+  background: var(--vg-surface-2); border: 1px solid var(--vg-border);
+  border-radius: var(--radius-md); padding: .7rem .95rem;
+  box-shadow: var(--shadow-card);
+  transform: rotate(var(--rot, 0deg));
+  transition: transform .45s var(--ease-swift), box-shadow .45s var(--ease-swift);
+}
+.match-card:hover { transform: rotate(0deg) scale(1.03); box-shadow: var(--shadow-card-hover); z-index: 5; }
+.match-card .mc-avatar {
+  width: 38px; height: 38px; border-radius: 999px; flex: none;
+  display: grid; place-items: center; font-weight: 800; font-size: .85rem;
+  font-family: var(--font-mono); color: #fff; background: var(--mc-c, var(--vg-teal));
+}
+.match-card .mc-title { font-weight: 700; font-size: .88rem; color: var(--vg-text); line-height: 1.25; }
+.match-card .mc-sub { font-size: .74rem; color: var(--vg-text-mute); font-family: var(--font-mono); }
+.match-card .mc-chip {
+  margin-left: auto; font-family: var(--font-mono); font-size: .68rem; font-weight: 700;
+  padding: .28rem .55rem; border-radius: 999px; white-space: nowrap;
+  color: var(--vg-teal); background: rgba(8,145,178,.10); border: 1px solid rgba(8,145,178,.25);
+}
+.match-card.is-orange .mc-chip { color: var(--vg-orange); background: rgba(37,99,235,.10); border-color: rgba(37,99,235,.30); }
+.match-card.is-cyan .mc-chip { color: #0E7490; background: rgba(20,211,199,.16); border-color: rgba(20,211,199,.45); }
+@media (max-width: 1023px) { .match-card { position: static; margin-top: .8rem; display: inline-flex; } .match-stack { display: flex; flex-wrap: wrap; gap: .5rem; } }
+
+/* ---- Old way x / New way comparison ---- */
+.compare { display: grid; gap: 1.25rem; }
+@media (min-width: 768px) { .compare { grid-template-columns: 1fr 1fr; align-items: start; } }
+.compare-old, .compare-new {
+  border-radius: var(--radius); padding: 1.75rem; border: 1px solid var(--vg-border);
+  background: var(--vg-surface);
+}
+.compare-old { border-style: dashed; opacity: .92; }
+.compare-old .cmp-head { color: var(--vg-text-mute); }
+.compare-new { border-color: var(--vg-border-h); box-shadow: var(--shadow-card); background: var(--vg-surface-2); }
+.cmp-head { display: flex; align-items: center; gap: .6rem; font-family: var(--font-head); font-weight: 700; font-size: 1.05rem; margin-bottom: 1.1rem; }
+.cmp-head .cmp-x { color: var(--vg-orange); font-weight: 800; }
+.cmp-head .cmp-check { color: var(--vg-teal); }
+.cmp-list { list-style: none; margin: 0; padding: 0; display: grid; gap: .8rem; }
+/* ---- Steps (For Earners / For Clients tabs) ---- */
+.step-tabs { display: inline-flex; gap: .4rem; padding: .3rem; border: 1px solid var(--vg-border); border-radius: 999px; background: var(--vg-surface); }
+.step-tab { font-family: var(--font-ui); font-weight: 600; font-size: .88rem; padding: .5rem 1.1rem; border-radius: 999px; border: none; background: transparent; color: var(--vg-text-soft); cursor: pointer; transition: background-color .25s var(--ease-swift), color .25s var(--ease-swift); }
+.step-tab[aria-selected="true"] { background: var(--vg-teal); color: #fff; box-shadow: 0 6px 16px -8px var(--glow); }
+.step-panel { display: none; }
+.step-panel.active { display: grid; gap: 1.25rem; }
+@media (min-width: 768px) { .step-panel.active { grid-template-columns: repeat(3, 1fr); } }
+.step-card { position: relative; background: var(--vg-surface-2); border: 1px solid var(--vg-border); border-radius: var(--radius); padding: 1.6rem; box-shadow: var(--shadow-card); }
+.step-card .step-num { font-family: var(--font-mono); font-weight: 700; font-size: .72rem; letter-spacing: .08em; text-transform: uppercase; color: var(--vg-teal); }
+.step-card h3 { margin-top: .5rem; font-size: 1.08rem; }
+.step-card p { margin-top: .5rem; color: var(--vg-text-soft); font-size: .93rem; line-height: 1.6; }
+
+/* ---- Stats strip ---- */
+.stat-strip { display: grid; gap: 1.5rem; text-align: center; }
+@media (min-width: 640px) { .stat-strip { grid-template-columns: repeat(4, 1fr); } }
+.stat-strip .stat-num { font-family: var(--font-head); font-weight: 800; font-size: clamp(1.9rem, 4vw, 2.6rem); letter-spacing: -0.02em; color: var(--vg-text); }
+.stat-strip .stat-num em { font-style: normal; color: var(--vg-teal); }
+.stat-strip .stat-label { font-family: var(--font-mono); font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; color: var(--vg-text-mute); margin-top: .35rem; }
+
+/* ---- Full-bleed closing CTA (Joblira: dark navy band, teal+orange glow) ---- */
+.cta-band { position: relative; overflow: hidden; background: #0B0E14; color: #E9EDF5; border-radius: calc(var(--radius) * 1.4); padding: clamp(2.5rem, 6vw, 4.5rem); }
+.cta-band::before { content: ""; position: absolute; inset: 0; background: radial-gradient(60% 90% at 80% 10%, rgba(37,99,235,.14), transparent 60%), radial-gradient(50% 80% at 10% 90%, rgba(8,145,178,.18), transparent 60%); pointer-events: none; }
+.cta-band > * { position: relative; }
+.cta-band h2 { color: #fff; font-size: clamp(1.8rem, 4.5vw, 2.8rem); }
+.cta-band p { color: rgba(233,237,245,.72); margin-top: .8rem; max-width: 52ch; }
+.cta-band .btn-ghost { background: transparent; color: #fff; border-color: rgba(255,255,255,.25); }
+.cta-band .btn-ghost:hover { border-color: rgba(255,255,255,.5); background: rgba(255,255,255,.06); }
+
+/* ---- Testimonial cards ---- */
+.t-card { background: var(--vg-surface-2); border: 1px solid var(--vg-border); border-radius: var(--radius); padding: 1.75rem; box-shadow: var(--shadow-card); display: flex; flex-direction: column; gap: 1.1rem; }
+.t-card blockquote { margin: 0; font-size: 1rem; line-height: 1.65; color: var(--vg-text); }
+.t-card .t-who { display: flex; align-items: center; gap: .75rem; margin-top: auto; }
+.t-card .t-avatar { width: 40px; height: 40px; border-radius: 999px; display: grid; place-items: center; font-family: var(--font-mono); font-weight: 700; font-size: .8rem; color: #fff; background: var(--mc-c, var(--vg-teal)); flex: none; }
+.t-card .t-name { font-weight: 700; font-size: .9rem; color: var(--vg-text); }
+.t-card .t-role { font-size: .78rem; color: var(--vg-text-mute); font-family: var(--font-mono); }
+
+.cmp-list li { display: flex; gap: .65rem; align-items: flex-start; font-size: .95rem; color: var(--vg-text-soft); line-height: 1.55; }
+.cmp-list .li-mark { flex: none; width: 20px; height: 20px; border-radius: 999px; display: grid; place-items: center; margin-top: .15rem; font-size: .7rem; font-weight: 800; }
+.compare-old .li-mark { background: rgba(37,99,235,.10); color: var(--vg-orange); }
+.compare-new .li-mark { background: rgba(8,145,178,.10); color: var(--vg-teal); }
+
+/* ============================================================
+   v7 — MOBILE-FIRST + POP-OUT PASS
+   Mobile-first defaults with progressive @media (min-width).
+   Guarantees text/elements stand out in LIGHT and DARK themes.
+   ============================================================ */
+
+/* ---- Mobile-first base tightening (no buried content) ---- */
+.section { padding-block: clamp(64px, 12vw, 88px); }        /* roomier on small screens */
+.section .container, .shell { padding-inline: clamp(1.25rem, 5vw, 2rem); }
+
+/* Section headers always pop */
+.section h2, .h2 {
+  font-size: clamp(1.75rem, 5.2vw, 2.6rem);
+  letter-spacing: -0.025em;
+  line-height: 1.12;
+  color: var(--vg-text);
+}
+.section h3, .h3 { color: var(--vg-text); letter-spacing: -0.015em; }
+.section .lead, .lead { color: var(--vg-text-soft); font-size: clamp(1rem, 2.6vw, 1.12rem); line-height: 1.65; }
+
+/* Mono eyebrow chip — Joblira signature, high-contrast in both themes */
+.eyebrow, .section .eyebrow {
+  display: inline-flex; align-items: center; gap: .5rem;
+  font-family: var(--font-mono); font-size: .72rem; font-weight: 700;
+  letter-spacing: .12em; text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  padding: .4rem .85rem; border-radius: 999px;
+}
+html[data-theme="dark"] .eyebrow { color: #22D3EE; background: rgba(34,211,238,.10); }
+
+/* Cards: visible edges + hover lift = nothing blends into bg */
+.card, .step-card, .t-card, .compare-old, .compare-new, .service-card, .post-card {
+  transition: transform .35s var(--ease-swift), box-shadow .35s var(--ease-swift), border-color .35s var(--ease-swift);
+}
+.card:hover, .step-card:hover, .t-card:hover, .service-card:hover, .post-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+  border-color: var(--vg-border-h);
+}
+@media (prefers-reduced-motion: reduce) {
+  .card:hover, .step-card:hover, .t-card:hover { transform: none; }
+}
+
+/* Buttons: punchier presence + accessible focus ring */
+.btn-primary, .btn-orange, .btn-ghost { font-weight: 700; letter-spacing: .01em; }
+.btn-primary { box-shadow: 0 10px 24px -12px var(--glow); }
+.btn-primary:hover { box-shadow: 0 14px 32px -12px var(--glow); transform: translateY(-1px); }
+.btn:focus-visible, .step-tab:focus-visible, a:focus-visible {
+  outline: 2px solid var(--vg-teal); outline-offset: 3px; border-radius: 8px;
+}
+
+/* Text hierarchy guarantees (both themes) */
+.muted, .text-mute { color: var(--vg-text-mute); }
+.dark-mode .text-mute, html[data-theme="dark"] .text-mute { color: var(--vg-text-mute); }
+p { color: var(--vg-text-soft); }
+
+/* ---- Responsive hardening: match-cards ---- */
+.match-card { max-width: min(100%, 300px); }
+.match-card .mc-sub { display: none; }
+@media (min-width: 480px) { .match-card .mc-sub { display: block; } }
+.match-stack { max-width: 100%; }
+@media (min-width: 1024px) { .match-stack { min-height: 440px; } }
+
+/* ---- Responsive hardening: compare / steps / stats / CTA ---- */
+@media (max-width: 767px) {
+  .compare-old, .compare-new, .step-card, .t-card { padding: 1.25rem; }
+  .step-panel.active { gap: .9rem; }
+  .stat-strip { grid-template-columns: repeat(2, 1fr); gap: 1.25rem .75rem; }
+  .cta-band { border-radius: var(--radius-md); padding: 2rem 1.25rem; }
+  .cta-band .btn { width: 100%; }
+  .cta-band .btn + .btn { margin-top: .75rem; }
+}
+@media (max-width: 479px) {
+  .step-tabs { display: flex; width: 100%; }
+  .step-tab { flex: 1; padding: .55rem .6rem; text-align: center; }
+  .stat-strip { grid-template-columns: 1fr 1fr; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .stat-strip { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Desktop fit: keep tilted cards inside hero bounds */
+@media (min-width: 1024px) {
+  .match-card { max-width: 300px; }
+  .step-panel.active { gap: 1.5rem; }
+}
+
+/* ---- Dark-mode pop guarantees (surfaces + accent legibility) ---- */
+html[data-theme="dark"] .match-card,
+html[data-theme="dark"] .step-card,
+html[data-theme="dark"] .t-card,
+html[data-theme="dark"] .compare-old,
+html[data-theme="dark"] .compare-new {
+  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 40%), var(--vg-surface);
+  border-color: rgba(255,255,255,.12);
+}
+html[data-theme="dark"] .match-card .mc-chip {
+  color: #2DD4BF; background: rgba(20,211,199,.14); border-color: rgba(20,211,199,.4);
+}
+html[data-theme="dark"] .match-card.is-orange .mc-chip { color: #93C5FD; background: rgba(83,122,210,.16); border-color: rgba(83,122,210,.45); }
+html[data-theme="dark"] .match-card.is-cyan .mc-chip { color: #2DD4BF; }
+html[data-theme="dark"] .match-card .mc-title,
+html[data-theme="dark"] .step-card h3,
+html[data-theme="dark"] .t-card .t-name { color: var(--vg-text); }
+html[data-theme="dark"] .step-tab[aria-selected="true"] { background: var(--vg-teal); color: #062A2E; }
+html[data-theme="dark"] .stat-strip .stat-num { color: #F4F7FC; }
+html[data-theme="dark"] .stat-strip .stat-num em { color: #2DD4BF; }
+html[data-theme="dark"] .stat-strip .stat-label,
+html[data-theme="dark"] .match-card .mc-chip { color: #93C5CF; }
+html[data-theme="dark"] .compare-old { opacity: 1; border-style: dashed; }
+html[data-theme="dark"] .compare-old .cmp-head { color: #AEB8C8; }
+
+/* Light-mode pop: slightly stronger ink for mute text */
+:root { --vg-text-mute: #55637A; }
+html[data-theme="dark"] { --vg-text-mute: #98A3B8; }
+

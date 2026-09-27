@@ -15,10 +15,11 @@
   <meta name="theme-color" content="#F6F4EF" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F7F8FA'},fontFamily:{head:['Space Grotesk','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F6F4EF'},fontFamily:{head:['Hanken Grotesk','Inter','sans-serif'],body:['Hanken Grotesk','Inter','sans-serif'],ui:['Hanken Grotesk','Inter','sans-serif'],mono:['JetBrains Mono','monospace']}}}};</script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=15" />
+  <link rel="stylesheet" href="assets/css/joblira.css?v=2" />
 </head>
 <body class="font-body">
   <div class="vg-bg" aria-hidden="true"></div>
@@ -36,19 +37,23 @@
           <span class="chip theme-blue">Technology</span><span class="chip theme-cyan">Design</span><span class="chip theme-violet">Consulting</span><span class="chip theme-emerald">Training</span>
         </div>
       </div>
-      <!-- Unique illustration: ascending growth path with milestone nodes -->
-      <div class="lg:col-span-5 relative h-[300px] hidden md:block reveal" data-delay="2" aria-hidden="true">
-        <svg class="absolute inset-0 w-full h-full" viewBox="0 0 360 300" fill="none" preserveAspectRatio="xMidYMid meet">
-          <path d="M20 250 C 90 250, 90 170, 150 150 S 250 120, 300 50" stroke="#537AD2" stroke-width="2.5" fill="none" class="draw-in"/>
-          <path d="M20 250 C 90 250, 90 170, 150 150 S 250 120, 300 50 L300 280 L20 280 Z" fill="#537AD2" opacity=".08"/>
-          <g>
-            <circle cx="20" cy="250" r="6" fill="#537AD2" class="twinkle"/>
-            <circle cx="150" cy="150" r="7" fill="#6366F1" class="twinkle" style="animation-delay:.5s"/>
-            <circle cx="300" cy="50" r="8" fill="#14D3C7" class="twinkle" style="animation-delay:1s"/>
-          </g>
-        </svg>
-        <span class="ring-pulse absolute right-8 top-4 w-16 h-16 rounded-full border border-vgteal/40"></span>
-        <span class="spin-slow absolute left-4 bottom-2 w-20 h-20 opacity-30 rounded-full border border-dashed border-[#0F172A]/15"></span>
+      <!-- Joblira signature: tilted proof match-cards -->
+      <div class="lg:col-span-5 match-stack reveal" data-delay="2" aria-hidden="true">
+        <div class="match-card" style="--rot:-4deg; --mc-c:#071B78; top:6%; left:6%">
+          <span class="mc-avatar">20</span>
+          <span><span class="mc-title">Founded 2019</span><span class="mc-sub">Lagos hub, remote-first</span></span>
+          <span class="mc-chip">8+ markets</span>
+        </div>
+        <div class="match-card is-cyan" style="--rot:3deg; --mc-c:#14D3C7; top:34%; left:16%">
+          <span class="mc-avatar">120</span>
+          <span><span class="mc-title">Projects delivered</span><span class="mc-sub">Banking · health · logistics</span></span>
+          <span class="mc-chip">Proven</span>
+        </div>
+        <div class="match-card is-orange" style="--rot:-3deg; top:64%; left:10%">
+          <span class="mc-avatar">30</span>
+          <span><span class="mc-title">Senior specialists</span><span class="mc-sub">Engineering · design · advisory</span></span>
+          <span class="mc-chip">Senior-only</span>
+        </div>
       </div>
     </div>
   </section>
@@ -63,13 +68,11 @@
         <p class="lead mt-4" data-setting="about_story2">We set out to fix that with a different kind of firm — one that combines the engineering depth of a product studio, the rigour of a consultancy, and a deep understanding of how organizations actually operate on the ground.</p>
       </div>
       <div class="reveal">
-        <div class="card-elevated p-8">
-          <div class="grid grid-cols-2 gap-6">
-            <div><div class="stat-num" data-count="2019">0</div><p class="text-mute text-sm mt-1">Founded</p></div>
-            <div><div class="stat-num" data-count="8" data-suffix="+">0</div><p class="text-mute text-sm mt-1">Markets</p></div>
-            <div><div class="stat-num" data-count="120" data-suffix="+">0</div><p class="text-mute text-sm mt-1">Projects</p></div>
-            <div><div class="stat-num" data-count="30" data-suffix="+">0</div><p class="text-mute text-sm mt-1">Specialists</p></div>
-          </div>
+        <div class="stat-strip">
+          <div class="stat-item"><span class="stat-value stat-num" data-count="2019">0</span><span class="stat-label">Founded</span></div>
+          <div class="stat-item"><span class="stat-value stat-num" data-count="8" data-suffix="+">0</span><span class="stat-label">Markets</span></div>
+          <div class="stat-item"><span class="stat-value stat-num" data-count="120" data-suffix="+">0</span><span class="stat-label">Projects</span></div>
+          <div class="stat-item"><span class="stat-value stat-num" data-count="30" data-suffix="+">0</span><span class="stat-label">Specialists</span></div>
         </div>
       </div>
     </div>
@@ -163,12 +166,13 @@
   <!-- CTA -->
   <section class="section">
     <div class="shell">
-      <div class="relative overflow-hidden rounded-3xl p-10 md:p-14 text-center reveal" style="background:linear-gradient(135deg,#071B78,#3E63C8 55%,#14D3C7)">
-        <div class="tex-paper absolute inset-0 opacity-20" aria-hidden="true"></div>
-        <h2 class="h-section relative max-w-2xl mx-auto text-white">Want to work with a team that thinks first?</h2>
-        <div class="relative flex flex-wrap gap-2.5 justify-center mt-8">
-          <a href="contact.html" class="btn" style="background:#fff;color:#071B78">Book a consultation</a>
-          <a href="careers.html" class="btn btn-ghost" style="background:rgba(255,255,255,.12);color:#fff;border-color:rgba(255,255,255,.3)">Join the team</a>
+      <div class="cta-band text-center reveal">
+        <span class="eyebrow" style="color:#6EE7F7;background:rgba(34,211,238,.10);border-color:rgba(34,211,238,.3)">Careers</span>
+        <h2 class="mt-4">Want to work with a team that thinks first?</h2>
+        <p class="mx-auto">Small teams, high trust, real ownership. We're always looking for senior people who care about outcomes over output.</p>
+        <div class="flex flex-wrap gap-2.5 justify-center mt-8">
+          <a href="contact.html" class="btn btn-orange">Book a consultation</a>
+          <a href="careers.html" class="btn btn-ghost">Join the team</a>
         </div>
       </div>
     </div>

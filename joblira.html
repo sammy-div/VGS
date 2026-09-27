@@ -14,10 +14,11 @@
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="theme-color" content="#F6F4EF" />
   <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet" />
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F6F4EF'},fontFamily:{head:['Space Grotesk','Inter','sans-serif'],body:['Inter','sans-serif'],ui:['Manrope','Inter','sans-serif']}}}};</script>
-  <link rel="stylesheet" href="assets/css/styles.css?v=13" />
+  <script>tailwind.config={theme:{extend:{colors:{vgblue:'#071B78',vgblue2:'#537AD2',vgteal:'#14D3C7',vgbg:'#F6F4EF'},fontFamily:{head:['Hanken Grotesk','Inter','sans-serif'],body:['Hanken Grotesk','Inter','sans-serif'],ui:['Hanken Grotesk','Inter','sans-serif'],mono:['JetBrains Mono','monospace']}}}};</script>
+  <link rel="stylesheet" href="assets/css/styles.css?v=15" />
+  <link rel="stylesheet" href="assets/css/joblira.css?v=2" />
   <script type="application/ld+json">
   { "@context":"https://schema.org","@type":"SoftwareApplication","name":"Joblira","applicationCategory":"BusinessApplication","operatingSystem":"Web","url":"https://joblira.ng","publisher":{"@type":"Organization","name":"Vatous Global Solutions","url":"https://vatous.ng"},"description":"A modern digital employment and career platform connecting talent, opportunities and organizations." }
   </script>
@@ -116,7 +117,7 @@
   <section class="band-dark section theme-cyan">
     <div class="shell">
       <div class="section-head reveal"><span class="h-eyebrow justify-center">Case study</span><h2 class="h-section mt-4">Building Joblira</h2><p class="lead mt-5">From an employment challenge to a scalable digital platform.</p></div>
-      <div class="grid md:grid-cols-3 gap-5 mt-12">
+      <div class="step-panel active mt-12">
         <div class="card reveal"><span class="h-eyebrow">The challenge</span><p class="small mt-3" data-setting="joblira_challenge">The employment ecosystem is fragmented. Job seekers search across many platforms and compete for attention; employers struggle to reach the right people efficiently. The challenge was to bring opportunities and people closer together — simply, accessibly and at scale.</p></div>
         <div class="card reveal" data-delay="1"><span class="h-eyebrow">Our approach</span><p class="small mt-3" data-setting="joblira_approach">We approached Joblira as a scalable digital product — considering user needs and journeys, opportunity discovery, talent visibility, employer interaction, information architecture, responsive design and a technology foundation that could evolve with its users.</p></div>
         <div class="card reveal" data-delay="2"><span class="h-eyebrow">The outcome</span><p class="small mt-3" data-setting="joblira_outcome">Joblira became a demonstration of how Vatous approaches technology: start with a real problem, understand the people affected, design around their needs, and build technology that can grow with the solution.</p></div>
@@ -128,7 +129,7 @@
   <section class="tex tex-grid theme-blue section">
     <div class="shell">
       <div class="section-head reveal"><span class="h-eyebrow justify-center">Product strategy</span><h2 class="h-section mt-4">Three interconnected groups.</h2></div>
-      <div class="grid md:grid-cols-3 gap-5 mt-12">
+      <div class="step-panel active mt-12">
         <div class="block block-periwinkle reveal"><h3 class="h-4">Talent</h3><p class="small mt-2">A better way to discover opportunities and communicate professional value.</p></div>
         <div class="block block-cyanpastel reveal" data-delay="1"><h3 class="h-4">Employers</h3><p class="small mt-2">An easier way to present opportunities and reach relevant talent.</p></div>
         <div class="block block-sky reveal" data-delay="2"><h3 class="h-4">Opportunities</h3><p class="small mt-2">A structured environment where roles can be discovered, understood and acted upon.</p></div>
@@ -161,13 +162,13 @@
   <!-- ===== CLOSING CTA ===== -->
   <section class="section">
     <div class="shell">
-      <div class="block block-blue text-center reveal" style="padding:clamp(2.5rem,6vw,5rem)">
-        <div class="tex-paper absolute inset-0 opacity-20" aria-hidden="true"></div>
-        <h2 class="h-section relative max-w-2xl mx-auto">Have an idea worth building?</h2>
-        <p class="lead relative mt-5 max-w-xl mx-auto">Joblira started with a problem and became a product. Your next digital solution can start the same way.</p>
-        <div class="relative flex flex-wrap gap-2.5 justify-center mt-9">
-          <a href="contact.html" class="btn" style="background:#fff;color:#071B78">Talk to Vatous →</a>
-          <a href="https://joblira.ng" target="_blank" rel="noopener" data-setting-href="joblira_link" class="btn btn-ghost" style="background:rgba(255,255,255,.14);color:#fff;border-color:rgba(255,255,255,.32)">Explore Joblira →</a>
+      <div class="cta-band text-center reveal">
+        <span class="eyebrow" style="color:#6EE7F7;background:rgba(34,211,238,.10);border-color:rgba(34,211,238,.3)">Case study</span>
+        <h2 class="mt-4">Have an idea worth building?</h2>
+        <p class="mx-auto">Joblira started with a problem and became a product. Your next digital solution can start the same way.</p>
+        <div class="flex flex-wrap gap-2.5 justify-center mt-8">
+          <a href="contact.html" class="btn btn-orange">Talk to Vatous →</a>
+          <a href="https://joblira.ng" target="_blank" rel="noopener" data-setting-href="joblira_link" class="btn btn-ghost">Explore Joblira →</a>
         </div>
       </div>
     </div>
