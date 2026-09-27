@@ -116,7 +116,6 @@
   border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
   padding: .4rem .85rem; border-radius: 999px;
 }
-html[data-theme="dark"] .eyebrow { color: #22D3EE; background: rgba(34,211,238,.10); }
 
 /* Cards: visible edges + hover lift = nothing blends into bg */
 .card, .step-card, .t-card, .compare-old, .compare-new, .service-card, .post-card {
@@ -141,7 +140,7 @@ html[data-theme="dark"] .eyebrow { color: #22D3EE; background: rgba(34,211,238,.
 
 /* Text hierarchy guarantees (both themes) */
 .muted, .text-mute { color: var(--vg-text-mute); }
-.dark-mode .text-mute, html[data-theme="dark"] .text-mute { color: var(--vg-text-mute); }
+
 p { color: var(--vg-text-soft); }
 
 /* ---- Responsive hardening: match-cards ---- */
@@ -175,32 +174,6 @@ p { color: var(--vg-text-soft); }
   .step-panel.active { gap: 1.5rem; }
 }
 
-/* ---- Dark-mode pop guarantees (surfaces + accent legibility) ---- */
-html[data-theme="dark"] .match-card,
-html[data-theme="dark"] .step-card,
-html[data-theme="dark"] .t-card,
-html[data-theme="dark"] .compare-old,
-html[data-theme="dark"] .compare-new {
-  background: linear-gradient(180deg, rgba(255,255,255,.03), rgba(255,255,255,0) 40%), var(--vg-surface);
-  border-color: rgba(255,255,255,.12);
-}
-html[data-theme="dark"] .match-card .mc-chip {
-  color: #2DD4BF; background: rgba(20,211,199,.14); border-color: rgba(20,211,199,.4);
-}
-html[data-theme="dark"] .match-card.is-orange .mc-chip { color: #93C5FD; background: rgba(83,122,210,.16); border-color: rgba(83,122,210,.45); }
-html[data-theme="dark"] .match-card.is-cyan .mc-chip { color: #2DD4BF; }
-html[data-theme="dark"] .match-card .mc-title,
-html[data-theme="dark"] .step-card h3,
-html[data-theme="dark"] .t-card .t-name { color: var(--vg-text); }
-html[data-theme="dark"] .step-tab[aria-selected="true"] { background: var(--vg-teal); color: #062A2E; }
-html[data-theme="dark"] .stat-strip .stat-num { color: #F4F7FC; }
-html[data-theme="dark"] .stat-strip .stat-num em { color: #2DD4BF; }
-html[data-theme="dark"] .stat-strip .stat-label,
-html[data-theme="dark"] .match-card .mc-chip { color: #93C5CF; }
-html[data-theme="dark"] .compare-old { opacity: 1; border-style: dashed; }
-html[data-theme="dark"] .compare-old .cmp-head { color: #AEB8C8; }
-
 /* Light-mode pop: slightly stronger ink for mute text */
 :root { --vg-text-mute: #55637A; }
-html[data-theme="dark"] { --vg-text-mute: #98A3B8; }
 
