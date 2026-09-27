@@ -900,6 +900,124 @@ main p a:not([class]):hover, .prose a:not([class]):hover { background-size: 100%
     radial-gradient(30rem 22rem at 8% 120%, rgba(124, 58, 237, .3), transparent 60%),
     linear-gradient(120deg, #071B78 0%, #14276E 55%, #1D3A8F 100%);
   border: 1px solid rgba(255, 255, 255, .12);
+/* ============================================================
+   v8 — KOBBLE EDITORIAL DISCIPLINE (Vatous palette retained)
+   ============================================================ */
+
+/* --- 1. Editorial type scale: very big, very bold, tight --- */
+.h-display {
+  font-size: calc(clamp(3.4rem, 9vw, 7rem) * var(--type-scale));
+  font-weight: 700; line-height: .96; letter-spacing: -0.045em;
+}
+.h-hero {
+  font-size: calc(clamp(2.9rem, 6.5vw, 4.75rem) * var(--type-scale));
+  font-weight: 700; line-height: .98; letter-spacing: -0.04em;
+}
+.h-section {
+  font-size: calc(clamp(2.5rem, 5vw, 3.9rem) * var(--type-scale));
+  font-weight: 700; line-height: 1.02; letter-spacing: -0.038em;
+}
+.h-card {
+  font-size: calc(clamp(1.45rem, 2.1vw, 1.8rem) * var(--type-scale));
+  font-weight: 700; line-height: 1.16; letter-spacing: -0.02em;
+}
+.h-eyebrow { font-weight: 700; letter-spacing: .2em; }
+.lead { font-size: clamp(1.08rem, 1.35vw, 1.22rem); line-height: 1.68; color: #3D4756; }
+
+/* --- 2. Dark-section contrast: nothing hides on ink --- */
+.band-dark, .block-navy, .block-charcoal, .block-blue { color: #E8EDF6; }
+.band-dark h1, .band-dark h2, .band-dark h3, .band-dark h4,
+.block-navy h1, .block-navy h2, .block-navy h3, .block-navy h4,
+.block-charcoal h1, .block-charcoal h2, .block-charcoal h3,
+.block-blue h1, .block-blue h2, .block-blue h3 { color: #FFFFFF; }
+.band-dark p, .band-dark li, .band-dark .lead, .band-dark .text-soft,
+.band-dark .small, .band-dark td, .band-dark dd,
+.block-navy p, .block-navy .lead, .block-navy li,
+.block-charcoal p, .block-charcoal .lead, .block-charcoal li,
+.block-blue p, .block-blue .lead, .block-blue li { color: #C6CEDD; }
+.band-dark .text-mute, .block-navy .text-mute, .block-charcoal .text-mute,
+.block-blue .text-mute { color: #9AA5B8; }
+.band-dark strong, .block-navy strong, .block-charcoal strong, .block-blue strong { color: #FFFFFF; }
+.band-dark a:not(.btn), .block-navy a:not(.btn), .block-charcoal a:not(.btn) { color: #7DD3FC; }
+.band-dark .card, .band-dark .card-editorial,
+.block-navy .card, .block-charcoal .card, .block-blue .card {
+  background: rgba(255,255,255,.055); border-color: rgba(255,255,255,.14); color: #E8EDF6;
+}
+.band-dark .card p, .band-dark .card li, .band-dark .card-editorial p { color: #C6CEDD; }
+.band-dark .chip, .block-navy .chip, .block-charcoal .chip {
+  background: rgba(255,255,255,.09); color: #fff; border-color: rgba(255,255,255,.22);
+}
+.band-dark .btn-ghost, .block-navy .btn-ghost, .block-charcoal .btn-ghost {
+  color: #fff; border-color: rgba(255,255,255,.32); background: rgba(255,255,255,.07);
+}
+.band-dark .stat-num, .block-navy .stat-num, .block-charcoal .stat-num { color: #fff; }
+.band-dark svg[stroke="currentColor"] { color: #67E8F9; }
+.band-dark .h-eyebrow, .band-dark .eyebrow { color: #67E8F9; }
+.band-dark .li-mark, .band-dark .teal { color: #22D3EE; }
+.band-dark ::selection { background: rgba(34,211,238,.35); color: #fff; }
+.cta-band .text-mute, .cta-band .small { color: rgba(233,238,248,.82); }
+.cta-band .btn-ghost { color: #fff; border-color: rgba(255,255,255,.35); background: rgba(255,255,255,.08); }
+
+/* --- 3. Colorful animated graphics system --- */
+@keyframes floaty   { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+@keyframes dashflow { to { stroke-dashoffset: -48; } }
+@keyframes pulseDot { 0%,100% { transform: scale(1); opacity:.85; } 50% { transform: scale(1.35); opacity:1; } }
+@keyframes auroraSpin { to { transform: rotate(1turn); } }
+@keyframes barGrow  { from { transform: scaleY(.25); } to { transform: scaleY(1); } }
+
+/* Hero + product illustrations: aurora frame, gentle float */
+.hero-illo, .card-editorial > svg, figure.card-editorial { position: relative; }
+.hero-illo { animation: floaty 7s ease-in-out infinite; filter: drop-shadow(0 26px 50px rgba(37,99,235,.16)); }
+.hero-illo::before {
+  content:""; position:absolute; inset:-14px; border-radius: inherit; z-index:-1;
+  background: conic-gradient(from 0deg, rgba(8,145,178,.28), rgba(124,58,237,.24), rgba(37,99,235,.28), rgba(8,145,178,.28));
+  filter: blur(26px); opacity:.55; animation: auroraSpin 14s linear infinite;
+}
+figure.card-editorial { overflow: hidden; }
+figure.card-editorial::after {
+  content:""; position:absolute; inset:0; pointer-events:none; border-radius:inherit;
+  background: linear-gradient(115deg, transparent 40%, rgba(255,255,255,.5) 50%, transparent 60%);
+  transform: translateX(-120%); transition: transform .9s ease;
+}
+figure.card-editorial:hover::after { transform: translateX(120%); }
+figure.card-editorial svg { animation: floaty 9s ease-in-out infinite; }
+
+/* Journey strip: flowing gradient track + pulsing milestone dots */
+.hstrip svg line:nth-of-type(2) { stroke-dasharray: 10 14; animation: dashflow 1.4s linear infinite; }
+.hstrip svg circle { transform-box: fill-box; transform-origin: center; animation: pulseDot 2.6s ease-in-out infinite; }
+.hstrip svg circle:nth-of-type(2n) { animation-delay: .4s; }
+.hstrip svg circle:nth-of-type(3n) { animation-delay: .9s; }
+
+/* Icons everywhere: accent-colored, lively on hover */
+.card svg, .step-card svg { color: var(--accent, #0891B2); }
+.card svg { transition: transform .35s cubic-bezier(.2,.8,.2,1); }
+.card:hover svg { transform: scale(1.12); }
+
+/* Animated glow orb behind section heads */
+.section-head { position: relative; }
+.section-head::before {
+  content:""; position:absolute; width:120px; height:120px; right:-30px; top:-46px;
+  border-radius:50%; z-index:-1; filter: blur(34px); opacity:.5; pointer-events:none;
+  background: radial-gradient(circle at 35% 35%, var(--accent, #0891B2), transparent 70%);
+  animation: pulseDot 5s ease-in-out infinite;
+}
+
+/* Mockup windows: animated live bars */
+[data-fallback] .animate-bar, .mock-bar {
+  transform-origin: bottom; animation: barGrow 1.6s cubic-bezier(.2,.8,.2,1) both;
+}
+[data-fallback] .animate-bar:nth-of-type(2n) { animation-delay: .2s; }
+[data-fallback] .animate-bar:nth-of-type(3n) { animation-delay: .45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-illo, figure.card-editorial svg, .hstrip svg circle, .section-head::before { animation: none; }
+  .hstrip svg line:nth-of-type(2) { animation: none; }
+}
+
+.site-footer p, .site-footer li, .site-footer .small, .site-footer .text-mute { color: #9AA3B2; }
+.site-footer a { color: #AEB6C4; }
+.site-footer a:hover { color: #fff; }
+
   box-shadow: 0 30px 70px -35px rgba(7, 27, 120, .65);
 }
 .cta-band h2 { color: #fff; }
