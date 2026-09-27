@@ -41,9 +41,9 @@
   const sidebar = document.getElementById('admin-sidebar');
   if (sidebar) {
     sidebar.innerHTML = `
-      <div class="h-16 flex items-center border-b border-white/8">${logo}</div>
+      <div class="h-16 flex items-center border-b border-[#0F172A]/8">${logo}</div>
       <nav class="p-3 space-y-1 flex-1 overflow-y-auto" aria-label="Admin">${links}</nav>
-      <div class="p-3 border-t border-white/8">
+      <div class="p-3 border-t border-[#0F172A]/8">
         <a href="../index.html" class="admin-sidebar-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M15 18l-6-6 6-6"/></svg><span>View site</span></a>
         <a href="login.html" class="admin-sidebar-link"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M16 17l5-5-5-5M21 12H9M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/></svg><span>Sign out</span></a>
       </div>`;
@@ -53,14 +53,14 @@
   if (topbar) {
     const title = topbar.dataset.title || 'Dashboard';
     topbar.innerHTML = `
-      <button id="admin-menu" class="lg:hidden p-2 -ml-2 text-white" aria-label="Toggle menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+      <button id="admin-menu" class="lg:hidden p-2 -ml-2 text-[#0F172A]" aria-label="Toggle menu"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
       <h1 class="font-head font-extrabold text-lg">${title}</h1>
       <div class="ml-auto flex items-center gap-3">
         <div class="relative hidden sm:block">
           <input type="search" placeholder="Search…" class="field !py-2 pl-9 w-56" aria-label="Search admin" />
           <svg class="absolute left-3 top-1/2 -translate-y-1/2 text-mute" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4-4"/></svg>
         </div>
-        <button class="w-9 h-9 rounded-lg border border-white/10 flex items-center justify-center text-soft hover:text-white" aria-label="Notifications"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg></button>
+        <button class="w-9 h-9 rounded-lg border border-[#0F172A]/10 flex items-center justify-center text-soft hover:text-[#0F172A]" aria-label="Notifications"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M18 8a6 6 0 10-12 0c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.7 21a2 2 0 01-3.4 0"/></svg></button>
         <span class="w-9 h-9 rounded-full bg-vgblue/50 flex items-center justify-center font-head font-bold text-sm">SA</span>
       </div>`;
     const menuBtn = document.getElementById('admin-menu');
@@ -222,7 +222,7 @@
         const tint = ['bg-vgblue/40', 'bg-vgteal/20', 'bg-indigo-500/25', 'bg-vgblue2/30'];
         recentEl.innerHTML = rows.map((r, i) => {
           const initials = String(r.name || '?').split(' ').map(w => w[0]).slice(0, 2).join('').toUpperCase();
-          return `<li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full ${tint[i % 4]} flex items-center justify-center text-xs font-bold">${esc(initials)}</span><div><p class="text-white">${esc(r.name)}</p><p class="text-mute text-xs">${esc(r.topic || '—')} · ${timeAgo(r.created_at)}</p></div></li>`;
+          return `<li class="flex items-center gap-3"><span class="w-8 h-8 rounded-full ${tint[i % 4]} flex items-center justify-center text-xs font-bold">${esc(initials)}</span><div><p class="text-[#0F172A]">${esc(r.name)}</p><p class="text-mute text-xs">${esc(r.topic || '—')} · ${timeAgo(r.created_at)}</p></div></li>`;
         }).join('');
       } catch (_) { /* keep demo rows */ }
     })();
@@ -248,7 +248,7 @@
         if (!Array.isArray(rows) || rows.length === 0) return;
         subsTable.innerHTML = rows.map(r => {
           const when = new Date(r.created_at).toLocaleString();
-          return `<tr class="border-b border-white/8"><td class="py-3 pr-4"><p class="font-semibold text-sm">${esc(r.name)}</p><p class="text-mute text-xs">${esc(r.email)}</p></td><td class="py-3 pr-4"><span class="pill">${esc(r.topic || '—')}</span></td><td class="py-3 pr-4 text-mute text-sm">${esc(when)}</td><td class="py-3 text-right"><button class="btn btn-ghost !py-1.5 !px-3 text-xs" data-save="Opened message.">View</button></td></tr>`;
+          return `<tr class="border-b border-[#0F172A]/8"><td class="py-3 pr-4"><p class="font-semibold text-sm">${esc(r.name)}</p><p class="text-mute text-xs">${esc(r.email)}</p></td><td class="py-3 pr-4"><span class="pill">${esc(r.topic || '—')}</span></td><td class="py-3 pr-4 text-mute text-sm">${esc(when)}</td><td class="py-3 text-right"><button class="btn btn-ghost !py-1.5 !px-3 text-xs" data-save="Opened message.">View</button></td></tr>`;
         }).join('');
       } catch (_) { /* keep demo rows */ }
     })();
@@ -285,7 +285,7 @@
         }
         blogBody.innerHTML = posts.map(p => {
           const pub = p.status === 'published';
-          return `<tr class="border-b border-white/8">
+          return `<tr class="border-b border-[#0F172A]/8">
             <td class="py-3 pr-4"><p class="font-semibold text-sm">${esc(p.title)}</p><p class="text-mute text-xs">/${esc(p.slug)}</p></td>
             <td class="py-3 pr-4"><span class="pill">${esc(CATLABEL[p.category] || p.category)}</span></td>
             <td class="py-3 pr-4 text-mute text-sm">${esc(p.author)}</td>

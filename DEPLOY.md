@@ -34,11 +34,13 @@ You do **not** need a second Vercel project. The admin lives in the same repo:
 
 | | |
 | --- | --- |
-| Email | `admin@vatous.ng` |
-| Password | `VatousAdmin2026!` |
+| Email | `samayodele6@gmail.com` |
+| Password | `VatousAdmin2026!Xq7` (change via Supabase → Authentication → Users if needed) |
 
-**Change this before real use:** Supabase Dashboard → **Authentication → Users** →
-reset the password (or delete this user and invite your own).
+The account must be **email-confirmed** before login works (Supabase sends a
+confirmation link on signup). To reset/manage users: Supabase Dashboard →
+**Authentication → Users**. Delete unused users (e.g. the dead `admin@vatous.ng`
+test account) from there.
 
 ## 4. Environment variables
 
