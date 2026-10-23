@@ -3170,3 +3170,105 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--vgs-teal); outl
 @media (prefers-reduced-motion: reduce) {
   .hero:not(.hero--home) .hero-art__photo { transition: none; }
 }
+
+/* PAGE-BY-PAGE ART DIRECTION: distinct visual identities, shared VGS design system */
+:root{--vgs-cyan-wash:#e7fbf9;--vgs-silver-wash:#edf1f5;--vgs-ink:#17212f}
+main#main>.hero{position:relative;isolation:isolate;overflow:clip}
+main#main>.hero::before{content:"";position:absolute;z-index:-1;inset:0;pointer-events:none;background:radial-gradient(ellipse at 85% 12%,rgba(20,211,199,.17),transparent 34%),linear-gradient(125deg,rgba(237,241,245,.74),rgba(231,251,249,.54) 52%,rgba(255,255,255,.82))}
+main#main>.hero .hero-panel{position:relative;overflow:hidden;border:1px solid rgba(27,63,216,.09);box-shadow:0 22px 65px rgba(21,38,64,.055)}
+main#main>.hero .hero-title{text-wrap:balance;letter-spacing:-.045em}
+main#main>.hero .hero-title .em{color:#1b3fd8;background:linear-gradient(95deg,#1b3fd8 0%,#087eac 55%,#0b8e84 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+main#main>.hero .hero-lede{max-width:57ch}
+main#main>.hero .hero-art__photo{filter:saturate(.84) contrast(1.02)}
+main#main>.hero .hero-art__glass{border:1px solid rgba(255,255,255,.68);box-shadow:0 18px 50px rgba(17,32,58,.16);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px)}
+main#main>.hero .hero-art__orb{background:linear-gradient(135deg,rgba(20,211,199,.8),rgba(27,63,216,.55));filter:blur(1px)}
+main#main>.hero .hero-actions .btn{min-height:48px}
+
+/* About: editorial, people-first */
+.hero--about::before{background:radial-gradient(ellipse at 83% 22%,rgba(20,211,199,.2),transparent 32%),radial-gradient(ellipse at 12% 90%,rgba(27,63,216,.08),transparent 35%),linear-gradient(120deg,#f5f8fb,#eaf9f8 58%,#f9fbfd)!important}
+.hero--about .hero-panel{border-radius:28px}.hero--about .hero-art__photo{clip-path:inset(0 round 24px)}
+.hero--about+.band .section-head{max-width:820px}.hero--about+.band .section-illust{filter:drop-shadow(0 18px 30px rgba(27,63,216,.07))}
+
+/* Contact: welcoming, action-led */
+.hero--contact::before{background:radial-gradient(ellipse at 88% 16%,rgba(20,211,199,.22),transparent 30%),linear-gradient(130deg,#f7f8fa,#eaf7f7 54%,#f2f4f7)!important}
+.hero--contact .hero-panel{border-radius:30px 30px 12px 30px}
+#reach .card,#reach .contact-card,#reach form{border-color:rgba(27,63,216,.12);box-shadow:0 16px 42px rgba(22,38,61,.055)}
+#next .step,#next .process-step{transition:transform .25s ease,box-shadow .25s ease}
+#next .step:hover,#next .process-step:hover{transform:translateY(-4px)}
+
+/* Joblira: bright, product-led identity */
+.hero--joblira::before{background:radial-gradient(ellipse at 78% 18%,rgba(20,211,199,.23),transparent 30%),linear-gradient(rgba(27,63,216,.035) 1px,transparent 1px),linear-gradient(90deg,rgba(27,63,216,.035) 1px,transparent 1px),linear-gradient(125deg,#f3f7ff,#e8faf8 68%,#f8fafc)!important;background-size:auto,32px 32px,32px 32px,auto}
+.hero--joblira .hero-panel{border-radius:28px}
+#earner-journey,#client-journey{position:relative}
+#earner-journey::before,#client-journey::before{content:"";display:block;width:72px;height:5px;border-radius:9px;margin:0 0 22px;background:linear-gradient(90deg,#1b3fd8,#14d3c7)}
+#principles .card,#principles .principle-card{border:1px solid rgba(27,63,216,.11);box-shadow:0 14px 38px rgba(21,38,64,.045)}
+
+/* Products: portfolio / product-studio treatment */
+.hero--products::before{background:radial-gradient(ellipse at 82% 18%,rgba(20,211,199,.18),transparent 32%),radial-gradient(ellipse at 9% 90%,rgba(27,63,216,.09),transparent 31%),linear-gradient(130deg,#f6f8fb,#eaf8f8 60%,#f7f8fb)!important}
+.hero--products .hero-panel{border-radius:28px 28px 28px 10px}
+#joblira .card,#joblira .product-card,#joblira .portfolio-card{transition:transform .28s ease,box-shadow .28s ease}
+#joblira .card:hover,#joblira .product-card:hover,#joblira .portfolio-card:hover{transform:translateY(-5px);box-shadow:0 22px 52px rgba(21,38,64,.1)}
+
+/* Services: structured, technology-forward */
+.hero--services::before{background:radial-gradient(ellipse at 85% 18%,rgba(20,211,199,.21),transparent 29%),linear-gradient(135deg,#edf3fb,#e9f9f7 57%,#f8fafc)!important}
+.hero--services .hero-panel{border-radius:14px 30px 30px 30px}
+#practices .service-card,#practices .card,#practices .practice-card{border:1px solid rgba(27,63,216,.1);background:linear-gradient(145deg,rgba(255,255,255,.98),rgba(246,251,252,.96));box-shadow:0 12px 35px rgba(23,39,62,.045);transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+#practices .service-card:hover,#practices .card:hover,#practices .practice-card:hover{transform:translateY(-5px);border-color:rgba(20,211,199,.65);box-shadow:0 22px 46px rgba(23,39,62,.09)}
+#automation .card,#automation .engagement-card{background:linear-gradient(145deg,#fff,#f1f9fa)}
+
+/* Insights: editorial masthead and readable article cards */
+.hero--insights::before{background:radial-gradient(ellipse at 84% 15%,rgba(20,211,199,.23),transparent 29%),radial-gradient(ellipse at 12% 92%,rgba(27,63,216,.08),transparent 34%),linear-gradient(125deg,#f8f7f3,#e9f8f7 60%,#f1f4f7)!important}
+.hero--insights .hero-panel{border-radius:28px}
+.insights-hero-art{position:relative;border-radius:24px;background:radial-gradient(circle at 75% 20%,rgba(20,211,199,.55),transparent 28%),linear-gradient(135deg,#dfe8f4,#effbf8 60%,#e8edf4);min-height:clamp(190px,27vw,330px);overflow:hidden}
+.insights-hero-art::before,.insights-hero-art::after{content:"";position:absolute;border:1px solid rgba(27,63,216,.2);border-radius:50%;width:260px;height:260px;right:7%;top:50%;transform:translateY(-50%)}
+.insights-hero-art::after{width:190px;height:190px;right:calc(7% + 35px);border-color:rgba(20,211,199,.75)}
+.insight-card{overflow:hidden;border:1px solid rgba(27,63,216,.1);border-radius:20px;background:linear-gradient(155deg,#fff,#f8fbfc);box-shadow:0 15px 42px rgba(22,38,61,.055);transition:transform .25s ease,box-shadow .25s ease}
+.insight-card:hover{transform:translateY(-5px);box-shadow:0 24px 50px rgba(22,38,61,.1)}
+.insight-card__body{padding:clamp(22px,3vw,34px)}.insight-card__body h2{ text-wrap:balance;letter-spacing:-.025em}
+.insight-meta{display:inline-flex;align-items:center;gap:8px;color:#1b3fd8;font-size:.76rem;font-weight:750;letter-spacing:.08em;text-transform:uppercase}
+.insight-meta::before{content:"";width:7px;height:7px;border-radius:50%;background:#14bfb5}
+
+/* Careers: human, optimistic */
+.hero--careers::before{background:radial-gradient(ellipse at 84% 14%,rgba(20,211,199,.22),transparent 30%),linear-gradient(135deg,#f4f7fb,#e8f8f6 58%,#f7f8fa)!important}
+.hero--careers .hero-panel{border-radius:30px 12px 30px 30px}
+#working-here .careers-status{border:1px solid rgba(27,63,216,.13);border-radius:24px;background:linear-gradient(120deg,#fff,#eefaf9);box-shadow:0 18px 46px rgba(22,38,61,.06)}
+#working-here .careers-status__mark{background:linear-gradient(135deg,#1b3fd8,#14bfb5);color:#fff;box-shadow:0 10px 24px rgba(27,63,216,.2)}
+
+/* Legal pages: quiet, reading-focused */
+.hero--privacy::before{background:radial-gradient(ellipse at 85% 20%,rgba(20,211,199,.2),transparent 29%),linear-gradient(130deg,#f4f7fb,#e8f8f6 58%,#f8fafb)!important}
+.hero--terms::before{background:radial-gradient(ellipse at 85% 20%,rgba(27,63,216,.12),transparent 29%),linear-gradient(130deg,#f7f7f5,#eaf2f9 58%,#f2fbfa)!important}
+.hero--privacy .legal-hero,.hero--terms .legal-hero{border-radius:28px;min-height:250px}
+.legal-hero__symbol{color:#1b3fd8;background:radial-gradient(circle,rgba(20,211,199,.18),rgba(27,63,216,.04) 68%,transparent 69%);border-radius:50%}
+.legal-layout{align-items:start}
+.legal-index{border:1px solid rgba(27,63,216,.1);border-radius:18px;padding:20px;background:linear-gradient(155deg,#fff,#f3fafb)}
+.legal-index a{text-decoration-thickness:1px;text-underline-offset:4px}
+.legal-copy{max-width:76ch;font-size:1rem;line-height:1.82}
+.legal-copy section{padding:0 0 25px;margin:0 0 25px;border-bottom:1px solid rgba(27,63,216,.1);scroll-margin-top:100px}
+.legal-copy section:last-child{border-bottom:0}.legal-copy h2{letter-spacing:-.025em;text-wrap:balance}
+
+/* Shared finish and mobile-first rhythm across all interior pages */
+main#main>.band:not(.hero){position:relative}
+main#main>.band:not(.hero) .section-head h2{text-wrap:balance}
+main#main>.band:not(.hero) .section-head .lede{max-width:62ch}
+main#main>.band:not(.hero) .btn{transition:transform .2s ease,box-shadow .2s ease}
+main#main>.band:not(.hero) .btn:hover{transform:translateY(-2px)}
+@media(min-width:1000px){main#main>.hero .hero-panel{padding-block:clamp(44px,6vw,82px)}}
+@media(max-width:760px){
+ main#main>.hero{overflow:hidden}
+ main#main>.hero .hero-panel{border-radius:22px;box-shadow:0 12px 34px rgba(21,38,64,.055)}
+ main#main>.hero .hero-title{font-size:clamp(2.35rem,10vw,4rem);line-height:.99;letter-spacing:-.05em;max-width:13ch}
+ main#main>.hero .hero-lede{font-size:1.02rem;line-height:1.7}
+ main#main>.hero .hero-actions{gap:10px}
+ main#main>.hero .hero-actions .btn{width:100%;justify-content:center}
+ .insights-hero-art{min-height:180px;border-radius:18px}
+ .insights-hero-art::before{width:190px;height:190px;right:3%}
+ .insights-hero-art::after{width:135px;height:135px;right:calc(3% + 27px)}
+ .legal-layout{display:block}.legal-index{margin-bottom:28px}
+ .legal-index a{display:inline-block;margin:8px 10px 0 0}
+ .legal-copy{font-size:.97rem;line-height:1.78}
+ #working-here .careers-status{padding:22px}
+}
+@media(prefers-reduced-motion:reduce){
+ .insight-card,#joblira .card,#joblira .product-card,#joblira .portfolio-card,#practices .service-card,#practices .card,#practices .practice-card,#next .step,#next .process-step{transition:none!important}
+ .insight-card:hover,#joblira .card:hover,#joblira .product-card:hover,#joblira .portfolio-card:hover,#practices .service-card:hover,#practices .card:hover,#practices .practice-card:hover,#next .step:hover,#next .process-step:hover{transform:none!important}
+}
