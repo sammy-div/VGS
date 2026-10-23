@@ -3330,3 +3330,206 @@ main#main>.band:not(.hero) .btn:hover{transform:translateY(-2px)}
 .mobile-submenu a:hover,.mobile-submenu a:focus-visible{color:var(--brand);background:rgba(27,63,216,.045)}
 @media(max-width:760px){.nav-submenu{display:none}}
 @media(prefers-reduced-motion:reduce){.nav-chevron,.nav-submenu{transition:none}}
+
+
+/* ==========================================================================
+   PAGE ART DIRECTION — every interior page has its own visual grammar.
+   Shared brand tokens; deliberately different compositions, not cloned heroes.
+   ========================================================================== */
+
+/* ABOUT: editorial, people-first, asymmetric story rhythm */
+.page-about .hero--about .hero-panel{padding-top:clamp(42px,6vw,84px)}
+.page-about .hero-art--about{border-radius:48% 48% 18px 18px;overflow:hidden}
+.page-about #story .section-head{max-width:760px;margin-left:0}
+.page-about #story .grid{align-items:stretch}
+.page-about #story .card:nth-child(odd){transform:translateY(18px)}
+.page-about .hero-art--about .hero-art__glass--top{left:auto;right:18px}
+.page-about .hero-art--about .hero-art__glass--bottom{left:18px;right:auto}
+
+/* CONTACT: conversion-first, image on one side, form gets a distinct focal panel */
+.page-contact .hero--contact .hero-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.8fr);column-gap:clamp(28px,5vw,72px);align-items:center}
+.page-contact .hero--contact .hero-panel>.eyebrow,.page-contact .hero--contact .hero-panel>h1,.page-contact .hero--contact .hero-panel>.lede,.page-contact .hero--contact .hero-panel>.actions,.page-contact .hero--contact .hero-panel>.chip-row{grid-column:1}
+.page-contact .hero-art--contact{grid-column:2;grid-row:1 / span 5;align-self:stretch;min-height:360px;border-radius:12px 100px 12px 12px}
+.page-contact #form{scroll-margin-top:100px}
+.page-contact #form form,.page-contact #form .form{background:#fff;border:1px solid var(--line-soft);padding:clamp(22px,4vw,42px);border-radius:22px;box-shadow:0 20px 60px rgba(23,26,32,.07)}
+.page-contact #next{border-top:1px solid var(--line-soft)}
+@media(max-width:760px){.page-contact .hero--contact .hero-panel{display:flex;flex-direction:column;align-items:stretch}.page-contact .hero-art--contact{width:100%;min-height:240px;border-radius:18px}}
+
+/* JOBLIRA: product launch page, dark product stage and crisp UI-led sections */
+.page-joblira .hero--joblira .hero-panel{background:#202633;border-radius:28px;overflow:hidden;position:relative}
+.page-joblira .hero--joblira .hero-panel:before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 35%,rgba(20,211,199,.12)),radial-gradient(circle at 82% 14%,rgba(27,63,216,.35),transparent 34%);pointer-events:none}
+.page-joblira .hero--joblira .hero-panel>*{position:relative}
+.page-joblira .hero--joblira .hero-title,.page-joblira .hero--joblira .lede{color:#fff}
+.page-joblira .hero--joblira .hero-title .em{color:#78F4E7}
+.page-joblira #earner-journey{background:#202633;color:#fff}
+.page-joblira #earner-journey .lede,.page-joblira #earner-journey .card-text{color:#D6DCE6}
+.page-joblira #earner-journey .card{background:#2B3444;border-color:rgba(255,255,255,.12)}
+
+/* PRODUCTS: portfolio gallery, high-image ratio, no generic service-card look */
+.page-products .hero-art--products{border-radius:8px 8px 72px 8px}
+.page-products #joblira{background:linear-gradient(125deg,#EAF8F5,#F5F7FF);border-radius:28px}
+.page-products #joblira .card{box-shadow:0 24px 64px rgba(23,26,32,.08)}
+.page-products .grid .card:nth-child(2){transform:translateY(24px)}
+@media(max-width:760px){.page-products .grid .card:nth-child(2){transform:none}}
+
+/* SERVICES DIRECTORY: structured index, numbered service cards */
+.page-services #practices .grid.grid-3:not(:first-of-type){counter-reset:service-card}
+.page-services #practices .grid.grid-3>a.card{border-radius:8px 22px 8px 8px;border-top:3px solid var(--brand);box-shadow:none}
+.page-services #practices .grid.grid-3>a.card:hover{transform:translateY(-5px);box-shadow:0 18px 40px rgba(23,26,32,.08)}
+.page-services #automation{background:#202633;color:#fff}
+.page-services #automation .lede,.page-services #automation .card-text,.page-services #automation .fact-row dt{color:#D7DCE5}
+.page-services #automation .card{background:#2B3444;border-color:rgba(255,255,255,.12)}
+.page-services #automation .chip{background:rgba(20,211,199,.13);color:#9DF8EF}
+
+/* INSIGHTS: magazine/editorial treatment, big issue label and image-led article rhythm */
+.page-insights .hero--insights .hero-panel{min-height:560px;display:grid;grid-template-columns:minmax(0,1fr) minmax(260px,.82fr);align-items:center;column-gap:40px}
+.page-insights .hero--insights .hero-panel>.eyebrow,.page-insights .hero--insights .hero-panel>h1,.page-insights .hero--insights .hero-panel>.lede,.page-insights .hero--insights .hero-panel>.actions{grid-column:1}
+.page-insights .insights-hero-art{grid-column:2;grid-row:1 / span 4;min-height:400px}
+.page-insights .insight-grid{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:22px}
+.page-insights .insight-card:first-child{grid-row:span 2}
+.page-insights .insight-card:first-child .insight-card__image{min-height:320px}
+.page-insights .insight-card{border-radius:4px 22px 4px 4px}
+@media(max-width:760px){.page-insights .hero--insights .hero-panel{display:flex;flex-direction:column;align-items:stretch;min-height:0}.page-insights .insights-hero-art{min-height:270px}.page-insights .insight-grid{grid-template-columns:1fr}.page-insights .insight-card:first-child{grid-row:auto}}
+
+/* CAREERS: geometric studio art, wide manifesto and values as open panels */
+.page-careers .hero--careers .hero-panel{display:grid;grid-template-columns:minmax(0,1fr) minmax(250px,.8fr);gap:24px 48px;align-items:center}
+.page-careers .hero--careers .hero-panel>.eyebrow,.page-careers .hero--careers .hero-panel>h1,.page-careers .hero--careers .hero-panel>p,.page-careers .hero--careers .hero-panel>.actions{grid-column:1}
+.page-careers .careers-art{grid-column:2;grid-row:1 / span 4;min-height:360px}
+.page-careers #working-here .card{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent;box-shadow:none;padding:28px 4px}
+.page-careers #working-here .card:hover{transform:translateY(-3px)}
+@media(max-width:760px){.page-careers .hero--careers .hero-panel{display:flex;flex-direction:column;align-items:stretch}.page-careers .careers-art{min-height:250px;width:100%}}
+
+/* LEGAL PAGES: separate identities while retaining accessible long-form reading */
+.page-privacy .hero--privacy .legal-hero{display:grid;grid-template-columns:minmax(0,1fr) 180px;align-items:center;gap:20px 48px;background:linear-gradient(115deg,#E9F8F4,#FAF8F2 68%);border-left:5px solid var(--teal)}
+.page-privacy .legal-hero__symbol{grid-column:2;grid-row:1 / span 3;color:#087E79}
+.page-privacy .legal-layout{grid-template-columns:230px minmax(0,760px);gap:clamp(28px,6vw,88px)}
+.page-privacy .legal-index{position:sticky;top:110px;align-self:start;border-top:3px solid var(--teal);padding-top:18px}
+.page-privacy .legal-copy section{padding:24px 0;border-bottom:1px solid var(--line-soft)}
+.page-terms .hero--terms .legal-hero{display:flex;align-items:center;gap:40px;background:#202633;color:#fff;border-radius:4px 28px 4px 4px}
+.page-terms .hero--terms .legal-hero .lede{color:#D7DCE5}
+.page-terms .hero--terms .legal-hero .eyebrow{color:#8DF3E8}
+.page-terms .legal-hero__symbol{flex:0 0 160px;color:#8DF3E8}
+.page-terms .legal-layout{grid-template-columns:minmax(0,760px) 230px;gap:clamp(28px,6vw,88px)}
+.page-terms .legal-index{grid-column:2;grid-row:1;position:sticky;top:110px;align-self:start;border-top:3px solid var(--brand);padding-top:18px}
+.page-terms .legal-copy{grid-column:1;grid-row:1}
+.page-terms .legal-copy section{padding:22px 0}
+@media(max-width:760px){.page-privacy .hero--privacy .legal-hero{grid-template-columns:1fr}.page-privacy .legal-hero__symbol{grid-column:1;grid-row:auto;width:100px}.page-privacy .legal-layout,.page-terms .legal-layout{display:flex;flex-direction:column}.page-terms .hero--terms .legal-hero{flex-direction:column;align-items:flex-start}.page-terms .legal-hero__symbol{width:110px;flex-basis:auto}.page-terms .legal-index{order:0;position:static}.page-terms .legal-copy{order:1}}
+
+/* SERVICE DETAIL PAGES: distinct page-specific compositions and illustration systems */
+.page-product-development .detail-hero{background:#F0F4FF}
+.page-product-development .detail-hero__grid{grid-template-columns:minmax(0,1.35fr) minmax(280px,.65fr)}
+.page-product-development .detail-art{background:#fff;color:var(--ink);border:1px solid #D9E1F5;border-radius:18px;min-height:380px}
+.page-product-development .detail-art:before{width:74%;height:54%;top:42px;border-radius:12px;border:1px solid #C6D2F4;box-shadow:none;background:linear-gradient(#F4F6FC 0 38px,#fff 38px)}
+.page-product-development .detail-art:after{inset:62px 22px 95px;background:repeating-linear-gradient(0deg,transparent 0 24px,#E6EBF7 25px 26px),linear-gradient(90deg,#E9EEFC 0 30%,transparent 30%);opacity:.8}
+.page-product-development .detail-art__shape{width:56%;height:72px;top:116px;left:53%;border-radius:8px;transform:rotate(3deg);background:linear-gradient(110deg,#1B3FD8,#14D3C7);border:0}
+.page-product-development .detail-art__shape:after{display:none}
+.page-product-development .detail-art__index{color:var(--brand)}
+.page-product-development .detail-art__caption{color:var(--ink)}
+.page-product-development .detail-art__caption small{color:var(--brand)}
+.page-product-development .detail-sections{grid-template-columns:1fr}
+.page-product-development .detail-section{display:grid;grid-template-columns:100px minmax(0,1fr);column-gap:18px;border-radius:0;border:0;border-top:1px solid var(--line);box-shadow:none;padding:28px 0;background:transparent}
+.page-product-development .detail-section__no{grid-row:span 2;padding-top:8px}
+.page-product-development .detail-section h3{margin:0 0 10px}
+.page-product-development .detail-deliverables{background:#202633;color:#fff;border-radius:8px}
+.page-product-development .detail-deliverables .card-text{color:#D7DCE5}
+
+/* AI: dark laboratory, luminous network illustration, staggered evidence cards */
+.page-ai-solutions .detail-hero{background:#171D2A;color:#fff}
+.page-ai-solutions .detail-hero:after{border-color:rgba(20,211,199,.25);box-shadow:0 0 0 34px rgba(20,211,199,.04),0 0 0 78px rgba(27,63,216,.08)}
+.page-ai-solutions .detail-hero h1 em{color:#70F0E3}
+.page-ai-solutions .detail-hero__lede{color:#D4DCE8}
+.page-ai-solutions .detail-breadcrumb{color:#BBC5D4}
+.page-ai-solutions .detail-breadcrumb a{color:#70F0E3}
+.page-ai-solutions .detail-art{background:radial-gradient(circle at 50% 40%,#334C73,#1B2231 65%);border:1px solid rgba(112,240,227,.24);border-radius:50% 50% 20px 20px;min-height:390px}
+.page-ai-solutions .detail-art:before{width:180px;height:180px;top:62px;border:1px solid #70F0E3;box-shadow:0 0 0 22px rgba(112,240,227,.05),0 0 0 54px rgba(112,240,227,.035)}
+.page-ai-solutions .detail-art:after{inset:0;background:radial-gradient(circle at 20% 32%,#70F0E3 0 3px,transparent 4px),radial-gradient(circle at 80% 35%,#70F0E3 0 3px,transparent 4px),radial-gradient(circle at 29% 72%,#70F0E3 0 3px,transparent 4px),radial-gradient(circle at 76% 70%,#70F0E3 0 3px,transparent 4px),linear-gradient(0deg,rgba(15,20,30,.92),transparent 72%)}
+.page-ai-solutions .detail-art__shape{border-radius:50%;height:100px;width:100px;top:104px;background:rgba(112,240,227,.12);border:1px solid #70F0E3;transform:translateX(-50%)}
+.page-ai-solutions .detail-art__shape:after{inset:16px;border-radius:50%;border-color:#70F0E3}
+.page-ai-solutions .detail-art__index{color:#70F0E3}
+.page-ai-solutions .detail-sections{grid-template-columns:1.15fr .85fr}
+.page-ai-solutions .detail-section{border-radius:4px 22px 4px 4px;border-color:#DCE5F3}
+.page-ai-solutions .detail-section:nth-child(2),.page-ai-solutions .detail-section:nth-child(4){transform:translateY(24px)}
+.page-ai-solutions .detail-deliverables{background:#EAF0FC}
+@media(max-width:760px){.page-ai-solutions .detail-sections{grid-template-columns:1fr}.page-ai-solutions .detail-section:nth-child(2),.page-ai-solutions .detail-section:nth-child(4){transform:none}}
+
+/* AUTOMATION: process-flow visual, wide hero, horizontal operational stages */
+.page-automation .detail-hero{background:#DFF7F2}
+.page-automation .detail-hero:after{right:4%;top:16%;border-radius:18px;transform:rotate(22deg);border-color:rgba(8,126,121,.2);box-shadow:0 0 0 24px rgba(8,126,121,.04),0 0 0 58px rgba(8,126,121,.03)}
+.page-automation .detail-hero__grid{grid-template-columns:1fr}
+.page-automation .detail-art{min-height:190px;border-radius:14px;background:#fff;color:var(--ink);box-shadow:none;border:1px solid #B9E6DE}
+.page-automation .detail-art:before{top:50%;left:8%;transform:translateY(-50%);width:84%;height:3px;border:0;border-radius:0;background:linear-gradient(90deg,#1B3FD8,#14D3C7);box-shadow:none}
+.page-automation .detail-art:after{inset:0;background:radial-gradient(circle at 12% 50%,#1B3FD8 0 9px,#fff 10px 15px,transparent 16px),radial-gradient(circle at 38% 50%,#14D3C7 0 9px,#fff 10px 15px,transparent 16px),radial-gradient(circle at 64% 50%,#1B3FD8 0 9px,#fff 10px 15px,transparent 16px),radial-gradient(circle at 89% 50%,#14D3C7 0 9px,#fff 10px 15px,transparent 16px)}
+.page-automation .detail-art__shape{display:none}
+.page-automation .detail-art__index{top:16px;left:20px;color:var(--brand)}
+.page-automation .detail-art__caption{position:absolute;left:20px;bottom:16px;color:var(--ink)}
+.page-automation .detail-art__caption small{color:#087E79}
+.page-automation .detail-sections{grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border-top:1px solid #C9D8D6;border-bottom:1px solid #C9D8D6}
+.page-automation .detail-section{border:0;border-radius:0;border-right:1px solid #C9D8D6;box-shadow:none;background:transparent;padding:24px 18px}
+.page-automation .detail-section:last-child{border-right:0}
+.page-automation .detail-section__no{color:#087E79}
+.page-automation .detail-deliverables{background:#202633;color:#fff}
+.page-automation .detail-deliverables .card-text{color:#D7DCE5}
+@media(max-width:760px){.page-automation .detail-sections{grid-template-columns:1fr}.page-automation .detail-section{border-right:0;border-bottom:1px solid #C9D8D6;padding:24px 0}.page-automation .detail-section:last-child{border-bottom:0}}
+
+/* CREATIVE BRAND: expressive editorial typography and portfolio-board layout */
+.page-creative-brand .detail-hero{background:#F8F1E8}
+.page-creative-brand .detail-hero h1{font-family:var(--font-serif);font-weight:400;letter-spacing:-.04em;line-height:.98}
+.page-creative-brand .detail-hero h1 em{color:#087E79}
+.page-creative-brand .detail-hero__grid{grid-template-columns:1fr}
+.page-creative-brand .detail-art{min-height:230px;background:#F1E9DD;color:#202633;border-radius:0;box-shadow:none}
+.page-creative-brand .detail-art:before{width:30%;height:170px;left:18%;top:28px;transform:rotate(-10deg);border-radius:2px;background:#1B3FD8;border:0;box-shadow:90px 30px 0 -10px #14D3C7,170px -10px 0 -20px #202633}
+.page-creative-brand .detail-art:after{inset:0;background:linear-gradient(90deg,transparent 0 48%,rgba(248,241,232,.65) 48% 49%,transparent 49%)}
+.page-creative-brand .detail-art__shape{display:none}
+.page-creative-brand .detail-art__index{color:#202633}
+.page-creative-brand .detail-art__caption{margin-left:auto;max-width:250px;color:#202633}
+.page-creative-brand .detail-art__caption small{color:#087E79}
+.page-creative-brand .detail-sections{grid-template-columns:repeat(2,minmax(0,1fr));gap:0 40px}
+.page-creative-brand .detail-section{background:transparent;box-shadow:none;border:0;border-top:1px solid #D6C9B8;border-radius:0;padding:30px 0}
+.page-creative-brand .detail-section:nth-child(odd){margin-top:42px}
+.page-creative-brand .detail-section h3{font-family:var(--font-serif);font-size:clamp(1.7rem,2.7vw,2.5rem);font-weight:400}
+.page-creative-brand .detail-deliverables{background:#202633;color:#fff;border-radius:0 32px 0 0}
+.page-creative-brand .detail-deliverables .card-text{color:#D7DCE5}
+@media(max-width:760px){.page-creative-brand .detail-sections{grid-template-columns:1fr}.page-creative-brand .detail-section:nth-child(odd){margin-top:0}}
+
+/* ADVISORY: quiet consulting report, indexed left rail and decision matrix */
+.page-advisory .detail-hero{background:#F2F0E9}
+.page-advisory .detail-hero__grid{grid-template-columns:minmax(0,1fr) 210px;align-items:start}
+.page-advisory .detail-art{min-height:270px;border-radius:4px;background:#fff;color:var(--ink);border-left:4px solid var(--brand);box-shadow:none}
+.page-advisory .detail-art:before{width:130px;height:130px;top:48px;border:2px solid var(--brand);border-radius:50%;box-shadow:inset 0 0 0 12px #fff,inset 0 0 0 13px #14D3C7,0 0 0 20px rgba(27,63,216,.06)}
+.page-advisory .detail-art:after{inset:0;background:linear-gradient(0deg,rgba(255,255,255,.97),transparent 60%)}
+.page-advisory .detail-art__shape{width:58px;height:58px;top:85px;border-radius:50%;background:#14D3C7;border:0;transform:translateX(-50%)}
+.page-advisory .detail-art__shape:after{display:none}
+.page-advisory .detail-art__index{color:var(--brand)}
+.page-advisory .detail-art__caption{color:var(--ink)}
+.page-advisory .detail-art__caption small{color:var(--brand)}
+.page-advisory .detail-sections{grid-template-columns:1fr;gap:0}
+.page-advisory .detail-section{display:grid;grid-template-columns:150px minmax(0,1fr);column-gap:24px;border:0;border-top:1px solid #D8D4C9;border-radius:0;box-shadow:none;background:transparent;padding:28px 0}
+.page-advisory .detail-section__no{grid-row:span 2}
+.page-advisory .detail-section h3{margin:0 0 10px}
+.page-advisory .detail-deliverables{background:#E8E6DE;border-radius:4px}
+@media(max-width:760px){.page-advisory .detail-hero__grid{grid-template-columns:1fr}.page-advisory .detail-art{min-height:220px}.page-advisory .detail-section{grid-template-columns:1fr;gap:12px}}
+
+/* LEARNING: workshop board, numbered modules and a visibly progressive pathway */
+.page-learning .detail-hero{background:linear-gradient(140deg,#E5F7F1,#FAF8F2 65%)}
+.page-learning .detail-hero__grid{grid-template-columns:minmax(0,1fr) minmax(260px,.75fr)}
+.page-learning .detail-art{min-height:360px;background:#fff;color:var(--ink);border:2px solid #B6E4D8;border-radius:12px;box-shadow:8px 8px 0 #B6E4D8}
+.page-learning .detail-art:before{top:52px;left:12%;transform:none;width:76%;height:170px;border:0;border-radius:8px;background:linear-gradient(90deg,#1B3FD8 0 8px,transparent 8px),repeating-linear-gradient(0deg,#F4F8F7 0 35px,#DDEBE7 36px 37px);box-shadow:none}
+.page-learning .detail-art:after{inset:0;background:radial-gradient(circle at 29% 36%,#14D3C7 0 5px,transparent 6px),radial-gradient(circle at 49% 51%,#1B3FD8 0 5px,transparent 6px),radial-gradient(circle at 70% 31%,#14D3C7 0 5px,transparent 6px),linear-gradient(0deg,rgba(255,255,255,.98),transparent 72%)}
+.page-learning .detail-art__shape{top:90px;left:47%;width:24%;height:65px;background:#1B3FD8;border:0;border-radius:6px;transform:rotate(7deg)}
+.page-learning .detail-art__shape:after{inset:12px;border:1px solid rgba(255,255,255,.7);border-radius:3px}
+.page-learning .detail-art__index{color:#087E79}
+.page-learning .detail-art__caption{color:var(--ink)}
+.page-learning .detail-art__caption small{color:#087E79}
+.page-learning .detail-sections{grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.page-learning .detail-section{border:0;border-radius:4px 4px 22px 4px;box-shadow:none;background:#fff;padding:28px;border-bottom:3px solid #14D3C7}
+.page-learning .detail-section__no{display:inline-flex;width:max-content;padding:7px 10px;border-radius:4px;background:#E5F7F1;color:#087E79}
+.page-learning .detail-section h3{margin-top:18px}
+.page-learning .detail-deliverables{background:#DDEFE9;border-radius:12px}
+@media(max-width:760px){.page-learning .detail-hero__grid{grid-template-columns:1fr}.page-learning .detail-art{min-height:280px}.page-learning .detail-sections{grid-template-columns:1fr}}
+
+/* Product-page responsive guardrails */
+@media(max-width:760px){
+ .page-product-development .detail-section{grid-template-columns:1fr;gap:10px}
+ .page-product-development .detail-art{min-height:280px}
+ .page-contact .hero-art--contact{grid-column:auto;grid-row:auto}
+}
