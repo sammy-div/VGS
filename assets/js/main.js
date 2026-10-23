@@ -381,6 +381,43 @@
     });
   });
 
+  /* ---------- Subtle depth interactions ---------- */
+  if (!reduceMotion && window.matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    document.querySelectorAll('.hero-art').forEach((art) => {
+      art.addEventListener('pointermove', (event) => {
+        const rect = art.getBoundingClientRect();
+        const x = (event.clientX - rect.left) / rect.width - .5;
+        const y = (event.clientY - rect.top) / rect.height - .5;
+        art.style.setProperty('--tilt-x', (x * 4).toFixed(2) + 'deg');
+        art.style.setProperty('--tilt-y', (y * -4).toFixed(2) + 'deg');
+      });
+      art.addEventListener('pointerleave', () => {
+        art.style.setProperty('--tilt-x', '0deg');
+        art.style.setProperty('--tilt-y', '0deg');
+      });
+    });
+  }
+
+  /* ---------- Reading progress indicator ---------- */
+  const progress = document.createElement('div');
+  progress.className = 'reading-progress';
+  progress.setAttribute('aria-hidden', 'true');
+  document.body.appendChild(progress);
+  let progressQueued = false;
+  const updateProgress = () => {
+    const max = document.documentElement.scrollHeight - window.innerHeight;
+    const amount = max > 0 ? Math.min(1, Math.max(0, window.scrollY / max)) : 0;
+    progress.style.transform = 'scaleX(' + amount + ')';
+    progressQueued = false;
+  };
+  window.addEventListener('scroll', () => {
+    if (!progressQueued) {
+      progressQueued = true;
+      window.requestAnimationFrame(updateProgress);
+    }
+  }, { passive: true });
+  updateProgress();
+
   /* ---------- Current year fill ---------- */
   document.querySelectorAll('[data-year]').forEach(el => el.textContent = new Date().getFullYear());
 })();
