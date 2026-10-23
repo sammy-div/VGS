@@ -3600,3 +3600,15 @@ main#main>.band:not(.hero) .btn:hover{transform:translateY(-2px)}
 .home-service-grid .reveal:nth-child(5),.home-process__grid .reveal:nth-child(5){transition-delay:.32s}
 html{scroll-behavior:smooth;scroll-padding-top:88px}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.home-hero__cursor{animation:none}.reveal,.home-outcome{transition:none!important}.reveal:not(.is-visible){opacity:1;transform:none}}
+
+
+/* Keep the mobile service links collapsed until requested. */
+.mobile-nav-toggle{width:100%;display:flex;align-items:center;gap:12px;padding:15px 0;background:transparent;border:0;color:var(--ink);font:inherit;font-size:1.05rem;text-align:left;cursor:pointer}
+.mobile-nav-toggle>span:first-child{flex:1}
+.mobile-nav-chevron{font-size:1.1rem;line-height:1;color:var(--muted);transition:transform .2s ease}
+.mobile-nav-toggle[aria-expanded="true"] .mobile-nav-chevron{transform:rotate(180deg)}
+.mobile-submenu[hidden]{display:none}
+.mobile-submenu:not([hidden]){display:grid;grid-template-columns:1fr;gap:1px;padding:0 0 12px 14px;animation:mobile-submenu-in .18s ease both}
+@keyframes mobile-submenu-in{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:761px){.mobile-nav-toggle,.mobile-submenu{display:none!important}}
+@media(prefers-reduced-motion:reduce){.mobile-nav-chevron,.mobile-submenu:not([hidden]){transition:none;animation:none}}
