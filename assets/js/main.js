@@ -66,12 +66,30 @@
   const menu = document.getElementById('mobile-menu');
   const openBtn = document.getElementById('menu-open');
   const closeBtn = document.getElementById('menu-close');
-  const openMenu = () => { menu.classList.add('open'); document.body.classList.add('no-scroll'); openBtn?.setAttribute('aria-expanded', 'true'); };
-  const closeMenu = () => { menu.classList.remove('open'); document.body.classList.remove('no-scroll'); openBtn?.setAttribute('aria-expanded', 'false'); };
+  const openMenu = () => {
+    if (!menu) return;
+    menu.classList.add('open');
+    menu.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('no-scroll');
+    openBtn?.setAttribute('aria-expanded', 'true');
+    closeBtn?.focus({ preventScroll: true });
+  };
+  const closeMenu = () => {
+    if (!menu) return;
+    menu.classList.remove('open');
+    menu.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('no-scroll');
+    openBtn?.setAttribute('aria-expanded', 'false');
+    openBtn?.focus({ preventScroll: true });
+  };
   openBtn?.addEventListener('click', openMenu);
   closeBtn?.addEventListener('click', closeMenu);
   menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
-  document.addEventListener('keydown', e => { if (e.key === 'Escape' && menu?.classList.contains('open')) closeMenu(); });
+  // Tapping the drawer backdrop closes it; tapping inside the panel does not.
+  menu?.addEventListener('click', e => { if (e.target === menu) closeMenu(); });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && menu?.classList.contains('open')) closeMenu();
+  });
 
   /* ---------- Scroll reveal ----------
      A rAF-throttled sweep rather than IntersectionObserver: it survives
