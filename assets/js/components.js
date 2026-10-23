@@ -27,21 +27,20 @@
 
   /* ---------- Brand lockups ---------- */
   const LOGO = `
-    <a href="index.html" class="js-logo" aria-label="Vatous — home">
+    <a href="/" class="js-logo" aria-label="Vatous — home">
       <img src="/assets/images/logo.png" alt="Vatous" style="height:30px;width:auto" decoding="async" />
     </a>`;
   const LOGO_LIGHT = `
-    <a href="index.html" class="js-logo" aria-label="Vatous — home">
+    <a href="/" class="js-logo" aria-label="Vatous — home">
       <img src="/assets/images/logo-light.png" alt="Vatous" style="height:34px;width:auto" decoding="async" />
     </a>`;
 
   /* ---------- Primary navigation ---------- */
   const NAV = [
-    ['Home', 'index.html'],
+    ['Home', '/'],
     ['What We Do', 'services.html'],
     ['Products', 'products.html'],
     ['About', 'about.html'],
-    ['Insights', 'blog.html'],
     ['Contact', 'contact.html']
   ];
 
@@ -52,7 +51,7 @@
     `<a href="${href}" class="nav-link"${isCurrent(href)}>${label}</a>`
   ).join('');
 
-  const mobileLinks = [['Home', 'index.html'], ...NAV.slice(1), ['Careers', 'careers.html']]
+  const mobileLinks = NAV
     .map(([label, href], i) =>
       `<a href="${href}"${isCurrent(href)}>${label}<span class="mono muted">${String(i).padStart(2, '0')}</span></a>`)
     .join('');
@@ -82,7 +81,7 @@
     <nav class="mobile-links" aria-label="Mobile">${mobileLinks}</nav>
     <div class="mobile-foot">
       <a href="contact.html" class="btn btn--block">Discuss a Project</a>
-      <a href="mailto:info@vatous.com.ng" class="btn btn--ghost btn--block" data-setting-href="email">info@vatous.com.ng</a>
+      <a href="mailto:hello@vatous.ng" class="btn btn--ghost btn--block" data-setting-href="email">hello@vatous.ng</a>
     </div>
   </div>`;
 
@@ -118,10 +117,10 @@
           <h3>What we do</h3>
           <ul>
             <li><a href="services.html">Digital product development</a></li>
-            <li><a href="ai-solutions.html">AI and intelligent systems</a></li>
-            <li><a href="automation-integrations.html">Automation and integrations</a></li>
-            <li><a href="branding-creative.html">Creative and brand</a></li>
-            <li><a href="training-academy.html">Training and enablement</a></li>
+            <li><a href="services.html#ai">AI and intelligent systems</a></li>
+            <li><a href="services.html#automation">Automation and integrations</a></li>
+            <li><a href="services.html#creative">Creative and brand</a></li>
+            <li><a href="services.html#learning">Training and enablement</a></li>
           </ul>
         </div>
 
@@ -130,7 +129,7 @@
           <ul>
             <li><a href="joblira.html">Joblira</a></li>
             <li><a href="products.html">All products</a></li>
-            <li><a href="academy.html">Vatous Academy</a></li>
+            <li><a href="products.html">Vatous Academy</a></li>
           </ul>
         </div>
 
@@ -138,9 +137,7 @@
           <h3>Company</h3>
           <ul>
             <li><a href="about.html">About</a></li>
-            <li><a href="blog.html">Insights</a></li>
-            <li><a href="careers.html">Careers</a></li>
-            <li><a href="contact.html">Contact</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
@@ -150,7 +147,7 @@
             <li><a data-setting-href="email" data-setting="email" href="mailto:hello@vatous.ng">hello@vatous.ng</a></li>
             <li><a data-setting-href="phone" data-setting="phone" href="tel:+2348054801556">+234 805 480 1556</a></li>
             <li><span data-setting="address">Ibadan, Oyo State</span></li>
-            <li><a data-setting-href="whatsapp" href="https://wa.me/2348000000000" target="_blank" rel="noopener">WhatsApp</a></li>
+            <li><a data-setting-href="whatsapp" href="https://wa.me/2348054801556" target="_blank" rel="noopener">WhatsApp</a></li>
           </ul>
         </div>
       </div>
@@ -158,8 +155,6 @@
       <div class="footer-bottom">
         <span>&copy; <span data-year>2026</span> Vatous Global Solutions. All rights reserved.</span>
         <span class="footer-legal">
-          <a href="privacy.html">Privacy</a>
-          <a href="terms.html">Terms</a>
           <a href="contact.html">Contact</a>
         </span>
       </div>
@@ -186,7 +181,7 @@
     fab.setAttribute('target', '_blank');
     fab.setAttribute('rel', 'noopener');
     fab.setAttribute('aria-label', 'Chat with us on WhatsApp');
-    fab.href = 'https://wa.me/2348000000000';
+    fab.href = 'https://wa.me/2348054801556';
     fab.innerHTML =
       '<span class="vg-fab-ping" aria-hidden="true"></span>' +
       '<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.9c0 2.1.55 4.06 1.6 5.82L2 22l4.4-1.15a9.9 9.9 0 0 0 5.64 1.72c5.46 0 9.9-4.45 9.9-9.9 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm5.8 14.02c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.13.07-1.82-.11-.42-.13-.96-.31-1.65-.61-2.9-1.25-4.8-4.17-4.95-4.36-.14-.19-1.18-1.57-1.18-3s.75-2.13 1.02-2.42c.27-.29.58-.36.78-.36l.56.01c.18.01.42-.07.66.5.24.58.82 2 .89 2.15.07.14.12.31.02.5-.09.19-.14.31-.28.48l-.42.49c-.14.14-.28.29-.12.57.16.28.72 1.18 1.54 1.91 1.06.95 1.95 1.24 2.23 1.38.28.14.44.12.6-.07.16-.19.69-.8.87-1.08.18-.28.36-.23.6-.14.24.09 1.55.73 1.82.86.27.14.45.21.51.32.07.11.07.64-.17 1.32z"/></svg>' +
@@ -205,7 +200,7 @@
     bar.setAttribute('role', 'region');
     bar.setAttribute('aria-label', 'Cookie notice');
     bar.innerHTML = `
-      <p class="cookie-text">We use minimal, privacy-respecting cookies to run this site and understand usage. See our <a href="privacy.html" style="text-decoration:underline">Privacy Policy</a>.</p>
+      <p class="cookie-text">We use minimal, privacy-respecting cookies to run this site and understand usage. For privacy questions, use our <a href="contact.html" style="text-decoration:underline">contact page</a>.</p>
       <div class="cookie-actions">
         <button type="button" class="btn btn--ghost btn--sm" data-consent="declined">Decline</button>
         <button type="button" class="btn btn--sm" data-consent="accepted">Accept</button>
