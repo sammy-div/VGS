@@ -2037,7 +2037,7 @@ textarea { min-height: 150px; }
 @keyframes glassFloat { 0%,100% { translate:0 0; } 50% { translate:0 -9px; } }
 @media (hover:hover) and (pointer:fine) {
   .hero-art { transition: transform .35s ease; }
-  .hero-art:hover { transform: translateY(-4px); }
+  .hero-art:hover { filter: drop-shadow(0 12px 24px rgba(22,28,44,.08)); }
   .card--link:hover .arrow { transform: translateX(5px); }
 }
 @media (max-width: 960px) {
@@ -2181,4 +2181,10 @@ textarea { min-height: 150px; }
  .legal-index { position:relative; top:auto; display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); }
  .legal-index .eyebrow { grid-column:1/-1; }
  .legal-copy section { padding:24px 0; }
+}
+
+.reading-progress {
+  position: fixed; z-index: 9999; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, var(--studio-lime), var(--aqua), var(--studio-violet), var(--studio-orange));
+  transform: scaleX(0); transform-origin: left center; pointer-events: none;
 }
