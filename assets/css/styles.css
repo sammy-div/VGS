@@ -2437,3 +2437,8 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--vgs-teal); outl
 @keyframes mobile-link-in { from { opacity: 0; transform: translate3d(0,12px,0); } to { opacity: 1; transform: translate3d(0,0,0); } }
 @media (max-width: 520px) { .mobile-menu { width: 100%; border-left: 0; } }
 @media (prefers-reduced-motion: reduce) { .mobile-menu, .mobile-links a, .mobile-head .icon-btn { transition: none !important; animation: none !important; } }
+
+/* Ensure the open mobile drawer and its close control sit above sticky navigation. */
+.mobile-menu { z-index: 2001 !important; }
+.mobile-menu .mobile-head { position: relative; z-index: 2; }
+.mobile-menu #menu-close { position: relative; z-index: 3; flex: 0 0 46px; cursor: pointer; }
