@@ -1784,3 +1784,21 @@ dialog.resource::backdrop { background: rgba(5, 12, 46, .55); backdrop-filter: b
   .floating-card { position: static; max-width: 100%; margin: 8px 0; animation: none; }
   .hero-illust { max-width: 100%; }
 }
+
+/* Section illustrations */
+.section-illust { width: 100%; max-width: 480px; margin: 0 auto; }
+.section-illust svg { width: 100%; height: auto; display: block; }
+
+/* Process diagram */
+.process-flow { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; justify-content: center; }
+.process-step { background: var(--card); border: 1px solid var(--line); border-radius: var(--r); padding: 16px 20px; text-align: center; min-width: 140px; }
+.process-step__num { font-family: var(--font-mono); font-size: .72rem; color: var(--brand); font-weight: 600; }
+.process-step__label { font-weight: 600; margin-top: 4px; }
+.process-arrow { color: var(--brand); font-size: 1.2rem; }
+
+/* Alternating section layout */
+.section-visual { display: flex; align-items: center; justify-content: center; }
+
+/* Card hover lift */
+.card--lift { transition: transform .25s var(--ease), box-shadow .25s var(--ease); }
+.card--lift:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
