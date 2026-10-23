@@ -28,11 +28,11 @@
   /* ---------- Brand lockups ---------- */
   const LOGO = `
     <a href="index.html" class="js-logo" aria-label="Vatous — home">
-      <img src="/assets/images/logo.png" alt="Vatous" width="2000" height="477" style="height:30px;width:auto" decoding="async" />
+      <img src="/assets/images/logo.png" alt="Vatous" style="height:30px;width:auto" decoding="async" />
     </a>`;
   const LOGO_LIGHT = `
     <a href="index.html" class="js-logo" aria-label="Vatous — home">
-      <img src="/assets/images/logo-light.png" alt="Vatous" width="2000" height="477" style="height:34px;width:auto" decoding="async" />
+      <img src="/assets/images/logo-light.png" alt="Vatous" style="height:34px;width:auto" decoding="async" />
     </a>`;
 
   /* ---------- Primary navigation ---------- */
