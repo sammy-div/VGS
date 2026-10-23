@@ -72,9 +72,11 @@
 
   const mobileLinks = NAV.map(([label, href], i) => {
     const parent = label === 'What We Do';
-    return `<div class="mobile-nav-group">
-      <a href="${href}"${isCurrent(href)}>${label}<span class="mono muted">${String(i).padStart(2, '0')}</span></a>
-      ${parent ? `<div class="mobile-submenu"><a href="services.html">All services <span aria-hidden="true">↗</span></a>${SERVICE_LINKS.map(([sub, url]) => `<a href="${url}">${sub}<span aria-hidden="true">↗</span></a>`).join('')}</div>` : ''}
+    return `<div class="mobile-nav-group${parent ? ' mobile-nav-group--services' : ''}">
+      ${parent
+        ? `<button class="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-services-submenu"><span>${label}</span><span class="mobile-nav-number mono muted">${String(i).padStart(2, '0')}</span><span class="mobile-nav-chevron" aria-hidden="true">⌄</span></button>
+          <div class="mobile-submenu" id="mobile-services-submenu" hidden><a href="services.html">All services <span aria-hidden="true">↗</span></a>${SERVICE_LINKS.map(([sub, url]) => `<a href="${url}">${sub}<span aria-hidden="true">↗</span></a>`).join('')}</div>`
+        : `<a href="${href}"${isCurrent(href)}>${label}<span class="mono muted">${String(i).padStart(2, '0')}</span></a>`}
     </div>`;
   }).join('');
 
