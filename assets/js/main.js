@@ -84,6 +84,18 @@
   };
   openBtn?.addEventListener('click', openMenu);
   closeBtn?.addEventListener('click', closeMenu);
+
+  /* Mobile navigation accordion: reveal service links only on demand. */
+  menu?.querySelectorAll('.mobile-nav-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const submenuId = toggle.getAttribute('aria-controls');
+      const submenu = submenuId ? document.getElementById(submenuId) : null;
+      if (!submenu) return;
+      const expanded = toggle.getAttribute('aria-expanded') === 'true';
+      toggle.setAttribute('aria-expanded', String(!expanded));
+      submenu.hidden = expanded;
+    });
+  });
   menu?.querySelectorAll('a').forEach(a => a.addEventListener('click', closeMenu));
   // Tapping the drawer backdrop closes it; tapping inside the panel does not.
   menu?.addEventListener('click', e => { if (e.target === menu) closeMenu(); });
