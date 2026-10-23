@@ -186,6 +186,53 @@
     });
   });
 
+
+  /* ---------- Homepage typewriter headline ---------- */
+  const homeTypewriter = document.querySelector('[data-home-typewriter]');
+  if (homeTypewriter) {
+    const phrases = [
+      'work in the real world.',
+      'solve real problems.',
+      'make work simpler.',
+      'help people move forward.',
+      'turn ideas into products.'
+    ];
+    if (reduceMotion) {
+      homeTypewriter.textContent = phrases[0];
+      homeTypewriter.setAttribute('aria-label', phrases[0]);
+    } else {
+      let phraseIndex = 0;
+      let characterIndex = phrases[0].length;
+      let deleting = true;
+      homeTypewriter.textContent = phrases[0];
+      const typeNext = () => {
+        const phrase = phrases[phraseIndex];
+        if (deleting) {
+          characterIndex = Math.max(0, characterIndex - 1);
+          homeTypewriter.textContent = phrase.slice(0, characterIndex);
+          if (characterIndex === 0) {
+            deleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            window.setTimeout(typeNext, 260);
+            return;
+          }
+          window.setTimeout(typeNext, 34);
+          return;
+        }
+        const nextPhrase = phrases[phraseIndex];
+        characterIndex = Math.min(nextPhrase.length, characterIndex + 1);
+        homeTypewriter.textContent = nextPhrase.slice(0, characterIndex);
+        if (characterIndex === nextPhrase.length) {
+          deleting = true;
+          window.setTimeout(typeNext, 2100);
+          return;
+        }
+        window.setTimeout(typeNext, 58);
+      };
+      window.setTimeout(typeNext, 2200);
+    }
+  }
+
   /* ---------- Rotating hero headlines ---------- */
   const rotator = document.querySelector('[data-rotator]');
   if (rotator) {
