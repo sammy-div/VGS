@@ -2532,3 +2532,95 @@ a:focus-visible, button:focus-visible { outline: 3px solid var(--vgs-teal); outl
   .home-hero__photo { inset: 4% 2% 5% 2%; }
   .home-hero__bottomline { padding-inline: 0; }
 }
+
+
+/* Homepage hero: intentional mobile layout, not a compressed desktop composition. */
+.hero.hero--home {
+  min-height: 0;
+  padding-block: clamp(30px, 5vw, 64px) clamp(26px, 4vw, 44px);
+  overflow: clip;
+}
+.hero--home > .shell {
+  width: 100%;
+  max-width: var(--shell, 1480px);
+  margin-inline: auto;
+  padding-inline: var(--gutter, clamp(20px, 5vw, 72px));
+  box-sizing: border-box;
+}
+.home-hero {
+  display: grid;
+  width: 100%;
+  grid-template-columns: minmax(0, .95fr) minmax(0, 1.05fr);
+  align-items: center;
+  gap: clamp(32px, 5vw, 76px);
+  min-height: 0;
+  padding: clamp(22px, 3vw, 44px) 0;
+  box-sizing: border-box;
+}
+.home-hero__copy, .home-hero__visual { min-width: 0; }
+.home-hero__copy { max-width: 620px; }
+.home-hero__title { max-width: 10.5ch; font-size: clamp(3.1rem, 5.7vw, 6.2rem); line-height: .98; }
+.home-hero__visual { width: 100%; height: clamp(400px, 49vw, 620px); margin: 0; }
+.home-hero__photo { inset: 0; border-radius: clamp(22px, 2.6vw, 38px); }
+.home-hero__photo-wash { inset: 2% -2% -1% 7%; }
+.home-hero__float--top { left: -4%; }
+.home-hero__float--bottom { right: -3%; }
+.home-hero__bottomline { flex-wrap: wrap; padding: 17px 0 0; }
+
+@media (max-width: 900px) {
+  .hero.hero--home { padding-block: 28px 30px; }
+  .home-hero {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 30px;
+    padding-block: 18px 28px;
+  }
+  .home-hero__copy { max-width: 720px; }
+  .home-hero__title { max-width: 12ch; font-size: clamp(3.2rem, 8.5vw, 5.4rem); }
+  .home-hero__visual { width: 100%; height: clamp(340px, 56vw, 500px); margin: 0; }
+  .home-hero__photo { inset: 0; }
+  .home-hero__float--top { left: 16px; top: 16px; }
+  .home-hero__float--bottom { right: 16px; bottom: 16px; }
+  .home-hero__bottomline { gap: 14px 24px; }
+}
+@media (max-width: 600px) {
+  .hero.hero--home { padding-block: 18px 24px; }
+  .hero--home > .shell { padding-inline: clamp(20px, 6vw, 28px); }
+  .home-hero { gap: 26px; padding-block: 22px 24px; }
+  .home-hero__eyebrow {
+    gap: 9px; margin-bottom: 20px; font-size: .62rem;
+    letter-spacing: .075em; line-height: 1.6; flex-wrap: wrap;
+  }
+  .home-hero__title {
+    max-width: 11ch;
+    font-size: clamp(2.75rem, 11.6vw, 4.25rem);
+    line-height: .99; letter-spacing: -.065em;
+    overflow-wrap: normal;
+  }
+  .home-hero__lede { max-width: 39ch; margin-top: 19px; font-size: 1rem; line-height: 1.7; }
+  .home-hero__actions { display: flex; flex-direction: column; align-items: stretch; gap: 15px; margin-top: 25px; }
+  .home-hero__actions .btn { width: 100%; min-height: 54px; justify-content: center; }
+  .home-hero__text-link { min-height: 44px; align-self: flex-start; }
+  .home-hero__proof { align-items: flex-start; gap: 12px; max-width: none; margin-top: 28px; padding-top: 18px; }
+  .home-hero__proof-mark { width: 38px; height: 38px; border-radius: 11px; }
+  .home-hero__proof strong { font-size: .83rem; line-height: 1.45; }
+  .home-hero__proof small { font-size: .78rem; line-height: 1.55; }
+  .home-hero__visual { height: clamp(270px, 78vw, 390px); }
+  .home-hero__photo { inset: 0; border-radius: 22px; }
+  .home-hero__photo-wash { inset: 3% -1% -2% 5%; border-radius: 22px; }
+  /* The desktop floating labels compete with the photo on small screens. */
+  .home-hero__float { display: none; }
+  .home-hero__corner { left: 16px; bottom: 16px; font-size: .58rem; }
+  .home-hero__bottomline { gap: 10px 18px; padding-top: 15px; font-size: .57rem; letter-spacing: .07em; }
+  .home-hero__bottomline > span:nth-child(2) { display: none; }
+  .home-hero__scroll { margin-left: auto; }
+}
+@media (max-width: 360px) {
+  .hero--home > .shell { padding-inline: 18px; }
+  .home-hero__title { font-size: clamp(2.55rem, 11vw, 3rem); }
+  .home-hero__visual { height: 260px; }
+  .home-hero__bottomline { font-size: .51rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .home-hero__copy, .home-hero__photo img, .home-hero__photo-wash,
+  .home-hero__float, .home-hero__scroll { animation: none !important; }
+}
