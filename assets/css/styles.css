@@ -3272,3 +3272,42 @@ main#main>.band:not(.hero) .btn:hover{transform:translateY(-2px)}
  .insight-card,#joblira .card,#joblira .product-card,#joblira .portfolio-card,#practices .service-card,#practices .card,#practices .practice-card,#next .step,#next .process-step{transition:none!important}
  .insight-card:hover,#joblira .card:hover,#joblira .product-card:hover,#joblira .portfolio-card:hover,#practices .service-card:hover,#practices .card:hover,#practices .practice-card:hover,#next .step:hover,#next .process-step:hover{transform:none!important}
 }
+
+/* Careers hero illustration: an abstract, people-and-ideas motif built in CSS. */
+.hero--careers .hero-panel::after{
+ content:"";
+ position:absolute;
+ z-index:0;
+ pointer-events:none;
+ width:clamp(170px,23vw,310px);
+ aspect-ratio:1;
+ right:clamp(18px,5vw,72px);
+ top:50%;
+ transform:translateY(-50%);
+ border-radius:46% 54% 58% 42% / 44% 43% 57% 56%;
+ border:1px solid rgba(27,63,216,.16);
+ background:
+  radial-gradient(circle at 50% 50%,rgba(20,211,199,.26) 0 9%,transparent 9.5%),
+  radial-gradient(circle at 35% 36%,rgba(27,63,216,.16) 0 7%,transparent 7.5%),
+  radial-gradient(circle at 68% 64%,rgba(20,211,199,.25) 0 12%,transparent 12.5%),
+  radial-gradient(circle at 65% 28%,rgba(27,63,216,.13) 0 5%,transparent 5.5%),
+  linear-gradient(135deg,rgba(255,255,255,.15),rgba(20,211,199,.12));
+ box-shadow:inset 0 0 0 18px rgba(255,255,255,.18),0 24px 60px rgba(27,63,216,.08);
+}
+.hero--careers .hero-panel::before{
+ content:"";
+ position:absolute;
+ z-index:0;
+ pointer-events:none;
+ width:clamp(130px,17vw,220px);
+ aspect-ratio:1;
+ right:clamp(42px,8vw,110px);
+ top:50%;
+ transform:translateY(-50%) rotate(35deg);
+ border:1px solid rgba(20,211,199,.55);
+ border-radius:38% 62% 45% 55%;
+}
+@media(max-width:760px){
+ .hero--careers .hero-panel::after{width:140px;right:-38px;top:auto;bottom:14px;transform:none;opacity:.52}
+ .hero--careers .hero-panel::before{width:105px;right:-15px;top:auto;bottom:31px;transform:rotate(35deg);opacity:.55}
+}
