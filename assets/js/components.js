@@ -41,6 +41,7 @@
     ['What We Do', 'services.html'],
     ['Products', 'products.html'],
     ['About', 'about.html'],
+    ['Insights', 'insights.html'],
     ['Contact', 'contact.html']
   ];
 
@@ -129,7 +130,7 @@
           <ul>
             <li><a href="joblira.html">Joblira</a></li>
             <li><a href="products.html">All products</a></li>
-            <li><a href="products.html">Vatous Academy</a></li>
+            <li><a href="services.html#learning">Training &amp; enablement</a></li>
           </ul>
         </div>
 
@@ -137,7 +138,9 @@
           <h3>Company</h3>
           <ul>
             <li><a href="about.html">About</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
+            <li><a href="careers.html">Careers</a></li>
+            <li><a href="insights.html">Insights</a></li>
+            <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
 
@@ -155,6 +158,8 @@
       <div class="footer-bottom">
         <span>&copy; <span data-year>2026</span> Vatous Global Solutions. All rights reserved.</span>
         <span class="footer-legal">
+          <a href="privacy.html">Privacy</a>
+          <a href="terms.html">Terms</a>
           <a href="contact.html">Contact</a>
         </span>
       </div>
