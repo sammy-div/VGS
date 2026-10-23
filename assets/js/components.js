@@ -44,8 +44,8 @@
     ['Contact', 'contact.html']
   ];
 
-  const path = location.pathname.split('/').pop() || 'index.html';
-  const isCurrent = (href) => (href === path ? ' aria-current="page"' : '');
+  const path = location.pathname === '/' ? '/' : (location.pathname.split('/').pop() || '/');
+  const isCurrent = (href) => ((href === '/' && (path === '/' || path === 'index.html')) || href === path ? ' aria-current="page"' : '');
 
   const navLinks = NAV.map(([label, href]) =>
     `<a href="${href}" class="nav-link"${isCurrent(href)}>${label}</a>`
