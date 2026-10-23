@@ -2188,3 +2188,15 @@ textarea { min-height: 150px; }
   background: linear-gradient(90deg, var(--studio-lime), var(--aqua), var(--studio-violet), var(--studio-orange));
   transform: scaleX(0); transform-origin: left center; pointer-events: none;
 }
+
+@media (min-width:961px) {
+  .nav-links { gap: clamp(10px,1.35vw,20px); }
+  .nav-link { font-size: .9rem; }
+  .nav-cta .btn { padding-inline:18px; }
+  .hero--privacy .legal-hero > :not(.legal-hero__symbol),
+  .hero--terms .legal-hero > :not(.legal-hero__symbol) { max-width:62%; position:relative; z-index:2; }
+}
+@media (max-width:960px) {
+  .hero--privacy .legal-hero > :not(.legal-hero__symbol),
+  .hero--terms .legal-hero > :not(.legal-hero__symbol) { max-width:100%; }
+}
