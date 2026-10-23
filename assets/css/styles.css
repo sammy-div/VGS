@@ -3311,3 +3311,22 @@ main#main>.band:not(.hero) .btn:hover{transform:translateY(-2px)}
  .hero--careers .hero-panel::after{width:140px;right:-38px;top:auto;bottom:14px;transform:none;opacity:.52}
  .hero--careers .hero-panel::before{width:105px;right:-15px;top:auto;bottom:31px;transform:rotate(35deg);opacity:.55}
 }
+
+
+/* Service detail navigation: visible, keyboard-accessible submenus */
+.nav-dropdown{position:relative;display:flex;align-items:center;height:100%}
+.nav-link--parent{display:inline-flex;align-items:center;gap:7px}
+.nav-chevron{font-size:1rem;line-height:1;transition:transform .2s ease}
+.nav-dropdown:hover .nav-chevron,.nav-dropdown:focus-within .nav-chevron{transform:rotate(180deg)}
+.nav-submenu{position:absolute;top:calc(100% - 2px);left:-18px;z-index:120;display:grid;gap:3px;width:290px;padding:10px;background:#fff;border:1px solid var(--line);border-radius:15px;box-shadow:0 20px 48px rgba(23,26,32,.15);opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s ease,transform .18s ease,visibility .18s ease}
+.nav-dropdown:hover .nav-submenu,.nav-dropdown:focus-within .nav-submenu{opacity:1;visibility:visible;transform:translateY(0)}
+.nav-submenu a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 12px;border-radius:9px;color:var(--ink-2);font-size:.9rem;line-height:1.35}
+.nav-submenu a:hover,.nav-submenu a:focus-visible{background:var(--brand-050);color:var(--brand)}
+.nav-submenu .nav-submenu__overview{font-weight:700;color:var(--brand);border-bottom:1px solid var(--line-soft);border-radius:7px;margin-bottom:3px}
+.mobile-nav-group{border-bottom:1px solid var(--line-soft)}
+.mobile-links>.mobile-nav-group>a{border-bottom:0}
+.mobile-submenu{display:grid;grid-template-columns:1fr;gap:1px;padding:0 0 12px 14px}
+.mobile-submenu a{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:9px 12px;color:var(--muted);font-size:.92rem;border-left:2px solid rgba(27,63,216,.16)}
+.mobile-submenu a:hover,.mobile-submenu a:focus-visible{color:var(--brand);background:rgba(27,63,216,.045)}
+@media(max-width:760px){.nav-submenu{display:none}}
+@media(prefers-reduced-motion:reduce){.nav-chevron,.nav-submenu{transition:none}}
