@@ -561,6 +561,10 @@ a.card:hover, .card--link:hover {
    -------------------------------------------------------------------------- */
 .hero { padding-top: clamp(16px, 2.4vw, 28px); padding-bottom: clamp(16px, 2.4vw, 28px); }
 
+.hero .shell {
+  max-width: 100%;
+} }
+
 .hero-panel {
   position: relative;
   isolation: isolate;
