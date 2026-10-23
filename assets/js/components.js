@@ -74,7 +74,7 @@
 
   <div id="mobile-menu" class="mobile-menu" role="dialog" aria-modal="true" aria-label="Menu">
     <div class="mobile-head">
-      ${LOGO}
+      <span class="mobile-menu-kicker">EXPLORE VATous</span>
       <button id="menu-close" class="icon-btn" aria-label="Close menu">
         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>
       </button>
