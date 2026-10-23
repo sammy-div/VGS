@@ -643,8 +643,8 @@ a.card:hover, .card--link:hover {
   align-items: center;
 }
 
-.hero-title { margin: 0 0 16px; font-size: clamp(2rem, 2.2vw + .8rem, 2.8rem); max-width: none; }
-.hero-title--wide { max-width: none; font-size: clamp(1.8rem, 2vw + .7rem, 2.4rem); }
+.hero-title { margin: 0 0 16px; font-size: clamp(2.4rem, 4vw + 1rem, 4rem); font-weight: 800; letter-spacing: -.03em; line-height: 1.05; max-width: none; }
+.hero-title--wide { max-width: none; font-size: clamp(2rem, 3vw + .8rem, 3.2rem); }
 .hero-panel--split .display { font-size: clamp(2.2rem, 2vw + .7rem, 3rem); }
 .hero-panel--split .hero-title { max-width: none; font-size: clamp(2rem, 2.2vw + .8rem, 2.8rem); }
 .hero-panel--split .hero-title--wide { max-width: none; font-size: clamp(1.8rem, 2vw + .7rem, 2.4rem); }
