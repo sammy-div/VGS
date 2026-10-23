@@ -1730,3 +1730,57 @@ dialog.resource::backdrop { background: rgba(5, 12, 46, .55); backdrop-filter: b
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(10px);
 }
+
+/* ==========================================================================
+   REDESIGN ADDITIONS — distinct hero visuals, illustrations, floating cards
+   ========================================================================== */
+.hero-visual { position: relative; min-height: 0; }
+.hero-visual__canvas { position: absolute; inset: 0; overflow: hidden; pointer-events: none; z-index: 0; }
+.hero-visual__canvas svg { width: 100%; height: 100%; display: block; }
+.hero-content { position: relative; z-index: 2; }
+
+/* Floating cards */
+.floating-card {
+  position: absolute;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--r);
+  padding: 12px 14px;
+  box-shadow: var(--shadow-md);
+  font-size: .82rem;
+  line-height: 1.3;
+  max-width: 220px;
+  z-index: 3;
+  animation: floatY 6s ease-in-out infinite;
+}
+.floating-card__title { font-weight: 600; color: var(--ink); margin: 0 0 2px; font-size: .85rem; }
+.floating-card__meta { color: var(--muted); font-size: .74rem; }
+.floating-card--a { top: 12%; right: 6%; animation-delay: 0s; }
+.floating-card--b { bottom: 18%; right: 14%; animation-delay: 1.2s; }
+.floating-card--c { top: 55%; left: 4%; animation-delay: 2.4s; }
+@keyframes floatY { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+
+/* Hero variants */
+.hero--home { background: radial-gradient(1200px 600px at 80% -10%, rgba(20,211,199,.18), transparent 60%), radial-gradient(900px 500px at -10% 110%, rgba(27,63,216,.12), transparent 60%), var(--paper); }
+.hero--services { background: linear-gradient(135deg, var(--paper) 0%, var(--teal-050) 100%); }
+.hero--products { background: radial-gradient(800px 400px at 100% 0%, rgba(27,63,216,.10), transparent 60%), var(--paper); }
+.hero--joblira { background: linear-gradient(160deg, #0E7490 0%, #1B3FD8 100%); color: #fff; }
+.hero--joblira .hero-panel { background: transparent; }
+.hero--joblira .eyebrow, .hero--joblira .hero-title, .hero--joblira .hero-lede { color: #fff; }
+.hero--about { background: linear-gradient(180deg, var(--paper) 0%, var(--paper-2) 100%); }
+.hero--contact { background: radial-gradient(700px 400px at 50% 120%, rgba(20,211,199,.2), transparent 60%), var(--paper); }
+
+/* Illustration SVG container */
+.hero-illust { width: 100%; max-width: 420px; margin: 0 auto; }
+.hero-illust svg { width: 100%; height: auto; display: block; }
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .floating-card { animation: none; }
+}
+
+/* Responsive: stack floating cards on small screens */
+@media (max-width: 768px) {
+  .floating-card { position: static; max-width: 100%; margin: 8px 0; animation: none; }
+  .hero-illust { max-width: 100%; }
+}

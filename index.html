@@ -18,7 +18,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wght@0,400..700;1,400..700&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@500;600&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/styles.css?v=22" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=23" />
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -39,9 +39,15 @@
   <main id="main">
 
     <!-- ================= HERO ================= -->
-    <section class="hero band band--flush-bottom" aria-label="Introduction">
+    <section class="hero hero--home band band--flush-bottom" aria-label="Introduction">
       <div class="shell">
-        <div class="hero-panel hero-panel--split">
+        <div class="hero-panel hero-panel--split hero-visual">
+          <div class="hero-visual__canvas" aria-hidden="true">
+            <svg viewBox="0 0 800 400" preserveAspectRatio="xMidYMid slice">
+              <circle cx="680" cy="80" r="120" fill="rgba(20,211,199,.12)"/>
+              <circle cx="120" cy="320" r="90" fill="rgba(27,63,216,.08)"/>
+            </svg>
+          </div>
           <div>
             <span class="eyebrow eyebrow--dot">Vatous Global</span>
 
@@ -60,7 +66,11 @@
             </div>
           </div>
 
-          <div class="card card--pad-lg" style="background:#fff;color:var(--ink);align-self:stretch">
+          <div class="card card--pad-lg" style="background:#fff;color:var(--ink);align-self:stretch;position:relative">
+            <div class="floating-card floating-card--a" style="position:absolute;top:-12px;right:-8px">
+              <p class="floating-card__title">Joblira</p>
+              <p class="floating-card__meta">Live · Earning platform</p>
+            </div>
             <span class="eyebrow">Portfolio</span>
             <div class="rail">
               <div class="rail-row">
