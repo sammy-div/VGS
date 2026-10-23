@@ -48,14 +48,35 @@
   const path = location.pathname === '/' ? '/' : (location.pathname.split('/').pop() || '/');
   const isCurrent = (href) => ((href === '/' && (path === '/' || path === 'index.html')) || href === path ? ' aria-current="page"' : '');
 
-  const navLinks = NAV.map(([label, href]) =>
-    `<a href="${href}" class="nav-link"${isCurrent(href)}>${label}</a>`
-  ).join('');
+  const SERVICE_LINKS = [
+    ['Digital product development', 'product-development.html'],
+    ['AI and intelligent systems', 'ai-solutions.html'],
+    ['Automation and integrations', 'automation.html'],
+    ['Creative and brand', 'creative-brand.html'],
+    ['Technology and business advisory', 'advisory.html'],
+    ['Learning and enablement', 'learning.html']
+  ];
 
-  const mobileLinks = NAV
-    .map(([label, href], i) =>
-      `<a href="${href}"${isCurrent(href)}>${label}<span class="mono muted">${String(i).padStart(2, '0')}</span></a>`)
-    .join('');
+  const navLinks = NAV.map(([label, href]) => {
+    if (label === 'What We Do') {
+      return `<div class="nav-dropdown">
+        <a href="${href}" class="nav-link nav-link--parent"${isCurrent(href)} aria-haspopup="true">${label}<span class="nav-chevron" aria-hidden="true">⌄</span></a>
+        <div class="nav-submenu" aria-label="What We Do pages">
+          <a class="nav-submenu__overview" href="services.html">Overview <span aria-hidden="true">↗</span></a>
+          ${SERVICE_LINKS.map(([sub, url]) => `<a href="${url}">${sub}<span aria-hidden="true">↗</span></a>`).join('')}
+        </div>
+      </div>`;
+    }
+    return `<a href="${href}" class="nav-link"${isCurrent(href)}>${label}</a>`;
+  }).join('');
+
+  const mobileLinks = NAV.map(([label, href], i) => {
+    const parent = label === 'What We Do';
+    return `<div class="mobile-nav-group">
+      <a href="${href}"${isCurrent(href)}>${label}<span class="mono muted">${String(i).padStart(2, '0')}</span></a>
+      ${parent ? `<div class="mobile-submenu"><a href="services.html">All services <span aria-hidden="true">↗</span></a>${SERVICE_LINKS.map(([sub, url]) => `<a href="${url}">${sub}<span aria-hidden="true">↗</span></a>`).join('')}</div>` : ''}
+    </div>`;
+  }).join('');
 
   const header = `
   <a class="skip" href="#main">Skip to content</a>
