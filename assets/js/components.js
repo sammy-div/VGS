@@ -105,7 +105,7 @@
     <nav class="mobile-links" aria-label="Mobile">${mobileLinks}</nav>
     <div class="mobile-foot">
       <a href="contact.html" class="btn btn--block">Discuss a Project</a>
-      <a href="mailto:hello@vatous.ng" class="btn btn--ghost btn--block" data-setting-href="email">hello@vatous.ng</a>
+      <a href="mailto:info@vatous.com.ng" class="btn btn--ghost btn--block" data-setting-href="email">info@vatous.com.ng</a>
     </div>
   </div>`;
 
@@ -170,9 +170,9 @@
         <div class="footer-col">
           <h3>Contact</h3>
           <ul>
-            <li><a data-setting-href="email" data-setting="email" href="mailto:hello@vatous.ng">hello@vatous.ng</a></li>
-            <li><a data-setting-href="phone" data-setting="phone" href="tel:+2348054801556">+234 805 480 1556</a></li>
-            <li><span data-setting="address">Ibadan, Oyo State</span></li>
+            <li><a data-setting-href="email" data-setting="email" href="mailto:info@vatous.com.ng">info@vatous.com.ng</a></li>
+            <li><a data-setting-href="phone" data-setting="phone" href="tel:+2348054801556">+2348054801556</a></li>
+            <li><span data-setting="address">Ibadan, Nigeria</span></li>
             <li><a data-setting-href="whatsapp" href="https://wa.me/2348054801556" target="_blank" rel="noopener">WhatsApp</a></li>
           </ul>
         </div>
