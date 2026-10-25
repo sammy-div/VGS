@@ -48,6 +48,7 @@ td{overflow-wrap:anywhere}.table-wrap table{min-width:760px}
 </nav><div class="side-note">Private administration area<br>Changes are protected by database policies.</div></aside>
 <div class="admin-sidebar-backdrop" id="admin-sidebar-backdrop" aria-hidden="true"></div><div class="main"><header class="top"><button class="admin-menu-toggle" id="admin-menu-toggle" type="button" aria-label="Open navigation menu" aria-expanded="false" aria-controls="admin-sidebar">☰</button><h1 id="top-title">Overview</h1><div class="top-right"><span class="admin-live" id="admin-live-status">Auto-refresh on</span><span id="user-email"></span><button id="signout" class="btn">Sign out</button></div></header><main class="content" id="content"><div class="empty">Loading admin dashboard…</div></main></div></div>
 <div id="toast" class="toast hidden" role="status" aria-live="polite"></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 (function(){
 'use strict';
@@ -55,7 +56,7 @@ const SB_URL='https://drpvjnzuqhtlvgmtrthj.supabase.co';
 const SB_KEY='sb_publishable_-mBP1hR2CmFPTBg5KumEKg_AMbyTB9p';
 const ADMIN_EMAIL='samayodele6@gmail.com';
 const $=s=>document.querySelector(s);
-const state={session:null,page:'overview',rows:[],settings:null};
+const state={session:null,page:'overview',rows:[],settings:null,realtime:null,realtimeChannel:null};
 const titles={overview:'Overview',contact_submissions:'Contact enquiries',career_applications:'Career applications',newsletter_subscribers:'Newsletter subscribers',resource_requests:'Resource requests',blog_posts:'Blog posts',site_settings:'Website settings'};
 const fields={
 contact_submissions:[['name','Name'],['email','Email'],['company','Company'],['phone','Phone'],['topic','Topic'],['message','Message'],['status','Status']],
@@ -69,10 +70,10 @@ function token(){return state.session&&state.session.access_token;}
 async function api(path,opts={}){const headers={'apikey':SB_KEY,'Authorization':'Bearer '+(token()||SB_KEY),'Content-Type':'application/json',...(opts.headers||{})};const res=await fetch(SB_URL+path,{...opts,headers});const text=await res.text();let data;try{data=text?JSON.parse(text):null}catch{data=text}if(!res.ok)throw new Error(data&&data.message||data&&data.msg||data&&data.error_description||'Request failed ('+res.status+')');return data;}
 async function auth(path,body){const res=await fetch(SB_URL+'/auth/v1/'+path,{method:'POST',headers:{'apikey':SB_KEY,'Content-Type':'application/json'},body:JSON.stringify(body)});const data=await res.json().catch(()=>({}));if(!res.ok)throw new Error(data.msg||data.message||data.error_description||'Sign-in failed');return data;}
 function setLogin(msg,isError){$('#login-message').textContent=msg||'';$('#login-message').classList.toggle('hidden',!msg);$('#login-message').classList.toggle('error',!!isError);}function setReset(msg,isError){$('#reset-message').textContent=msg||'';$('#reset-message').classList.toggle('hidden',!msg);$('#reset-message').classList.toggle('error',!!isError);}function showReset(){ $('#login-form').classList.add('hidden');$('#reset-form').classList.remove('hidden');}function backToLogin(){ $('#reset-form').classList.add('hidden');$('#login-form').classList.remove('hidden');setReset('');}
-function showApp(){ $('#login-view').classList.add('hidden');$('#app-view').classList.remove('hidden');$('#user-email').textContent=state.session.user.email;loadPage(state.page).catch(e=>toast(e.message));}
+function showApp(){ $('#login-view').classList.add('hidden');$('#app-view').classList.remove('hidden');$('#user-email').textContent=state.session.user.email;loadPage(state.page).catch(e=>toast(e.message));startRealtime();}
 function showLogin(){ $('#app-view').classList.add('hidden');$('#login-view').classList.remove('hidden');}
 $('#forgot-password').addEventListener('click',async e=>{e.preventDefault();const email=$('#login-email').value.trim();if(!email){setLogin('Enter your administrator email address first.',true);$('#login-email').focus();return;}const a=$('#forgot-password');a.style.pointerEvents='none';setLogin('Sending password recovery email…');try{const res=await fetch(SB_URL+'/auth/v1/recover?redirect_to='+encodeURIComponent('https://vatous.com.ng/admin'),{method:'POST',headers:{'apikey':SB_KEY,'Content-Type':'application/json'},body:JSON.stringify({email})});if(!res.ok){const d=await res.json().catch(()=>({}));throw new Error(d.message||d.msg||'Could not send recovery email. Please try again.');}setLogin('If this email belongs to an account, a password recovery link has been sent. Check your inbox and spam folder.');}catch(err){setLogin(err.message,true);}finally{a.style.pointerEvents='';}});$('#back-to-login').addEventListener('click',e=>{e.preventDefault();backToLogin();});$('#reset-form').addEventListener('submit',async e=>{e.preventDefault();const p=$('#new-password').value,confirm=$('#confirm-password').value;if(p.length<8){setReset('Use at least 8 characters.',true);return;}if(p!==confirm){setReset('The passwords do not match.',true);return;}const params=new URLSearchParams(window.location.hash.slice(1));const access=params.get('access_token');const type=params.get('type');if(!access||type!=='recovery'){setReset('This recovery link is missing or expired. Request a new one from the login screen.',true);return;}const b=e.submitter;b.disabled=true;setReset('Updating password…');try{const res=await fetch(SB_URL+'/auth/v1/user',{method:'PUT',headers:{'apikey':SB_KEY,'Authorization':'Bearer '+access,'Content-Type':'application/json'},body:JSON.stringify({password:p})});const d=await res.json().catch(()=>({}));if(!res.ok)throw new Error(d.message||d.msg||'Password update failed. Request a new recovery link.');history.replaceState(null,'',window.location.pathname);setReset('Password updated. You can now sign in with your new password.');$('#new-password').value='';$('#confirm-password').value='';state.session=null;localStorage.removeItem('vatous_admin_session');setTimeout(()=>{backToLogin();setLogin('Password updated successfully. Sign in with your new password.');},1800);}catch(err){setReset(err.message,true);}finally{b.disabled=false;}});$('#login-form').addEventListener('submit',async e=>{e.preventDefault();const b=e.submitter;b.disabled=true;setLogin('Signing in…');try{const s=await auth('token?grant_type=password',{email:$('#login-email').value.trim(),password:$('#login-password').value});if((s.user.email||'').toLowerCase()!==ADMIN_EMAIL){throw new Error('This account is not authorised for Vatous administration.');}state.session=s;localStorage.setItem('vatous_admin_session',JSON.stringify(s));const check=await api('/rest/v1/rpc/is_site_admin',{method:'POST',body:'{}'});if(check!==true)throw new Error('Your account is signed in but is not registered as an administrator.');showApp();}catch(err){state.session=null;localStorage.removeItem('vatous_admin_session');setLogin(err.message,true);}finally{b.disabled=false;}});
-$('#signout').addEventListener('click',async()=>{try{if(token())await fetch(SB_URL+'/auth/v1/logout',{method:'POST',headers:{apikey:SB_KEY,Authorization:'Bearer '+token()}})}catch{}state.session=null;localStorage.removeItem('vatous_admin_session');showLogin();});
+$('#signout').addEventListener('click',async()=>{try{if(token())await fetch(SB_URL+'/auth/v1/logout',{method:'POST',headers:{apikey:SB_KEY,Authorization:'Bearer '+token()}})}catch{}stopRealtime();state.session=null;localStorage.removeItem('vatous_admin_session');showLogin();});
 $('#nav').addEventListener('click',e=>{const b=e.target.closest('[data-page]');if(!b)return;state.page=b.dataset.page;$('#nav').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x===b));loadPage(state.page).catch(err=>toast(err.message));});
 async function loadPage(page){state.page=page;$('#top-title').textContent=titles[page]||'Overview';$('#content').innerHTML='<div class="empty">Loading…</div>';if(page==='overview')return overview();if(page==='site_settings')return settingsPage();if(page==='blog_posts')return blogsPage();return dataPage(page);}
 async function overview(){const tables=['contact_submissions','career_applications','newsletter_subscribers','resource_requests','blog_posts'];const counts=await Promise.all(tables.map(t=>api('/rest/v1/'+t+'?select=id&limit=1000').then(d=>d.length).catch(()=>null)));const names=['Contact enquiries','Career applications','Newsletter subscribers','Resource requests','Blog posts'];$('#content').innerHTML='<div class="heading"><div><h2>Website at a glance</h2><div class="muted">A practical overview of your website operations.</div></div><span class="badge">Administrator access</span></div><div class="grid">'+counts.map((n,i)=>'<div class="card"><div class="muted">'+names[i]+'</div><div class="metric">'+(n===null?'—':n)+'</div><div class="muted small">'+(n===null?'Could not load count':'Current records')+'</div></div>').join('')+'</div><div class="card" style="margin-top:18px"><h3>Quick actions</h3><div class="row"><button class="btn primary" data-go="contact_submissions">Review enquiries</button><button class="btn" data-go="blog_posts">Manage blog</button><button class="btn" data-go="site_settings">Edit website settings</button></div><p class="muted small">Counts are limited to the first 1,000 records per module. Use each module to search and manage records.</p></div>';$('#content').querySelectorAll('[data-go]').forEach(b=>b.onclick=()=>{state.page=b.dataset.go;$('#nav').querySelectorAll('button').forEach(x=>x.classList.toggle('active',x.dataset.page===state.page));loadPage(state.page).catch(e=>toast(e.message));});}
@@ -87,29 +88,46 @@ async function settingsPage(){const d=await api('/rest/v1/site_settings?select=*
 async function boot(){const hashParams=new URLSearchParams(window.location.hash.slice(1));if(hashParams.get('type')==='recovery'&&hashParams.get('access_token')){showReset();setReset('Recovery link verified. Choose a new password.');return;}const authError=hashParams.get('error_description');if(authError){history.replaceState(null,'',window.location.pathname);setLogin('Recovery link error: '+authError.replace(/\+/g,' '),true);}try{const raw=localStorage.getItem('vatous_admin_session');if(!raw)return;const s=JSON.parse(raw);if(!s.access_token||!s.user||s.user.email.toLowerCase()!==ADMIN_EMAIL)return;state.session=s;const me=await fetch(SB_URL+'/auth/v1/user',{headers:{apikey:SB_KEY,Authorization:'Bearer '+s.access_token}});if(!me.ok)throw new Error('Session expired');const user=await me.json();state.session.user=user;const check=await api('/rest/v1/rpc/is_site_admin',{method:'POST',body:'{}'});if(check!==true)throw new Error('Administrator access not found');showApp();}catch(e){state.session=null;localStorage.removeItem('vatous_admin_session');showLogin();}}
 
 (function adminShellEnhancements(){
- const toggle=document.getElementById('admin-menu-toggle');
- const backdrop=document.getElementById('admin-sidebar-backdrop');
- const sidebar=document.getElementById('admin-sidebar');
- const live=document.getElementById('admin-live-status');
+ const toggle=$('#admin-menu-toggle'),backdrop=$('#admin-sidebar-backdrop'),sidebar=$('#admin-sidebar'),live=$('#admin-live-status');
  function closeMenu(){document.body.classList.remove('admin-menu-open');if(toggle){toggle.setAttribute('aria-expanded','false');toggle.setAttribute('aria-label','Open navigation menu');}}
  if(toggle)toggle.addEventListener('click',()=>{const open=!document.body.classList.contains('admin-menu-open');document.body.classList.toggle('admin-menu-open',open);toggle.setAttribute('aria-expanded',String(open));toggle.setAttribute('aria-label',open?'Close navigation menu':'Open navigation menu');});
  if(backdrop)backdrop.addEventListener('click',closeMenu);
  if(sidebar)sidebar.addEventListener('click',e=>{if(e.target.closest('[data-page]'))closeMenu();});
  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMenu();});
- setInterval(async()=>{
-   const app=document.getElementById('app-view');
-   if(!app||app.classList.contains('hidden')||document.hidden)return;
-   const content=document.getElementById('content');
-   if(content&&content.querySelector('form'))return;
-   try{
-     const refresh=document.querySelector('#refresh');
-     if(refresh)refresh.click();
-     else {const active=document.querySelector('#nav [data-page].active');if(active)active.click();}
-     if(live){live.textContent='Auto-refresh on';live.classList.remove('offline');}
-   }catch(_){if(live){live.textContent='Refresh paused';live.classList.add('offline');}}
- },30000);
- if(live)live.title='Authenticated data loads from Supabase. The active view refreshes every 30 seconds while idle.';
+ if(live)live.title='Supabase Realtime is used when available. A 30-second refresh is the fallback.';
 })();
+let realtimeRefreshQueued=false;
+async function refreshActiveView(){
+ if(realtimeRefreshQueued||document.hidden||!state.session||$('#content').querySelector('form'))return;
+ realtimeRefreshQueued=true;
+ setTimeout(async()=>{try{if(state.session&&!document.hidden&&!$('#content').querySelector('form'))await loadPage(state.page);}catch(e){toast('Live update refresh failed: '+e.message);}finally{realtimeRefreshQueued=false;}},350);
+}
+function stopRealtime(){
+ if(state.realtime&&state.realtimeChannel){state.realtime.removeChannel(state.realtimeChannel).catch(()=>{});}
+ state.realtime=null;state.realtimeChannel=null;
+}
+function startRealtime(){
+ stopRealtime();
+ const live=$('#admin-live-status');
+ if(!state.session||!window.supabase||!window.supabase.createClient){if(live){live.textContent='Refresh mode';live.classList.add('offline');}return;}
+ try{
+  state.realtime=window.supabase.createClient(SB_URL,SB_KEY,{auth:{persistSession:false,autoRefreshToken:false,detectSessionInUrl:false}});
+  state.realtime.realtime.setAuth(token());
+  state.realtimeChannel=state.realtime.channel('vatous-admin-live')
+   .on('postgres_changes',{event:'*',schema:'public',table:'contact_submissions'},refreshActiveView)
+   .on('postgres_changes',{event:'*',schema:'public',table:'career_applications'},refreshActiveView)
+   .on('postgres_changes',{event:'*',schema:'public',table:'newsletter_subscribers'},refreshActiveView)
+   .on('postgres_changes',{event:'*',schema:'public',table:'resource_requests'},refreshActiveView)
+   .on('postgres_changes',{event:'*',schema:'public',table:'blog_posts'},refreshActiveView)
+   .on('postgres_changes',{event:'*',schema:'public',table:'site_settings'},refreshActiveView)
+   .subscribe(status=>{if(!live)return;if(status==='SUBSCRIBED'){live.textContent='Live connected';live.classList.remove('offline');}else if(['CHANNEL_ERROR','TIMED_OUT','CLOSED'].includes(status)){live.textContent='Refresh mode';live.classList.add('offline');}});
+ }catch(_){if(live){live.textContent='Refresh mode';live.classList.add('offline');}}
+}
+setInterval(async()=>{
+ if(document.hidden||!state.session||$('#content').querySelector('form'))return;
+ try{await loadPage(state.page);const live=$('#admin-live-status');if(live&&live.textContent!=='Live connected'){live.textContent='Refresh mode';live.classList.add('offline');}}
+ catch(e){const live=$('#admin-live-status');if(live){live.textContent='Connection issue';live.classList.add('offline');}}
+},30000);
 
 boot();
 })();
