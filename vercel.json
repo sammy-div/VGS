@@ -8,8 +8,5 @@
     { "source": "/blog/:slug", "destination": "/article" },
     { "source": "/blog", "destination": "/insights" },
     { "source": "/insights/:slug", "destination": "/article" }
-  ],
-  "crons": [
-    { "path": "/api/publish-scheduled", "schedule": "0 0 * * *" }
   ]
 }
