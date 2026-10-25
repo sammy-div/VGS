@@ -3719,3 +3719,10 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
 @media (max-width: 600px) {
   .nav-inner { padding-inline: clamp(20px, 6vw, 28px); }
 }
+
+/* Published blog surfaces */
+.home-insights{background:#f8f7f3}.home-insights__footer{display:flex;justify-content:center;margin-top:30px}
+.blog-card-excerpt{display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden;min-height:6.4em}
+.blog-pagination{display:flex;justify-content:center;align-items:center;gap:18px;flex-wrap:wrap;margin:34px 0 8px}.blog-pagination [aria-disabled="true"]{opacity:.4;pointer-events:none}
+.blog-card-placeholder{height:100%;min-height:180px;display:grid;place-items:center;font:600 5rem 'Instrument Serif',serif;color:#19364a;background:linear-gradient(135deg,#e6f4f1,#f0ede2)}
+.article-hero{max-width:900px;margin:auto;padding:clamp(30px,6vw,80px) 0}.article-hero h1{max-width:18ch;margin:22px 0;line-height:1.02}.article-hero .insight-meta{margin-top:22px}.article-cover{display:block;width:100%;max-height:560px;object-fit:cover;border-radius:20px;margin-top:34px}.article-content{max-width:780px;font-size:1.08rem;line-height:1.85;overflow-wrap:anywhere}.article-content h2,.article-content h3{line-height:1.2;margin:2em 0 .7em}.article-content p,.article-content ul,.article-content ol,.article-content blockquote{margin:0 0 1.3em}.article-content img{max-width:100%;height:auto;border-radius:12px}.article-content figure{margin:2em 0}.article-content figcaption{font-size:.9rem;color:#697582}.article-content a{ text-decoration:underline;text-underline-offset:3px}
