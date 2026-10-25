@@ -5,6 +5,68 @@
       "source": "/index.html",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/services.html",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/products.html",
+      "destination": "/products",
+      "permanent": true
+    },
+    {
+      "source": "/about.html",
+      "destination": "/about",
+      "permanent": true
+    },
+    {
+      "source": "/insights.html",
+      "destination": "/insights",
+      "permanent": true
+    },
+    {
+      "source": "/contact.html",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/careers.html",
+      "destination": "/careers",
+      "permanent": true
+    },
+    {
+      "source": "/joblira.html",
+      "destination": "/joblira",
+      "permanent": true
+    },
+    {
+      "source": "/privacy.html",
+      "destination": "/privacy",
+      "permanent": true
+    },
+    {
+      "source": "/terms.html",
+      "destination": "/terms",
+      "permanent": true
+    },
+    {
+      "source": "/admin.html",
+      "destination": "/admin",
+      "permanent": true
     }
+  ],
+  "rewrites": [
+    { "source": "/services", "destination": "/services.html" },
+    { "source": "/products", "destination": "/products.html" },
+    { "source": "/about", "destination": "/about.html" },
+    { "source": "/insights", "destination": "/insights.html" },
+    { "source": "/contact", "destination": "/contact.html" },
+    { "source": "/careers", "destination": "/careers.html" },
+    { "source": "/joblira", "destination": "/joblira.html" },
+    { "source": "/privacy", "destination": "/privacy.html" },
+    { "source": "/terms", "destination": "/terms.html" },
+    { "source": "/admin", "destination": "/admin.html" }
   ]
 }
