@@ -9,15 +9,15 @@
     },
     {
       "source": "/blog/category/:slug",
-      "destination": "/category.html"
+      "destination": "/category"
     },
     {
       "source": "/blog/:slug",
-      "destination": "/article.html"
+      "destination": "/article"
     },
     {
       "source": "/blog",
-      "destination": "/insights.html"
+      "destination": "/insights"
     },
     {
       "source": "/insights/:slug",
