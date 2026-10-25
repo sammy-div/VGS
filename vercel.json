@@ -3,31 +3,13 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "rewrites": [
-    {
-      "source": "/sitemap.xml",
-      "destination": "/api/sitemap"
-    },
-    {
-      "source": "/blog/category/:slug",
-      "destination": "/category"
-    },
-    {
-      "source": "/blog/:slug",
-      "destination": "/article"
-    },
-    {
-      "source": "/blog",
-      "destination": "/insights"
-    },
-    {
-      "source": "/insights/:slug",
-      "destination": "/article"
-    }
+    { "source": "/sitemap.xml", "destination": "/api/sitemap" },
+    { "source": "/blog/category/:slug", "destination": "/category" },
+    { "source": "/blog/:slug", "destination": "/article" },
+    { "source": "/blog", "destination": "/insights" },
+    { "source": "/insights/:slug", "destination": "/article" }
   ],
   "crons": [
-    {
-      "path": "/api/publish-scheduled",
-      "schedule": "0 * * * *"
-    }
+    { "path": "/api/publish-scheduled", "schedule": "0 0 * * *" }
   ]
 }
