@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin.html
+Disallow: /api/
+
+Sitemap: https://vatous.com.ng/sitemap.xml
+Sitemap: https://vatous.com.ng/blog-sitemap.xml
