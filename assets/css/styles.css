@@ -3701,3 +3701,21 @@ html{scroll-behavior:smooth;scroll-padding-top:88px}
   .nav-inner { width: calc(100% - 24px); min-height: 64px; }
   .nav .js-logo img { height: 30px !important; max-width: 132px; }
 }
+
+
+/* Header gutter correction: match the homepage hero copy's left edge. */
+.nav-inner {
+  width: 100%;
+  max-width: var(--shell, 1480px);
+  padding-inline: var(--gutter, clamp(20px, 5vw, 72px));
+  margin-inline: auto;
+}
+@media (max-width: 900px) {
+  .nav-inner {
+    width: 100%;
+    padding-inline: var(--gutter, clamp(20px, 5vw, 72px));
+  }
+}
+@media (max-width: 600px) {
+  .nav-inner { padding-inline: clamp(20px, 6vw, 28px); }
+}
