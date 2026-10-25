@@ -17,7 +17,7 @@ module.exports = async function handler(req, res) {
     const response = await fetch(url, { headers: { apikey: key, Authorization: 'Bearer ' + key } });
     if (!response.ok) throw new Error('Unable to load published articles');
     const posts = await response.json();
-    const fixed = ['/', '/about.html', '/services.html', '/products.html', '/insights.html', '/contact.html'];
+    const fixed = ['/', '/about', '/services', '/products', '/blog', '/contact'];
     const urls = fixed.map(path => ({ loc: origin + path, lastmod: now.slice(0, 10) }));
     posts.forEach(post => {
       if (!post.slug || !/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(post.slug)) return;
