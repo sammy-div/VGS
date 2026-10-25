@@ -1,5 +1,5 @@
 module.exports = async function handler(req, res) {
-  if (req.method !== 'GET' && req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
+  if (req.method !== 'GET' && req.method !== 'POST') { res.setHeader('Allow', 'GET, POST'); return res.status(405).json({ error: 'Method not allowed' }); }
   const secret = process.env.CRON_SECRET;
   const auth = req.headers.authorization || '';
   if (!secret || auth !== 'Bearer ' + secret) return res.status(401).json({ error: 'Unauthorized scheduler request' });
@@ -11,7 +11,9 @@ module.exports = async function handler(req, res) {
     endpoint.searchParams.set('status', 'eq.scheduled');
     endpoint.searchParams.set('scheduled_at', 'lte.' + new Date().toISOString());
     endpoint.searchParams.set('deleted_at', 'is.null');
-    const response = await fetch(endpoint, { method: 'PATCH', headers: { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json', Prefer: 'return=representation' }, body: JSON.stringify({ status: 'published', published_at: new Date().toISOString(), updated_at: new Date().toISOString() }) });
+    endpoint.searchParams.set('archived_at', 'is.null');
+    const now = new Date().toISOString();
+    const response = await fetch(endpoint, { method: 'PATCH', headers: { apikey: key, Authorization: 'Bearer ' + key, 'Content-Type': 'application/json', Prefer: 'return=representation' }, body: JSON.stringify({ status: 'published', published_at: now, updated_at: now }) });
     if (!response.ok) throw new Error('Scheduled posts could not be published');
     const posts = await response.json();
     res.setHeader('Cache-Control', 'no-store');
