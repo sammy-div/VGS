@@ -21,7 +21,7 @@
     },
     {
       "source": "/insights/:slug",
-      "destination": "/article.html"
+      "destination": "/article"
     }
   ],
   "crons": [
