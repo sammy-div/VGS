@@ -1,4 +1,4 @@
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   const origin = 'https://vatous.com.ng';
   const base = process.env.SUPABASE_URL || 'https://drpvjnzuqhtlvgmtrthj.supabase.co';
   const key = process.env.SUPABASE_ANON_KEY || 'sb_publishable_-mBP1hR2CmFPTBg5KumEKg_AMbyTB9p';
